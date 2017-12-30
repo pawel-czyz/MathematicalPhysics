@@ -15,7 +15,7 @@ If you are already fimilar with operations on logical formulas and sets, you may
 
 \section{Logical formulas}
 \label{sec:logic}
-	Consider declarative sentences as "Water boils at $100^\circ$C" or "2+2=5". We can construct new sentences:
+	Consider declarative sentences as "Water boils at $100^\circ$C" or "2+2=5". We can construct new sentences from them using the following rules:
 	\begin{enumerate}
 		\item conjuntion (and): $p \wedge q$ is true if and only if $p$ is true and $q$ is true
 		\item disjuntion (or): $p \vee q$ is true if and only if at least one of sentences $p,\, q$ is true
@@ -23,7 +23,8 @@ If you are already fimilar with operations on logical formulas and sets, you may
 			if you know that $p$ implies $q$ and $p$ is true, then $q$ also must be true
 		\item negation (not): $\neg p$ is true if and only if $p$ is false 
 		\item equivalence (iff, if and only if): $p\Leftrightarrow q$ means exactly 
-			$(p\Rightarrow q)\wedge(q\Rightarrow p)$. Intuitively: if you know that two sentences are equivalent 				and one of them is true, the other is also true
+			$(p\Rightarrow q)\wedge(q\Rightarrow p)$. Intuitively if you know that two sentences are equivalent 
+			and one of them is true, the other is also true. Or if one of them is false, the other one is automatically false.
 	\end{enumerate}
 	
 \noindent Because mathematics is the art of being smart and lazy, we will assign value 1 to true sentences and 0 to
@@ -41,7 +42,7 @@ Prove that the following sentences are true:
 	\end{enumerate}
 \end{prob}
 
-Equipped with this powerful machinery we can dive into basic set theory.
+\noindent Equipped with this powerful machinery we can dive into basic set theory.
 
 \section{Basic set theory}
 \label{sec:basic_set_theory}
@@ -49,8 +50,15 @@ Equipped with this powerful machinery we can dive into basic set theory.
 \subsection{Rough ideas}
 In modern mathematics we do not define a set nor set membership, so heuristically you can think that set $A$
 is a 'collection of objects' and $x\in A$ means that the object $x$ is inside this collection. We will assume that any finite collections of elements $\{x_1, x_2, \dots, x_n\}$ is a set 
-(the empty set is called $\varnothing$ rather than $\{\}$), moreover we will assume that real numbers
-form a set $\mathbb{R}$. We say that two sets are equal ($A=B$) iff they have the same elements 
+(the empty set is called $\varnothing$ rather than $\{\}$), moreover we will assume the existence of the following sets:
+\begin{enumerate}
+	\item real numbers $\mathbb R$
+	\item natural numbers $\mathbb N=\{0,1,2,\dots\}$
+	\item integers $\mathbb Z$
+	\item rational numbers
+\end{enumerate}
+
+\noindent We say that two sets are equal ($A=B$) iff they have the same elements 
 ($x\in A\Leftrightarrow x\in B$). Note, that we do not check how many times $x$ appears in $A$. We can
 just say whether it inside or not.
 
@@ -58,30 +66,67 @@ just say whether it inside or not.
 Prove that $\{1,1,2,2,2\}=\{1,2\}$
 \end{prob}
 
-Not every 'collection of objects' is a set, as you can prove:
+\noindent We assumed the existence of some sets at the beginning. Why? As you can prove not every 'collection of objects' is a set:
+
 \begin{prob}
 	Let $X$ be a set built from all sets such that $A\notin A.$ Prove that $X$ does not exist.\\
 	Hint: what if $X\in X$? What if $X\notin X$?
 \end{prob}
 
+Therefore at the moment we do not have many sets that we assume to exist. Let's try to define some methods of creating new sets from the know ones:
+
 \subsection{A few ways of constructing new sets}
-\noindent Therefore we assume that some sets (as finite sets or real numbers) exist and we will construct 
-new sets from the given ones using a few rules. Assume that $A$ and $B$ are sets:
+\noindent Assume that $A$ and $B$ are sets:
 \begin{enumerate}
-	\item Let's make a formula $F$ such that for every element $a\in A$, the value 
-	$F(a)$ is true or false. We can then construct a set $S$ with all the elements from $A$ for wchich the formula: $a\in S$ iff $F(a)$ and $a\in A$. This set is written explicitly as $S=\{a\in A : F(a)\}$. 
+	\item Let's make a formula $F$ that for every element $a\in A$, the value 
+		$F(a)$ is true or false. We can then construct a set $S$ with all the elements $a$ from $A$ for which 
+		the formula $F(a)$ holds. This set is written explicitly as $S=\{a\in A : F(a)\}$.
 	\item We can form the sum of two sets: $a \in A\cup B$ iff $a\in A$ or $a\in B$.
 	\item We can contruct the intersection of two sets: $a\in A\cap B$ iff $a\in A$ and $a \in B$.
 	\item We can construct the difference of two sets: $A\setminus B = \{a \in A : a\notin B\}$
 \end{enumerate}
 
 \begin{prob}
+	Let $A,\,B\,C$ be sets. Prove that: 
+	\begin{enumerate}
+		\item $A\cup A=A$
+		\item $A\cup B=B\cup A$
+		\item $A\cup (B\cup C)=(A\cup B)\cup C$
+		\item $A\cap A=A$
+		\item $A\cap B=B\cap A$
+		\item $A\cap (B\cap C)=(A\cap B)\cap C$
+		\item $A\cap (B\cup C)=(A\cap B)\cup (A\cap C)$
+		\item $A\cup (B\cap C)=(A\cup B)\cap (A\cup C)$
+	\end{enumerate}
+\end{prob}
+
+\begin{prob}
 	Prove that there is no set of all sets.\\
 	Hint: assume there is one. Then you can select some sets to form a set that does not exist.
 \end{prob}
 
-\subsection{Subsets and complements}
+\subsection{Some sets you already know - PRZESUNĄĆ DO ROZDZIAŁU O REAL ANALYSIS?}
+As we assumed that real numbers form a set $\mathbb R$, we will construct a few subsets that are often
+useful:
+\begin{align*}
+	(a,b) &= \{x\in \mathbb R : a < x < b\} \text{ (open interval)}\\
+	[a,b] &= \{x\in \mathbb R : a \le x \le b\} \text{ (closed interval)}\\
+	(a,b] &= \{x\in \mathbb R : a < x \ge b\} \text{ (left-open, right-closed interval)}\\
+	[a,b) &= \{x\in \mathbb R : a < x \ge b\} \text{ (left-closed, right-open interval)}
+\end{align*}
 
+\noindent Moreover, we will introduce two new symbols, called positive and negative infinity: 
+$\infty$ and $-\infty$. 
+These are \textit{not} real numbers, just symbols that are used to name a few useful sets:
+
+\begin{align*}
+	(-\infty,b) &= \{x\in \mathbb R : x < b\}\\
+	(-\infty,b] &= \{x\in \mathbb R : x \ge b\}\\
+	(a,\infty)  &= \{x\in \mathbb R : a < x\}\\
+	[a,\infty)  &= \{x\in \mathbb R : a \le x\}
+\end{align*}
+
+\subsection{Subsets and complements}
 \noindent As we have some sets, we can try to compare them. We say that $A\subseteq B$ iff 
 $a\in A\Rightarrow a\in B$ (or intuitively, each element of $A$ is also in $B$. We say that $A$ is 
 a \textbf{subset} of $B$ or that $B$ is a \textbf{superset} of $A$. 
@@ -107,6 +152,37 @@ $2^A = \{X : X\subseteq A\}$.
 \begin{prob}
 	Let $A=\{1,2,3\}$. Find $2^A$. What is the number of elements in $2^A$? How is it connected with the
 	number of elements of $A$?
+\end{prob}
+
+\subsection{Infinite collections of sets}
+Now we understand how to construct new sets from finite number of sets. But we can also consider ,,more general" families
+of sets, that are not necessarily finite:
+let $A_i\subset U$ for $i\in I$, where $I$ is some indexing set. For example if $I=\{1,2,\dots,n\}$ we have a finite family. But you can imagine infinite families as $A_i = \{i\},\,i \in \mathbb{R}$. How do we define
+the sum and intersection of them? We cannot sum them iteratively $A_1\cup A_2\cup ...$ as the process will never
+end, so we need alternative definitions:
+\begin{align*}
+	\bigcup_{i\in I}A_i &= \{a\in U : a\in A_i \text{ for at least one }i\in I\}\\
+	\bigcap_{i\in I}A_i &= \{a\in U : a\in A_i \text{ for every }i\in I\}
+\end{align*}
+
+\begin{prob}
+	Prove that for finite $I$ these definitions agree with the previous.
+\end{prob}
+
+\begin{prob} Let $A_i\subseteq U,\, i\in I$ and 
+	$$\sigma = \bigcup_{i\in I}A_i,\, \pi = \bigcap_{i\in I}A_i$$
+	Prove that:
+	\begin{enumerate}
+		\item if $k\in I$, then $k\cup \sigma=\sigma$
+		\item $\sigma\cap \pi = \pi$
+	\end{enumerate}
+\end{prob}
+
+\begin{prob} Find infinite sum and intersection for the families of subsets of $\mathbb{R}$:
+	\begin{enumerate}
+		\item $A_i=(0,1/i)$ for $i=1,2,\dots$
+		\item $B_i=[0,1/i)$ for $i=1,2,\dots$
+	\end{enumerate}
 \end{prob}
 
 \subsection{Cartesian product}
@@ -145,11 +221,60 @@ $$A\times B = \{(a,b) : a\in A\wedge b\in B\}.$$
 	without parentheness.
 \end{prob}
 
+\noindent Commonly used notation is $X^2 = X\times X = \{(x,y) : x, y \in X\}$ and analogously for other powers.
+
+\section{Natural numbers and mathematical induction}
+\label{sec:mathematical_induction}
+Have you ever seen falling dominoes? To be sure that every domino falls, we need to:
+\begin{enumerate}
+	\item punch the first domino
+	\item for every domino we must be sure the implication: if this particular domino falls, the next one also falls
+\end{enumerate}
+And that's all, we can be sure that all the dominoes will eventually fall. This style of reasoning\footnote{We do not show here formally \textit{why}
+this principle works. For curious, you define natural numbers in such way this principle works.} is called \textbf{mathematical induction} and
+formally it is written as: if $0\in S$ and for every\footnote{I repeat: for every $n$ we need to prove the implication ,,if works for $n$, then
+works for $n+1$". The correct way is to write "I assume that there is a given $n$ for which the formula works. I will prove that is works for $n+1$".
+Common mistake is to write "I assume that the formula works for every $n$ and I will prove that it works for $n+1$.". As professor Wiktor Bartol says 
+- there is no need to prove the statement as you already assumed that it works in every case.}
+ $n\in N$ you can prove the implication $n\in S$ then $n+1\in S$, you know that $N\subseteq S$.
+\begin{prob}
+	You can prove that $2^n>n$ for every natural number $n$. 
+	\begin{enumerate}
+		\item Prove that the formula works for $n=0$ (punch the first domino).
+		\item Assume that for some $n$ you proved on some way that $2^n>n$. Using this, prove that $2^{n+1}>(n+1)$ (if $n$-th domino falls, then
+		$n+1$-th domino also falls)
+	\end{enumerate}
+\end{prob}
+
+\noindent You can also modify slightly the induction principle - sometimes you should start with number different than 0 or use different induction step
+(start 0 and step 2 can lead to theorems valid for even numbers, step 0 and steps 1 and -1 can lead to theorems valid for all integers...) 
+\begin{prob}
+	\item Prove\footnote{Another method is to notice that $n^3-n=(n-1)\cdot n\cdot (n+1)$. Why 2 does divide it? Why 3?} that 6 divides 
+		$n^3-n$ for all natural $n$.
+	\item Prove\footnote{How $n^3-n$ and $(-n)^3-(-n)$ are related? Does it simplify the proof?} that 6 divides $n^3-n$ for all integers $n$. 
+		You can use a slight modification mathematical induction principle proving the implication 
+		,,if the theorem works for $n$, it works also for $n-1$".  
+\end{prob}
+
+\begin{prob}
+	(Bernoulli's inequality) Prove that for real $x > -1$ and natural $n\ge 1$, the following inequality holds:
+	$$(1+x)^n\ge 1+nx.$$
+\end{prob}
+
+\begin{prob}
+	In Mathsland there is $n\ge 2$ cities. Between each pair of them there is a one-way road. 
+	\begin{enumerate}
+		\item Prove that there is a city from which you can drive to all the other cities.
+		\item Prove that there is a city\footnote{Nice trick: what does happen if you reverse each way? Can you use the former result?} 
+			to which you can drive from all the others.
+	\end{enumerate}
+\end{prob}
+
 \section{Functions}
 \label{sec:intro_to_functions}
 
 \subsection{Basics}
-Consider two sets $A$ and $B$. We say that a subset $f\subseteq A\times B$ is a \textbf{function}
+\noindent Consider two sets $A$ and $B$. We say that a subset $f\subseteq A\times B$ is a \textbf{function}
 iff the following two conditions hold:
 \begin{itemize}
 	\item for every element $a\in A$ there is an element $b\in B$ such that $(a,b)\in f$
@@ -163,6 +288,7 @@ Therefore for each $a\in A$ there is exactly one $b\in B$ such that $(a,b)\in f$
 
 We need to introduce more terminology: set $A$ is called \textbf{the domain of $f$}, set $B$ is called
 \textbf{the codomain of $f$} and the function $f$ is written as $f: A\to B$.
+
 \begin{prob}
 	Consider two functions: $f:\{0, 1\}\to \{0,1\}$ given by $f(x)=0$ and $g:\{0,1\}\to\{0\}$.
 	Prove that $f=g$.
@@ -177,6 +303,7 @@ We need to introduce more terminology: set $A$ is called \textbf{the domain of $
 \end{prob}
 
 \subsection{Injectivity, surjectivity and bijectivity}
+
 \noindent As we have already seen, there may be some elements in codomain that are not values of 
 $f$. We define \textbf{the image of $f$} as:
 $$\text{Im}\, f = \{b\in B : \text{there is } a\in A \text{ such that } b=f(a)\}.$$
@@ -200,6 +327,7 @@ If $f(a)$ uniquely specifies $a$ (if $f(a)=f(b)$, then $a=b$) we say that the fu
 		\item $h: \{0,1,2,3\} \to \mathbb R, ~h(x)=x$
 	\end{enumerate}
 \end{prob}
+
 If a function $f$ is both surjective and injective, we say that is \textit{bijective}\footnote{If you prefer nouns: surjective function is called surjection, injective - injection
 and bijective - bijection}.
 
@@ -218,11 +346,137 @@ such that $f(g(b))=b$ and $g(f(a))=a$.
 \begin{prob}
 	Prove that, if exists, $g$ is unique.
 \end{prob}
-We call this function \textbf{the inverse function}
+
+\noindent We call this function \textbf{the inverse function}
 \footnote{It becomes confusing when working on real numbers: $f^{-1}(x)$ is 
 \textbf{not} $(f(x))^{-1}=1/f(x)$}: $g=f^{-1}.$
+
 \begin{prob}
 	Assume that $f^{-1}$ exists. Prove that $(f^{-1})^{-1}$ exists and is equal to $f$.
 \end{prob}
 
 \subsection{Function composition}
+If we have two functions: $f:A\to B$ and $g: B\to C$, we can construct the \textbf{composition} using formula:
+$g\circ f: A\to C,~(g\circ f)(a) = g(f(a)).$
+
+\begin{prob}
+	Find functions $f,~g$ such that:
+	\begin{enumerate}
+		\item $g\circ f$ exists, but $f\circ g$ is not defined
+		\item both $f\circ g$ and $g\circ f$ exist, but $f\circ g\neq g\circ f$
+	\end{enumerate}
+\end{prob}
+
+\noindent Although function composition is not commutative, it is associative:
+\begin{prob}
+	Left $f:A\to B, g: B\to C, h: C\to D$. Prove that
+	$$h\circ (g\circ f) = (h\circ g)\circ f.$$
+\end{prob}
+Therefore we can ommit the brackets and write just $h\circ g\circ f.$ We will use function composition very
+often.
+\begin{prob} We will rephrase the definition of the inverse function as follows:
+	\begin{enumerate}
+		\item If $X$ if a set, we define \textbf{the identity function} 
+			$$\text{Id}_X=\{(x,x)\in X^2 : x\in X\}.$$
+			Prove that it is indeed a function. What is it's domain?
+		\item Let $f:A\to B,~g:B\to A$. Prove that $f=g^{-1}$ iff
+			$$g\circ f = \text{Id}_A \text{ and } f\circ g = \text{Id}_B$$
+	\end{enumerate}
+\end{prob}
+
+\section{Countability}
+\subsection{Finite sets}
+For a finite set $X$ we write the number of elements of $X$ as $|X|$. We can calculate their \textbf{cardinalities} (sizes, numbers of elements) with
+ease,
+\begin{prob}
+	What is the cardinality of $\{a, a+1, a+2, \dots, a+n\}$?
+\end{prob}
+\begin{prob}
+	Let $A,\,B$ and $C$ be finite sets. Prove that:
+	\begin{enumerate}
+		\item $|2^A|=2^{|A|}$
+		\item $|A\cup B|=|A|+|B|$ iff $A$ and $B$ are disjoint.
+		\item $|A\setminus B|=|A|-|B|$ if $B\subseteq A.$
+		\item $|A| \ge |B|$ if $B\subseteq A$. When does the equality hold?
+		\item $|A\cup B| = |A| + |B| - |A\cap B|$
+		\item $|A\cup B\cup C| = |A|+|B|+|C| - |A\cap B| - |B\cap C|-|C\cap A| + |A\cap B\cap C|$
+	\end{enumerate}
+\end{prob}
+We can also employ functions to compare cardinalities:
+\begin{prob}
+	Assume that $A$ and $B$ are finite sets. Prove that $|A|=|B|$ iff there is a bijection between $A$ and $B$.
+\end{prob}
+\begin{prob}
+	Above we find the way of saying that two cardinalities are equal using existence of a bijection. Let's find a way to compare which is less using
+	another kind of function.  
+	\begin{enumerate}
+		\item Let $O_n=\{1,2,\dots,n\}.$ Prove that there is no injection from $O_{n+1}$ into $O_n$. Hint: use mathematical induction.
+		\item Let $A$ and $B$ be finite. Prove that there is an injection from $A$ to $B$ iff $|A| \le |B|.$ 
+	\end{enumerate}
+\end{prob}
+\begin{prob}
+	Using the above results, prove in one line\footnote{The main step is $|A|\le B$ and $|B|\le |A|$, so $|A|=|B|.$} that if there is an injection from $A$ onto $B$ and an injection from $B$ into $A$, then there exists
+	a bijection from $A$ onto $B$.
+\end{prob}
+
+\subsection{Infinite sets}
+But how can we measure the number of elements of an infinite set, as $\mathbb N$ or $\mathbb R$? As natural numbers are ,,to small" we need to
+introduce new numbers, as $|\mathbb N|$ and be able to compare them. As we have seen above, the existence of a bijection is a good way of saying
+that two finite sets have equal cardinalities. It intuitively makes sense to employ this observation even in the infinite case: we say that sets
+(finite or infinite) $A$ and $B$ have the same caridnalities (or $|A|=|B|$) iff there is a bijection between $A$ and $B$.
+
+\begin{prob}
+	Let $A,\,B$ and $C$ be sets. Prove that if $|A|=|B|$ and $|B|=|C|$, then $|A|=|C|.$ Hint: find the bijection between $A$ and $C$.
+\end{prob}
+
+\begin{prob}
+	Here you can find the difference between finite and infinite sets - for finite sets a proper subset (a subset that is not the whole set)
+	always have smaller number of elements. In the infinite case it is not true - prove that:
+	\begin{enumerate}
+		\item $|\mathbb N| = |\mathbb Z|$.
+		\item $|\mathbb N|=|\mathbb N\times \mathbb N|$.
+		\item $|\mathbb N|=|\mathbb Q|$.
+	\end{enumerate}
+\end{prob}
+
+\noindent Analogously to the finite case, we define $|A|\le |B|$ as the existence of an injection from $A$ to $B$. We say that $|A|<|B|$ iff there
+is an injection from $A$ to $B$ but there is no bijection.
+
+\begin{prob}
+	Let $A,\,B$ and $C$ be sets. Prove that if $|A|\le |B|$ and $|B|\le |C|$, then $|A|\le |C|$.
+\end{prob}
+
+\begin{prob}
+	Here you can prove that there are more real numbers than naturals or rationals. We define $X=\{x\in \mathbb R : 0\le x\le 1\}$ and choose one
+	 convention of writing reals (e.g 0.999... = 1.000..., so we can choose to use nines)   
+	\begin{enumerate}
+		\item Assume that you have written all the elements of $X$ in a single column. Can you find a real number that does not occur in the list? 
+		\item Using the above, prove that $|\mathbb N| < |X|$
+		\item Prove that $|\mathbb Q| < |\mathbb R|.$
+	\end{enumerate}
+\end{prob}
+
+\begin{prob}
+	We know that $|\mathbb R| > |\mathbb N|.$ Using binary system prove that $\mathbb R=2^\mathbb N.$ Do you see similarity between the previous result
+	and $2^n > n$ for natural $n$?
+\end{prob}
+
+\begin{prob}
+	\textbf{Cantor's theorem} Let $A$ be a set and $f:A\to 2^A.$
+	\begin{enumerate}
+		\item Consider $X=\{a\in A : x\notin f(a)\}\in 2^A$. Is there $x\in A$ for which $f(x)=X?$
+		\item Is $f$ surjective? 
+		\item Find an injective function $g: A\to 2^A.$
+		\item Prove that $|A| < |2^A|$ for any set\footnote{The theorem works for finite sets as well, so we have an alternative proof of
+		$2^n>n$ for natural $n$} $A$.
+	\end{enumerate}
+\end{prob}
+
+\begin{prob}
+	\textbf{Cantor-Schroeder-Bernstein theorem} Let's prove that if $|A|\le|B|$ and $|B|\le |A|$, then $|A|=|B|$ for any sets.
+	\begin{enumerate}
+		\item (Tarski) Let $A$ be a set and $F:2^A\to 2^A$ has property: $F(X)\subseteq F(Y)$ if $X\subseteq Y$. Prove that $F(S)=S$, where:
+		$$S=\bigcup_{X\in U} X, \text{~where~} U= \{Y\in 2^A : Y\subseteq f(Y)\}$$
+		\item (Banach) Let $f: A\to B$ and $g:B\to A$. Consider set
+	\end{enumerate}
+\end{prob}
