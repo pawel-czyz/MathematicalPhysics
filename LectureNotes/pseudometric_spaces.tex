@@ -1,0 +1,60 @@
+\chapter{Pseudometric spaces}
+\label{pseudometric_spaces}
+We have already seen how general topology works. Now we will focus on another collection of spaces, with richer structure, called pseudometric spaces.
+We will follow Cain's approach (which is one of my favourite book on this subject).
+
+\section{Pseudometric spaces}
+Consider a set $X$. We say that a function $d : X\times X\to \mathbb R$ is a \textbf{pseudometric} if:
+\begin{enumerate}
+	\item for all $x\in X$,  $d(x,x)=0$
+	\item for all $x,y\in X$, $d(x,y)=d(y,x)$
+	\item for all $x,y,z\in X$, $d(x,z)\le d(x,y)+d(y,z)$ 
+\end{enumerate}
+
+\begin{prob}
+	Prove that for a pseudometric $d$ and every $x,y\in X$, there is $d(x,y)\ge 0$. 
+\end{prob}
+
+\begin{prob}
+	Prove that $d(x,y)=0$ for any $x, y \in X$ is a pseudometric on $X$. This is called \textbf{trivial pseudometric}.
+\end{prob}
+
+\begin{prob}
+	Prove that $d(x,y)=1$ for $x\neq y$ is a pseudometric on $X$. This is called \textbf{discrete pseudometric}.
+\end{prob}
+
+\begin{prob}
+	Prove that $d(x,y)=|x-y|$ is a pseudometric on $\mathbb R$.
+\end{prob}
+
+As we can see above, pseudometric is not determined by the underlying set (as in the case with topology!). Therefore we introduce the concept of
+pseudometric space $(X,d)$. As we said, these spaces have richer structure - each pseudometric space is a topological space, as you can prove in a minute.
+Essential concept is the concept of a ball of radius $r>0$ centered at $x\in X$:
+$$B(x, r) = \{y \in X : d(x,y) < r\}.$$
+
+\begin{prob}
+	We say that $S\subseteq X$ is an open set if for every $s$ in $S$ there is $r_s$ such that $B(s,r_s)\subseteq S$. 
+	Prove that this is indeed a topology on $X$.
+\end{prob}
+
+\begin{prob}
+	Prove that
+	\begin{enumerate}
+		\item Topology obtained from trivial pseudometric is the trivial topology
+		\item Topology obtained from discrete pseudometric is the discrete topology.
+	\end{enumerate}
+\end{prob}
+
+As any pseudometric space is a topological space, we have many results and concepts that may work for them! In this chapter we will try to derive
+stronger results (we have more assumptions, so we can obtain more results). As we remember basis of the topology can simplify many results. Let's
+find it.
+
+\begin{prob}
+	Let $(X,d)$ be a pseudometric space. Prove that:
+	\begin{enumerate}
+		\item Any $B(x,r)$ is open
+		\item $\{B(x,r) : x\in X \text{ and }r > 0\}$ is a basis
+		\item This space is first-countable. Hint: consider $r=1/n$ for $n=1,2,\dots$. 
+	\end{enumerate}
+\end{prob} 
+
