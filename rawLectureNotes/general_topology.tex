@@ -32,7 +32,7 @@ You may wonder whether, for a given set, topology is unique. As you can prove, t
 
 \begin{prob}
 	\textbf{Cofinite topology} Prove that for any $X$, the set:
-  $\mathcal T_X=\{\emptyset\}\cup \{A\subseteq X : X\setminus A \text{ is finite}\}$ is a topology.
+  $\mathcal T_X=\{\emptyset\}\cup \{A\subseteq X : X\setminus A \text{ is finite}\}$ is a topology. Hint: think in terms of complements.
 \end{prob}
 
 \begin{prob}
@@ -74,9 +74,21 @@ $$\Int A=\bigcup_{X \text{ is open and is a subset of A}} X.$$
     so in some sense, $\Int A$ is the biggest open set contained in
     $A$)
     \item $\Int A = A$ iff $A$ is open
-    \item $\Int (A\cup B)\subseteq \Int A\cup \Int B$
+    \item $\Int \Int A = \Int A$ for any $A$
+    \item $\Int A\cup \Int B \subseteq \Int (A\cup B)$
   \end{enumerate}
 \end{prob}
+
+\begin{prob}
+	We say that $a$ is an \textbf{interior point} of $A$ if there is open $U_a\subseteq A$ such that $a\in U_a$. Prove that $\Int A$ is the set
+	of all interior points of $A$.
+\end{prob}
+
+\subsection{Closed sets}
+Consider a topological space $(X, \mathcal T_X)$. We say that $A\subseteq X$ is closed if and only if $X\setminus A$ is open.
+
+
+
 
 %\subsection{Definition of intervals}
 % \begin{align*}
