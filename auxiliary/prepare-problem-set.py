@@ -24,6 +24,8 @@ def cut_problems_from_file(filename):
     in_prob = False
     with open(filename, "r") as f:
         for line in f:
+            if "\\newcommand" in line or "\\renewcommand" in line:
+                ret = ret + line
             if "\\section" in line or "\\chapter" in line or "\\subsection" in line:
                 ret = ret + line
             if "\\begin{prob}" in line:

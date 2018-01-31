@@ -1,10 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% sample chapter
-%
-% Use this file as a template for your own input.
-%
-%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = book.tex
 
 \chapter{Logic and sets}
 \label{logic_and_sets} % Always give a unique label
@@ -40,6 +34,14 @@ Prove that the following sentences are true:
 		\item $(p\Rightarrow q)\Leftrightarrow (\neg p) \vee q$
 		\item $0\Rightarrow 1$
 	\end{enumerate}
+\end{prob}
+
+\begin{prob}
+Prove that:
+  \begin{enumerate}
+    \item $(p\wedge q)\vee r \Leftrightarrow (p\vee r) \wedge (q\vee r)$
+    \item $(p\vee q)\wedge r \Leftrightarrow (p\wedge r) \vee (q\wedge r)$
+  \end{enumerate}
 \end{prob}
 
 \noindent Equipped with this powerful machinery we can dive into basic set theory.
@@ -128,6 +130,7 @@ a \textbf{subset} of $B$ or that $B$ is a \textbf{superset} of $A$.
 \end{prob}
 
 \begin{prob}
+  Here you'll prove that there is just one empty set.
 	Let $\emptyset$ and $\emptyset'$ be empty sets. Prove that $\emptyset=\emptyset'$.
 \end{prob}
 
@@ -171,7 +174,6 @@ end, so we need alternative definitions:
 	Prove that for finite $I$ these definitions agree with the previous.
 \end{prob}
 
-
 \begin{prob} Let $A_i\subseteq U,\, i\in I$ and
 	$$\sigma = \bigcup_{i\in I}A_i,\, \pi = \bigcap_{i\in I}A_i$$
 	Prove that:
@@ -188,12 +190,12 @@ end, so we need alternative definitions:
 
 \begin{prob}
 	Let $A\subseteq X_i \subseteq U$ for $i\in I$. Prove that
-	$A\subseteq \bigcup_{i\in I} X_i$
+	$$A\subseteq \bigcup_{i\in I} X_i$$
 \end{prob}
 
 \begin{prob}
 	For every point $a\in A$ there is a set $U_a\subseteq A$ such that $a\in U_a$.
-	Prove that $$A=\bigcup{a\in A} U_a.$$
+	Prove that $$A=\bigcup_{a\in A} U_a.$$
 \end{prob}
 
 % To zadanie wymaga pewnika Dedekinda/aksjomatu Euklidesa. Lepiej je zrobić później
@@ -545,3 +547,44 @@ is an injection from $A$ to $B$ but there is no bijection.
 \end{prob}
 
 \subsection{Pre-image of a function}
+Let $f:A\to B$ and $C\subseteq A$. We used $f[C]$ for a set:
+$$f[C] = \{ f(c) \in B : c\in C\},$$
+but now we will abuse a bit our notation to stick to
+the common nomenclature. Apparently, many mathematicians write:
+$$f(C) = \{ f(c) \in B : c\in C\}.$$
+This is not correct - as $f$ should take elements
+$a\in A$ and returns elements $b\in B$, but here $f$ ,,takes"
+a subset $C\subseteq A$ and returns a set $f(C)\subseteq B$. We will
+follow this notation, but you should always check what meaning
+the object feed to function has (whether it is an element or a subset).
+
+\begin{prob}
+  Let $f:A\to B$ and $X,Y\subseteq B$. Then:
+  \begin{enumerate}
+    \item $f(X\cup Y)=f(X)\cup f(Y)$
+    \item $f(X\cap Y)\subseteq f(X)\cap f(Y)$
+  \end{enumerate}
+  You can also generalise this result to an arbitrary collection of
+  sets.
+\end{prob}
+
+\noindent To even more abuse the notation, we will also give an additional meaning to $f^{-1}$. As we know, many functions $f$ \textit{don't} have inverses. But we will write for $D\subseteq B$:
+$$f^{-1}(D) = \{a \in A : f(a)\in D\}\subseteq A.$$
+
+We then say that $f^{-1}(D)$ is the \textbf{pre-image} of $D$.
+To get accustomed with this notation, prove that:
+
+\begin{prob}
+  Let $f:A\to B$. Then $B=f(A)$ and $A=f^{-1}(B)$.
+\end{prob}
+
+You should also prove:
+\begin{prob}
+  Let $f:A\to B$ and $X,Y\subseteq B$. Then:
+  \begin{enumerate}
+    \item $f^{-1}(X\cup Y)=f^{-1}(X)\cup f^{-1}(Y)$
+    \item $f^{-1}(X\cap Y)=f^{-1}(X)\cap f^{-1}(Y)$
+  \end{enumerate}
+  You can also generalise this result to an arbitrary collection of
+  sets.
+\end{prob}
