@@ -18,9 +18,11 @@
                              % when including figure files
 \usepackage{multicol}        % used for the two-column index
 \usepackage[bottom]{footmisc}% places footnotes at page bottom
+\usepackage{listings}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{polski}
+% \usepackage{polski}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 % etc.
 % see the list of further useful packages
@@ -51,11 +53,19 @@
 \mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{part}
 \include{introduction}
+
+% PROBLEMS START
+
 \include{logic_and_sets}
 \include{general_topology}
+
+% PROBLEMS END
+
 \include{pseudometric_spaces}
 \include{linear_algebra}
 \include{Rn}
+
+
 %\include{chapter}
 %\appendix
 %\include{appendix}
@@ -68,8 +78,3 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
-
-
-
-
-

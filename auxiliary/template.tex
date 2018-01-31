@@ -1,0 +1,32 @@
+\documentclass[notitlepage, 11pt]{report}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\dg}{^\circ}
+
+\newcounter{itemnum}
+\newenvironment{prob}
+{\stepcounter{itemnum}
+\paragraph*{\arabic{itemnum}.}}
+{}
+
+\makeatletter
+\makeatother
+
+
+\begin{document}
+\pagestyle{fancy}
+\lhead{Problem sets}
+\rhead{$DATE}
+\vspace{1cm}
+$CONTENT
+\end{document}

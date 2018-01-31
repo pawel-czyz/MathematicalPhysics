@@ -21,12 +21,12 @@ If you are already fimilar with operations on logical formulas and sets, you may
 		\item disjuntion (or): $p \vee q$ is true if and only if at least one of sentences $p,\, q$ is true
 		\item implication: $p \Rightarrow q$ is false if and only if $p$ is true and $q$ is false. Intuitively,
 			if you know that $p$ implies $q$ and $p$ is true, then $q$ also must be true
-		\item negation (not): $\neg p$ is true if and only if $p$ is false
-		\item equivalence (iff, if and only if): $p\Leftrightarrow q$ means exactly
-			$(p\Rightarrow q)\wedge(q\Rightarrow p)$. Intuitively if you know that two sentences are equivalent
+		\item negation (not): $\neg p$ is true if and only if $p$ is false 
+		\item equivalence (iff, if and only if): $p\Leftrightarrow q$ means exactly 
+			$(p\Rightarrow q)\wedge(q\Rightarrow p)$. Intuitively if you know that two sentences are equivalent 
 			and one of them is true, the other is also true. Or if one of them is false, the other one is automatically false.
 	\end{enumerate}
-
+	
 \noindent Because mathematics is the art of being smart and lazy, we will assign value 1 to true sentences and 0 to
 false sentences.
 
@@ -49,7 +49,7 @@ Prove that the following sentences are true:
 
 \subsection{Rough ideas}
 In modern mathematics we do not define a set nor set membership, so heuristically you can think that set $A$
-is a 'collection of objects' and $x\in A$ means that the object $x$ is inside this collection. We will assume that any finite collections of elements $\{x_1, x_2, \dots, x_n\}$ is a set
+is a 'collection of objects' and $x\in A$ means that the object $x$ is inside this collection. We will assume that any finite collections of elements $\{x_1, x_2, \dots, x_n\}$ is a set 
 (the empty set is called $\varnothing$ rather than $\{\}$), moreover we will assume the existence of the following sets:
 \begin{enumerate}
 	\item real numbers $\mathbb R$
@@ -58,7 +58,7 @@ is a 'collection of objects' and $x\in A$ means that the object $x$ is inside th
 	\item rational numbers $\mathbb Q$
 \end{enumerate}
 
-\noindent We say that two sets are equal ($A=B$) iff they have the same elements
+\noindent We say that two sets are equal ($A=B$) iff they have the same elements 
 ($x\in A\Leftrightarrow x\in B$). Note, that we do not check how many times $x$ appears in $A$. We can
 just say whether it inside or not.
 
@@ -77,8 +77,8 @@ Therefore at the moment we do not have many sets that we assume to exist. Let's 
 \subsection{A few ways of constructing new sets}
 \noindent Assume that $A$ and $B$ are sets:
 \begin{enumerate}
-	\item Let's make a formula $F$ that for every element $a\in A$, the value
-		$F(a)$ is true or false. We can then construct a set $S$ with all the elements $a$ from $A$ for which
+	\item Let's make a formula $F$ that for every element $a\in A$, the value 
+		$F(a)$ is true or false. We can then construct a set $S$ with all the elements $a$ from $A$ for which 
 		the formula $F(a)$ holds. This set is written explicitly as $S=\{a\in A : F(a)\}$.
 	\item We can form the sum of two sets: $a \in A\cup B$ iff $a\in A$ or $a\in B$.
 	\item We can contruct the intersection of two sets: $a\in A\cap B$ iff $a\in A$ and $a \in B$.
@@ -86,7 +86,7 @@ Therefore at the moment we do not have many sets that we assume to exist. Let's 
 \end{enumerate}
 
 \begin{prob}
-	Let $A,\,B\,C$ be sets. Prove that:
+	Let $A,\,B\,C$ be sets. Prove that: 
 	\begin{enumerate}
 		\item $A\cup A=A$
 		\item $A\cup B=B\cup A$
@@ -103,8 +103,8 @@ Therefore at the moment we do not have many sets that we assume to exist. Let's 
 	Prove that there is no set of all sets. Hint: assume there is one. Then you can select some sets to form a set that does not exist.
 \end{prob}
 
-\noindent Moreover, we will introduce two new symbols, called positive and negative infinity:
-$\infty$ and $-\infty$.
+\noindent Moreover, we will introduce two new symbols, called positive and negative infinity: 
+$\infty$ and $-\infty$. 
 These are \textit{not} real numbers, just symbols that are used to name a few useful sets:
 
 \begin{align*}
@@ -115,9 +115,9 @@ These are \textit{not} real numbers, just symbols that are used to name a few us
 \end{align*}
 
 \subsection{Subsets and complements}
-\noindent As we have some sets, we can try to compare them. We say that $A\subseteq B$ iff
-$a\in A\Rightarrow a\in B$ (or intuitively, each element of $A$ is also in $B$. We say that $A$ is
-a \textbf{subset} of $B$ or that $B$ is a \textbf{superset} of $A$.
+\noindent As we have some sets, we can try to compare them. We say that $A\subseteq B$ iff 
+$a\in A\Rightarrow a\in B$ (or intuitively, each element of $A$ is also in $B$. We say that $A$ is 
+a \textbf{subset} of $B$ or that $B$ is a \textbf{superset} of $A$. 
 
 \begin{prob}
 	Prove that $A=B$ iff $A\subseteq B \wedge B\subseteq A.$
@@ -132,7 +132,7 @@ a \textbf{subset} of $B$ or that $B$ is a \textbf{superset} of $A$.
 \end{prob}
 
 \noindent If we fix the set $B$, to each subset $A$
-we can assign it's \textbf{complement}: $A^c=B\setminus A$. \footnote{It is not the best symbol possible as we need to have $B$ in mind.}
+we can assign it's \textbf{complement}: $A^c=B\setminus A$. \footnote{It is not the best symbol possible as we need to have $B$ in mind.} 
 
 \begin{prob}
 	Prove the following set identites:
@@ -148,12 +148,10 @@ Moreover, we assume that for a set $A$ there exists it's \textbf{power set}:
 $2^A = \{X : X\subseteq A\}$.
 
 \begin{prob}
-    \begin{enumerate}
 	\item Let $A=\{1,2,3\}$. Find $2^A$. What is the number of elements in $2^A$? How is it related to the
 	number of elements of $A$?
 	\item Let $A$ be a finite set with $n$ elements. Using the approach in which you choose which elements belong
 		to a subset, prove that $2^A$ has $2^n$ elements.
-    \end{enumerate}
 \end{prob}
 
 \subsection{Infinite collections of sets}
@@ -172,7 +170,7 @@ end, so we need alternative definitions:
 \end{prob}
 
 
-\begin{prob} Let $A_i\subseteq U,\, i\in I$ and
+\begin{prob} Let $A_i\subseteq U,\, i\in I$ and 
 	$$\sigma = \bigcup_{i\in I}A_i,\, \pi = \bigcap_{i\in I}A_i$$
 	Prove that:
 	\begin{enumerate}
@@ -183,16 +181,16 @@ end, so we need alternative definitions:
 \end{prob}
 
 \begin{prob}
-	Find sum and intersection of family of subsets of $\mathbb R$: $A_r=\{r, -r\}$ for $r\ge 0.$
+	Find sum and intersection of family of subsets of $\mathbb R$: $A_r=\{r, -r\}$ for $r\ge 0.$ 
 \end{prob}
 
 \begin{prob}
-	Let $A\subseteq X_i \subseteq U$ for $i\in I$. Prove that
+	Let $A\subseteq X_i \subseteq U$ for $i\in I$. Prove that 
 	$A\subseteq \bigcup_{i\in I} X_i$
 \end{prob}
 
 \begin{prob}
-	For every point $a\in A$ there is a set $U_a\subseteq A$ such that $a\in U_a$.
+	For every point $a\in A$ there is a set $U_a\subseteq A$ such that $a\in U_a$. 
 	Prove that $$A=\bigcup{a\in A} U_a.$$
 \end{prob}
 
@@ -208,7 +206,7 @@ end, so we need alternative definitions:
 First of all, we need a useful concept:
 \begin{prob}
 	Let $A=\{\{a\}, \{a,b\}\},\, B=\{\{c\},\{c,d\}\}$. Prove that $A=B$ iff $a=c\wedge b=d$. Such a set $A$ we call
-	\textbf{the ordered pair} $(a,b)$ as it has the property $(a,b)=(c,d)$ iff $a=c$ and $b=d$.
+	\textbf{the ordered pair} $(a,b)$ as it has the property $(a,b)=(c,d)$ iff $a=c$ and $b=d$. 
 	Now you can forget how it has been constructed, and just remember this property.
 \end{prob}
 
@@ -223,19 +221,19 @@ Check that defining $(a,b,c)$ as $((a,b),c)$ also works (so two ordered tuples a
 same first element, the same second element, ...)
 \end{prob}
 \begin{prob}
-Check that, in terms of sets, $(a,(b,c))\neq ((a,b),c)$, so formally we do need to stick to one convention.
+Check that, in terms of sets, $(a,(b,c))\neq ((a,b),c)$, so formally we do need to stick to one convention. 
 However as we are interested in the property of ordered tuple, we will not distinguish them and denote both
 of them just as $(a,b,c)$. Such notational problems appear in various places in mathematics, so we need to
 try to get used to them.
 \end{prob}
 
 \noindent We can now introduce another way of creating new sets: let $A$ and $B$ be sets. Then we define their
-\textbf{Cartesian product} as
+\textbf{Cartesian product} as 
 $$A\times B = \{(a,b) : a\in A\wedge b\in B\}.$$
 
 \begin{prob}
 	Do you remember the identification of $(a,(b,c))$ and $((a,b),c)$? Prove that
-	$A\times (B\times C) = (A\times B)\times C$. Therefore we'll write it just as $A\times B\times C$
+	$A\times (B\times C) = (A\times B)\times C$. Therefore we'll write it just as $A\times B\times C$ 
 	without parentheness.
 \end{prob}
 
@@ -252,11 +250,11 @@ And that's all, we can be sure that all the dominoes will eventually fall. This 
 this principle works. For curious, you define natural numbers in such way this principle works.} is called \textbf{mathematical induction} and
 formally it is written as: if $0\in S$ and for every\footnote{I repeat: for every $n$ we need to prove the implication ,,if works for $n$, then
 works for $n+1$". The correct way is to write "I assume that there is a given $n$ for which the formula works. I will prove that is works for $n+1$".
-Common mistake is to write "I assume that the formula works for every $n$ and I will prove that it works for $n+1$.". As professor Wiktor Bartol says
+Common mistake is to write "I assume that the formula works for every $n$ and I will prove that it works for $n+1$.". As professor Wiktor Bartol says 
 - there is no need to prove the statement as you already assumed that it works in every case.}
  $n\in N$ you can prove the implication $n\in S$ then $n+1\in S$, you know that $N\subseteq S$.
 \begin{prob}
-	You can prove that $2^n>n$ for every natural number $n$.
+	You can prove that $2^n>n$ for every natural number $n$. 
 	\begin{enumerate}
 		\item Prove that the formula works for $n=0$ (punch the first domino).
 		\item Assume that for some $n$ you proved on some way that $2^n>n$. Using this, prove that $2^{n+1}>(n+1)$ (if $n$-th domino falls, then
@@ -265,15 +263,13 @@ Common mistake is to write "I assume that the formula works for every $n$ and I 
 \end{prob}
 
 \noindent You can also modify slightly the induction principle - sometimes you should start with number different than 0 or use different induction step
-(start 0 and step 2 can lead to theorems valid for even numbers, step 0 and steps 1 and -1 can lead to theorems valid for all integers...)
+(start 0 and step 2 can lead to theorems valid for even numbers, step 0 and steps 1 and -1 can lead to theorems valid for all integers...) 
 \begin{prob}
-    \begin{enumerate}
-	   \item Prove\footnote{Another method is to notice that $n^3-n=(n-1)\cdot n\cdot (n+1)$. Why 2 does divide it? Why 3?} that 6 divides
-		     $n^3-n$ for all natural $n$.
-	    \item Prove\footnote{How $n^3-n$ and $(-n)^3-(-n)$ are related? Does it simplify the proof?} that 6 divides $n^3-n$ for all integers $n$.
-		      You can use a slight modification mathematical induction principle proving the implication
-		      ,,if the theorem works for $n$, it works also for $n-1$".
-    \end{enumerate}
+	\item Prove\footnote{Another method is to notice that $n^3-n=(n-1)\cdot n\cdot (n+1)$. Why 2 does divide it? Why 3?} that 6 divides 
+		$n^3-n$ for all natural $n$.
+	\item Prove\footnote{How $n^3-n$ and $(-n)^3-(-n)$ are related? Does it simplify the proof?} that 6 divides $n^3-n$ for all integers $n$. 
+		You can use a slight modification mathematical induction principle proving the implication 
+		,,if the theorem works for $n$, it works also for $n-1$".  
 \end{prob}
 
 \begin{prob}
@@ -282,11 +278,11 @@ Common mistake is to write "I assume that the formula works for every $n$ and I 
 \end{prob}
 
 \begin{prob}
-	In Mathsland there are $n\ge 2$ cities. Between each pair of them there is a one-way road.
+	In Mathsland there are $n\ge 2$ cities. Between each pair of them there is a one-way road. 
 	\begin{enumerate}
 		\item Prove that there is a city from which you can drive to all the other cities. Hint: assume that the hypothesis works for some $n$ and any
 			country with $n$ cities. Now consider an arbitrary $n+1$-city country. Hide one city and use your assumption.
-		\item Prove that there is a city\footnote{Nice trick: what does happen if you reverse each way? Can you use the former result?}
+		\item Prove that there is a city\footnote{Nice trick: what does happen if you reverse each way? Can you use the former result?} 
 			to which you can drive from all the others.
 	\end{enumerate}
 \end{prob}
@@ -297,7 +293,7 @@ Common mistake is to write "I assume that the formula works for every $n$ and I 
 		\item Prove that reals and integers are not well-ordered.
 		\item Assume that $X\subseteq \mathbb N$ doesn't have the smallest element. Define $A=\{n\in \mathbb N : \{0,1,\dots,n\}\cap X=\emptyset\}$
 			and use mathematical induction to prove that $X$ is empty.
-		\item Why are natural numbers well-ordered?
+		\item Why are natural numbers well-ordered? 
 	\end{enumerate}
 \end{prob}
 
@@ -325,7 +321,7 @@ We need to introduce more terminology: set $A$ is called \textbf{the domain of $
 	Prove that $f=g$.
 	\footnote{Some mathematicians, as Bourbaki use an alternative definition of function - for them
 	a function is the triple $(A,B,f)$, where $f$ is defined as in the our case. We see that this definition
-	is incompatible with ours. Fortunately, as in the case with different definitions of ordered tuples,
+	is incompatible with ours. Fortunately, as in the case with different definitions of ordered tuples, 
 	this problem will never occur explicitly in the further chapters.}
 \end{prob}
 
@@ -340,7 +336,7 @@ We need to introduce more terminology: set $A$ is called \textbf{the domain of $
 
 \subsection{Injectivity, surjectivity and bijectivity}
 
-\noindent As we have already seen, there may be some elements in codomain that are not values of
+\noindent As we have already seen, there may be some elements in codomain that are not values of 
 $f$. We define \textbf{the image of $f$} as:
 $$\text{Im}\, f = \{b\in B : \text{there is } a\in A \text{ such that } b=f(a)\}.$$
 We say that the function $f: A\to B$ is \textbf{surjective} (or \textbf{onto}) iff $\text{Im}\,f=B$.
@@ -377,14 +373,14 @@ and bijective - bijection}.
 	\end{enumerate}
 \end{prob}
 
-\noindent Notice that if a function $f: A\to B$ is bijective, then we can construct a function $g:B\to A$
+\noindent Notice that if a function $f: A\to B$ is bijective, then we can construct a function $g:B\to A$ 
 such that $f(g(b))=b$ and $g(f(a))=a$.
 \begin{prob}
 	Prove that, if exists, $g$ is unique.
 \end{prob}
 
 \noindent We call this function \textbf{the inverse function}
-\footnote{It becomes confusing when working on real numbers: $f^{-1}(x)$ is
+\footnote{It becomes confusing when working on real numbers: $f^{-1}(x)$ is 
 \textbf{not} $(f(x))^{-1}=1/f(x)$}: $g=f^{-1}.$
 
 \begin{prob}
@@ -412,16 +408,14 @@ Therefore we can ommit the brackets and write just $h\circ g\circ f.$ We will us
 often.
 
 \begin{prob}
-    \begin{enumerate}
-	   \item Prove that composition of two surjections is surjective.
-	   \item Prove that composition of two injections is injective.
-	   \item Prove that composition of two bijections is bijective.
-    \end{enumerate}
+	\item Prove that composition of two surjections is surjective.
+	\item Prove that composition of two injections is injective.
+	\item Prove that composition of two bijections is bijective.
 \end{prob}
 
 \begin{prob} We will rephrase the definition of the inverse function as follows:
 	\begin{enumerate}
-		\item If $X$ if a set, we define \textbf{the identity function}
+		\item If $X$ if a set, we define \textbf{the identity function} 
 			$$\text{Id}_X=\{(x,x)\in X^2 : x\in X\}.$$
 			Prove that it is indeed a function. What is it's domain?
 		\item Let $f:A\to B,~g:B\to A$. Prove that $f=g^{-1}$ iff
@@ -453,10 +447,10 @@ We can also employ functions to compare cardinalities:
 \end{prob}
 \begin{prob}
 	Above we find the way of saying that two cardinalities are equal using existence of a bijection. Let's find a way to compare which is less using
-	another kind of function.
+	another kind of function.  
 	\begin{enumerate}
 		\item Let $O_n=\{1,2,\dots,n\}.$ Prove that there is no injection from $O_{n+1}$ into $O_n$. Hint: use mathematical induction.
-		\item Let $A$ and $B$ be finite. Prove that there is an injection from $A$ to $B$ iff $|A| \le |B|.$
+		\item Let $A$ and $B$ be finite. Prove that there is an injection from $A$ to $B$ iff $|A| \le |B|.$ 
 	\end{enumerate}
 \end{prob}
 \begin{prob}
@@ -499,9 +493,9 @@ is an injection from $A$ to $B$ but there is no bijection.
 
 \begin{prob}
 	Here you can prove that there are more real numbers than naturals or rationals. We define $X=\{x\in \mathbb R : 0\le x\le 1\}$ and choose one
-	 convention of writing reals (e.g 0.999... = 1.000..., so we can choose to use nines)
+	 convention of writing reals (e.g 0.999... = 1.000..., so we can choose to use nines)   
 	\begin{enumerate}
-		\item Assume that you have written all the elements of $X$ in a single column. Can you find a real number that does not occur in the list?
+		\item Assume that you have written all the elements of $X$ in a single column. Can you find a real number that does not occur in the list? 
 		\item Using the above, prove that $|\mathbb N| < |X|$
 		\item Prove that $|\mathbb Q| < |\mathbb R|.$
 	\end{enumerate}
@@ -516,7 +510,7 @@ is an injection from $A$ to $B$ but there is no bijection.
 	\textbf{Cantor's theorem} You will prove that $|A|<\left|2^A\right|$ for any set $A$. Let $A$ be a set and $f:A\to 2^A.$
 	\begin{enumerate}
 		\item Consider $X=\{a\in A : a\notin f(a)\}\in 2^A$. Is there $x\in A$ for which $f(x)=X?$
-		\item Is $f$ surjective?
+		\item Is $f$ surjective? 
 		\item Find an injective function $g: A\to 2^A.$
 		\item Prove that $|A| < |2^A|$ for any set $A$.
 		\item Use Cantor's theorem to prove that there is no set of all sets.
@@ -526,22 +520,25 @@ is an injection from $A$ to $B$ but there is no bijection.
 \begin{prob}
 	\textbf{Cantor-Schroeder-Bernstein theorem} Let's prove that if $|A|\le|B|$ and $|B|\le |A|$, then $|A|=|B|$ for any sets.
 	\begin{enumerate}
-		\item (Knaster-Tarski) Now assume that $F$ has \textit{monotonicity} property: $F(X)\subseteq F(Y)$ if $X\subseteq Y$.
+		\item (Knaster-Tarski) Now assume that $F$ has \textit{monotonicity} property: $F(X)\subseteq F(Y)$ if $X\subseteq Y$. 
 			Prove that $F(S)=S$, where:
 			$$S=\bigcup_{X\in U} X, \text{~where~} U= \{Y\in 2^A : Y\subseteq f(Y)\}.$$
-		\item (Banach) Let $f: A\to B$ and $g:B\to A$ be injections.
+		\item (Banach) Let $f: A\to B$ and $g:B\to A$ be injections. 
 			We introduce new symbol: $f[X]=\{b\in B : b=f(x) \text{ for some } x\in X\}$. Prove that
 			function $$F:2^A\to 2^A,~F(X)=A-g[B-f[X]]$$
 			has the monotonicity property.
-		\item Using the above statements we know that there is $S$ defined above in the our case. Prove that function
-			$$h(x) =
+		\item Using the above statements we know that there is $S$ defined above in the our case. Prove that function 
+			$$h(x) = 
 				\begin{cases}
 					f(x), x\in S\\
 					g^{-1}(x), x \notin S
 				\end{cases}
-			 $$
+			 $$  
 			 is a bijection. You will need to prove that $X\setminus S\subseteq \text{Im}\,g$.
 	\end{enumerate}
 \end{prob}
 
 \subsection{Pre-image of a function}
+
+
+
