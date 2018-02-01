@@ -1,12 +1,22 @@
 % !TEX root = book.tex
 
 \newcommand{\Int}{\text{Int\,}}
+\newcommand{\Cl}{\text{Cl\,}}
+\newcommand{\Ext}{\text{Ext\,}}
+\newcommand{\Fr}{\text{Fr\,}}
 
 \chapter{General topology}
 \label{general_topology}
-Now we are prepared enough to dive into general topology (often called point-set topology).
+We have studied sets and functions between them. Now, we will add
+a structure - called topology - to a set and look for special
+functions that will in some sense ,,preserve the structure". This
+subject is often called general topology or point-set topology as
+we will focus on points and special sets called open and closed sets.
+Eventually you will see, that these new concepts will enable us
+to derive very quickly and elegantly the majority of the results
+taught in undergraduate real analysis courses.
 
-\section{Basics}
+\section{Basic definitions}
 \subsection{Topology and open sets}
 Consider a set $X$. A topology is a set $\mathcal{T}_X \subseteq 2^X $ such that:
 \begin{enumerate}
@@ -64,7 +74,7 @@ of $x$.
 
 \noindent For a set $A$ in a topological space, we define \textbf{the
 interior of $A$} as:
-$$\Int A=\bigcup_{X \text{ is open and is a subset of A}} X.$$
+$$\Int A=\bigcup \mathcal X, \text{ where }.$$
 
 \begin{prob}
   Prove that:
@@ -75,8 +85,16 @@ $$\Int A=\bigcup_{X \text{ is open and is a subset of A}} X.$$
     $A$)
     \item $\Int A = A$ iff $A$ is open
     \item $\Int \Int A = \Int A$ for any $A$
-    \item $\Int A\cup \Int B \subseteq \Int (A\cup B)$
   \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Let $A'\subseteq A$. Prove that:
+  \begin{enumerate}
+    \item $\Int A' \subseteq \Int A$
+    \item $\Int A \cup \Int B\subseteq \Int (A\cup B)$
+  \end{enumerate}
+  You can prove also that the union can be arbitrary.
 \end{prob}
 
 \begin{prob}
@@ -87,9 +105,80 @@ $$\Int A=\bigcup_{X \text{ is open and is a subset of A}} X.$$
 \subsection{Closed sets}
 Consider a topological space $(X, \mathcal T_X)$. We say that $A\subseteq X$ is closed if and only if $X\setminus A$ is open.
 
+\begin{prob}
+  Prove these properties of closed sets in space $(X, \mathcal T_X)$:
+  \begin{enumerate}
+    \item $\varnothing$ and  $X$ are closed
+    \item If $A_1, A_2,\dots, A_n$ are closed, then their
+      union $A_1\cup A_2\cup\dots\cup A_n$ is closed.
+    \item If $\mathcal A$ is any family of
+      closed sets, then the intersection $\bigcap \mathcal A$ is
+      closed.
+  \end{enumerate}
+\end{prob}
 
+\noindent We define \textbf{the closure} of a set $A$ as:
+$$\Cl A = \bigcap \mathcal X,$$
+where $\mathcal X = \{X\subseteq A : X \text{ is closed} \}$.
 
+\begin{prob}
+  Prove that:
+  \begin{enumerate}
+    \item $\Cl A$ is a closed set.
+    \item if $C$ is closed and $A\subseteq C$,
+    then $\Cl A\subseteq C$ (so in some sense,
+    $\Cl A$ is the smallest closed set containing $A$)
+    \item $\Cl A = A$ iff $A$ is closed
+    \item $\Cl \Cl A = \Cl A$ for any $A$
+  \end{enumerate}
+\end{prob}
 
+\begin{prob}
+	We say that $p$ is an \textbf{adherent point} of $A$
+  (or \textbf{point of closure})
+  if there is a set $S_p$ such that $p\in S_p$ (we do
+  \textit{not} require $S$ to be open) and
+  $A\cap S_p\neq \emptyset$. Alternatively, we can say that every
+  neighborhood of $p$, whether open or not, contains
+  a point from $A$. Prove that $\Cl A$ is the set
+	of all adherent points of $A$.
+\end{prob}
+
+\noindent We define the \textbf{boundary of $A$} as:
+$$\partial A=\Fr A = \Cl A \setminus \Int A$$
+
+\begin{prob}
+  We say that $p$ is a \textbf{frontier} point of $A$ if every open
+  neighborhood of $p$ contains intersects both $A$ and $A^c$, so if
+  for every open neighborhood $U_p$ we have
+  $U_p\cap A\neq \emptyset$ and $U_p\cap A^c\neq \emptyset$.
+  Prove that the boundary of $A$ is exactly the set of frontier
+  points of $A$.
+\end{prob}
+
+\begin{prob}
+  Prove that boundary is always closed.
+\end{prob}
+
+\begin{prob}
+  Prove that $\partial \partial A \subseteq \partial A$.
+\end{prob}
+
+\begin{prob}
+  Prove that $\partial A = \partial A^c.$
+\end{prob}
+
+\begin{prob}
+  Prove that $\partial A = \partial A^c.$
+\end{prob}
+
+\begin{prob}
+  Prove that $\partial A = \emptyset$ iff $A$ is simultaneously
+  open and closed.
+\end{prob}
+
+We define the \textbf{exterior of $A$} as
+$$\Ext A = X\setminus \Cl A$$
 %\subsection{Definition of intervals}
 % \begin{align*}
 % 	(a,b) &= \{x\in \mathbb R : a < x < b\} \text{ (open interval)}\\

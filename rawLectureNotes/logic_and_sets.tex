@@ -9,7 +9,7 @@ If you are already fimilar with operations on logical formulas and sets, you may
 
 \section{Logical formulas}
 \label{sec:logic}
-	Consider declarative sentences as "Water boils at $100^\circ$C" or "2+2=5". We can construct new sentences from them using the following rules:
+	Consider declarative sentences as ,,Water boils at $100^\circ$C" or ,,2+2=5". We can construct new sentences from them using the following rules:
 	\begin{enumerate}
 		\item conjuntion (and): $p \wedge q$ is true if and only if $p$ is true and $q$ is true
 		\item disjuntion (or): $p \vee q$ is true if and only if at least one of sentences $p,\, q$ is true
@@ -68,7 +68,7 @@ just say whether it inside or not.
 Prove that $\{1,1,2,2,2\}=\{1,2\}$
 \end{prob}
 
-\noindent We assumed the existence of some sets at the beginning. Why? As you can prove not every 'collection of objects' is a set:
+\noindent We assumed the existence of some sets at the beginning. Why? As you can prove not every ,,collection of objects'' is a set:
 
 \begin{prob}
 	Let $X$ be a set built from all sets such that $A\notin A.$ Prove that $X$ does not exist. Hint: what if $X\in X$? What if $X\notin X$?
@@ -170,8 +170,26 @@ end, so we need alternative definitions:
 	\bigcap_{i\in I}A_i &= \{a\in U : a\in A_i \text{ for every }i\in I\}
 \end{align*}
 
+\noindent Alternative notation is a \textbf{family of sets}, that is
+just a name for a subset of $2^U$:
+$$\mathcal A = \{A_i\subseteq U : A_i\text{\, has some property}\}$$
+and write:
+$$\bigcup \mathcal A,~\bigcap \mathcal A$$
+for the infinite sum and intersection of all of family members.
+
 \begin{prob}
-	Prove that for finite $I$ these definitions agree with the previous.
+	Prove that for finite families of sets, these new definitions agree
+  with the previous.
+\end{prob}
+
+\begin{prob}
+	Let $\mathcal X \subset 2^U$ be a family of sets and define:
+  $\mathcal Y=\{X^c : X\in \mathcal X\}$, where $X^c=U\setminus X$.
+  Prove that:
+  \begin{enumerate}
+    \item $(\bigcup \mathcal X)^c = \bigcap \mathcal Y$
+    \item $(\bigcap \mathcal X)^c = \bigcup \mathcal Y$
+  \end{enumerate}
 \end{prob}
 
 \begin{prob} Let $A_i\subseteq U,\, i\in I$ and
@@ -253,8 +271,8 @@ Have you ever seen falling dominoes? To be sure that every domino falls, we need
 And that's all, we can be sure that all the dominoes will eventually fall. This style of reasoning\footnote{We do not show here formally \textit{why}
 this principle works. For curious, you define natural numbers in such way this principle works.} is called \textbf{mathematical induction} and
 formally it is written as: if $0\in S$ and for every\footnote{I repeat: for every $n$ we need to prove the implication ,,if works for $n$, then
-works for $n+1$". The correct way is to write "I assume that there is a given $n$ for which the formula works. I will prove that is works for $n+1$".
-Common mistake is to write "I assume that the formula works for every $n$ and I will prove that it works for $n+1$.". As professor Wiktor Bartol says
+works for $n+1$". The correct way is to write ,,I assume that there is a given $n$ for which the formula works. I will prove that is works for $n+1$".
+Common mistake is to write ,,I assume that the formula works for every $n$ and I will prove that it works for $n+1$.". As professor Wiktor Bartol says
 - there is no need to prove the statement as you already assumed that it works in every case.}
  $n\in N$ you can prove the implication $n\in S$ then $n+1\in S$, you know that $N\subseteq S$.
 \begin{prob}
@@ -431,6 +449,12 @@ often.
 	\end{enumerate}
 \end{prob}
 
+\begin{prob}
+  Let $f: A\to B$ be an injection. Prove that there is a function
+  $g: \text{Im\,} f \to A$ such that $g\circ f = \text{Id}_A.$
+  Such $g$ is called \textbf{left inverse of $f$}.
+\end{prob}
+
 \section{Countability}
 \subsection{Finite sets}
 For a finite set $X$ we write the number of elements of $X$ as $|X|$. We can calculate their \textbf{cardinalities} (sizes, numbers of elements) with
@@ -529,20 +553,22 @@ is an injection from $A$ to $B$ but there is no bijection.
 	\textbf{Cantor-Schroeder-Bernstein theorem} Let's prove that if $|A|\le|B|$ and $|B|\le |A|$, then $|A|=|B|$ for any sets.
 	\begin{enumerate}
 		\item (Knaster-Tarski) Now assume that $F$ has \textit{monotonicity} property: $F(X)\subseteq F(Y)$ if $X\subseteq Y$.
-			Prove that $F(S)=S$, where:
+			Prove that $F$ has a fixed point $S$ (that is $F(S)=S$), where:
 			$$S=\bigcup_{X\in U} X, \text{~where~} U= \{Y\in 2^A : Y\subseteq f(Y)\}.$$
 		\item (Banach) Let $f: A\to B$ and $g:B\to A$ be injections.
 			We introduce new symbol: $f[X]=\{b\in B : b=f(x) \text{ for some } x\in X\}$. Prove that
-			function $$F:2^A\to 2^A,~F(X)=A-g[B-f[X]]$$
+			function $$F:2^A\to 2^A,~F(X)=A\setminus g[B\setminus f[X]]$$
 			has the monotonicity property.
-		\item Using the above statements we know that there is $S$ defined above in the our case. Prove that function
+    \item Prove that $A\setminus S\subseteq \text{Im}\,g$, where
+      $F$ and $S$ are taken from above.
+		\item Prove that function
 			$$h(x) =
 				\begin{cases}
 					f(x), x\in S\\
 					g^{-1}(x), x \notin S
 				\end{cases}
 			 $$
-			 is a bijection. You will need to prove that $X\setminus S\subseteq \text{Im}\,g$.
+			 is a bijection.
 	\end{enumerate}
 \end{prob}
 
@@ -575,7 +601,7 @@ We then say that $f^{-1}(D)$ is the \textbf{pre-image} of $D$.
 To get accustomed with this notation, prove that:
 
 \begin{prob}
-  Let $f:A\to B$. Then $B=f(A)$ and $A=f^{-1}(B)$.
+  Let $f:A\to B$. Then $f(A)\subseteq B$ and $A=f^{-1}(B)$.
 \end{prob}
 
 You should also prove:
@@ -588,3 +614,6 @@ You should also prove:
   You can also generalise this result to an arbitrary collection of
   sets.
 \end{prob}
+Therefore, we see that although $f$ does \textit{not} preserve the
+set structure, $f^{-1}$ does. This observation underlies the
+notation of continuity.
