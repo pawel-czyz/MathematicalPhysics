@@ -4,6 +4,7 @@
 \newcommand{\Cl}{\text{Cl\,}}
 \newcommand{\Ext}{\text{Ext\,}}
 \newcommand{\Fr}{\text{Fr\,}}
+\newcommand{\eps}{\varepsilon}
 
 \chapter{General topology}
 \label{general_topology}
@@ -60,10 +61,11 @@ $X$. There are spaces, for which just one topology is commonly used in applicati
 $X$, assuming that the ,,preferred" topology is obvious to the reader.
 Consider a topological space $(X,\mathcal T_X)$ and a point $x\in X$.
 If $x\in U\in \mathcal T_X$, we say that $U$ is an open neighborhood
-of $x$.
+of $x$. If $x\in U\subseteq V$, where $U$ is open, we call $V$ a
+neighborhood of $x$.
 
 \begin{prob}
-  Prove that each points has an open neighborhood.
+  Prove that each point has an open neighborhood.
 \end{prob}
 
 \begin{prob}
@@ -117,6 +119,12 @@ Consider a topological space $(X, \mathcal T_X)$. We say that $A\subseteq X$ is 
   \end{enumerate}
 \end{prob}
 
+\begin{prob}
+  We say that $p$ is a limit point of $A\subseteq X$ if for every every open neighborhood $U$ of $p$ there is $q_U\neq p$ such that
+  $q_U\in A\cap U$. Prove that $A$ is closed iff it contains all
+  of it's limit points.
+\end{prob}
+
 \noindent We define \textbf{the closure} of a set $A$ as:
 $$\Cl A = \bigcap \mathcal X,$$
 where $\mathcal X = \{X\subseteq A : X \text{ is closed} \}$.
@@ -136,12 +144,16 @@ where $\mathcal X = \{X\subseteq A : X \text{ is closed} \}$.
 \begin{prob}
 	We say that $p$ is an \textbf{adherent point} of $A$
   (or \textbf{point of closure})
-  if there is a set $S_p$ such that $p\in S_p$ (we do
-  \textit{not} require $S$ to be open) and
-  $A\cap S_p\neq \emptyset$. Alternatively, we can say that every
-  neighborhood of $p$, whether open or not, contains
+  if for any neighborhood $V$ of $p$ we have
+  $A\cap V\neq \emptyset$. Alternatively, we can say that every
+  neighborhood of $p$ contains
   a point from $A$. Prove that $\Cl A$ is the set
 	of all adherent points of $A$.
+\end{prob}
+
+\begin{prob}
+  We say that $A\subseteq X$ is \textbf{dense} if $\Cl A=X$. Prove
+  that $A$ is dense iff for every $U\in \mathcal T_X$, $A\cap U\neq \emptyset$
 \end{prob}
 
 \noindent We define the \textbf{boundary of $A$} as:
@@ -149,7 +161,7 @@ $$\partial A=\Fr A = \Cl A \setminus \Int A$$
 
 \begin{prob}
   We say that $p$ is a \textbf{frontier} point of $A$ if every open
-  neighborhood of $p$ contains intersects both $A$ and $A^c$, so if
+  neighborhood of $p$ intersects both $A$ and $A^c$, so if
   for every open neighborhood $U_p$ we have
   $U_p\cap A\neq \emptyset$ and $U_p\cap A^c\neq \emptyset$.
   Prove that the boundary of $A$ is exactly the set of frontier
@@ -169,20 +181,13 @@ $$\partial A=\Fr A = \Cl A \setminus \Int A$$
 \end{prob}
 
 \begin{prob}
-  Prove that $\partial A = \partial A^c.$
-\end{prob}
-
-\begin{prob}
   Prove that $\partial A = \emptyset$ iff $A$ is simultaneously
   open and closed.
 \end{prob}
 
 We define the \textbf{exterior of $A$} as
 $$\Ext A = X\setminus \Cl A$$
-%\subsection{Definition of intervals}
-% \begin{align*}
-% 	(a,b) &= \{x\in \mathbb R : a < x < b\} \text{ (open interval)}\\
-% 	[a,b] &= \{x\in \mathbb R : a \le x \le b\} \text{ (closed interval)}\\
-% 	(a,b] &= \{x\in \mathbb R : a < x \ge b\} \text{ (left-open, right-closed interval)}\\
-% 	[a,b) &= \{x\in \mathbb R : a < x \ge b\} \text{ (left-closed, right-open interval)}
-% \end{align*}
+
+\begin{prob}
+  Prove that $\partial A=\Cl A \cap \Cl \Ext A$
+\end{prob}

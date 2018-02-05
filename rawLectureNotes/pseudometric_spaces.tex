@@ -1,3 +1,5 @@
+% !TEX root = book.tex
+
 \chapter{Pseudometric spaces}
 \label{pseudometric_spaces}
 We have already seen how general topology works. Now we will focus on another collection of spaces, with richer structure, called pseudometric spaces.
@@ -8,11 +10,11 @@ Consider a set $X$. We say that a function $d : X\times X\to \mathbb R$ is a \te
 \begin{enumerate}
 	\item for all $x\in X$,  $d(x,x)=0$
 	\item for all $x,y\in X$, $d(x,y)=d(y,x)$
-	\item for all $x,y,z\in X$, $d(x,z)\le d(x,y)+d(y,z)$ 
+	\item for all $x,y,z\in X$, $d(x,z)\le d(x,y)+d(y,z)$
 \end{enumerate}
 
 \begin{prob}
-	Prove that for a pseudometric $d$ and every $x,y\in X$, there is $d(x,y)\ge 0$. 
+	Prove that for a pseudometric $d$ and every $x,y\in X$, there is $d(x,y)\ge 0$.
 \end{prob}
 
 \begin{prob}
@@ -33,7 +35,7 @@ Essential concept is the concept of a ball of radius $r>0$ centered at $x\in X$:
 $$B(x, r) = \{y \in X : d(x,y) < r\}.$$
 
 \begin{prob}
-	We say that $S\subseteq X$ is an open set if for every $s$ in $S$ there is $r_s$ such that $B(s,r_s)\subseteq S$. 
+	We say that $S\subseteq X$ is an open set if for every $s$ in $S$ there is $r_s$ such that $B(s,r_s)\subseteq S$.
 	Prove that this is indeed a topology on $X$.
 \end{prob}
 
@@ -54,7 +56,111 @@ find it.
 	\begin{enumerate}
 		\item Any $B(x,r)$ is open
 		\item $\{B(x,r) : x\in X \text{ and }r > 0\}$ is a basis
-		\item This space is first-countable. Hint: consider $r=1/n$ for $n=1,2,\dots$. 
+		\item This space is first-countable. Hint: consider $r=1/n$ for $n=1,2,\dots$.
 	\end{enumerate}
-\end{prob} 
+\end{prob}
 
+\section{Topology of $\mathbb R$}
+Now, we will focus on the ,,natural" topology of the real line.
+Before we start, we need a property that is crucial in the definition
+of reals. Consider $A\subseteq \mathbb R$. We say that $x$ is an
+\textbf{upper bound} of $A$ iff $x\ge a$ for every $a\in A$.
+
+\begin{prob}
+  Prove that a set $A\subseteq \mathbb R$ can have no upper bounds
+  or infinitely many of them.
+\end{prob}
+
+\noindent If an upper bound of $A$ exists, we say that $A$ is
+\textbf{bounded from above}. Among them we will distinguish the
+\textbf{supremum} (or \textbf{the least upper bound - l.u.b}):
+$x=\sup A$ iff $x$ is an upper bound of $A$ and for any upper bound
+$y$ of $A$ we have $x\le y$.
+
+\begin{prob}
+  Prove that supremum is unique, so if $x$ and $x'$ are supremums
+  of $A$, then $x=x'$.
+\end{prob}
+
+\begin{prob}
+  Prove that $x=\sup A$ if and only if
+  $x\ge a$ for every $a\in A$ and for every $\eps > 0$ there is
+  $a\in A$ such that $x < a + \eps$.
+\end{prob}
+
+\noindent Now we can state the \textbf{completeness axiom}:
+each non-empty and bounded from above subset of real numbers has
+a supremum.
+This axiom allows us to prove many interesting things:
+
+\begin{prob}
+  Prove that natural numbers are \textit{not} bounded from above.
+  Hint: if $n\in \mathbb N$, then $n+1\in \mathbb N$
+\end{prob}
+
+\begin{prob}
+  Prove the \textbf{Archimedean axiom}\footnote{In fact we do not
+  need to call it axiom, as we are able to prove it.}
+  that for every $r\in R$, there is $n\in \mathbb N$ such that $n>r$.
+\end{prob}
+
+\begin{prob}
+  Prove that for any $r>0$ there is $n\in \mathbb N$ such that
+  $1/n < r$.
+\end{prob}
+
+\begin{prob}
+  Prove that rational numbers do \textit{not} have the completeness
+  property:
+  \begin{enumerate}
+    \item Let $p, q\in \mathbb Z\setminus \{0\}$.
+      Prove that $p^2\neq 2q^2$.
+    \item Prove that root of two, defined as
+      $x > 0, x^2=2$ is not rational.
+    \item Find a subset of $\mathbb Q$ that is bounded above, but
+      has no rational supremum.
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  You should prove that in each non-emptyinterval there is at least
+  one rational number:
+  \begin{enumerate}
+    \item Assume that $0<a<b$. Define
+      $$A=\left\{\frac m N : m\in \mathbb N\right\},~
+      \frac 1{b-a} < N \in \mathbb N$$
+      and prove that $A\cap (a,b)$ is non-empty.
+    \item Use the above result to prove that in \textit{each}
+      interval there is at least one rational number.
+    \item Prove that in each interval there are infinitely,
+    countably many, rational numbers
+    \item Prove that in each interval there is an irrational number.
+    \item How many irrational numbers are in each interval?
+  \end{enumerate}
+\end{prob}
+
+% At the beginning we assumed that you are familiar with real numbers.
+% It's high time we defined them properly.
+% A \textbf{field} is a tuple $(F, +, \cdot, 1, 0).$ We have
+% many symbols there, let's explain what they mean:
+% \begin{itemize}
+%   \item $F$ is a set
+%   \item $+$ and $\cdot$ are functions from $F^2$ to $F$. We write
+%     $a+b$ for $+(a,b)$ and $a\cdot b=ab$ for $\cdot (a,b)$.
+%   \item $1, 0\in F$ are just distinguished elements of $F$
+% \end{itemize}
+% We know what object are in the definition, so we can talk about
+% properties they should have:
+%
+% \begin{enumerate}
+%   \item
+% \end{enumerate}
+
+
+%\subsection{Definition of intervals}
+% \begin{align*}
+% 	(a,b) &= \{x\in \mathbb R : a < x < b\} \text{ (open interval)}\\
+% 	[a,b] &= \{x\in \mathbb R : a \le x \le b\} \text{ (closed interval)}\\
+% 	(a,b] &= \{x\in \mathbb R : a < x \ge b\} \text{ (left-open, right-closed interval)}\\
+% 	[a,b) &= \{x\in \mathbb R : a < x \ge b\} \text{ (left-closed, right-open interval)}
+% \end{align*}
