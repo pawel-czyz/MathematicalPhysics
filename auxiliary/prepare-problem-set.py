@@ -43,9 +43,10 @@ def cut_problems_from_file(filename):
 
 
 def main():
-    with open(join(LECTURE_NOTES_DIR, BOOK_TEX), "r") as f:
+    book_tex_path = join(LECTURE_NOTES_DIR, BOOK_TEX)
+    all_problems = cut_problems_from_file(book_tex_path)
+    with open(book_tex_path, "r") as f:
         problems_start = False
-        all_problems = ""
         for line in f:
             if "PROBLEMS START" in line:
                 problems_start = True

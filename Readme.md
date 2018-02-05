@@ -1,7 +1,7 @@
 # Mathematical Physics Course
 
 ### Aim
-This repository support Mathematical Physics Course organised at St. Hugh's College (University of Oxford). The aim is to provide formal and understandable introduction to differential geometry
+This repository supports Mathematical Physics Course organised at St. Hugh's College (University of Oxford). The aim is to provide formal and understandable introduction to differential geometry
 and mathematical physics.
 
 ### What is in this repository?

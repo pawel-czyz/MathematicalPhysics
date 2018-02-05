@@ -61,100 +61,10 @@ find it.
 \end{prob}
 
 \section{Topology of $\mathbb R$}
-Now, we will focus on the ,,natural" topology of the real line.
-Before we start, we need a property that is crucial in the definition
-of reals. Consider $A\subseteq \mathbb R$. We say that $x$ is an
-\textbf{upper bound} of $A$ iff $x\ge a$ for every $a\in A$.
+Now, we will focus on the ,,natural" topology of the real line. As we remember
+real numbers is a complete ordered field. 
 
-\begin{prob}
-  Prove that a set $A\subseteq \mathbb R$ can have no upper bounds
-  or infinitely many of them.
-\end{prob}
 
-\noindent If an upper bound of $A$ exists, we say that $A$ is
-\textbf{bounded from above}. Among them we will distinguish the
-\textbf{supremum} (or \textbf{the least upper bound - l.u.b}):
-$x=\sup A$ iff $x$ is an upper bound of $A$ and for any upper bound
-$y$ of $A$ we have $x\le y$.
-
-\begin{prob}
-  Prove that supremum is unique, so if $x$ and $x'$ are supremums
-  of $A$, then $x=x'$.
-\end{prob}
-
-\begin{prob}
-  Prove that $x=\sup A$ if and only if
-  $x\ge a$ for every $a\in A$ and for every $\eps > 0$ there is
-  $a\in A$ such that $x < a + \eps$.
-\end{prob}
-
-\noindent Now we can state the \textbf{completeness axiom}:
-each non-empty and bounded from above subset of real numbers has
-a supremum.
-This axiom allows us to prove many interesting things:
-
-\begin{prob}
-  Prove that natural numbers are \textit{not} bounded from above.
-  Hint: if $n\in \mathbb N$, then $n+1\in \mathbb N$
-\end{prob}
-
-\begin{prob}
-  Prove the \textbf{Archimedean axiom}\footnote{In fact we do not
-  need to call it axiom, as we are able to prove it.}
-  that for every $r\in R$, there is $n\in \mathbb N$ such that $n>r$.
-\end{prob}
-
-\begin{prob}
-  Prove that for any $r>0$ there is $n\in \mathbb N$ such that
-  $1/n < r$.
-\end{prob}
-
-\begin{prob}
-  Prove that rational numbers do \textit{not} have the completeness
-  property:
-  \begin{enumerate}
-    \item Let $p, q\in \mathbb Z\setminus \{0\}$.
-      Prove that $p^2\neq 2q^2$.
-    \item Prove that root of two, defined as
-      $x > 0, x^2=2$ is not rational.
-    \item Find a subset of $\mathbb Q$ that is bounded above, but
-      has no rational supremum.
-  \end{enumerate}
-\end{prob}
-
-\begin{prob}
-  You should prove that in each non-emptyinterval there is at least
-  one rational number:
-  \begin{enumerate}
-    \item Assume that $0<a<b$. Define
-      $$A=\left\{\frac m N : m\in \mathbb N\right\},~
-      \frac 1{b-a} < N \in \mathbb N$$
-      and prove that $A\cap (a,b)$ is non-empty.
-    \item Use the above result to prove that in \textit{each}
-      interval there is at least one rational number.
-    \item Prove that in each interval there are infinitely,
-    countably many, rational numbers
-    \item Prove that in each interval there is an irrational number.
-    \item How many irrational numbers are in each interval?
-  \end{enumerate}
-\end{prob}
-
-% At the beginning we assumed that you are familiar with real numbers.
-% It's high time we defined them properly.
-% A \textbf{field} is a tuple $(F, +, \cdot, 1, 0).$ We have
-% many symbols there, let's explain what they mean:
-% \begin{itemize}
-%   \item $F$ is a set
-%   \item $+$ and $\cdot$ are functions from $F^2$ to $F$. We write
-%     $a+b$ for $+(a,b)$ and $a\cdot b=ab$ for $\cdot (a,b)$.
-%   \item $1, 0\in F$ are just distinguished elements of $F$
-% \end{itemize}
-% We know what object are in the definition, so we can talk about
-% properties they should have:
-%
-% \begin{enumerate}
-%   \item
-% \end{enumerate}
 
 
 %\subsection{Definition of intervals}
