@@ -11,7 +11,7 @@ to derive very quickly and elegantly the majority of the results
 taught in undergraduate real analysis courses.
 
 \section{Basic definitions}
-\subsection{Topology and open sets}
+\subsection{Topology, open sets and interior}
 Consider a set $X$. A topology is a set $\mathcal{T}_X \subseteq 2^X $ such that:
 \begin{enumerate}
 	\item $\varnothing, X\in \mathcal{T}_X$
@@ -40,8 +40,12 @@ You may wonder whether, for a given set, topology is unique. As you can prove, t
 \end{prob}
 
 \begin{prob}
-	For which sets, there is exactly one topology on them? (So at least
-  these listed above must be the same).
+  \textbf{Subspace topology}
+  Let $X$ be a set and $\mathcal T_X$ a topology on it. For $A\subseteq X$ we define $\mathcal T_A=\{U\cap A : U\in \mathcal T_X\}$. Prove that $\mathcal T_A$ is a topology on $A$.
+\end{prob}
+
+\begin{prob}
+	For which sets, there is exactly one topology on them?
 \end{prob}
 
 \begin{prob}
@@ -49,9 +53,24 @@ You may wonder whether, for a given set, topology is unique. As you can prove, t
   topologies.
 \end{prob}
 
+\begin{prob}
+  Real numbers $\mathbb R$ are usually equipped with the following topology:
+  $X\subseteq \mathbb R$ is open iff for each $x\in X$ there is an open interval $(a_x,b_x)$ such that
+  $x\in (a_x, b_x)\subseteq X$.
+  \begin{enumerate}
+    \item Prove that it is indeed a topology.
+    \item Let \textbf{a ball} be a set $B(x,r) = \{y\in \mathbb R : |x-y| < r\}$ for $r>0$. Prove that $(a,b)\neq \emptyset$ can be written as $B(x,r)$ for suitable $x$ and $r$
+    \item Prove that $X$ is open iff for each $x\in X$ there is a $r>0$ such that $B(x,r)\subseteq X$. We will see that this results generalises to much broader category of spaces
+      than single $\mathbb R$.
+  \end{enumerate}
+\end{prob}
+
 \noindent This gives the necessity of the notation of \textbf{topological space} that is a pair $(X,\mathcal T_X)$, where $\mathcal T_X$ is a topology on
 $X$. There are spaces, for which just one topology is commonly used in applications. In such situations mathematicians write topological space just as
-$X$, assuming that the ,,preferred" topology is obvious to the reader.
+$X$, assuming that the ,,preferred" topology is obvious to the reader (as the topology given above on $\mathbb R$).
+
+This was ,,global" point of view - we have a structure of subsets of $X$. We can also try to express these global properties using local
+properties - by considering special constructions around a single point and using a set of these points to recover a global property.
 Consider a topological space $(X,\mathcal T_X)$ and a point $x\in X$.
 If $x\in U\in \mathcal T_X$, we say that $U$ is an open neighborhood
 of $x$. If $x\in U\subseteq V$, where $U$ is open, we call $V$ a
@@ -69,7 +88,7 @@ neighborhood of $x$.
 
 \noindent For a set $A$ in a topological space, we define \textbf{the
 interior of $A$} as:
-$$\Int A=\bigcup \mathcal X, \text{ where }.$$
+$$\Int A=\bigcup \mathcal U, \text{ where } \mathcal U = \{U\in \mathcal T : U\subseteq A \}.$$
 
 \begin{prob}
   Prove that:
@@ -97,7 +116,7 @@ $$\Int A=\bigcup \mathcal X, \text{ where }.$$
 	of all interior points of $A$.
 \end{prob}
 
-\subsection{Closed sets}
+\subsection{Closed sets and closure}
 Consider a topological space $(X, \mathcal T_X)$. We say that $A\subseteq X$ is closed if and only if $X\setminus A$ is open.
 
 \begin{prob}
@@ -129,6 +148,8 @@ where $\mathcal X = \{X\subseteq A : X \text{ is closed} \}$.
     \item if $C$ is closed and $A\subseteq C$,
     then $\Cl A\subseteq C$ (so in some sense,
     $\Cl A$ is the smallest closed set containing $A$)
+    \item $A\subseteq \Cl A$
+    \item $\Cl (A\cup B) = \Cl A \cup \Cl B$
     \item $\Cl A = A$ iff $A$ is closed
     \item $\Cl \Cl A = \Cl A$ for any $A$
   \end{enumerate}
@@ -148,6 +169,16 @@ where $\mathcal X = \{X\subseteq A : X \text{ is closed} \}$.
   We say that $A\subseteq X$ is \textbf{dense} if $\Cl A=X$. Prove
   that $A$ is dense iff for every $U\in \mathcal T_X$, $A\cap U\neq \emptyset$
 \end{prob}
+
+\begin{prob}
+  \begin{enumerate}
+    \item Let $r\in \mathbb R$. Prove that for every neighborhood $V$ of $r$ there is $q\in \mathbb Q$ such that $q\in V$.
+      Hint: each neighborhood must have an interval. And you should have proven that in each interval there is a rational.
+    \item Conclude that rationals are dense in reals.
+  \end{enumerate}
+\end{prob}
+
+\subsection{Boundary and exterior}
 
 \noindent We define the \textbf{boundary of $A$} as:
 $$\partial A=\Fr A = \Cl A \setminus \Int A$$
@@ -183,4 +214,81 @@ $$\Ext A = X\setminus \Cl A$$
 
 \begin{prob}
   Prove that $\partial A=\Cl A \cap \Cl \Ext A$
+\end{prob}
+
+\subsection{Bases and countability axioms}
+As we have seen, there can be many open sets. Let's try to simplify the situation by considering a smaller
+family of open sets from which we will be able to recover the whole topology.
+
+Let $(X, \mathcal T)$ be a topological space. We say that a family of sets $\mathcal B\subseteq \mathcal T$
+is a \textbf{basis of topology} iff every open set can be written as a sum of a subfamily of $\mathcal B$.
+Namely for each $U\in \mathcal T$ there is $\mathcal B_U\subseteq \mathcal B$ such that:
+$$U=\bigcup \mathcal B_U$$
+
+\begin{prob}
+  Prove that $\mathcal B$ is a basis for $(X, \mathcal T)$ iff
+  for every $x\in X$ and every neighborhood $U_i$ of $x$, there
+  is $B_i\in \mathcal B$ such that $x\in B_i\subseteq U_i$.
+\end{prob}
+
+\begin{prob}
+  Let $\mathcal B$ be a basis of $(X, \mathcal T)$. Prove that:
+  \begin{enumerate}
+    \item $\bigcup \mathcal B = X$
+    \item If $U, V\in \mathcal T$ and $x\in U\cap V$, then there is a
+      set $B_x\in \mathcal B$ such that $x\in B_x\subseteq U\cap V.$
+  \end{enumerate}
+\end{prob}
+
+% Proving the converse, we get another, equivalent definition of basis:
+% TODO TODO
+
+We say that a space $(X,\mathcal T)$ is \textbf{second countable} iff
+it has a countable basis.
+
+\begin{prob}
+  Consider $\mathbb R$ with it's standard topology. If $x\in \mathbb R$ and $U$ is an open set containing $x$, we can find a ball $B(x, r),~r>0$ such that $B(x,r)\subseteq U$. Using the fact that
+  rationals are dense in reals, prove that you can
+  find $p,q\in \mathbb Q$ such that $x\in (p,q)\subseteq U$.
+\end{prob}
+
+\begin{prob}
+  Prove that $\mathbb R$ is second countable.
+\end{prob}
+
+\section{Continuous maps and homeomorphisms}
+Consider two topological spaces $(X,\mathcal T)$ and $(Y, \tau)$.
+We say that function (or \textbf{map}) $f:X\to Y$ is \textbf{continuous} iff for every
+open set $U\in \tau$, it's preimage is open: $f^{-1}(U)\in \mathcal T$.
+
+\begin{prob}
+  Prove that a function is continuous iff preimage of every \textit{closed} set is closed.
+\end{prob}
+
+The next problem shows that we can employ the concept of a basis to
+shorten proofs:
+
+\begin{prob}
+  Let $f: (X,\mathcal T)\to (Y, \tau)$ and $\mathcal B$ be a basis of
+  $(Y, \tau)$. Then $f$ is continuous iff $f^{-1}(B)\in \mathcal T$ for every $B\in \mathcal B$.
+\end{prob}
+
+\begin{prob}
+  Assuming that $\mathbb R$ is equipped with it's standard topology,
+  prove that functions from $\mathbb R$ to $\mathbb R$ are continuous:
+  \begin{enumerate}
+    \item $f(x)=ax+b$
+    \item $f(x)=x^2$
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Let $f: (X,\mathcal T)\to (Y, \tau)$. Prove that $f$ is continuous
+  iff $f(\Cl A)\subseteq \Cl f(A)$ for every $A\subseteq X$.
+\end{prob}
+
+We say that a map $f: (X,\mathcal T)\to (Y, \tau)$ is a \textbf{homeomorphism} iff is bijective and both $f$ and $f^{-1}$ are continuous. We say that two topological spaces are \textbf{homeomorphic} iff there is a homeomorphism between them. The aim of topology is to classify all the spaces up to homeomorphisms. This is a hard problem, but we can try to classify a smaller class of spaces:
+
+\begin{prob}
+  Prove that two \textit{discrete} spaces $X$ and $Y$ are homeomorphic iff $|X|=|Y|.$
 \end{prob}
