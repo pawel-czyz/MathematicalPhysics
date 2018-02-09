@@ -292,3 +292,33 @@ We say that a map $f: (X,\mathcal T)\to (Y, \tau)$ is a \textbf{homeomorphism} i
 \begin{prob}
   Prove that two \textit{discrete} spaces $X$ and $Y$ are homeomorphic iff $|X|=|Y|.$
 \end{prob}
+
+\section{Connected spaces}
+We say that a topological space $(X, \mathcal T)$ is \textbf{disconnected} if there exists two disjoint, non-empty sets such their union is the whole space $X$. Or using symbols:
+$(X, \mathcal T)$ is disconnected if $U,V\in \mathcal T$ such that $U,V\neq \emptyset,~U\cap V =\emptyset,~U\cup V=X$.
+\begin{prob}
+  Let $(X, \mathcal T)$ be a topological space. Prove that these conditions are equivalent:
+  \begin{enumerate}
+    \item The space is disconnected.
+    \item There are two \textit{open} sets $A,B\subseteq X$ such that $A,B\neq \emptyset,~A\cap B=\emptyset,~A\cup B=X$.
+    \item There are no two \textit{closed} sets $A,B\subseteq X$ such that $A,B\neq \emptyset,~A\cap B=\emptyset,~A\cup B=X$.
+    \item There is a set $S\subset X,~S\neq \emptyset, X$ such that and $S$ is open and closed simultaneously (sometimes sets that are both open and closed are called
+    \textbf{clopen}).
+    \item There is a set $S\subset X,~S\neq \emptyset, X$ such that $\partial S=\emptyset$.
+    \item There are subsets $A,B\subseteq X,~ A,B\neq \emptyset$ such that $A\cap \Cl B = B\cap \Cl A=\emptyset$ and $A\cup B=X$.
+  \end{enumerate}
+\end{prob}
+
+If a space is not disconnected, it is called \textbf{connected}.
+
+\begin{prob}
+  Let $(X, \mathcal T)$ be a topological space. Prove that these conditions are equivalent:
+  \begin{enumerate}
+    \item The space is connected.
+    \item There are no two \textit{open} sets $U,V\subseteq X$ such that $U,V\neq \emptyset,~U\cap V=\emptyset,~U\cup V=X$.
+    \item There are no two \textit{closed} sets $U,V\subseteq X$ such that $U,V\neq \emptyset,~U\cap V=\emptyset,~U\cup V=X$.
+    \item The only sets that are open and closed simultaneously are $\emptyset$ and $X$.
+    \item All continous maps from $(X, \mathcal T)$ to $(\{0,1\}, \text{discrete topology})$ are constant.
+    \item If $S\subseteq X$ and $\partial S=\emptyset$, then $S=\emptyset$ or $S=X$.
+  \end{enumerate}
+\end{prob}
