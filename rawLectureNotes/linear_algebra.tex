@@ -1,12 +1,182 @@
-%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% sample chapter
-%
-% Use this file as a template for your own input.
-%
-%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% !TEX root = book.tex
 \chapter{Linear algebra}
-\label{linalg} % Always give a unique label
-% use \chaptermark{}
-% to alter or adjust the chapter heading in the running head
+\label{linalg}
+% use \chaptermark{} to alter or adjust the chapter heading in the running head
+\section{Vector spaces}
+Exactly as we did with fields or topological spaces, we will define vector
+spaces as a tuple with some properties. \textbf{Vector space}\footnote{Sometimes vector spaces
+are also called\textbf{linear spaces}} over a field $F$ is a tuple: $(F, V, +, \cdot)$, where the objects involved are:
+\begin{itemize}
+  \item $F$ is a field. It's elements are called \textbf{scalars}.
+  \item $V$ is a set. It's elements are called \textbf{vectors}.
+  \item $+$ is a function $V\times V\to V$. We always write $v+u$ instead of $+(v,u)$.
+  \item $\cdot$ is a function $F\times V\to V$. We always write $f\cdot v$ instead of $\cdot(f,v)$.
+\end{itemize}
+They should have the following properties:
+\begin{enumerate}
+  \item $(u+v)+w=u+(v+w)$ for every $u,v,w\in V$ (associativity of addition)
+  \item $u+v=v+u$ for every $u,v\in V$ (commutativity)
+  \item There is $o\in V$ such that $v+o=v$ for all $v$ (neutral element of addition)
+  \item For every $v\in V$ there is a $\tilde v\in V$ such that $v+\tilde v = o$ (additive inverse)
+  \item For every $f,g\in F$ and $v\in V$ we have $(fg)\cdot V=f\cdot (g\cdot V)$ (so the multiplication agrees with that for scalars)
+  \item As $F$ is a field, we have $1\in F$. For every $v\in V$ we want $1\cdot v=v$.
+  \item For every $f\in F$ and $u, v \in V$ we have $f\cdot (u+v) = f\cdot u + f\cdot v$ (distributivity)
+  \item For every $f, g\in F$ and $u\in V$ we have $(f+g)\cdot u=f\cdot u + g\cdot u$
+\end{enumerate}
+
+\begin{prob}
+  We know that the set of vectors must contain at least one vector (neutral element). Construct a vector space that has \textit{exactly} one vector (so in some sense
+  it is the smallest space).
+\end{prob}
+
+It's high time we started to abuse our notation making it less explicit, but more convenient. First of all we usually ommit
+(as in the case of field) $\cdot$ for multiplication: $fv=f\cdot v$, for $f\in F, v\in V$. But that's not all!
+\begin{prob}
+  We want to modify our notation in the following way:
+  \begin{enumerate}
+    \item Prove that $o$ is unique element with the property $v+o=v$ for $v\in V$
+    \item Prove that $0\cdot v=o$ for every $v$. Hint: remember that $1+0=1$. This suggests to write 0 for $o$ (so 0 since now technically has two different meanings,
+      practically we will never have any problems with that)
+    \item Let $v\in V$ and $\tilde v\in V$ be such an element that $v+\tilde v=0$. Prove that $\tilde v$ is unique (so if $v'+v=0$, then $\tilde v=v'$)
+    \item Prove that the $\tilde v$ is exactly $(-1)v$. It suggests to write $-v$ for additive inverse, and we will do it since now.
+  \end{enumerate}
+\end{prob}
+
+Moreover, if we specify the field od scalars and operations, we will say $V$ for the vector space, without invoking the all tuple elements (as in the case with topological spaces or fields- we write a single $\mathbb R$ and everyone knows what field operations we allow and what topology is assumed).
+
+In most cases we will be interested in non-patological vector spaces, namely ,,big enough" in some sense. Why?
+
+\begin{prob}
+  The \textbf{characteristic} of a field $F$ is the smallest natual number $n$ such that $1+1+\dots+1=0$, where we have $n$ ones on the left hand side. If there is no such number
+  we say that characteristic is 0.
+  \begin{enumerate}
+    \item Prove that $\mathbb R$ has characteristic 0.
+    \item Let $(F, V)$ be a vector space with at least two elements. Prove that $v=-v$ for every $v\in V$ if and only if the scalar field has characteristic 2.
+    \item Prove that if $F$ has characteristic different from 2, then we have $v=-v$ iff $v=0$.
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  An important example of a vector space over a field $F$ is $F^n$, where addition and scalar multiplication are defined pointwise:
+  $f\cdot (a_1, a_2, \dots, a_n) = (fa_1, fa_2, \dots, fa_n),~(a_1, a_2, \dots, a_n) + (b_1, b_2, \dots, b_n)=(a_1+b_1, a_2+b_2, \dots, a_n+b_n)$. Prove that it is indeed a vector space.
+\end{prob}
+
+\subsection{Bases of vectos spaces}
+In topology we introduced a basis as a family of open sets from each every open set could be constructed in some natural way. This useful concept occurs also in vector spaces -
+as you can see, $F^n$ has an interesting property: each element $(a_1, a_2, \dots, a_n)\in F^n$ can be written in a form $a_1e_1+a_2e_2+\dots+a_ne_n$, where $e_k$ has 1 at $k$-th place
+and 0s in the other. Moreover, if $\lambda_1, \lambda_2, \dots, \lambda_n\in F$, then the only possibility for the equation $\lambda_1e_1+\lambda_2e_2+\dots+\lambda_ne_n=0$ to hold
+is $\lambda_1=\lambda_2=\dots=\lambda_n=0$. This suggests the following definitions: let $U\subseteq V$. A set $\Span U$ is defined as:
+$$ \Span U = \{\lambda_1u_1+\lambda_2u_2+\dots+\lambda_nu_n : \lambda_1, \dots, \lambda_n\in F, u_1, \dots, u_n\in U\}.$$
+Alternatively, we can say that $\Span U$ is a subset of $V$ such that each $v\in \Span U$ can be wrtitten as a finite \textbf{linear combination} of elements from $U$. It is important
+to \textit{disallow} infinite combinations - the concept of an infinite sum is essentialy topological and we have \textit{not} assumed any topology on our space yet! Therefore we cannot
+define convergence and infinite sums.
+
+\begin{prob}
+  Consider infinite real sequences with addition and multiplication by a real number defined pointwise: $c=a+b$ iff $c_n=a_n+b_n$ for all $n$ and $b=ra, r\in \mathbb R$ iff $b_n=ra_n$ for all $n$.
+  \begin{enumerate}
+    \item Prove that this is a vector space, let's call it $\mathbb R^{\mathbb N}$.
+    \item Prove that set $B=\{e_k : k\in \mathbb N\},~e_k$ has 1 at $k$-th place and 0 at all the others, does \textit{not} span $\mathbb R^{\mathbb N}$.
+    \item Let $\hat{\mathbb R}^{\mathbb N}\subseteq \mathbb R^{\mathbb N}$ contain all the sequences that have a \textit{finite} number of non-zero elements. Prove that this is a
+      vector space and that it is spanned by $B$ defined above.
+  \end{enumerate}
+\end{prob}
+
+Moreover we will say that a \textit{finite} set of vectors $\{v_1, v_2, \dots, v_n\}$ is \textbf{linearly independent} if the only solution for
+$$\lambda_1v_1+\lambda_2v_2+\dots+\lambda_nv_n=0$$
+is $\lambda_1=\lambda_2=\dots=\lambda_n=0$. If vectors are \textit{not} linearly independent, we say that they are \textbf{linearly dependent}.
+
+\begin{prob}
+  Assume that $v_1, v_2, \dots, v_n$ are \textit{not} linearly dependent. Prove that there is $v_i$ such that $v_i$ is a linear combination of other vectors:
+  $v_i \in \Span \{v_1, \dots, v_{i-1}, v_{i+1}, v_n\}$.
+\end{prob}
+
+We say that a vector space $V$ has \textbf{finite dimension} (or is \textit{finite dimensional}) if there is a \textit{finite} $U\subseteq V$ such that $V=\Span U$.
+\begin{prob}
+  You can prove that every finite dimensional vector space has a basis in two steps:
+    \begin{enumerate}
+      \item Assume that you have a set $\{e_1, e_2,\dots, e_n\}$ that spans $V$. Prove that if $e_1\in \Span \{e_2,\dots, e_n\}$, then $V=\Span \{e_2,\dots, e_n\}$.
+      \item Using the reduction step given above, show an algorithm finding a basis from a finite spanning set.
+      \item Prove that a vector space is finite dimensional iff it has a finite basis.
+    \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Prove that $F^n$ is finite dimensional. Hint: just find a basis.
+\end{prob}
+
+\begin{prob}
+  Prove that $\hat{\mathbb R}^{\mathbb N}$ has a basis.
+\end{prob}
+
+Apparently the proof that \textit{every} vector space is equivalent to the Axiom of Choice!
+% Proof using Zorn's lemma that _every_ vector space has a basis.
+
+\begin{prob}
+  Here you will prove that all the bases of a \textit{finite dimensional} vector space have the same number of elements. Let $v_1, v_2,\dots, v_n$ be a basis of a vector space $V$ and $w_1,w_2,\dots,w_m\in V$, where $m > n$.
+  \begin{enumerate}
+    \item \textbf{(Steinitz exchange lemma)} Prove that if $w_1\neq 0$, then $v_1\in \Span \{w_1, v_2, v_3, \dots,v_n\}$.
+    \item Prove that if $w_k\neq 0$ for $k\in\{1, 2, \dots, n\},$ then $w_{n+1}\in V=\Span\{w_1, w_2, \dots, w_n\}$
+    \item Prove that $w_1, w_2, \dots, w_m$ \textit{cannot} be linearly independent.
+    \item Prove that each basis of $V$ has the same number of elements. This number is called \textbf{the dimension of $V$} and written as $\dim V$.
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Let $V$ be a finite dimensional vector space of dimension $n$. Prove that every linearly independent set of $n$ vectors spans $V$ and every set with $n$ elements spanning $V$
+  is a basis.
+\end{prob}
+
+\subsection{Subspaces, direct sum and quotient spaces}
+As in the case of topological spaces, there are many ways of constructing \textit{new} vector spaces from old. In topology we could construct
+new spaces taking a subset of a known topological space, take disjoint unions (sums) of topological spaces, divide topological spaces by some relations
+and take product of them. In this subsection we cover first three constructions - fourth one gives a raise to the concept of tensors and multilinear algebra and we will cover
+it in great detail later.
+Consider a vector space $V$ over field $F$ and a subset $U\subset V$ such that $0\in U$ and for all $v, u\in U, f\in F$, we have $fv+u\in U$. You can check that it is indeed a vector space:
+\begin{prob}
+  Prove that $fv+u\in U$ for all $v,\, u\in U, f\in F$ is equivalent to: for every $v,\, u\in U$, we have $v+u\in U$ and for every $v\in U, f\in F$ we have $fv\in U$.
+\end{prob}
+
+Such a $U$ we call a \textbf{vector subspace} of $V$.
+
+\begin{prob}
+  Let $V$ be a finite dimensional vector space and $U\subseteq V$ be a vector subspace. Prove that $U$ is finite dimensional and $\dim U\le \dim V.$
+\end{prob}
+
+\begin{prob}
+  Let $V$ be a finite dimensional vector space and $U\subseteq V$ be a vector subspace. Prove that $\dim U=\dim V$ iff $U=V$.
+\end{prob}
+
+\begin{prob}
+
+\end{prob}
+
+There is also a method of constructing direct sums: assume that you have two vector spaces $V, W$ over \textit{the same field} $F$. We define their direct sum as:
+$$V\oplus W=V\times W = \{(v,w) : v\in V,\, w\in W\}$$
+with addition and multiplication defined entrywise:
+$$a(v,w)+(v', w')=(av+v', aw+w').$$
+
+We often identify $v\in V$ with $(v,0)\in V\oplus W$ and $w\in W$ with $(0,w)\in V\oplus W$. Then $av+bu, a,b\in F, v\in V, u\in U$ should be understood as $(av, bu)\in V\oplus U$.
+
+\begin{prob}
+  Prove that each $w\in V\oplus U$ has a \textit{unique} decomposition: $w=v+u,\, v\in V,\,u\in U$. That is if $w=v+u=v'+u'$, then $v=v'$ and $u=u'$ for $v,v'\in V,\, u,u'\in U$.
+\end{prob}
+
+Our general definition has a very nice interpretation when we go to subspaces -
+now assume that you have two subspaces of $V$: $U,W\subseteq V$ such that $U\cap W=0$. Their \textbf{direct product} is a set:
+$$U\oplus W =\{au+bv : u\in U,\, v\in V,\, a,b,\in F\}$$
+
+\begin{prob}
+  Prove that the direct product of two subspaces is a special case of the general definition, with the identification $v\leftrightarrow(0,v)$ employed.
+\end{prob}
+
+\begin{prob}
+  Prove that direct product of two vector subspaces of $V$ is a vector subspace of $V$. Hint: check if 0 is inside and use the handy, one-line criterion.
+\end{prob}
+
+\begin{prob}
+  Let $V=\mathbb R^2$ and $U=\{(0, r) : r\in \mathbb R\},~W=\{(r, 0) : r\in \mathbb R\}$. Prove that:
+  \begin{enumerate}
+    \item $V=U\oplus W$.
+    \item Let $U\hat{\oplus}W=\{u+v : u\in U,\, v\in V\}$. Prove that this set is \textit{not} a vector space.
+  \end{enumerate}
+\end{prob}
