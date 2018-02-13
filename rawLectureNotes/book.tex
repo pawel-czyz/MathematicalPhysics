@@ -24,6 +24,7 @@
 % \usepackage{polski}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{mathtools}
 % etc.
 % see the list of further useful packages
 % in the Reference Guide, Sects. 2.3, 3.1-3.3
@@ -32,13 +33,29 @@
                        % please use the style svind.ist with
                        % your makeindex program
 
+% Set theoretic and topological terms
 \renewcommand{\emptyset}{\varnothing}
-\newcommand{\Int}{\text{Int\,}}
-\newcommand{\Cl}{\text{Cl\,}}
-\newcommand{\Ext}{\text{Ext\,}}
-\newcommand{\Fr}{\text{Fr\,}}
+
+\newcommand{\Image}{\text{im\,}}
+\newcommand{\Int}{\text{int\,}}
+\newcommand{\Cl}{\text{cl\,}}
+\newcommand{\Ext}{\text{ext\,}}
+\newcommand{\Fr}{\text{fr\,}}
 \newcommand{\eps}{\varepsilon}
-\newcommand{\Span}{\text{Span\,}}
+
+% Fields and special sets
+\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+
+% Linear algebraic terms
+\newcommand{\Span}{\text{span\,}}
+\newcommand{\Ker}{\text{ker\,}}
+\newcommand{\Coker}{\text{coker\,}}
+\newcommand{\Rank}{\text{rk\,}}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -65,11 +82,12 @@
 
 \include{logic_and_sets}
 \include{general_topology}
-
+\include{pseudometric_spaces}
 \include{linear_algebra}
+
 % PROBLEMS END
 
-\include{pseudometric_spaces}
+
 
 % \include{Rn}
 

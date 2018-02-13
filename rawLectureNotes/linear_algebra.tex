@@ -68,8 +68,7 @@ and 0s in the other. Moreover, if $\lambda_1, \lambda_2, \dots, \lambda_n\in F$,
 is $\lambda_1=\lambda_2=\dots=\lambda_n=0$. This suggests the following definitions: let $U\subseteq V$. A set $\Span U$ is defined as:
 $$ \Span U = \{\lambda_1u_1+\lambda_2u_2+\dots+\lambda_nu_n : \lambda_1, \dots, \lambda_n\in F, u_1, \dots, u_n\in U\}.$$
 Alternatively, we can say that $\Span U$ is a subset of $V$ such that each $v\in \Span U$ can be wrtitten as a finite \textbf{linear combination} of elements from $U$. It is important
-to \textit{disallow} infinite combinations - the concept of an infinite sum is essentialy topological and we have \textit{not} assumed any topology on our space yet! Therefore we cannot
-define convergence and infinite sums.
+to \textit{disallow} infinite combinations - the concept of an infinite sum is essentialy topological and we have \textit{not} assumed any topology on our space yet! Therefore we cannot define convergence and infinite sums.
 
 \begin{prob}
   Consider infinite real sequences with addition and multiplication by a real number defined pointwise: $c=a+b$ iff $c_n=a_n+b_n$ for all $n$ and $b=ra, r\in \mathbb R$ iff $b_n=ra_n$ for all $n$.
@@ -126,6 +125,21 @@ Apparently the proof that \textit{every} vector space is equivalent to the Axiom
   is a basis.
 \end{prob}
 
+\begin{prob}
+  Here you will prove that every linearly independent set of vectors can be extended to a basis of a finite dimensional vector space. Let $V$ be a finite dimensional vector space
+  of dimension $n$.
+  \begin{enumerate}
+    \item Let $S=\{v_1,\, v_2,\dots,\, v_k\}\subseteq V$ be linearly independent. Prove that if $u\in V$, but $u\notin \Span S$, then $\{u\}\cup S$ is linearly independent.
+    \item Prove that there are $u_1, u_2, \dots,u_{n-k}$ such that $v_1, v_2, \dots, v_k, u_1, u_2,\dots, u_{n-k}$ is a basis of $V$.
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Assume that you have a basis $e_1, e_2,\dots,e_n$ of a finite dimensional vector space $V$ over a field $\mathbb F$. Therefore every vector $v$ can be written as a sum
+  $v=v_1e_1+v_2e_2+\dots+v_ne_n$ for some $v_i\in \mathbb F$. Prove that these numbers are unique, that is if $v=v_1e_1+v_2e_2+\dots+v_ne_n=v'_1e_1+v'_2e_2+\dots+v'_ne_n$, then
+  $v_i=v'_i$ for all $i$. Hint: $0=v-v$ and $e_i$ are linearly independent.
+\end{prob}
+
 \subsection{Subspaces, direct sum and quotient spaces}
 As in the case of topological spaces, there are many ways of constructing \textit{new} vector spaces from old. In topology we could construct
 new spaces taking a subset of a known topological space, take disjoint unions (sums) of topological spaces, divide topological spaces by some relations
@@ -146,10 +160,6 @@ Such a $U$ we call a \textbf{vector subspace} of $V$.
   Let $V$ be a finite dimensional vector space and $U\subseteq V$ be a vector subspace. Prove that $\dim U=\dim V$ iff $U=V$.
 \end{prob}
 
-\begin{prob}
-
-\end{prob}
-
 There is also a method of constructing direct sums: assume that you have two vector spaces $V, W$ over \textit{the same field} $F$. We define their direct sum as:
 $$V\oplus W=V\times W = \{(v,w) : v\in V,\, w\in W\}$$
 with addition and multiplication defined entrywise:
@@ -161,22 +171,192 @@ We often identify $v\in V$ with $(v,0)\in V\oplus W$ and $w\in W$ with $(0,w)\in
   Prove that each $w\in V\oplus U$ has a \textit{unique} decomposition: $w=v+u,\, v\in V,\,u\in U$. That is if $w=v+u=v'+u'$, then $v=v'$ and $u=u'$ for $v,v'\in V,\, u,u'\in U$.
 \end{prob}
 
-Our general definition has a very nice interpretation when we go to subspaces -
-now assume that you have two subspaces of $V$: $U,W\subseteq V$ such that $U\cap W=0$. Their \textbf{direct product} is a set:
-$$U\oplus W =\{au+bv : u\in U,\, v\in V,\, a,b,\in F\}$$
-
 \begin{prob}
-  Prove that the direct product of two subspaces is a special case of the general definition, with the identification $v\leftrightarrow(0,v)$ employed.
+  Let $U$ and $V$ be finite dimensional vector spaces. Prove that $\dim U\oplus V = \dim U + \dim V.$
 \end{prob}
 
 \begin{prob}
-  Prove that direct product of two vector subspaces of $V$ is a vector subspace of $V$. Hint: check if 0 is inside and use the handy, one-line criterion.
+  Let $V_1, \,V_2,\, V_n$ be finite dimensional vector spaces. Prove that $$\dim V_1\oplus V_2\oplus\dots\oplus V_n=\dim V_1 + \dim V_2 + \dots + \dim V_n.$$
+\end{prob}
+
+Our general definition has a very nice interpretation when we go to subspaces -
+now assume that you have two subspaces of $V$: $U,W\subseteq V$ such that $U\cap W=0$. Their \textbf{direct product} is a set:
+$$U\oplus W =\{u+v : u\in U,\, v\in V\}$$
+
+\begin{prob}
+  Prove that the direct product of two vector subspaces is a special case of the general definition if we identify $U\ni u\leftrightarrow(u,0)\in U\times V$, $V\ni v\leftrightarrow (0,v)\in U\times V$ employed.
+\end{prob}
+
+\begin{prob}
+  Prove directly that direct product of two vector subspaces of $V$ is a vector subspace of $V$. Hint: check if 0 is inside and use the handy, one-line criterion.
+\end{prob}
+
+\begin{prob}
+  Let $U$ be a subspace of $V$ and $V$ be a subspace of $W$. Prove that $U$ is subspace of $W$.
 \end{prob}
 
 \begin{prob}
   Let $V=\mathbb R^2$ and $U=\{(0, r) : r\in \mathbb R\},~W=\{(r, 0) : r\in \mathbb R\}$. Prove that:
   \begin{enumerate}
     \item $V=U\oplus W$.
-    \item Let $U\hat{\oplus}W=\{u+v : u\in U,\, v\in V\}$. Prove that this set is \textit{not} a vector space.
+    \item Prove that $U\cup V$ is \textit{not} a vector space.
   \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Let $U,W\subseteq V$ be two vector subspaces of a finite vector space $V$. Prove that:
+  \begin{enumerate}
+    \item $U\cap W$ is a subspace of $U$, $W$ and $V$.
+    \item $U+W:=\{u+w : u\in U, w\in W\}$ is a vector subspace\footnote{if $U\cap W=\emptyset$ we have just $U+W=U\oplus W$} of $V$
+    \item Take a basis $B_i$ of $U\cap W$ and extend it using some vectors $B_U\subseteq U$ such that $B_i\cup B_U$ is a basis of $U$.
+      Repeat this procedure of $W$ defining $B_W$ and prove that $V=\Span B_i\cup B_U\cup B_W.$
+    \item Prove that $B_i\cup B_U\cup B_V$ is linearly independent. Hint: write the condition of linear independence. Express the linear combination of the elements of $B_U$ as a linear combination of $B_i$ and $B_V$. Why is this linear combination in $U\cap V$? What you can conclude from the fact that $B_i\cup B_U$ is a basis?
+    \item Prove that $\dim U+V=\dim U+\dim V - \dim U\cap V$.
+  \end{enumerate}
+\end{prob}
+
+\subsection{Quotient spaces}
+Let us introduce a relation:
+\begin{prob}
+  Consider vector space $V$ and it's subspace $U$. We introduce a relation on $V$: $v\approx u$ iff $v-u\in V$. Prove that $\approx$ is an equivalence relation.
+\end{prob}
+We have an equivalence relation, so it splits $V$ into equivalence classes $V/\approx$.
+
+\begin{prob}
+  Prove that addition and scalar multiplication on $V/\approx$ are well-defined (independent on the class representative), that is:
+  \begin{enumerate}
+    \item if $v\approx v'$ and $u\approx u'$, then $v+u\approx v'+u'$
+    \item if $\alpha$ is a scalar and $v\approx v'$ are vectors in $V$, then $\alpha v\approx \alpha v'$.
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Prove that under relation $\approx$, $U$ is identified with 0.
+\end{prob}
+
+We have vector addition and scalar multiplication, we have a neutral element - we have a new vector space! This vector space is called \textbf{quotient space} and usually written as
+$V/U$.
+
+\begin{prob}
+  Let $U\subseteq V$ be finite-dimensional vector spaces. Prove that $\dim V/U=\dim V - \dim U$. Hint: guess what is the basis of $V/U$ starting with basis of $U$ and completing
+  it to the basis ov $V$.
+\end{prob}
+
+\section{Linear maps}
+As continous functions are in some kind, natural mappings between topological spaces, we can define such natural mappings between vector spaces. Let $V$ and $W$ be vector spaces over
+the same field $\mathbb F$. We say that a function $L:V\to W$ is \textbf{linear} iff $L(\alpha v + \beta u)=\alpha L(v) + \beta L(u)$ for every $v,u\in V,\, \alpha,\beta\in \mathbb F$.
+
+\begin{prob}
+  Let $L:V\to W$ be a function between vector spaces over field $\mathbb F$. Prove that the following sentences are equivalent:
+  \begin{enumerate}
+    \item $L$ is linear
+    \item for every $u,v\in V$ and $\alpha\in \mathbb F$, we have $L(\alpha u+v)=\alpha L(u)+L(v)$
+    \item for every $v,u\in V$ we have $L(v+u)=L(v)+L(u)$ and for every $v\in V, \alpha\in \mathbb F$ we have $L(\alpha v) = \alpha L(v)$
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Let $U$ be a vector subspace of $V$. Prove that \textbf{the inclusion map} $\iota : U\to V$ given as $\iota(u)=u$ is linear.
+\end{prob}
+
+\begin{prob}
+  Let $U$ be a vector subspace of $V$. Prove that \textbf{the quotient map} $q: V\to V/U$ given as $q(v)=[v]$ is linear.
+\end{prob}
+
+\subsection{Kernel and cokernel}
+\begin{prob}
+  Let $L:V\to W$ be a linear map between vector spaces.
+  \begin{enumerate}
+    \item Prove that $L(0_V)=0_W$, where $0_V$ is the neutral element in $V$ and $0_W$ is the neutral element in $W$.
+    \item Prove that the \textbf{kernel of} $L$ defined as: $\Ker L = \{v\in V : L(v) = 0_W\}$ is a vector subspace of $V$.
+    \item Prove that the image of $L$ is a vector subspace of $W$. The dimension of $\Image L$ is called \textbf{the rank} of $L$: $\Rank L = \dim \Image L$.
+    \item Let $V=\Span S$. Prove that $\Image L=\Span L(S)$. Here $L(S)$ has meaning $\{L(s) : s\in S\}$.
+    \item Prove that if $V$ is finite dimensional, then $\Image L$ is also finite dimensional.
+  \end{enumerate}
+\end{prob}
+
+Using kernel we can say whether a linear function is injective:
+\begin{prob}
+  Prove that $\varphi : V\to U$ is injective iff $\Ker \varphi = \{0\}$.
+\end{prob}
+
+There is a similar concept, checking the surjectivity. We say that the cokernel of a linear map $L: V\to U$ is a \textit{quotient} vector space: $U/\Image L.$
+
+\begin{prob}
+  Prove that $\varphi : V\to U$ is surjective iff $\Coker \varphi$ has exactly one element (is a trivial vector space).
+\end{prob}
+
+\subsection{Rank-nullity theorem}
+You can prove the rank-nullity theorem:
+\begin{prob}
+  Prove the \textbf{rank-nullity theorem} - if $V$ is a finite dimensional vector space and $L:V\to W$ is linear, then $\dim \Ker L + \Rank L=\dim V$.
+\end{prob}
+
+\begin{prob}
+  You can do a beuatiful and simple proof of $\dim U+V = \dim U + \dim V - \dim U\cap V$, where $U$ and $V$ are finite-dimensional subspaces of some greater space $S$.
+  Consider a map $L: U\times V\to S$ defined as $L(u,w)=u-w$. Prove that it is a linear map (we give $U\times V$ a linear space structure using entry-wise operations, as in
+  $U\oplus V$). What is it's range and kernel?
+\end{prob}
+
+\begin{prob}
+  Let $\varphi : V\to U$ be a map between finite-dimensional vector spaces. Prove that the \textbf{index} of $\varphi$ defined as $\text{index\,} T=\dim \Ker \varphi - \dim \Coker \varphi$ is equal to:
+   $\text{index\,} T=\dim V - \dim U$.\footnote{This is a very important result - index, defined with the help of a chosen function is doesn't in fact depend on this function! A beautiful generalisation of this result, is called Atiyah-Singer index theorem.}
+\end{prob}
+
+In the category of topological spaces, homeomorphic spaces have the same topological properties (as connectedness or Haussdorf property). We say that a map $L:W\to W$ is a
+\textbf{isomorphism\footnote{from the Ancient Greek \textit{isos} - equal and \textit{morphe} - shape} of vector spaces} iff is bijective and both $L$ and $L^{-1}$ are linear and
+we can say that abstract\footnote{Later we will define additional structures on vector spaces for which just arbitrary isomorphisms are not sufficient} vector spaces are identical if they are isomorphic.
+
+\begin{prob}
+  Prove that $V$ and $\{0\}\times V$ are isomorphic. (Do you remember the direct sum of two subspaces? In fact we used there this isomorphism).
+\end{prob}
+
+You can also classify all finite-dimensional vector spaces over the same field, up to isomorphism:
+
+\begin{prob}
+  Prove that two finite-dimensional vector spaces are isomorphic if and only if they have the same dimension. Hint: right implication - rank-nullity theorem, left - write down bases.
+\end{prob}
+
+As we remember $\F^n$ is an $n$-dimensional vector space over $\F$. Therefore many people learn how to work only on them, as all the vector space properties can be
+just transferred from $\F^n$. We will not do it, as the isomorphism is usually not-unique and does not preserve additional structures, very important in more advanced geometry.
+Such chosen isomorphisms will later give a raise to objects called metric tensors and symplectic forms.
+
+\subsection{Exact sequences}
+In algebraic topology topological spaces are investigated by assigning to them algebraic objects, like vector spaces or groups. One of frequently-occuring concept are exact sequences.
+Consider a sequence of vector spaces\footnote{Or, more generally, Abelian groups as we will need only to use such properties as kernel, image and quotient spaces.} $V_i,~i\in \{1,2,\dots\}$ and linear maps between them $\varphi_i : V_i\to V_{i+1}$. It is often written as:
+$$\dots\stackrel{\varphi_{i-1}}{\longrightarrow} V_i\stackrel{\varphi_i}\longrightarrow V_{i+1} \stackrel{\varphi_{i+1}}\longrightarrow \dots,$$
+and map $\varphi_i$ is referenced as $V_i\to V_{i+1}$. We say that the sequence is \textbf{exact} if $\Image \varphi_{i}=\Ker \varphi_{i+1}$ for all $i$.
+
+\begin{prob}
+  Prove that if sequence of vector spaces $V_i$ and maps $\varphi_i : V_i\to V_{i+1}$, is exact, then $\varphi_i\circ \varphi_{i+1}=\textbf{0}$, where \textbf{0} is a null \footnote{Later we will refer to this map just as 0 - now this symbol has at least three meanings! It can be an additive neutral element of a field, a neutral element in a vector space or a linear map!} map $\textbf{0}: V_i\to V_{i+2}$ defined as $\textbf{0}(v)=0$.
+\end{prob}
+
+Consider a $0$-dimensional vector space $\{0\}$, which is usually abbreviated to just 0\footnote{Similar notational discrepancy was in the set theory - we wanted to write
+$f^{-1}(a)$ for $f^{-1}(\{a\})$.
+
+}. An exact sequence (Remember! Here 0 means $\{0\}$):
+$$0\stackrel{\varphi_1}{\longrightarrow} V_2\stackrel{\varphi_2}{\longrightarrow} V_3\stackrel{\varphi_3}{\longrightarrow} V_4\stackrel{\varphi_4}{\longrightarrow} 0$$
+is called a \textbf{short exact sequence}. Longer exact sequences are called, obviously, \textbf{long exact sequences}.
+
+\begin{prob}
+  Prove the following:
+  \begin{enumerate}
+    \item sequence $V\stackrel{\varphi}{\longrightarrow}U\longrightarrow 0$ is exact iff $\varphi$ is surjective. Hint: what is kernel of the map $U\to 0$?
+    \item sequence $0\longrightarrow V\stackrel{\varphi}{\longrightarrow}U$ is exact iff $\varphi$ is injective. Hint: do you remember how injectivity is related to some kernel?
+    \item sequence $0\longrightarrow V\stackrel{\varphi}{\longrightarrow}U\longrightarrow 0$ is exact iff $V$ and $U$ are isomorphic.
+    \item short sequence
+      $0\longrightarrow V_2\stackrel{\varphi_2}{\longrightarrow} V_3\stackrel{\varphi_3}{\longrightarrow} V_4\longrightarrow 0$
+      is exact iff $\varphi_2$ is injective and $\varphi_3$ is surjective.
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Use the rank-nullity theorem and prove that if $0\to V_0\to V_1\to\dots\to V_{n-1}\to V_n\to 0$ is exact, then
+  $$0=\sum_{i=0}^n (-1)^i \dim V_i.$$
+\end{prob}
+
+\begin{prob}
+  Consider a linear map $L : V\to U$. Prove that the sequence:
+  $$0\longrightarrow \Ker L\stackrel{\kappa}{\longrightarrow} V\stackrel{L}{\longrightarrow} U\longrightarrow \Coker L \longrightarrow 0$$
+  is exact, where $\kappa : \ker L \to V$ is inclusion map: $\kappa :\Ker L\ni l\to l\in V$.
 \end{prob}
