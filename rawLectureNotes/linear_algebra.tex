@@ -364,3 +364,38 @@ is called a \textbf{short exact sequence}. Longer exact sequences are called, ob
 \begin{prob}
   Let $L : V\to U$ be a map between finite-dimensional vector spaces. Prove once again that the $\text{index\,} L:=\dim \Ker L - \dim \Coker L =\dim V - \dim U$.
 \end{prob}
+
+\section{Dual spaces}
+Consider a vector space $V$ over a field $\F$ and the set of all \textit{linear} functions from $V$ to $\F$. This set is called
+\textbf{the dual space} $V^*$. Apparently, this set is a vector space!
+\begin{prob}
+  Prove that $V^*$ is a vector space by:
+  \begin{enumerate}
+    \item Finding the neutral element. Hint: function that always yields 0 is linear.
+    \item Proving that addition and scalar multiplication can be defined, so if $\mu,\,\omega \in V^*$ and $a\in \F$, then function $a\mu +\omega$, defined as:
+     $(a\mu +\omega)(v) = a\cdot \mu(v) +\omega(v)$ for all $v\in V$, is linear.
+  \end{enumerate}
+\end{prob}
+
+Sometimes we write $\BL \omega, v\BR := \omega(v)\in \F$ for $v\in V$ and $\omega \in V^*$.
+
+\begin{prob}
+  Let $V^{**}=(V^*)^*$ be the dual space of the dual space to $V$. We will try to prove that, in some sense, $V$ is a subset of it. Prove that:
+  \begin{enumerate}
+    \item For each $v\in V$ there is a $\tilde v\in V^{**}$ such that for every $\omega \in V^*$ such that $\BL \tilde v, \omega\BR=\BL \omega, v\BR$
+    \item Prove that the map $v\mapsto \tilde v$ is a monomorphism (an injective linear map).
+  \end{enumerate}
+\end{prob}
+
+Therefore we can think about $V$ as a set of \textit{some} linear functions on $V^*$ and write $v(\omega)$ as well as $\omega(v)$. The word \textit{some} is necessary -
+we have proven that it is a monomorphism, but we don't know whether it is an isomorphism\footnote{Unfortunately for vector spaces $V$ of \textit{infinite} dimension, $V^*$ is greater than $V$ and consequently $V^{**}$ is greater than both $V^*$ and $V$.}! Fortunately, there is a nice theorem for vector spaces of finite dimension:
+
+\begin{prob}
+  Let $V$ be a finite dimensional space with basis $e_1,e_2,\dots,e_n$. Prove that $\mu^1, \mu^2,\dots,\mu^n\in V^*$ defined as
+    $$\mu^i(e_j)=\begin{cases}1 \text{ if } i=j\\ 0 \text{ otherwise}\end{cases},$$
+  is a basis of $V^*$.
+\end{prob}
+
+As we know that in this case $V$ and $V^*$ have the same dimension, we can find an isomorphism between them - so they can be identified.
+Unfortunately, for our future needs, just an isomorphism is not enough. We will be interested mostly in \textbf{natural} or \textbf{canonical} isomorphisms, that
+is isomorphisms that don't need a basis to be defined.
