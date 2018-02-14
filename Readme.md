@@ -11,15 +11,15 @@ and taking them to the classes.
 ### Schedule
 
 #### HT 2018
-| Time              | Main topic          | Topics |
-| ----------------- | ------------------- | ------ |
-| Week 2, Wed 17:10 | Sets and functions  | Sets, functions, cardinality, logical formulas, mathematical induction |
-| Week 3, Wed 17:10 | Topology 1          | Pre-image, open and closed sets, interior, closure, exterior, boundary |
-| Week 4, Wed 17:10 | Topology 2          | Compact and connected spaces, homeomorphisms, bases, nets, filters, separation and countability axioms, topological manifolds |
-| Week 5, Wed 17:10 | Pseudometric spaces | Baire category theorem, sequences. Probably we will start mutlilinear algebra |
-| Week 6, Wed 17:10 | Multilinear algebra | Vector space, it's dual and tensors. Exterior algebra |
-| Week 7, Wed 17:10 | Euclidean spaces    | Differentiability and integration in R^n. Introduction to smooth manifolds |
-| Week 8, Wed 17:10 | Manifolds           | Structures living on manifolds - sections of bundles, Riemannian structure, analytical mechanics |
+| Time              | Main topic            | Topics |
+| ----------------- | --------------------- | ------ |
+| Week 2, Wed 17:10 | Sets and functions    | Sets, functions, cardinality, logical formulas, mathematical induction |
+| Week 3, Wed 17:10 | Topology 1            | Pre-image, open and closed sets, interior, closure, exterior, boundary |
+| Week 4, Wed 18:00 | Topology 2            | Homeomorphisms, bases, countability axioms, topology of real numbers |
+| Week 5, Wed 18:00 | Top. 3 & Lin. Algebra | New spaces and topological properties. Linear spaces, bases and exact sequences. |
+| Week 6, Wed 18:00 | Multilinear algebra   | Dual spaces, tensor spaces, exterior algebra |
+| Week 7, Wed 18:00 | Euclidean spaces      | Differentiability and integration in R^n. Introduction to smooth manifolds |
+| Week 8, Wed 18:00 | Manifolds             | Structures living on manifolds - sections of bundles, Riemannian structure, analytical mechanics |
 
 ### Special thanks
 Special thanks to prof. Don Grainger and St. Hugh's College, especially Ms. Megan Kerry, for making organisation of this course possible.
