@@ -387,6 +387,19 @@ Sometimes we write $\BL \omega, v\BR := \omega(v)\in \F$ for $v\in V$ and $\omeg
   \end{enumerate}
 \end{prob}
 
+\begin{prob}
+  Let $f : V\to U$ be a linear map between finite dimensional spaces. We define $f^*:U^*\to V^*$ as follows:
+  \begin{figure}
+    \centering
+    \begin{tikzcd}
+      V \arrow[rd, "f^*(\omega)"] \arrow[rr, "f"] &       & U \arrow[ld, "\omega"]\\
+                                             &  \R   &
+    \end{tikzcd}
+  \end{figure}
+  Prove that such map is linear and that $f^*\circ \omega = \omega\circ f$ for every $\omega\in U^*$. Here we see how a function sending vectors in one direction can naturally
+  induce a linear map that ,,pulls-back" dual vectors.
+\end{prob}
+
 Therefore we can think about $V$ as a set of \textit{some} linear functions on $V^*$ and write $v(\omega)$ as well as $\omega(v)$. The word \textit{some} is necessary -
 we have proven that it is a monomorphism, but we don't know whether it is an isomorphism\footnote{Unfortunately for vector spaces $V$ of \textit{infinite} dimension, $V^*$ is greater than $V$ and consequently $V^{**}$ is greater than both $V^*$ and $V$.}! Fortunately, there is a nice theorem for vector spaces of finite dimension:
 
@@ -398,4 +411,130 @@ we have proven that it is a monomorphism, but we don't know whether it is an iso
 
 As we know that in this case $V$ and $V^*$ have the same dimension, we can find an isomorphism between them - so they can be identified.
 Unfortunately, for our future needs, just an isomorphism is not enough. We will be interested mostly in \textbf{natural} or \textbf{canonical} isomorphisms, that
-is isomorphisms that don't need a basis to be defined.
+is isomorphisms that don't need a basis to be defined. For example, definitions of quotient spaces or $V\times \{0\}\approx V$ did not invoke bases, so these are examples of naturally
+isomorphic spaces. It has a great geometrical meaning - we don't want to choose one special basis, it would be rather more convenient to use \textit{any} basis we would like to.
+This is exactly what we do in differential geometry - we manipulate with objects that are basis and coordinate independent, what allows us to prove theorems in bases that fit to
+the problem.
+
+\section{Tensors}
+Consider vector spaces $V_1, V_2,\dots V_n$ and a function $f: V_1\times V_2\times\dots\times V_n\to \F$. We say that $f$ is \textbf{multilinear} if for every $i$ we have:
+$$f(v_1,\dots, v_i+\alpha v_i', \dots, v_n) = f(v_1,\dots v_i, \dots, v_n) + \alpha f(v_1,\dots, v_i', \dots, v_n).$$
+
+\begin{prob}
+  Consider a multilinear function $f$ from $V_1\times V_2\times \dots \times V_n$ to $\F$. Prove that $f$ is a linear mapping from $V_1\oplus V_2\oplus\dots\oplus V_n$,
+  to $\F$.
+\end{prob}
+
+But being linear and multilinear is not equivalent:
+
+\begin{prob}
+  Find such $f$ that $f$ is a linear mapping from $V_1\oplus V_2\oplus\dots\oplus V_n$,to $\F$, but $f$ \textit{cannot} be treated as a mutlilinear function from
+  $V_1\times V_2\times \dots \times V_n$ to $\F$.
+\end{prob}
+
+\subsection{Universal property}
+
+We should on some way improve this vulnerability by creating an object that would interplay between linear and multilinear mappings.
+Consider finite dimensional $V$ and $W$. We want to create a vector space called \textbf{tensor produt} and denoted as $V\otimes W$ such that:
+\begin{itemize}
+  \item for $(v,w)\in V\times W$, there is a vector $v\otimes w\in V\otimes W$
+  \item map $\varphi:V\times W\to V\oplus W$ is bilinear, where $\varphi(v,w)=v\otimes w$. That is we require: $(v+\alpha v')\otimes w = v\otimes w + \alpha v'\otimes w$
+    and $v\otimes (w+\alpha w') = v\otimes w + \alpha v\otimes w'$.
+\end{itemize}
+Then such vector space $V\otimes W$ and map $\varphi$ have \textbf{universal factorisaction property}, that is let $f : V\times W\to U$ be any bilinear map. Then there is \textit{unique} linear function $\tilde f:V\otimes W\to U$ such that $f = \tilde f\circ\varphi$. It can be expressed in terms of the following diagram:
+
+\begin{figure}
+  \centering
+  \begin{tikzcd}
+    V\times W \arrow[rd, "f"] \arrow[r, "\varphi"] & V\otimes W \arrow[d, "\tilde f"]\\
+    & U
+  \end{tikzcd}
+\end{figure}
+
+Using this property, we can prove that tensor product of vector spaces is unique, commutative and associative.
+
+\begin{prob}
+  Let $V$ and $W$ be vector spaces. Assume that there is a space $T$ and bilinear map $\varphi$ have the universal property and space $U$ an bilinear map $\theta$ also have
+  the universal property. Prove that $T$ and $U$ are naturally isomorphic.
+\end{prob}
+
+\begin{prob}
+  Define $f:V\times W\to W\otimes V$ as $f(v,w)=w\otimes v$. Using the universal property, prove that there is an isomorphism $v\otimes w\mapsto w \otimes v$.
+\end{prob}
+
+\begin{prob}
+  Prove that there is a canonical isomorphism between $(U\otimes V)\otimes W$ and $U\otimes (V\otimes W)$ by:
+  \begin{enumerate}
+    \item Proving that map $\lambda_u : V\times W\to (U\otimes V)\otimes W$ given by $\lambda_u(v,w)=(u\otimes v)\otimes w$ is bilinear.
+    \item As $\lambda_u$ is bilinear, you can find linear map $\tilde \lambda_u: V\otimes W\to (U\otimes V)\otimes W$. Prove that map
+      $\Lambda : U\times (V\otimes W)\to (U\otimes V)\otimes W$ given by $\Lambda (u, \omega)=\tilde\lambda_u(\omega)$ is bilinear. Find therefore a map
+      $U\otimes (V\otimes W)$ to $(U\otimes V)\otimes W$.
+  \end{enumerate}
+\end{prob}
+
+\subsection{Construction}
+But a question arises - is it possible to contruct such space? We give two equivalent constructions. Consider a set $S$ and a field $\F$.
+\begin{prob}
+  Let $V$ be a set of all functions from set $S$ to field $\F$ such that $f(s)=0$ for all but finitely many $s\in S$. Prove that $V$ is a vector space.
+\end{prob}
+
+We usually write $f\in V$ as $f=a_1s_1 + a_2s_2+\dots+a_ns_n$, where $s_i\in S$ are some elements and $a_i=f(s_i)\in F$.
+
+\begin{prob}
+  Consider a set $S$ and a free vector space generated by it $V_S$. We define inclusion mapping $\iota : S\to V_S$ as $S\ni s \mapsto s\in V_s$. Prove that for every function
+  $f: S\to U$, where $U$ is a vector space, there is a unique linear map $\tilde f: V_S\to U$ such that $f=f\circ \iota$. This can be written as a commutative diagram:
+
+  \begin{figure}
+    \centering
+    \begin{tikzcd}
+      S\arrow[rd, "f"] \arrow[r, "\iota"] & V_S \arrow[d, "\tilde f"]\\
+      & U
+    \end{tikzcd}
+  \end{figure}
+\end{prob}
+
+\begin{prob}
+  Let $V$ and $W$ be vector spaces over a field $\F$. Let $A$ be a free vector space over $V\times W$.
+  Consider set $S$ containing elements of the forms
+  $$(v+v',w+w')-(v', w'),~~(\alpha v, \alpha w)-\alpha (v,w)$$
+  for $(v,w) \in V\times W$ and it's free vector space $B$.
+  Prove that $V\oplus U$ is naturally isomorphic to $A/B$.
+\end{prob}
+
+\begin{prob}
+  Let $V$ and $W$ be vector spaces over a field $\F$. Let $A$ be a free vector space over $V\times W$. Consider a set $S$ containing all the elements of the forms:
+  \begin{align}
+    (v+v',w)-(v,w)-(v',w),~(\alpha v, w)-\alpha(v,w)\\
+    (v,w+w')-(v,w)-(v,w'),~(v, \alpha w)-\alpha(v,w)
+  \end{align}
+  and it's free vector space $B$. Prove that $A/B$ has the universal property of tensor product, with $v\otimes w = [(v,w)]$.
+\end{prob}
+
+For finite dimensional spaces another construction is possible (as we know - that must be naturally isomorphic to the previous one).
+
+\begin{prob}
+  Let $V$ and $W$ be finite dimensional over $\F$.
+  Consider a set $S$ of all bilinear functions from $V^*\times W^*\to \F$. As we remember, for finite dimensional $V$ we have a natural isomorphism $V\approx V^{**}$,
+  so we can write $v(\nu)\in \F$ for $v\in V,\,\nu\in V^*$. Let's define: $v\otimes w(\nu, \omega) = v(\nu)\times w(\omega)$. Prove that:
+  \begin{enumerate}
+    \item $v\otimes w\in S$ (so it must be a bilinear function)
+    \item $\{v_i\otimes w_j\}$ form a basis of $S$ if $\{v_i\}$ and $\{w_j\}$ are bases of $V$ and $W$.
+    \item $V\otimes W$ defined as above is naturally isomorphic to $S$.
+    \item $\dim V\otimes W = \dim V \cdot \dim W$
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Let $V, W, U$ be finite dimensional vector spaces over the same field. Prove that there is a natural isomorphism:
+  $$V\otimes(W\oplus U)\approx (V\otimes W) \oplus (V\otimes U).$$
+\end{prob}
+
+\begin{prob}
+  Prove that for finite dimensional $V$ and $W$, there is a natural isomorphism between $\Hom(V,W)$ and $V^*\otimes W$.
+\end{prob}
+
+\begin{prob}
+  Prove that for finite dimensional $V$, $\End V$ is naturally isomorphic to to $\End V^*$.
+\end{prob}
+
+% \subsection{Exterior algebra}

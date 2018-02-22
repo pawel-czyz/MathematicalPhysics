@@ -5,137 +5,422 @@
 % use \chaptermark{}
 % to alter or adjust the chapter heading in the running head
 
-If you are already fimilar with operations on logical formulas and sets, you may ommit this chapter.
+Logic is a huge and beautiful branch of mathematics. We will focus on it's basics, topic called ,,propositional calculus". It is a powerful machinery, that will be used later
+to prove theorems and define new objects. Moreover, it gives a good grasp on Boolean algebras, a concept that we will later meet in topology.
 
-\section{Logical formulas}
+\section{Propositional calculus}
+\subsection{New sentences from old}
 \label{sec:logic}
-	Consider declarative sentences as ,,Water boils at $100^\circ$C" or ,,2+2=5". We can construct new sentences from them using the following rules:
-	\begin{enumerate}
-		\item conjuntion (and): $p \wedge q$ is true if and only if $p$ is true and $q$ is true
-		\item disjuntion (or): $p \vee q$ is true if and only if at least one of sentences $p,\, q$ is true
-		\item implication: $p \Rightarrow q$ is false if and only if $p$ is true and $q$ is false. Intuitively,
-			if you know that $p$ implies $q$ and $p$ is true, then $q$ also must be true
-		\item negation (not): $\neg p$ is true if and only if $p$ is false
-		\item equivalence (iff, if and only if): $p\Leftrightarrow q$ means exactly
-			$(p\Rightarrow q)\wedge(q\Rightarrow p)$. Intuitively if you know that two sentences are equivalent
-			and one of them is true, the other is also true. Or if one of them is false, the other one is automatically false.
-	\end{enumerate}
+Consider declarative sentences as "It's raining in Oxford now." or "2+2=5" that can be either true or false. There are many ways how to construct new sentences and decide
+whether they are true or not.
 
-\noindent Because mathematics is the art of being smart and lazy, we will assign value 1 to true sentences and 0 to
-false sentences.
+\begin{definition}
+  % Equivalence - definition
+  Consider sentences $p$ and $q$. We say that they \textbf{are equivalent} (we write then $p\Leftrightarrow q$) if they are either true or false simultaneously.
+  If $p$ and $q$ are equivalent, we usually say "$p$ if and only if $q$" of even "$p$ iff $q$".
+\end{definition}
 
-\begin{prob}
-Prove that the following sentences are true:
-	\begin{enumerate}
-		\item $\neg(\neg p) \Leftrightarrow p$
-		\item $p\vee \neg p$
-		\item $\neg (p\wedge q) = (\neg p)\vee (\neg q)$
-		\item $\neg (p\vee q) = (\neg p)\wedge (\neg q)$
-		\item $(p\Rightarrow q)\Leftrightarrow (\neg p) \vee q$
-		\item $0\Rightarrow 1$
-	\end{enumerate}
-\end{prob}
+\begin{example}
+  % Equivalence - example, people in a room
+  Let $p$ be a sentence "The number of people in the room you are sitting is odd" and $q$ be "If one person enters the room, then the number of people will become even".
+  We \textit{do not know} if any of these sentences is true - it would require to count all the people. But if $p$ is true, then also $q$ must be true and vice versa - if $q$ is
+  true, then also $p$ must be true. Therefore we can say that $p$ and $q$ are equivalent, or write $p\Leftrightarrow q$.
+\end{example}
 
-\begin{prob}
-Prove that:
+\begin{exercise}
+  % Equivalence - transitivity
+  Prove that if we know that $p\Leftrightarrow q$ and $q\Leftrightarrow r$, then also $p\Leftrightarrow r$.
+\end{exercise}
+
+\begin{definition}
+  % Conjunction - definition
+  Consider sentences $p$ and $q$. We say that their \textbf{conjunction} $p\wedge q$ is true iff both of them are true. Usually conjunction of $p$ and $q$ is
+  referred as "$p$ and $q$".
+\end{definition}
+
+\begin{example}
+  % Conjunction - simple example
+  Sentence: "2+2=5" and "2+1=3" is false, as one of them (namely, the first one) is false.
+\end{example}
+
+\begin{exercise}
+  % Conjunction - commutativity
+  Let $p$ and $q$ be two sentences. Prove that $p\wedge q$ is true if and only if $q\wedge p$ is true. As we can swap two elements, we say that conjunction is \textbf{commutative}.
+\end{exercise}
+
+\begin{exercise}
+  % Conjunction - associativity
+  Let $p,\, q,\, r$ be three sentences. Prove that $(p\wedge q)\wedge r$ is true if and only if $p\wedge (q\wedge r)$ is true. Such a property is called \textbf{associativity}
+  and implies that we do not need to specify the order of calculation. Therefore we can write just $p\wedge q\wedge r$.
+\end{exercise}
+
+\begin{definition}
+  % Disjunction - definition
+  Consider sentences $p$ and $q$. We say that their \textbf{disjunction} $p\vee q$ is true if and only if at least one of them is true. Usually disjunction of $p$ and $q$ is
+  referred as "$p$ or $q$".
+\end{definition}
+
+\begin{exercise}
+  % Disjunction - associativity and commutativity
+  Prove that disjunction is both associative and commutative.
+\end{exercise}
+
+\begin{definition}
+  % Negation - definition
+  \textbf{Negation} of $p$ is a sentence $\neg p$ such that $\neg p$ is true if and only if $p$ is false. Usually we refer to $\neg p$ as "not $p$".
+\end{definition}
+
+\begin{exercise}
+  % Negation - alternative definition as an exercise
+  Prove that if $\neg p$ is false if and only if $p$ is true.
+\end{exercise}
+
+% Proof strategy - truth table
+Now we will stop and think about proof strategies. Sometimes there is an elegant way how to prove that two statements are equivalent (like in the proof of associativity of
+conjunction, one can see that both sentences are true iff all three basic sentences are true), but in case of more complicated sentences, it may be hard to find it. Common
+proof strategy is \textbf{truth table} approach: we list in a table all the values that each basis sentence can take and evaluate the value of final expression.
+Then two sentences are equivalent iff they have the same truth tables.
+
+\begin{example}
+  % Truth table - conjunction
+  Truth table for conjunction:\\
+  \begin{center}
+    \begin{tabular}{ c  c  c }
+      $p$ & $q$ & $p\wedge q$ \\
+      \hline
+      t  &  t &        t     \\
+      t  &  f &        f     \\
+      f  &  t &        f     \\
+      f  &  f &        f     \\
+    \end{tabular}
+  \end{center}
+  where $t$ stands for "true" and $f$ stands for "false".
+\end{example}
+
+This is a very powerful approach, as it requires no clever tricks but a simple calculation. The only problem is the number of calculations, that grows very quickly with
+the number of basic sentences!
+
+\begin{exercise}
+  % Truth table - 2^n rows.
+  Assume that you have built a sentence using $n$ sentences: $p_1, p_2, \dots, p_n$. How many rows does the truth table contain?
+\end{exercise}
+
+\begin{exercise}
+  % Conjunction and disjunction - distributivity
+  Prove \textbf{distributivity}:
   \begin{enumerate}
     \item $(p\wedge q)\vee r \Leftrightarrow (p\vee r) \wedge (q\vee r)$
     \item $(p\vee q)\wedge r \Leftrightarrow (p\wedge r) \vee (q\wedge r)$
   \end{enumerate}
-\end{prob}
+\end{exercise}
 
-\noindent Equipped with this powerful machinery we can dive into basic set theory.
+\begin{exercise}
+  % De Morgan's laws
+  Prove \textbf{De Morgan's laws}:
+  \begin{enumerate}
+    \item $\neg (p\wedge q) = (\neg p)\vee (\neg q)$
+    \item $\neg (p\vee q) = (\neg p)\wedge (\neg q)$
+  \end{enumerate}
+\end{exercise}
+
+\begin{definition}
+  We say that $p$ \textbf{implies} $q$ (or that $q$ \textbf{is implied by} $p$) for a sentence $p\Rightarrow q$ that is false iff $p$ is false and $q$ is true.
+  We can summarise it in a truth table:
+  \begin{center}
+    \begin{tabular}{ c  c  c }
+      $p$ & $q$ & $p\Rightarrow q$ \\
+      \hline
+      t  &  t &        t     \\
+      t  &  f &        f     \\
+      f  &  t &        t     \\
+      f  &  f &        t     \\
+    \end{tabular}
+  \end{center}
+  As you can see, it's a strange behaviour - false implies everything!
+\end{definition}
+
+\begin{exercise}
+  % Implication - expression in terms of negation and disjunction
+  Prove that $(p\Rightarrow q)\Leftrightarrow (\neg p) \vee q$. Hint: left sentence is false for very specific $p$ and $q$. Do you need to write down 4 rows in a truth table for
+  right-hand-side sentence?
+\end{exercise}
+
+\begin{exercise}
+  % Implication - transitivity
+  Prove that implication is \textbf{transitive}, that is $((p\Rightarrow q)\wedge (q\Rightarrow r)) \Rightarrow (p\Rightarrow r)$.
+\end{exercise}
+
+The following exercise will later be a foundation of an operation called orthocomplementation in more general settings:
+\begin{exercise}
+  % Negation as orthocomplementation - properties
+  Let $p$ and $q$ be sentences. Prove that:
+  \begin{enumerate}
+    \item $\neg(\neg p) \Leftrightarrow p$
+    \item $p\Rightarrow q$ implies $(\neg q)\Rightarrow (\neg p)$ (Be smart! How many values of $p, q$ do you need to check?)
+    \item $p\vee (\neg p)$
+    \item $p\wedge (\neg p)$ is \textit{false} (we could write "Prove $\neg(p\wedge (\neg p))$", but it looks much more terrible!)
+  \end{enumerate}
+\end{exercise}
+
+You may have seen similarity between symbols $\Leftrightarrow$ and $\Rightarrow$ - it's not an accident as you can prove!
+\begin{exercise}
+  % Equivalence via implications
+  Prove that $(p\Leftrightarrow q)\Leftrightarrow ((p\Rightarrow q) \wedge (q\Rightarrow p))$.
+\end{exercise}
+
+\subsection{Another point of view}
+In mathematics we have usually many different views on the same thing. Some of them are suited better for some kind of problems, other to others.
+We would like to introduce you to a useful model of propositional calculus. To each true sentence $p$ we assign number $v(p)$
+that is 1 if $p$ is true and 0 if $p$ is false. We define $1+1=1$
+(it's a bit unusual thing). Then:
+\begin{enumerate}
+  \item $a\Leftrightarrow b$ means the same thing as sentence $v(a)=v(b)$.
+  \item $a\wedge b$ means exactly the same thing as $v(a)\cdot v(b)$
+  \item $a\vee b$ means exactly the same thing as $v(a)+v(b)$ (this is the reason why we want $1+1=1$)
+  \item $a\Rightarrow b$ is the same as $v(a)\le (b)$.
+  \item $\neg 1 = 0$ and $\neg 0=1$
+\end{enumerate}
+
+\begin{exercise}
+  % Transitivity
+  Prove transitivity of implication, that is $((p\Rightarrow q)\wedge (q\Rightarrow r)) \Rightarrow (p\Rightarrow r)$ using transitivity of $\le$.
+  It simplifies the proof a bit, doesn't it?
+\end{exercise}
+
+\subsection{Quantifiers}
+Consider a sentence $P(n)$ involving an object $n$ (for example $n$ can be an integer and $P(n)$ can be a sentence $n=2n$).
+\begin{definition}
+  % Universal and existence quantifiers - definition
+  We define \textbf{universal quantifier}
+  as a sentence $\forall_n P(n)$ meaning "for all $n$, the formula $P(n)$ holds".
+  We define \textbf{existential quantifier} as a sentence $\exists_n P(n)$ meaning "there exists $n$ such that $P(n)$ holds"
+  \footnote{$\forall$ is a rotated "A" symbolising "for \textbf{A}ll" and $\exists$ is a rotated "E" symbolising "\textbf{E}xists"}.
+\end{definition}
+
+\begin{example}
+  % Example showing the difference between quantifiers.
+  In case of $P(n)$ meaning "$2n=n$", we $\forall_n P(n)$ is false (as for $n=1$ we have $2\cdot 1\neq 1$) but $\exists_n P(n)$ is true,
+  as $2\cdot 0=0$.
+\end{example}
+
+Intuitively, it is a much simpler problem to give an example of an object with a special property, than proving that \emph{every} object has a property.
+In the above example, we gave an example disproving the statement. It may be useful to convert between these quantifiers. As you can prove:
+
+\begin{exercise}
+  % Quantifiers - negation
+  Prove that:
+  \begin{enumerate}
+    \item $\neg \forall_n P(n) \Leftrightarrow \exists_n \neg P(n)$
+    \item $\neg \exists_n P(n) \Leftrightarrow \forall_n \neg P(n)$
+  \end{enumerate}
+\end{exercise}
 
 \section{Basic set theory}
 \label{sec:basic_set_theory}
 
-\subsection{Rough ideas}
 In modern mathematics we do not define a set nor set membership, so heuristically you can think that set $A$
-is a ,,collection of objects' and $x\in A$ means that the object $x$ is inside this collection. We will assume that any finite collections of elements $\{x_1, x_2, \dots, x_n\}$ is a set
-(the empty set is called $\varnothing$ rather than $\{\}$), moreover we will assume the existence of the following sets:
+is a ,,collection of objects' and $x\in A$ means that the object $x$ is inside this collection.
+We write $x\notin A$ as a shorthand for $\neg (x\in A)$
+
+\begin{example}
+  % Sets - example of their API using a library
+  Consider a library with closed stack and with a webpage. You can check whether there is a specific book inside it -
+  so you can know for example that "Alice's Adventures in Wonderland"
+  is in the stack, but you don't know how many copies there are. Moreover you can't ask about place of the books - there is no concept as being "first" or "second" element,
+  as we can't check the physical stack.
+\end{example}
+
+As we can discover, there are collections of objects that do not form a set:
+\begin{prob}
+  % Russel's paradox - no set of all sets
+  \textbf{Russel's paradox}
+  Let $X$ be a set built from all sets such that $A\notin A.$ Prove that $X$ does not exist. Hint: what if $X\in X$? What if $X\notin X$?
+\end{prob}
+
+Therefore we need to assume the existence of a few sets, and then construct new out of them. We assume that there exist:
 \begin{enumerate}
-	\item real numbers $\mathbb R$
+  \item finite sets (like real libraries with finite number of books), they are written as $\{a_1,a_2,\dots,a_n\}$. Empty set is written as $\emptyset$ rather than $\{\}$.
+	\item real numbers\footnote{You may feel a bit insecure - what are real numbers, integers and so on? We haven't defined them properly yet.
+    We will defer the construction of them to later sections, as what really matters are they \textit{properties} that you learned in elementary school.} $\mathbb R$
 	\item natural numbers $\mathbb N=\{0,1,2,\dots\}$
 	\item integers $\mathbb Z$
 	\item rational numbers $\mathbb Q$
 \end{enumerate}
 
-\noindent We say that two sets are equal ($A=B$) iff they have the same elements
-($x\in A\Leftrightarrow x\in B$). Note, that we do not check how many times $x$ appears in $A$. We can
-just say whether it inside or not.
+\begin{definition}
+  % Equality of sets
+  \textbf{Equality of sets} We say that two sets $A$, $B$ are \textbf{equal} iff they have the same elements, that is:
+  $$A=B\Leftrightarrow \forall_x (x\in A \Leftrightarrow x\in B).$$
+  Sometimes this definition is called the \textbf{axiom of extensionality}.
+\end{definition}
 
-\begin{prob}
-Prove that $\{1,1,2,2,2\}=\{1,2\}$
-\end{prob}
+\begin{definition}
+  % Subset and superset definitions
+  We say that $A$ \textbf{is a subset of} $B$ iff every element of $A$ is also in $B$, that is:
+  $A\subseteq B \Leftrightarrow \forall_a a\in A\Rightarrow a\in B$.
+  If $A$ is a subset of $B$, we also say that $B$ \textbf{is a superset} of $A$.
+\end{definition}
 
-\noindent We assumed the existence of some sets at the beginning. Why? As you can prove not every ,,collection of objects'' is a set:
+% Improvement in quantifier notation
+This is a good opportunity to slightly modify our quantifier notation - usually we will be interested in objects belonging to some sets.
+Formula $$\forall_{a\in A} P(a)$$ means "for all $a\in A$, statement $P(a)$ holds"
+and $$\exists_{a\in A} P(a)$$ means "there is $a\in A$ such that $P(a)$ holds".
 
-\begin{prob}
-	Let $X$ be a set built from all sets such that $A\notin A.$ Prove that $X$ does not exist. Hint: what if $X\in X$? What if $X\notin X$?
-\end{prob}
+\begin{example}
+  % Improved quantifier notation in subset definition
+  We can write $A\subseteq B \Leftrightarrow \forall_{a\in A} a\in B$.
+\end{example}
 
-Therefore at the moment we do not have many sets that we assume to exist. Let's try to define some methods of creating new sets from the know ones:
+\begin{exercise}
+  % Equality using subsets
+  Prove that $A=B$ iff $A$ is a subset of $B$ and $B$ is a subset of $A$.
+\end{exercise}
 
-\subsection{A few ways of constructing new sets}
-\noindent Assume that $A$ and $B$ are sets:
-\begin{enumerate}
-	\item Let's make a formula $F$ that for every element $a\in A$, the value
-		$F(a)$ is true or false. We can then construct a set $S$ with all the elements $a$ from $A$ for which
-		the formula $F(a)$ holds. This set is written explicitly as $S=\{a\in A : F(a)\}$.
-	\item We can form the sum of two sets: $a \in A\cup B$ iff $a\in A$ or $a\in B$.
-	\item We can contruct the intersection of two sets: $a\in A\cap B$ iff $a\in A$ and $a \in B$.
-	\item We can construct the difference of two sets: $A\setminus B = \{a \in A : a\notin B\}$
-\end{enumerate}
+\begin{exercise}
+  % Empty set uniqueness property
+  Here we will prove that the empty set is a unique set with special property of being a subset of every set:
+  \begin{enumerate}
+    \item Prove that for every set $A$, $\emptyset\subseteq A$.
+    \item Let $\theta$ be a set such that $\theta \subseteq A$ for every set $A$. Prove that $\theta=\emptyset$.
+  \end{enumerate}
+\end{exercise}
 
-\begin{prob}
-	Let $A,\,B\,C$ be sets. Prove that:
+\subsection{New sets from old}
+At the moment we do not have many sets. Let's try to define some methods of creating new sets from the know ones:
+
+\begin{definition}
+  % Selecting elements
+  \textbf{Axiom schema of specification} Consider a set $A$ and a statement that assigns a truth value $P(a)$ to each $a\in A$. We can select elements $a$
+  for which formula $P(a)$ is true and create a set\footnote{Some authors write $\{a\in A\,|\,P(a)\}$}:
+  $$\{a\in A : P(a)\}.$$
+\end{definition}
+
+\begin{example}
+  % Example with empty set
+  We assumed that real numbers $\R$ exist. We can construct the empty set using the axiom schema of specification:
+  $\emptyset=\{r\in\R : r=r+1\}.$
+\end{example}
+
+Above axiom schema is important - using this we can prove that there is no set of all sets:
+\begin{exercise}
+  % No set of all sets
+  Prove that there is \textit{no} set of all sets. Hint: assume there is one and select some elements to create Russel's paradox.
+\end{exercise}
+
+Although is is impossible to create the set of all sets, it is possible to create \textit{some} sets of sets.
+
+\begin{definition}
+  % Axiom of power set
+  \textbf{Axiom of power set} Consider a set $A$. We assume that there exists
+  \footnote{We cannot create it using the axiom schema of specification, as there is no set from which we could select subsets of $A$. But since now, we can do it.}
+  \textbf{the power set of $A$} defined as a set of all subsets of $A$:
+  $$\mathcal P(A) := 2^A := \{A' : A'\subseteq A\}.$$
+\end{definition}
+
+\begin{exercise}
+  % Selection of subsets with special property
+  Using the axiom of power set and the axiom schema of specification, justify the notation:
+  $$\{A'\subseteq A : P(A')\}.$$
+\end{exercise}
+
+\begin{exercise}
+  % Number of elements in a power set
+  \begin{enumerate}
+    \item Let $A=\{1,2,3\}$. Find $2^A$. What is the number of elements in $2^A$? How is it related to the
+      number of elements of $A$?
+    \item Let $A$ be a finite set with $n$ elements. Prove that $2^A$ has $2^n$ elements. Hint: every subset is specified by elements that are inside it.
+      For every element you have two options - to select it or not.
+  \end{enumerate}
+\end{exercise}
+
+\begin{definition}
+  % Definition of a family of sets
+  By a \textbf{collection} of sets or \textbf{family of sets} we understand a set of some sets.
+\end{definition}
+
+\begin{definition}
+  % Unions of sets
+  \textbf{Axiom of union} Assume that we are given a family of sets $A$. There is a set called their \textbf{union}\footnote{Again, we cannot use the axiom schema of specification as there is no
+  set of all everything - we would select set of sets it it existed.}:
+  $$\bigcup \mathcal A = \{x : \exists_{X\in \mathcal A} : x\in X\}.$$
+  If the family of sets is indexed by some index, as $\mathcal A = \{A_i : i\in I\}$, we sometimes will write:
+  $$\bigcup_{i\in I} A_i := \bigcup \mathcal A.$$
+\end{definition}
+
+\begin{exercise}
+  % Finite unions
+  Let $A$, $B$ and $C$ be sets. Prove that:
+  \begin{enumerate}
+    \item union defined as $A\cup B=\{x : x\in A \vee x\in B\}$ agrees with $\bigcup \{A, B\}$
+    \item $A\cup B = B\cup A$ (so union is commutative)
+    \item $(A\cup B)\cup C = \bigcup \{A,B,C\}$
+    \item $(A\cup B)\cup C = A\cup (B\cup C)$ (this is called associativity)
+    \item $A\cup A=A$
+  \end{enumerate}
+\end{exercise}
+
+\begin{definition}
+  % Set difference - definition
+  \textbf{Set difference} Let $A$ and $B$ be two sets. We define their \textbf{difference}:
+  $$A\setminus B := A-B := \{a \in A : a\notin B\}$$
+\end{definition}
+
+\begin{exercise}
+  % Using set difference and unions
+  Let $A$ and $B$ be sets. Prove that $A\subseteq B\cup (A\setminus B)$, where the equality holds iff $B\subseteq A$.
+\end{exercise}
+
+\begin{definition}
+  % Intersection of sets
+  Consider a family of sets $\mathcal A$. We define their \textbf{intersection} as a set:
+  $$\bigcap \mathcal A = \left\{x\in \bigcup \mathcal A : \forall_{X\in\mathcal A}\, x\in X\right\}.$$
+  If the family of sets is indexed by some index, as $\mathcal A = \{A_i : i\in I\}$, we sometimes will write:
+  $$\bigcap_{i\in I} A_i := \bigcap \mathcal A.$$
+\end{definition}
+
+\begin{exercise}
+  % Easy exercise for finding an infinite intersection. Maybe too easy.
+	Find sum and intersection of family of subsets of $\mathbb R$: $A_r=\{r, -r\}$ for $r\ge 0.$
+\end{exercise}
+
+\begin{exercise}
+  % Properties of finite intersections
+	Let $A,\,B\,C$ be sets. Writing $A\cap B := \bigcap \{A,B\}$, prove that:
 	\begin{enumerate}
-		\item $A\cup A=A$
-		\item $A\cup B=B\cup A$
-		\item $A\cup (B\cup C)=(A\cup B)\cup C$
-		\item $A\cap A=A$
-		\item $A\cap B=B\cap A$
-		\item $A\cap (B\cap C)=(A\cap B)\cap C$
-		\item $A\cap (B\cup C)=(A\cap B)\cup (A\cap C)$
-		\item $A\cup (B\cap C)=(A\cup B)\cap (A\cup C)$
+		\item $A\cap B=B\cap A$ (commutativity)
+		\item $A\cap (B\cap C)=(A\cap B)\cap C$ (associativity)
+    \item $A\cap A=A$
 	\end{enumerate}
-\end{prob}
+\end{exercise}
 
-\begin{prob}
-	Prove that there is no set of all sets. Hint: assume there is one. Then you can select some sets to form a set that does not exist.
-\end{prob}
+\begin{exercise}
+  % Distributivity of intersection and union
+  Prove distributivity:
+  \begin{enumerate}
+    \item $A\cap (B\cup C)=(A\cap B)\cup (A\cap C)$
+    \item $A\cup (B\cap C)=(A\cup B)\cap (A\cup C)$
+  \end{enumerate}
+\end{exercise}
 
-\noindent Moreover, we will introduce two new symbols, called positive and negative infinity:
-$\infty$ and $-\infty$.
-These are \textit{not} real numbers, just symbols that are used to name a few useful sets:
-
-\begin{align*}
-	(-\infty,b) &= \{x\in \mathbb R : x < b\}\\
-	(-\infty,b] &= \{x\in \mathbb R : x \ge b\}\\
-	(a,\infty)  &= \{x\in \mathbb R : a < x\}\\
-	[a,\infty)  &= \{x\in \mathbb R : a \le x\}
-\end{align*}
+% \noindent Moreover, we will introduce two new symbols, called positive and negative infinity:
+% $\infty$ and $-\infty$.
+% These are \textit{not} real numbers, just symbols that are used to name a few useful sets:
+%
+% \begin{align*}
+% 	(-\infty,b) &= \{x\in \mathbb R : x < b\}\\
+% 	(-\infty,b] &= \{x\in \mathbb R : x \ge b\}\\
+% 	(a,\infty)  &= \{x\in \mathbb R : a < x\}\\
+% 	[a,\infty)  &= \{x\in \mathbb R : a \le x\}
+% \end{align*}
 
 \subsection{Subsets and complements}
-\noindent As we have some sets, we can try to compare them. We say that $A\subseteq B$ iff
-$a\in A\Rightarrow a\in B$ (or intuitively, each element of $A$ is also in $B$. We say that $A$ is
-a \textbf{subset} of $B$ or that $B$ is a \textbf{superset} of $A$.
+\begin{definition}
+  % Complement of a set
+  Let $A$ be subset of $U$. We say that \textbf{the complement
+  \footnote{Just adding an index $c$ is not the best symbol possible as we need to have $U$ in mind.}
+  of $A$} is a set $A^c=U\setminus A$.
+\end{definition}
 
-\begin{prob}
-	Prove that $A=B$ iff $A\subseteq B \wedge B\subseteq A.$
-\end{prob}
-
-\begin{prob}
-	Prove that for any set $A$, $\emptyset \subseteq A$.
-\end{prob}
-
-\begin{prob}
-  Here you'll prove that there is just one empty set.
-	Let $\emptyset$ and $\emptyset'$ be empty sets. Prove that $\emptyset=\emptyset'$.
-\end{prob}
-
-\noindent If we fix the set $B$, to each subset $A$
-we can assign it's \textbf{complement}: $A^c=B\setminus A$. \footnote{It is not the best symbol possible as we need to have $B$ in mind.}
 
 \begin{prob}
 	Prove the following set identites:
@@ -147,43 +432,9 @@ we can assign it's \textbf{complement}: $A^c=B\setminus A$. \footnote{It is not 
 	\end{enumerate}
 \end{prob}
 
-Moreover, we assume that for a set $A$ there exists it's \textbf{power set}:
-$2^A = \{X : X\subseteq A\}$.
-
 \begin{prob}
-    \begin{enumerate}
-	\item Let $A=\{1,2,3\}$. Find $2^A$. What is the number of elements in $2^A$? How is it related to the
-	number of elements of $A$?
-	\item Let $A$ be a finite set with $n$ elements. Using the approach in which you choose which elements belong
-		to a subset, prove that $2^A$ has $2^n$ elements.
-    \end{enumerate}
-\end{prob}
-
-\subsection{Infinite collections of sets}
-Now we understand how to construct new sets from finite number of sets. But we can also consider ,,more general" families
-of sets, that are not necessarily finite:
-let $A_i\subset U$ for $i\in I$, where $I$ is some indexing set. For example if $I=\{1,2,\dots,n\}$ we have a finite family. But you can imagine infinite families as $A_i = \{i\},\,i \in \mathbb{R}$. How do we define
-the sum and intersection of them? We cannot sum them iteratively $A_1\cup A_2\cup ...$ as the process will never
-end, so we need alternative definitions:
-\begin{align*}
-	\bigcup_{i\in I}A_i &= \{a\in U : a\in A_i \text{ for at least one }i\in I\}\\
-	\bigcap_{i\in I}A_i &= \{a\in U : a\in A_i \text{ for every }i\in I\}
-\end{align*}
-
-\noindent Alternative notation is a \textbf{family of sets}, that is
-just a name for a subset of $2^U$:
-$$\mathcal A = \{A_i\subseteq U : A_i\text{\, has some property}\}$$
-and write:
-$$\bigcup \mathcal A,~\bigcap \mathcal A$$
-for the infinite sum and intersection of all of family members.
-
-\begin{prob}
-	Prove that for finite families of sets, these new definitions agree
-  with the previous.
-\end{prob}
-
-\begin{prob}
-	Let $\mathcal X \subset 2^U$ be a family of sets and define:
+  % Useful lemma for cofinite topology
+	Let $\mathcal X \subset \mathcal P(U)$ be a family of sets and define:
   $\mathcal Y=\{X^c : X\in \mathcal X\}$, where $X^c=U\setminus X$.
   Prove that:
   \begin{enumerate}
@@ -192,29 +443,22 @@ for the infinite sum and intersection of all of family members.
   \end{enumerate}
 \end{prob}
 
-\begin{prob} Let $A_i\subseteq U,\, i\in I$ and
-	$$\sigma = \bigcup_{i\in I}A_i,\, \pi = \bigcap_{i\in I}A_i$$
-	Prove that:
-	\begin{enumerate}
-		\item if $k\in I$, then $A_k\cup \sigma=\sigma$
-		\item $\pi \subseteq \sigma$
-		\item $\sigma\cap \pi = \pi$
-	\end{enumerate}
-\end{prob}
-
-\begin{prob}
-	Find sum and intersection of family of subsets of $\mathbb R$: $A_r=\{r, -r\}$ for $r\ge 0.$
-\end{prob}
-
-\begin{prob}
-	Let $A\subseteq X_i \subseteq U$ for $i\in I$. Prove that
+\begin{exercise}
+  % Useful lemma for classification of open sets using neighborhoods.
+	Let $A\subseteq X_i$ for $i\in I$. Prove that
 	$$A\subseteq \bigcup_{i\in I} X_i$$
-\end{prob}
+\end{exercise}
 
-\begin{prob}
+\begin{exercise}
+  % Useful lemma for classification of open sets using neighborhoods.
 	For every point $a\in A$ there is a set $U_a\subseteq A$ such that $a\in U_a$.
 	Prove that $$A=\bigcup_{a\in A} U_a.$$
-\end{prob}
+\end{exercise}
+
+\subsection{Axiom of choice}
+% TODO - it is convenient to introduce it here 
+
+% END OF REFACTORING FOR NOW
 
 % To zadanie wymaga pewnika Dedekinda/aksjomatu Euklidesa. Lepiej je zrobić później
 % \begin{prob} Find infinite sum and intersection for the families of subsets of $\mathbb{R}$:
