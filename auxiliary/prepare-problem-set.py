@@ -26,15 +26,16 @@ def cut_problems_from_file(filename):
         for line in f:
             if "\\newcommand" in line or "\\renewcommand" in line:
                 ret = ret + line
-
             for header in ["\\section", "\\chapter", "\\subsection"]:
                 if header in line:
                     ret = ret + line.replace(header, "\\paragraph")
-            if "\\begin{prob}" in line:
-                in_prob = True
-            elif "\\end{prob}" in line:
-                ret += line
-                in_prob = False
+            for begin in ["\\begin{prob}", "\\begin{exercise}"]:
+                if begin in line:
+                    in_prob = True
+            for end in ["\\end{prob}", "\\end{exercise}"]:
+                if  end in line:
+                    ret += line
+                    in_prob = False
 
             if "PROBLEMS END" in line:
                 break

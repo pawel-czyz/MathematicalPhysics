@@ -320,15 +320,18 @@ Although is is impossible to create the set of all sets, it is possible to creat
 \begin{exercise}
   % Selection of subsets with special property
   Using the axiom of power set and the axiom schema of specification, justify the notation:
-  $$\{A'\subseteq A : P(A')\}.$$
+  $$\{A'\subseteq A : P(A')\},$$
+  where $P(A')$ assigns true or false to each subset $A'$ of $A$.
 \end{exercise}
 
 \begin{exercise}
   % Number of elements in a power set
   \begin{enumerate}
-    \item Let $A=\{1,2,3\}$. Find $2^A$. What is the number of elements in $2^A$? How is it related to the
+    \item Let $A=\{1,2,3\}$. Find $2^A$. What is the number of elements in $\mathcal P(A)$? How is it related to the
       number of elements of $A$?
-    \item Let $A$ be a finite set with $n$ elements. Prove that $2^A$ has $2^n$ elements. Hint: every subset is specified by elements that are inside it.
+    \item Let $A$ be a finite set with $n$ elements. Prove that $\mathcal P(A)$ has $2^n$ elements.
+      Do you see now why $\mathcal P(A)$ is also referenced as $2^A$?
+      Hint: every subset is specified by elements that are inside it.
       For every element you have two options - to select it or not.
   \end{enumerate}
 \end{exercise}
@@ -456,7 +459,7 @@ Although is is impossible to create the set of all sets, it is possible to creat
 \end{exercise}
 
 \subsection{Axiom of choice}
-% TODO - it is convenient to introduce it here 
+% TODO - it is convenient to introduce it here
 
 % END OF REFACTORING FOR NOW
 

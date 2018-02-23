@@ -80,35 +80,74 @@ to \textit{disallow} infinite combinations - the concept of an infinite sum is e
   \end{enumerate}
 \end{prob}
 
-Moreover we will say that a \textit{finite} set of vectors $\{v_1, v_2, \dots, v_n\}$ is \textbf{linearly independent} if the only solution for
-$$\lambda_1v_1+\lambda_2v_2+\dots+\lambda_nv_n=0$$
-is $\lambda_1=\lambda_2=\dots=\lambda_n=0$. If vectors are \textit{not} linearly independent, we say that they are \textbf{linearly dependent}.
+\begin{definition}
+  % Linear independence of a set of vectors
+  Let $V$ be a vector space. We say that set $U\subseteq V$ is \textbf{linearly independent} if for every finite subset of $U$: $\{v_1, v_2, \dots, v_n\}$,
+  the only solution of the equation
+  $$\lambda_1v_1+\lambda_2v_2+\dots+\lambda_nv_n=0$$
+  is trivial: $\lambda_1=\lambda_2=\dots=\lambda_n=0$.
+  If a set of vectors is \textit{not} linearly independent, we say that it is \textbf{linearly dependent}.
+  Sometimes we abuse the terminology and say that \textit{vectors} $v_1, v_2, \dots, v_n$ are linearly independent - it means that the set $\{v_1,v_2\dots, v_n\}$ is linearly
+  independent - linear independence is a property of a set of vectors, not a property of a single vector!
+\end{definition}
 
-\begin{prob}
-  Assume that $v_1, v_2, \dots, v_n$ are \textit{not} linearly dependent. Prove that there is $v_i$ such that $v_i$ is a linear combination of other vectors:
-  $v_i \in \Span \{v_1, \dots, v_{i-1}, v_{i+1}, v_n\}$.
-\end{prob}
+\begin{exercise}
+  % Linear independence of a finite set of vectors
+  Let $V$ be a vector space and consider a finite set $\{v_1, v_2, \dots, v_n\}\subseteq V$. Prove that it is linearly independent iff the only solution to the equation:
+  $$\lambda_1v_1+\lambda_2v_2+\dots+\lambda_nv_n=0$$
+  is $\lambda_1=\lambda_2=\dots=\lambda_n=0$.
+\end{exercise}
 
-We say that a vector space $V$ has \textbf{finite dimension} (or is \textit{finite dimensional}) if there is a \textit{finite} $U\subseteq V$ such that $V=\Span U$.
-\begin{prob}
+\begin{exercise}
+  % Linear dependence of n > 1 vectors <=> at least one vector is a linear combination of others
+  Consider a finite set $U=\{v_1, v_2, \dots, v_n\}$ with at least two vectors. Prove that the following two statements are equivalent:
+  \begin{itemize}
+    \item $U$ is linearly dependent
+    \item there is $v_i\in U$ such can be written as linear combination of other vectors: $v_i \in \Span \{v_1, \dots, v_{i-1}, v_{i+1}, v_n\}$
+  \end{itemize}
+\end{exercise}
+
+\begin{definition}
+  % Finite dimensional space
+  We say that a vector space $V$ has \textbf{finite dimension} (or is \textit{finite dimensional}) if there is a \textit{finite} $U\subseteq V$ such that $V=\Span U$.
+\end{definition}
+
+\begin{exercise}
+  % Every finite dimensional space has a basis
   You can prove that every finite dimensional vector space has a basis in two steps:
     \begin{enumerate}
       \item Assume that you have a set $\{e_1, e_2,\dots, e_n\}$ that spans $V$. Prove that if $e_1\in \Span \{e_2,\dots, e_n\}$, then $V=\Span \{e_2,\dots, e_n\}$.
       \item Using the reduction step given above, show an algorithm finding a basis from a finite spanning set.
       \item Prove that a vector space is finite dimensional iff it has a finite basis.
     \end{enumerate}
-\end{prob}
+\end{exercise}
 
 \begin{prob}
-  Prove that $F^n$ is finite dimensional. Hint: just find a basis.
+  % F^n is finite dimensional
+  Prove that $\F^n$ is finite dimensional. Hint: just find a basis.
 \end{prob}
 
 \begin{prob}
   Prove that $\hat{\mathbb R}^{\mathbb N}$ has a basis.
 \end{prob}
 
-Apparently the proof that \textit{every} vector space is equivalent to the Axiom of Choice!
-% Proof using Zorn's lemma that _every_ vector space has a basis.
+Apparently the proof that \textit{every} vector space is equivalent\footnote{Proof that AC is implied by statement "every vector space has a basis"
+was given by Andreas Blass in 1984! It can be found here:
+\texttt{http://www.math.lsa.umich.edu/~ablass/bases-AC.pdf}} to the Axiom of Choice!
+
+\begin{exercise}
+  % Proof using Zorn's lemma that every vector space has a basis.
+  You can see how to prove the basis existence with the help of Zorn's lemma. Let $V$ be a vector space.
+  \begin{enumerate}
+    \item Let $\mathcal A = \{U\subseteq V : U\text{ is linearly independent}\}$. Prove that $\mathcal A$ is not empty.
+    \item Prove that relation on $A$ given by $A\preceq B \Leftrightarrow A\subseteq B$ is a partial order.
+    \item Consider any chain $\mathcal C\subseteq \mathcal A$. Define $C=\bigcup\mathcal C$. We want to prove that $C$ is linearly independent.
+    \item Assume that $C$ is linearly dependent, so $0=\lambda_1v_1+\dots\lambda_nv_n$ for some $v_i\in C$. If $v_i\in C_i\in \mathcal C$, what
+      can you conclude about $C_1\cup C_2\cup\dots\cup C_n$?
+    \item From Zorn's lemma we know that there is a \textit{maximal} element $A$ in $\mathcal A$. What if $A$ does not span $V$? Hint: add an element
+      that is not in the span and think about linear independence of new set. $A$ is maximal, isn't it?
+  \end{enumerate}
+\end{exercise}
 
 \begin{prob}
   Here you will prove that all the bases of a \textit{finite dimensional} vector space have the same number of elements. Let $v_1, v_2,\dots, v_n$ be a basis of a vector space $V$ and $w_1,w_2,\dots,w_m\in V$, where $m > n$.
@@ -120,10 +159,13 @@ Apparently the proof that \textit{every} vector space is equivalent to the Axiom
   \end{enumerate}
 \end{prob}
 
-\begin{prob}
-  Let $V$ be a finite dimensional vector space of dimension $n$. Prove that every linearly independent set of $n$ vectors spans $V$ and every set with $n$ elements spanning $V$
-  is a basis.
-\end{prob}
+\begin{exercise}
+  Let $V$ be a finite dimensional vector space of dimension $n$. Prove that:
+  \begin{enumerate}
+  \item every linearly independent set of $n$ vectors spans $V$ (so must span $V$)
+  \item every set with $n$ elements spanning $V$ is a basis (so must be linearly independent)
+  \end{enumerate}
+\end{exercise}
 
 \begin{prob}
   Here you will prove that every linearly independent set of vectors can be extended to a basis of a finite dimensional vector space. Let $V$ be a finite dimensional vector space
