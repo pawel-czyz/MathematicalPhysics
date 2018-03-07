@@ -462,19 +462,13 @@ the problem.
 Consider vector spaces $V_1, V_2,\dots V_n$ and a function $f: V_1\times V_2\times\dots\times V_n\to \F$. We say that $f$ is \textbf{multilinear} if for every $i$ we have:
 $$f(v_1,\dots, v_i+\alpha v_i', \dots, v_n) = f(v_1,\dots v_i, \dots, v_n) + \alpha f(v_1,\dots, v_i', \dots, v_n).$$
 
-\begin{prob}
-  Consider a multilinear function $f$ from $V_1\times V_2\times \dots \times V_n$ to $\F$. Prove that $f$ is a linear mapping from $V_1\oplus V_2\oplus\dots\oplus V_n$,
-  to $\F$.
-\end{prob}
-
-But being linear and multilinear is not equivalent:
-
+Being linear and multilinear is not equivalent:
 \begin{prob}
   Find such $f$ that $f$ is a linear mapping from $V_1\oplus V_2\oplus\dots\oplus V_n$,to $\F$, but $f$ \textit{cannot} be treated as a mutlilinear function from
   $V_1\times V_2\times \dots \times V_n$ to $\F$.
 \end{prob}
 
-\subsection{Universal property}
+\subsection{Universal property of tensor spaces}
 
 We should on some way improve this vulnerability by creating an object that would interplay between linear and multilinear mappings.
 Consider finite dimensional $V$ and $W$. We want to create a vector space called \textbf{tensor produt} and denoted as $V\otimes W$ such that:
@@ -578,6 +572,31 @@ For finite dimensional spaces another construction is possible (as we know - tha
 \begin{prob}
   Prove that for finite dimensional $V$, $\End V$ is naturally isomorphic to to $\End V^*$.
 \end{prob}
+
+\begin{prob}
+  Let $V$ be a finite dimensional vector space over $F$. Prove that there is a natural linear map $\tr : V^*\otimes V\to \F$ such that $\tr(\omega\otimes v)=\omega(v)$. Therefore we can say
+  that we have a map that takes an endomorphism of $V$ and returns a number - this map is called \textbf{trace} - $\tr : \End(V)\to F$.
+\end{prob}
+
+
+
+% \subsection{Coordinates and change of basis}
+% Till now we defined everything in terms of algebraic objects - e.g vectors are abstract things that can be added and multiplied by numbers. This is a very powerful approach, enabling one to see deep
+% connections between various structures. We were focused on natural operations and constructions, that did not employ the (not-natural) isomorphism between an $n$-dimensional, abstract, vector spaces and $\F^n$.
+% Sometimes it will be useful to do some calculations using $\F^n$ and extract algebraic or geometrical meaning from obtained tuple of numbers.
+%
+% \begin{exercise}
+%   Let $f:V\to V$ be an automorphism of a finite dimensional vector space. Prove that if $e_1, e_2,\dots e_n$ is a basis for $V$, then $f(e_1), f(e_2),\dots,f(e_n)$ is also a basis.
+% \end{exercise}
+%
+% \begin{definition}
+%   Consider $\F^n$. We say that
+% \end{definition}
+%
+% \begin{definition}
+%   Let $V$ be a $n$-dimensional vector space and $e_1, e_2,\dots e_n$ be a
+% \end{definition}
+
 
 % \subsection{Exterior algebra}
 % We characterised tensor space by it's universal property and then constructed such a space. There is a concept, very related to tensors, called exterior algebra.
