@@ -458,19 +458,6 @@ Although is is impossible to create the set of all sets, it is possible to creat
 	Prove that $$A=\bigcup_{a\in A} U_a.$$
 \end{exercise}
 
-\subsection{Axiom of choice}
-% TODO - it is convenient to introduce it here
-
-% END OF REFACTORING FOR NOW
-
-% To zadanie wymaga pewnika Dedekinda/aksjomatu Euklidesa. Lepiej je zrobić później
-% \begin{prob} Find infinite sum and intersection for the families of subsets of $\mathbb{R}$:
-%	\begin{enumerate}
-% 		\item $A_i=(0,1/i)$ for $i=1,2,\dots$
-% 		\item $B_i=[0,1/i)$ for $i=1,2,\dots$
-% 	\end{enumerate}
-% \end{prob}
-
 \subsection{Cartesian product}
 First of all, we need a useful concept:
 \begin{prob}
@@ -507,6 +494,88 @@ $$A\times B = \{(a,b) : a\in A\wedge b\in B\}.$$
 \end{prob}
 
 \noindent Commonly used notation is $X^2 = X\times X = \{(x,y) : x, y \in X\}$ and analogously for other powers.
+
+\section{Relations}
+An important concept related to Cartesian product is \textbf{relation}.
+
+\begin{definition}
+  A \textbf{relation $R$ between sets} $X$ and $Y$ is a subset of $X\times Y$. If $(x,y)\in R$ we write $x\,R\,y$. A \textbf{relation on a set} $X$ is a subset of $X\times X$.
+\end{definition}
+
+\begin{example}
+  Consider normal ordering on natural numbers: $1<2$,\,$2<3,\, 4<27$. It is in fact a relation on $\N$: $a<b$ means exactly $(a,b)\in\, <\,\subseteq \N\times \N$.
+\end{example}
+
+\begin{exercise}
+  What is "the smallest" relation between $X$ and $Y$ (in such sense that is a subset of \emph{every} relation between $X$ and $Y$)? What is the biggest one (every relation is a subset of the biggest one)?
+\end{exercise}
+
+\begin{exercise}
+  Let $X$ and $Y$ be finite sets. How many relations can be defined between them?
+\end{exercise}
+
+Among all the relations on a set $X$, we have some with very nice behaviour.
+
+\begin{definition}
+  Let $\equiv$ be a relation on $X$. We say that it is an \textbf{equivalence relation} if all of the following hold:
+  \begin{enumerate}
+    \item if $x\equiv y$ and $y\equiv z$, then also $x\equiv z$ (transitivity)
+    \item if $x\equiv y$, then $y\equiv x$ (symmetry)
+    \item $x\equiv x$ for every $x$ (reflexivity)
+  \end{enumerate}
+\end{definition}
+
+\begin{exercise}
+  Prove that $n\equiv m$ iff $n$ and $m$ have the same parity is an equivalence relation on $\Z$.
+\end{exercise}
+
+As you may have noticed, using the equivalence relation with partition the set into some subsets.
+
+\begin{definition}
+  Let $X\neq \emptyset$ be a set. We say that a family of subsets $\mathcal A\subseteq \mathcal P(X)$ \textbf{partitions} X iff:
+  \begin{enumerate}
+    \item $\emptyset \neq X$
+    \item $\bigcup \mathcal A=X$ (every element is somewhere)
+    \item for $A,A'\in \mathcal A$ we have either $A=A'$ or $A\cap A'=\emptyset$ (partitioning sets are pairwise disjoint)
+  \end{enumerate}
+  Elements of $\mathcal A$ are called \textbf{equivalence classes}. If $a\in A\in\mathcal A$, we write $[a]:=A$.
+\end{definition}
+
+Why do we call it equivalence classes? Is it somehow related to equivalence relations?
+
+\begin{exercise}
+  Here you will prove the fundamental relationship between partitions and equivalence relations.
+  \begin{enumerate}
+    \item Prove that if we have a parition on $X$, then the relation given by: $x\equiv y$ iff $x$ and $y$ belong to the same equivalence class, is an equivalence relation on $X$.
+    \item Let $\equiv$ be an equivalence relation on $X$. Prove that $\{[x] : x\in X\}$ is a partition on $X$, where $[x]=[y\in X : y\equiv x]$
+  \end{enumerate}
+  The partition of $X$ corresponding to relation $\equiv$ is written as $X/\equiv.$
+\end{exercise}
+
+\begin{exercise}
+  Consider an equivalence relation $\equiv$.
+  \begin{enumerate}
+    \item Prove that $[a]=[b]$ iff $a\equiv b$.
+    \item Prove that $[a]\cap [b]=\emptyset$ iff $a\not\equiv b$.
+  \end{enumerate}
+  This means that equivalence classes can be either identical or disjoint (what is not surprising as they are a partition).
+\end{exercise}
+
+\begin{exercise}
+  Let $X$ be a set with $n$ elements and $q$ be the number of possible equivalence classes on $X$. Prove that $$n\le q \le 2^{n^2}-1.$$ Hint: for $n\ge 2$ construct $n$ equivalence relations with two classes.
+\end{exercise}
+
+Usually our sets will be equipped with some additional structure - for example integers can be added together\footnote{A fancy word for that will be given later: they form an additive Abelian group}. Sometimes we can move this structure to the equivalence classes. Let's start by finding a nice equivalence class on them.
+
+\begin{exercise}
+  \begin{enumerate}
+    \item Prove that $m\equiv n\Leftrightarrow p|m-n$ is an equivalence relation on $\Z$ ($p|q$ means: $p$ divides $q$, or equivalently: there exists an integer $a$ such that $q=p\cdot a$).
+    \item Let's define the sum of equivalence classes:
+      $$[m]+[n] := [m+n]$$
+      Prove that this definition does not depend on class representatives - that is if $n\equiv n'$ and $m\equiv m'$, then $[n]+[m]=[n']+[m']$.
+  \end{enumerate}
+\end{exercise}
+
 
 \section{Natural numbers and mathematical induction}
 \label{sec:mathematical_induction}
@@ -580,9 +649,38 @@ iff the following two conditions hold:
 \end{itemize}
 Therefore for each $a\in A$ there is exactly one $b\in B$ such that $(a,b)\in f$. Such $b$ will be called
 \textbf{value of $f$ at point $a$} and given a symbol $f(a).$
+
+\begin{example}
+  $f: \N\to \R$ given by $f(n)=n$.
+\end{example}
+
+\begin{example}
+  $f: \R\to \R$ given by $f(x)=x^2$.
+\end{example}
+
+\begin{example}
+  $f: X\to \mathcal P(X)$ given by $f(x)=\{x\}$.
+\end{example}
+
+\begin{example}
+  Let $\equiv$ be an equivalence relation on a set $X$. Recall that we
+  defined $X/R$ as set of all equivalence classes of $\equiv$. We have a function
+  $f: X\to X/R$ given by $f(x)=[x].$
+\end{example}
+
 \begin{prob}
-	(Thanks to Antoni Hanke) How many are there functions from the empty set to $\{1,2,3,4\}?$
+	How many\footnote{Thanks to Antek Hanke} are there functions from the empty set to $\{1,2,3,4\}?$
 \end{prob}
+
+\begin{exercise}
+  Here, we will prove a simple inequality using set-theoretic reasoning. Let $X$ and $Y$ be finite sets, with numbers of elements, respectively, $x$ and $y$.
+  \begin{enumerate}
+    \item Prove that the number of relations between $X$ and $Y$ is $2^{xy}$.
+    \item Prove that the number of functions from $X$ to $Y$ is $y^x$. Hint: for first element in $X$ you have $y$ possibilities to choose.
+    \item Prove that for every non-zero natural numbers $x$ and $y$ the following holds:
+      $$y^x<2^{xy}.$$
+  \end{enumerate}
+\end{exercise}
 
 We need to introduce more terminology: set $A$ is called \textbf{the domain of $f$}, set $B$ is called
 \textbf{the codomain of $f$} and the function $f$ is written as $f: A\to B$.
@@ -819,6 +917,19 @@ is an injection from $A$ to $B$ but there is no bijection.
 	\end{enumerate}
 \end{prob}
 
+\subsection{Axiom of choice}
+% TODO - it is convenient to introduce it here
+
+% END OF REFACTORING FOR NOW
+
+% To zadanie wymaga pewnika Dedekinda/aksjomatu Euklidesa. Lepiej je zrobić później
+% \begin{prob} Find infinite sum and intersection for the families of subsets of $\mathbb{R}$:
+%	\begin{enumerate}
+% 		\item $A_i=(0,1/i)$ for $i=1,2,\dots$
+% 		\item $B_i=[0,1/i)$ for $i=1,2,\dots$
+% 	\end{enumerate}
+% \end{prob}
+
 \subsection{Pre-image of a function}
 Let $f:A\to B$ and $C\subseteq A$. We used $f[C]$ for a set:
 $$f[C] = \{ f(c) \in B : c\in C\},$$
@@ -1044,6 +1155,7 @@ $$|x| = \begin{cases}x &\text{ for } x \ge 0\\ -x &\text{ otherwise} \end{cases}
 \end{prob}
 
 \section{Taste of category theory}
+\subsection{Categories}
 As you have had training in sets and functions, we are able to introduce some category theory that will quickly become useful - most of the objects in mathematics form a
 category and this language will be extremely convenient to find similarities between different branches of mathematics.
 As we remember, it is not possible to create a set of all sets without having a contradiction. So let's use a word \textbf{collection} of sets or \textbf{class}
@@ -1061,7 +1173,7 @@ As we remember, it is not possible to create a set of all sets without having a 
         \item we have morphisms $\Id_X: X\to X$ for every object $X$ such that $f\circ\Id_A = f=\Id_B\circ f$ for $f\in \Hom(A,B)$
       \end{itemize}
   \end{enumerate}
-  Some authors write $\text{Mor}(A,B)$ for $\Hom(A,B)$ and $gf$ for $g\circ f$.
+  If $f\in \Hom(A,B)$, we can also write $f:A\to B$ or $A\xrightarrow{f} B$. Some authors also write $\text{Mor}(A,B)$ for $\Hom(A,B)$ and $gf$ for $g\circ f$.
 \end{definition}
 
 \begin{example}
@@ -1077,9 +1189,11 @@ As we remember, it is not possible to create a set of all sets without having a 
 \end{exercise}
 
 \begin{exercise}
-  Construct a category with a set being the only object, with functions as morphisms and such that the number of morphisms is bigger than 100.  
+  Construct a category with a set being the only object, with functions as morphisms and such that the number of morphisms is bigger than 100.
 \end{exercise}
 
 \begin{exercise}
   Consider a category with two singletons: $\{\{0\}, \{1\}\}$, and functions as arrows. How many arrows can be in this category? Hint: two small numbers.
 \end{exercise}
+
+\subsection{}
