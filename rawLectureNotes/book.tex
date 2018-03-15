@@ -25,6 +25,7 @@
 
 % Set theoretic and topological terms
 \renewcommand{\emptyset}{\varnothing}
+\newcommand{\Id}{\text{Id}}
 
 \newcommand{\Image}{\text{im\,}}
 \newcommand{\Int}{\text{int\,}}
@@ -71,21 +72,29 @@
 \tableofcontents
 
 \mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{part}
+
+\part{Logic, sets and categories}
 \include{introduction}
-
 % PROBLEMS START
-
 \include{logic_and_sets}
-\include{general_topology}
-\include{pseudometric_spaces}
+
+\part{Abstract algebra}
 \include{linear_algebra}
 
+\part{General topology}
+\include{general_topology}
+\include{pseudometric_spaces}
+
+\part{Analysis}
+% Real analysis
+%  - construction of real numbers
+%  -
+% Banach spaces
+%  - differentation
+
+\part{}
+
 % PROBLEMS END
-
-
-
-% \include{Rn}
 
 
 %\include{chapter}

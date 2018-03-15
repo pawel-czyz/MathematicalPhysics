@@ -862,8 +862,7 @@ You should also prove:
   sets.
 \end{prob}
 Therefore, we see that although $f$ does \textit{not} preserve the
-set structure, $f^{-1}$ does. This observation underlies the
-notation of continuity.
+set structure, $f^{-1}$ does. This observation is crucial, we will later use it in topology and measure theory.
 
 \section{Real numbers}
 At the beginning we assumed that you had some intuition what real numbers
@@ -1042,5 +1041,45 @@ $$|x| = \begin{cases}x &\text{ for } x \ge 0\\ -x &\text{ otherwise} \end{cases}
     \item $|x-y|\le |x| + |y|$
     \item $\left||x| - |y|\right|\le |x-y|$ (this is sometimes calles \textbf{reverse triangle inequality})
   \end{enumerate}
-
 \end{prob}
+
+\section{Taste of category theory}
+As you have had training in sets and functions, we are able to introduce some category theory that will quickly become useful - most of the objects in mathematics form a
+category and this language will be extremely convenient to find similarities between different branches of mathematics.
+As we remember, it is not possible to create a set of all sets without having a contradiction. So let's use a word \textbf{collection} of sets or \textbf{class}
+\footnote{Formal treatment of classes - collections that are in some sense bigger than sets - is introduced in von Neumann–Bernays–Gödel Morse-Kelley set theories.}
+ of sets - that is not a set and we don't know how to express it formally - but what has an intuitive sense.
+
+\begin{definition}
+  A \textbf{category} is:
+  \begin{enumerate}
+    \item a collection of objects such that
+    \item for each pair objects $A$, $B$ in the collection there is a \emph{set} $\Hom(A,B)$ called the set of \textbf{morphisms} or \textbf{maps} of \textbf{arrows} such that
+    \item for morphisms $f\in \Hom(A,B), g\in \Hom(B,C)$ there is a morphism $g\circ f\in \Hom(A,C)$. We also require:
+      \begin{itemize}
+        \item that composition of morphisms is associative: $h\circ(g\circ f)=(h\circ g)\circ f$, where $h\in \Hom(C, D)$
+        \item we have morphisms $\Id_X: X\to X$ for every object $X$ such that $f\circ\Id_A = f=\Id_B\circ f$ for $f\in \Hom(A,B)$
+      \end{itemize}
+  \end{enumerate}
+  Some authors write $\text{Mor}(A,B)$ for $\Hom(A,B)$ and $gf$ for $g\circ f$.
+\end{definition}
+
+\begin{example}
+  We already know very well a category - the category of all sets. It's objects are justs sets and morphisms are just functions. Simple, isn't it?
+\end{example}
+
+\begin{exercise}
+  Go through all the properties of a category and check that sets indeed form one.
+\end{exercise}
+
+\begin{exercise}
+  Consider a category with one singleton: $\{\{0\}\}$, where $\{0\}$ is the only object, and functions as arrows. How many arrows are in this category?
+\end{exercise}
+
+\begin{exercise}
+  Construct a category with a set being the only object, with functions as morphisms and such that the number of morphisms is bigger than 100.  
+\end{exercise}
+
+\begin{exercise}
+  Consider a category with two singletons: $\{\{0\}, \{1\}\}$, and functions as arrows. How many arrows can be in this category? Hint: two small numbers.
+\end{exercise}
