@@ -1,0 +1,108 @@
+\section{Relations}
+An important concept related to Cartesian product is \textbf{relation}.
+
+\begin{definition}
+  A \textbf{relation $R$ between sets} $X$ and $Y$ is a subset of $X\times Y$. If $(x,y)\in R$ we write $x\,R\,y$. A \textbf{relation on a set} $X$ is a subset of $X\times X$.
+\end{definition}
+
+\begin{example}
+  Consider normal ordering on natural numbers: $1<2$,\,$2<3,\, 4<27$. It is in fact a relation on $\N$: $a<b$ means exactly $(a,b)\in\, <\,\subseteq \N\times \N$.
+\end{example}
+
+\begin{exercise}
+  What is "the smallest" relation between $X$ and $Y$ (in such sense that is a subset of \emph{every} relation between $X$ and $Y$)? What is the biggest one (every relation is a subset of the biggest one)?
+\end{exercise}
+
+\begin{exercise}
+ Let $X$ and $Y$ be any sets. Prove that there exists the \textbf{set} of all relations between $X$ and $Y$.
+\end{exercise}
+
+\begin{exercise}
+  Let $X$ and $Y$ be finite sets. How many relations can be defined between them?
+\end{exercise}
+
+Among all the relations on a set $X$, we have some with very nice behaviour.
+
+\begin{definition}
+  Let $\equiv$ be a relation on $X$. We say that it is an \textbf{equivalence relation} if all of the following hold:
+  \begin{enumerate}
+    \item if $x\equiv y$ and $y\equiv z$, then also $x\equiv z$ (transitivity)
+    \item if $x\equiv y$, then $y\equiv x$ (symmetry)
+    \item $x\equiv x$ for every $x$ (reflexivity)
+  \end{enumerate}
+\end{definition}
+
+\begin{exercise}
+  Prove that $n\equiv m$ iff $n$ and $m$ have the same parity is an equivalence relation on $\Z$.
+\end{exercise}
+
+As you may have noticed, using the equivalence relation with partition the set into some subsets.
+
+\begin{definition}
+  Let $X\neq \emptyset$ be a set. We say that a family of subsets $\mathcal A\subseteq \mathcal P(X)$ \textbf{partitions} X iff:
+  \begin{enumerate}
+    \item $\emptyset \neq X$
+    \item $\bigcup \mathcal A=X$ (every element is somewhere)
+    \item for $A,A'\in \mathcal A$ we have either $A=A'$ or $A\cap A'=\emptyset$ (partitioning sets are pairwise disjoint)
+  \end{enumerate}
+  Elements of $\mathcal A$ are called \textbf{equivalence classes}. If $a\in A\in\mathcal A$, we write $[a]:=A$.
+\end{definition}
+
+Why do we call it equivalence classes? Is it somehow related to equivalence relations?
+
+\begin{exercise}
+  Here you will prove the fundamental relationship between partitions and equivalence relations.
+  \begin{enumerate}
+    \item Prove that if we have a parition on $X$, then the relation given by: $x\equiv y$ iff $x$ and $y$ belong to the same equivalence class, is an equivalence relation on $X$.
+    \item Let $\equiv$ be an equivalence relation on $X$. Prove that $\{[x] : x\in X\}$ is a partition on $X$, where $[x]=[y\in X : y\equiv x]$
+  \end{enumerate}
+  The partition of $X$ corresponding to relation $\equiv$ is written as $X/\equiv.$
+\end{exercise}
+
+\begin{exercise}
+  Consider an equivalence relation $\equiv$.
+  \begin{enumerate}
+    \item Prove that $[a]=[b]$ iff $a\equiv b$.
+    \item Prove that $[a]\cap [b]=\emptyset$ iff $a\not\equiv b$.
+  \end{enumerate}
+  This means that equivalence classes can be either identical or disjoint (what is not surprising as they are a partition).
+\end{exercise}
+
+\begin{exercise}
+  Let $X$ be a set with $n$ elements and $q$ be the number of possible equivalence classes on $X$. Prove that $$n\le q \le 2^{n^2}-1.$$ Hint: for $n\ge 2$ construct $n$ equivalence relations with two classes.
+\end{exercise}
+
+Usually our sets will be equipped with some additional structure - for example integers can be added together\footnote{A fancy word for that will be given later: they form an additive Abelian group}. Sometimes we can move this structure to the equivalence classes. Let's start by finding a nice equivalence class on them.
+
+\begin{exercise}
+  \textbf{Modulo arithmetics}
+  \begin{enumerate}
+    \item Prove that $m\equiv n\Leftrightarrow p|m-n$ is an equivalence relation on $\Z$ ($p|q$ means: $p$ divides $q$, or equivalently: there exists an integer $a$ such that $q=p\cdot a$).
+    \item Let's define the sum of equivalence classes:
+      $$[m]+[n] := [m+n]$$
+      Prove that this definition does not depend on class representatives - that is if $n\equiv n'$ and $m\equiv m'$, then $[n]+[m]=[n']+[m']$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  \textbf{Construction of rationals}
+  \begin{enumerate}
+    \item Let $\Z^*=\Z\setminus\{0\}$. Consider $X=\Z\times \Z^*$. Prove that relation $\equiv$ given as: $(m,n)\equiv (p,q)\Leftrightarrow mq=pn$ is an equivalence relation.
+    \item To simplify notation, we will write $[m,n]$ for $[(m,n)]\in X/\equiv$. Prove that the following operations do not depend on class representatives:
+      \begin{enumerate}
+        \item $[m,n] + [p,q] := [mq+np, nq]$
+        \item $[m,n]\cdot [p,q] := [mp, nq]$
+      \end{enumerate}
+    \item Prove that:
+      \begin{enumerate}
+        \item $[m,n]=[am,an]$
+        \item $[0,1]+[m,n]=[m,n]$
+        \item $[1,1]\cdot [m,n]=[m,n]$
+        \item $[m,n] + [-m,n]=[0,1]$
+        \item if $[a,b]\neq [0,1]$, then $[a,b]\cdot [b,a]=[1,1]$
+      \end{enumerate}
+    \item Consider any rational numbers $m/n$ and $p/q$. What equivalence classes do they correspond to? What is their sum and product? Do you see now how we can construct rationals using integers only?
+  \end{enumerate}
+\end{exercise}
+You can ask whether integers also can be somehow constructed using most basic, natural, numbers. Yes - consider $\N\times \{0,1\}$ with $(n,0)$ corresponding to $n$
+and $(n,1)$ corresponding to $-n$. Figure how to define addition, subtraction and multiplication. Later we will also discover how to construct reals from rationals.

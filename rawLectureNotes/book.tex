@@ -23,39 +23,7 @@
                        % please use the style svind.ist with
                        % your makeindex program
 
-% Set theoretic and topological terms
-\renewcommand{\emptyset}{\varnothing}
-\newcommand{\Id}{\text{Id}}
-
-\newcommand{\Image}{\text{im\,}}
-\newcommand{\Int}{\text{int\,}}
-\newcommand{\Cl}{\text{cl\,}}
-\newcommand{\Ext}{\text{ext\,}}
-\newcommand{\Fr}{\text{fr\,}}
-\newcommand{\eps}{\varepsilon}
-
-% Fields and special sets
-\newcommand{\R}{\mathbb R}
-\newcommand{\F}{\mathbb F}
-\newcommand{\Q}{\mathbb Q}
-\newcommand{\C}{\mathbb C}
-\newcommand{\Z}{\mathbb Z}
-\newcommand{\N}{\mathbb N}
-
-% Categories
-\newcommand{\End}{\text{End\,}}
-\newcommand{\Hom}{\text{Hom}}
-
-% Linear algebra
-\newcommand{\Span}{\text{span\,}}
-\newcommand{\Ker}{\text{ker\,}}
-\newcommand{\Coker}{\text{coker\,}}
-\newcommand{\Rank}{\text{rk\,}}
-\newcommand{\BL}{\langle}
-\newcommand{\BR}{\rangle}
-\newcommand{\tr}{\text{tr\,}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{commands} % ************** %
 
 \begin{document}
 
@@ -65,22 +33,26 @@
 \subtitle{-- Monograph --}
 \maketitle
 
-\frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter % ************ %
 
 \include{dedic}
 \include{pref}
 
 \tableofcontents
 
-\mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter % ************* %
 
 \part{Logic, sets and categories}
 \include{introduction}
 % PROBLEMS START
 \include{logic_and_sets}
+\include{category_theory}
 
 \part{Abstract algebra}
+% \include{groups}
+% \include{rings_modules_and_algebras}
 \include{linear_algebra}
+
 
 \part{General topology}
 \include{general_topology}
@@ -92,8 +64,6 @@
 %  -
 % Banach spaces
 %  - differentation
-
-\part{}
 
 % PROBLEMS END
 

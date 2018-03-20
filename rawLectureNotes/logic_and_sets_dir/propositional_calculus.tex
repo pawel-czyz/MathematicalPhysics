@@ -1,0 +1,208 @@
+% !TEX root = book.tex
+
+\section{Propositional calculus}
+\subsection{New sentences from old}
+\label{sec:logic}
+Consider declarative sentences as "It's raining in Oxford now." or "2+2=5" that can be either true or false. There are many ways how to construct new sentences and decide
+whether they are true or not.
+
+\begin{definition}
+  % Equivalence - definition
+  Consider sentences $p$ and $q$. We say that they \textbf{are equivalent} (we write then $p\Leftrightarrow q$) if they are either true or false simultaneously.
+  If $p$ and $q$ are equivalent, we usually say "$p$ if and only if $q$" of even "$p$ iff $q$".
+\end{definition}
+
+\begin{example}
+  % Equivalence - example, people in a room
+  Let $p$ be a sentence "The number of people in the room you are sitting is odd" and $q$ be "If one person enters the room, then the number of people will become even".
+  We \textit{do not know} if any of these sentences is true - it would require to count all the people. But if $p$ is true, then also $q$ must be true and vice versa - if $q$ is
+  true, then also $p$ must be true. Therefore we can say that $p$ and $q$ are equivalent, or write $p\Leftrightarrow q$.
+\end{example}
+
+\begin{exercise}
+  % Equivalence - transitivity
+  Prove that if we know that $p\Leftrightarrow q$ and $q\Leftrightarrow r$, then also $p\Leftrightarrow r$.
+\end{exercise}
+
+\begin{definition}
+  % Conjunction - definition
+  Consider sentences $p$ and $q$. We say that their \textbf{conjunction} $p\wedge q$ is true iff both of them are true. Usually conjunction of $p$ and $q$ is
+  referred as "$p$ and $q$".
+\end{definition}
+
+\begin{example}
+  % Conjunction - simple example
+  Sentence: "2+2=5" and "2+1=3" is false, as one of them (namely, the first one) is false.
+\end{example}
+
+\begin{exercise}
+  % Conjunction - commutativity
+  Let $p$ and $q$ be two sentences. Prove that $p\wedge q$ is true if and only if $q\wedge p$ is true. As we can swap two elements, we say that conjunction is \textbf{commutative}.
+\end{exercise}
+
+\begin{exercise}
+  % Conjunction - associativity
+  Let $p,\, q,\, r$ be three sentences. Prove that $(p\wedge q)\wedge r$ is true if and only if $p\wedge (q\wedge r)$ is true. Such a property is called \textbf{associativity}
+  and implies that we do not need to specify the order of calculation. Therefore we can write just $p\wedge q\wedge r$.
+\end{exercise}
+
+\begin{definition}
+  % Disjunction - definition
+  Consider sentences $p$ and $q$. We say that their \textbf{disjunction} $p\vee q$ is true if and only if at least one of them is true. Usually disjunction of $p$ and $q$ is
+  referred as "$p$ or $q$".
+\end{definition}
+
+\begin{exercise}
+  % Disjunction - associativity and commutativity
+  Prove that disjunction is both associative and commutative.
+\end{exercise}
+
+\begin{definition}
+  % Negation - definition
+  \textbf{Negation} of $p$ is a sentence $\neg p$ such that $\neg p$ is true if and only if $p$ is false. Usually we refer to $\neg p$ as "not $p$".
+\end{definition}
+
+\begin{exercise}
+  % Negation - alternative definition as an exercise
+  Prove that if $\neg p$ is false if and only if $p$ is true.
+\end{exercise}
+
+% Proof strategy - truth table
+Now we will stop and think about proof strategies. Sometimes there is an elegant way how to prove that two statements are equivalent (like in the proof of associativity of
+conjunction, one can see that both sentences are true iff all three basic sentences are true), but in case of more complicated sentences, it may be hard to find it. Common
+proof strategy is \textbf{truth table} approach: we list in a table all the values that each basis sentence can take and evaluate the value of final expression.
+Then two sentences are equivalent iff they have the same truth tables.
+
+\begin{example}
+  % Truth table - conjunction
+  Truth table for conjunction:\\
+  \begin{center}
+    \begin{tabular}{ c  c  c }
+      $p$ & $q$ & $p\wedge q$ \\
+      \hline
+      t  &  t &        t     \\
+      t  &  f &        f     \\
+      f  &  t &        f     \\
+      f  &  f &        f     \\
+    \end{tabular}
+  \end{center}
+  where $t$ stands for "true" and $f$ stands for "false".
+\end{example}
+
+This is a very powerful approach, as it requires no clever tricks but a simple calculation. The only problem is the number of calculations, that grows very quickly with
+the number of basic sentences!
+
+\begin{exercise}
+  % Truth table - 2^n rows.
+  Assume that you have built a sentence using $n$ sentences: $p_1, p_2, \dots, p_n$. How many rows does the truth table contain?
+\end{exercise}
+
+\begin{exercise}
+  % Conjunction and disjunction - distributivity
+  Prove \textbf{distributivity}:
+  \begin{enumerate}
+    \item $(p\wedge q)\vee r \Leftrightarrow (p\vee r) \wedge (q\vee r)$
+    \item $(p\vee q)\wedge r \Leftrightarrow (p\wedge r) \vee (q\wedge r)$
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  % De Morgan's laws
+  Prove \textbf{De Morgan's laws}:
+  \begin{enumerate}
+    \item $\neg (p\wedge q) = (\neg p)\vee (\neg q)$
+    \item $\neg (p\vee q) = (\neg p)\wedge (\neg q)$
+  \end{enumerate}
+\end{exercise}
+
+\begin{definition}
+  We say that $p$ \textbf{implies} $q$ (or that $q$ \textbf{is implied by} $p$) for a sentence $p\Rightarrow q$ that is false iff $p$ is false and $q$ is true.
+  We can summarise it in a truth table:
+  \begin{center}
+    \begin{tabular}{ c  c  c }
+      $p$ & $q$ & $p\Rightarrow q$ \\
+      \hline
+      t  &  t &        t     \\
+      t  &  f &        f     \\
+      f  &  t &        t     \\
+      f  &  f &        t     \\
+    \end{tabular}
+  \end{center}
+  As you can see, it's a strange behaviour - false implies everything!
+\end{definition}
+
+\begin{exercise}
+  % Implication - expression in terms of negation and disjunction
+  Prove that $(p\Rightarrow q)\Leftrightarrow (\neg p) \vee q$. Hint: left sentence is false for very specific $p$ and $q$. Do you need to write down 4 rows in a truth table for
+  right-hand-side sentence?
+\end{exercise}
+
+\begin{exercise}
+  % Implication - transitivity
+  Prove that implication is \textbf{transitive}, that is $((p\Rightarrow q)\wedge (q\Rightarrow r)) \Rightarrow (p\Rightarrow r)$.
+\end{exercise}
+
+The following exercise will later be a foundation of an operation called orthocomplementation in more general settings:
+\begin{exercise}
+  % Negation as orthocomplementation - properties
+  Let $p$ and $q$ be sentences. Prove that:
+  \begin{enumerate}
+    \item $\neg(\neg p) \Leftrightarrow p$
+    \item $p\Rightarrow q$ implies $(\neg q)\Rightarrow (\neg p)$ (Be smart! How many values of $p, q$ do you need to check?)
+    \item $p\vee (\neg p)$
+    \item $p\wedge (\neg p)$ is \textit{false} (we could write "Prove $\neg(p\wedge (\neg p))$", but it looks much more terrible!)
+  \end{enumerate}
+\end{exercise}
+
+You may have seen similarity between symbols $\Leftrightarrow$ and $\Rightarrow$ - it's not an accident as you can prove!
+\begin{exercise}
+  % Equivalence via implications
+  Prove that $(p\Leftrightarrow q)\Leftrightarrow ((p\Rightarrow q) \wedge (q\Rightarrow p))$.
+\end{exercise}
+
+\subsection{Another point of view}
+In mathematics we have usually many different views on the same thing. Some of them are suited better for some kind of problems, other to others.
+We would like to introduce you to a useful model of propositional calculus. To each true sentence $p$ we assign number $v(p)$
+that is 1 if $p$ is true and 0 if $p$ is false. We define $1+1=1$
+(it's a bit unusual thing). Then:
+\begin{enumerate}
+  \item $a\Leftrightarrow b$ means the same thing as sentence $v(a)=v(b)$.
+  \item $a\wedge b$ means exactly the same thing as $v(a)\cdot v(b)$
+  \item $a\vee b$ means exactly the same thing as $v(a)+v(b)$ (this is the reason why we want $1+1=1$)
+  \item $a\Rightarrow b$ is the same as $v(a)\le (b)$.
+  \item $\neg 1 = 0$ and $\neg 0=1$
+\end{enumerate}
+
+\begin{exercise}
+  % Transitivity
+  Prove transitivity of implication, that is $((p\Rightarrow q)\wedge (q\Rightarrow r)) \Rightarrow (p\Rightarrow r)$ using transitivity of $\le$.
+  It simplifies the proof a bit, doesn't it?
+\end{exercise}
+
+\subsection{Quantifiers}
+Consider a sentence $P(n)$ involving an object $n$ (for example $n$ can be an integer and $P(n)$ can be a sentence $n=2n$).
+\begin{definition}
+  % Universal and existence quantifiers - definition
+  We define \textbf{universal quantifier}
+  as a sentence $\forall_n P(n)$ meaning "for all $n$, the formula $P(n)$ holds".
+  We define \textbf{existential quantifier} as a sentence $\exists_n P(n)$ meaning "there exists $n$ such that $P(n)$ holds"
+  \footnote{$\forall$ is a rotated "A" symbolising "for \textbf{A}ll" and $\exists$ is a rotated "E" symbolising "\textbf{E}xists"}.
+\end{definition}
+
+\begin{example}
+  % Example showing the difference between quantifiers.
+  In case of $P(n)$ meaning "$2n=n$", we $\forall_n P(n)$ is false (as for $n=1$ we have $2\cdot 1\neq 1$) but $\exists_n P(n)$ is true,
+  as $2\cdot 0=0$.
+\end{example}
+
+Intuitively, it is a much simpler problem to give an example of an object with a special property, than proving that \emph{every} object has a property.
+In the above example, we gave an example disproving the statement. It may be useful to convert between these quantifiers. As you can prove:
+
+\begin{exercise}
+  % Quantifiers - negation
+  Prove that:
+  \begin{enumerate}
+    \item $\neg \forall_n P(n) \Leftrightarrow \exists_n \neg P(n)$
+    \item $\neg \exists_n P(n) \Leftrightarrow \forall_n \neg P(n)$
+  \end{enumerate}
+\end{exercise}

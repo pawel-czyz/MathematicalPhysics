@@ -1,0 +1,185 @@
+\section{Real numbers}
+At the beginning we assumed that you had some intuition what real numbers
+are and how to work with them - to provide examples and make set theory less
+abstract. But we have not treated them rigorously, as we did not have proper
+glossary - it's high time we filled this gap and defined them properly.
+It's high time we defined them properly, as we .
+A \textbf{field} is a tuple $(F, +, \cdot, 1, 0).$ We have
+many symbols there, let's explain what they mean:
+\begin{itemize}
+  \item $F$ is a set
+  \item $+$ and $\cdot$ are functions from $F^2$ to $F$. We write
+    $a+b$ for $+(a,b)$ and $a\cdot b$ for $\cdot (a,b)$.
+  \item $1, 0\in F$ are just distinguished elements of $F$
+\end{itemize}
+We know what objects are in the definition, so we can talk about
+properties they must have to form a field:
+
+\begin{enumerate}
+  \item $1\neq 0$ (so $F$ has at least two elements)
+  \item $a+(b+c)=(a+b)+c$ for all $a,b,c$ (addition is associative)
+  \item $a\cdot (b\cdot c)=(a\cdot b)\cdot c$ for all $a,b,c$ (multiplication is associative)
+  \item $a+b=b+a$ for all $a, b$ (addition is commutative)
+  \item $a\cdot b=b\cdot a$ for all $a,b$ (multiplication is commutative)
+  \item $a+0=a$ for all $a$ (so 0 is neutral element of addition)
+  \item $a\cdot 1=a$ for all $a$ (so 1 is neutral element of multiplication)
+  \item for every $a$ there is $a'$ such that $a+a'=0$ (existence of
+    an inverse element for addition)
+  \item $a\cdot (b+c) = a\cdot b + a\cdot c$ for all $a,b, c$
+    (multiplication distributesover addition)
+  \item for every $a\neq 0$ there is $\tilde a$ such that $a\cdot \tilde a=1$
+    (multiplication has an inverse element for all non-zero numbers)
+\end{enumerate}
+
+\begin{prob}
+  Check that
+  \begin{enumerate}
+    \item real numbers understood informally, have the properties
+      listed above
+    \item rational numbers form a field
+  \end{enumerate}
+\end{prob}
+
+From the above field axioms, you can derive many facts that may be obvious
+to you:
+
+\begin{prob}
+  Prove that there is only one 0 and only one 1. Hint: assume that
+  0 and 0' have property such that $a=a+0=a+0'$ and try $a=0$ and $a=0'$.
+\end{prob}
+
+\begin{prob}
+  Prove that if $a+a'=0$ and $a+a''=0$, then $a'=a''$.
+  Therefore we can introduce special symbol for \textit{the} additiv
+  inverse: $a + (-a)=0$ and define subtraction as $a-b := a + (-b)$.
+\end{prob}
+
+\begin{prob}
+  Prove that $-a=(-1)\cdot a$.
+\end{prob}
+
+% Consider more problems on this topic
+
+As you see, many of the algebraic properties we are used to can be recovered from the axioms, but sometimes it can be complicated. Both real numbers and
+rational numbers have also an order on them - for example $2>1$. It leads
+to the definition of \textit{total order}. We call a pair $(F, \le)$ a \textit{totally ordered set} if for every $a,b\in F$ we have:
+\begin{enumerate}
+  \item $a\le b$ or $b\le a$ (we call this property totality)
+  \item $a\le b$ and $b\le a$ imply $a=b$ (it's called antisymmetry)
+  \item $a\le b$ and $b\le c$ imply $a\le c$ (transitivity)
+\end{enumerate}
+Having relation $\le$ we can define other: $b\ge a$ means that $a\le b$ and
+$a<b$ means that $a\le b$ and $a\neq b$.
+
+We say that tuple $(F, +, \cdot, 1, 0, \le)$ is \textbf{ordered field} if:
+\begin{itemize}
+  \item $(F, +, \cdot, 1, 0)$ is a field
+  \item $(F, \le)$ is totally ordered
+  \item $a\le b$ implies $a+c\le b+c$
+  \item $0\le a$ and $0\le b$ imply that $0\le a\cdot b$
+\end{itemize}
+
+You can check that reals and rationals are ordered fields. These axioms give
+us much more abilities, for example one is able to prove that $1>0$.
+But we still have no difference in properties that distuingish rationals
+from reals. This is called the completeness axiom and we will need a few
+more definitions.
+
+Consider $A\subseteq \mathbb R$. We say that $x$ is an
+\textbf{upper bound} of $A$ iff $x\ge a$ for every $a\in A$.
+
+\begin{prob}
+  Prove that a set $A\subseteq \mathbb R$ can have no upper bounds
+  or infinitely many of them.
+\end{prob}
+
+\noindent If an upper bound of $A$ exists, we say that $A$ is
+\textbf{bounded from above}. Among them we will distinguish the
+\textbf{supremum} (or \textbf{the least upper bound - l.u.b}):
+$x=\sup A$ iff $x$ is an upper bound of $A$ and for any upper bound
+$y$ of $A$ we have $x\le y$.
+
+\begin{prob}
+  Prove that supremum is unique, so if $x$ and $x'$ are supremums
+  of $A$, then $x=x'$.
+\end{prob}
+
+\begin{prob}
+  Prove that $x=\sup A$ if and only if
+  $x\ge a$ for every $a\in A$ and for every $\eps > 0$ there is
+  $a\in A$ such that $x < a + \eps$.
+\end{prob}
+
+\noindent Now we can state the \textbf{completeness axiom}:
+each non-empty and bounded from above subset of real numbers has
+a supremum.
+This axiom allows us to prove many interesting things:
+
+\begin{prob}
+  Prove that natural numbers are \textit{not} bounded from above.
+  Hint: if $n\in \mathbb N$, then $n+1\in \mathbb N$
+\end{prob}
+
+\begin{prob}
+  Prove the \textbf{Archimedean axiom}\footnote{In fact we do not
+  need to call it axiom, as we are able to prove it.}
+  that for every $r\in R$, there is $n\in \mathbb N$ such that $n>r$.
+\end{prob}
+
+\begin{prob}
+  Prove that for any $r>0$ there is $n\in \mathbb N$ such that
+  $1/n < r$.
+\end{prob}
+
+\begin{prob} Find infinite sum and intersection for the families of subsets of $\mathbb{R}$:
+  \begin{enumerate}
+    \item $A_i=(0,1/i)$ for $i=1,2,\dots$
+    \item $B_i=[0,1/i)$ for $i=1,2,\dots$
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Prove that rational numbers do \textit{not} have the completeness
+  property:
+  \begin{enumerate}
+    \item Let $p, q\in \mathbb Z\setminus \{0\}$.
+      Prove that $p^2\neq 2q^2$.
+    \item Prove that root of two, defined as
+      $x > 0, x^2=2$ is not rational.
+    \item Find a subset of $\mathbb Q$ that is bounded above, but
+      has no rational supremum.
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  You should prove that in each nonempty interval there is at least
+  one rational number:
+  \begin{enumerate}
+    \item Assume that $0<a<b$. Define
+      $$A=\left\{\frac m N : m\in \mathbb N\right\},~
+      \frac 1{b-a} < N \in \mathbb N$$
+      and prove that $A\cap (a,b)$ is non-empty.
+    \item Use the above result to prove that in \textit{each}
+      interval there is at least one rational number.
+    \item Prove that in each interval there are infinitely but countably many, rational numbers.
+    \item Prove that in each interval there is an irrational number.
+    \item How many irrational numbers are in each interval?
+  \end{enumerate}
+\end{prob}
+
+\subsection{Absolute value}
+
+Another concept that will be further useful is the \textbf{absolute value} of a real number:
+if $x\in \mathbb R$ we write $|x|\in \mathbb R$ for:
+$$|x| = \begin{cases}x &\text{ for } x \ge 0\\ -x &\text{ otherwise} \end{cases}.$$
+
+\begin{prob}
+  Prove that for every $x,y\in \mathbb R$:
+  \begin{enumerate}
+    \item $|x|=|-x|$
+    \item if $|x|=|y|$ then $x=y$ or $x=-y$.
+    \item $|x+y| \le |x| + |y|$ (this is called \textbf{triangle inequality})
+    \item $|x-y|\le |x| + |y|$
+    \item $\left||x| - |y|\right|\le |x-y|$ (this is sometimes calles \textbf{reverse triangle inequality})
+  \end{enumerate}
+\end{prob}

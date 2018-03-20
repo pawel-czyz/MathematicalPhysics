@@ -1,0 +1,44 @@
+\section{Pre-image of a function}
+Let $f:A\to B$ and $C\subseteq A$. We used $f[C]$ for a set:
+$$f[C] = \{ f(c) \in B : c\in C\},$$
+but now we will abuse a bit our notation to stick to
+the common nomenclature. Apparently, many mathematicians write:
+$$f(C) = \{ f(c) \in B : c\in C\}.$$
+This is not correct - as $f$ should take elements
+$a\in A$ and returns elements $b\in B$, but here $f$ ,,takes"
+a subset $C\subseteq A$ and returns a set $f(C)\subseteq B$. We will
+follow this notation, but you should always check what meaning
+the object feed to function has (whether it is an element or a subset).
+
+\begin{prob}
+  Let $f:A\to B$ and $X,Y\subseteq B$. Then:
+  \begin{enumerate}
+    \item $f(X\cup Y)=f(X)\cup f(Y)$
+    \item $f(X\cap Y)\subseteq f(X)\cap f(Y)$
+  \end{enumerate}
+  You can also generalise this result to an arbitrary collection of
+  sets.
+\end{prob}
+
+\noindent To even more abuse the notation, we will also give an additional meaning to $f^{-1}$. As we know, many functions $f$ \textit{don't} have inverses. But we will write for $D\subseteq B$:
+$$f^{-1}(D) = \{a \in A : f(a)\in D\}\subseteq A.$$
+
+We then say that $f^{-1}(D)$ is the \textbf{pre-image} of $D$.
+To get accustomed with this notation, prove that:
+
+\begin{prob}
+  Let $f:A\to B$. Then $f(A)\subseteq B$ and $A=f^{-1}(B)$.
+\end{prob}
+
+You should also prove:
+\begin{prob}
+  Let $f:A\to B$ and $X,Y\subseteq B$. Then:
+  \begin{enumerate}
+    \item $f^{-1}(X\cup Y)=f^{-1}(X)\cup f^{-1}(Y)$
+    \item $f^{-1}(X\cap Y)=f^{-1}(X)\cap f^{-1}(Y)$
+  \end{enumerate}
+  You can also generalise this result to an arbitrary collection of
+  sets.
+\end{prob}
+Therefore, we see that although $f$ does \textit{not} preserve the
+set structure, $f^{-1}$ does. This observation is crucial, we will later use it in topology and measure theory.
