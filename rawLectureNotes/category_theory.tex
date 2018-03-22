@@ -42,6 +42,72 @@ As we remember, it is not possible to create a set of all sets without having a 
   Consider a category with two singletons: $\{\{0\}, \{1\}\}$, and functions as arrows. How many arrows can be in this category? Hint: 4 numbers.
 \end{exercise}
 
-\subsection{Morphisms and commutative diagrams}
+\subsection{Morphisms}
+In set theory we introduced special functions - injections, surjections and bijections. We would like to generalise it into category theory. Unfortunately, we cannot just state their properties in terms
+of elements, as objects do not need to be sets and we cannot take a look at elements. Therefore, let's introduce the following:
+
+\begin{definition}
+  Let $f: A\to B$ be a morphism. We say that is it \textbf{left-cancellative} or that it is a \textbf{monomorphism} iff for every two morphisms $g,g' \in \Hom(X,A)$ we have:
+  $$f\circ g = f\circ g'\Rightarrow g=g'.$$
+  Sometimes monomorphism is written as $f: A\hookrightarrow B$. We will also refer to monomorphism as \textbf{monic} morphisms\footnote{Note that some authors distinguish between monomorphisms and monic
+  morphisms.}.
+\end{definition}
+
+As you can prove, this works as injections in the category of sets:
+
+\begin{exercise}
+  Here you should prove that in the category of sets, "injective" are identical to "monic".
+  \begin{enumerate}
+    \item Prove that an injection in the category of sets is a monomorphism.
+    \item Prove that if function $f: A\to B$ is not injective, then it is not monic. Hint: if $f(x)=f(y)$ for $x\neq y$, create functions from $\{x,y\}$ to $A$ showing that $f$ is not monic.
+  \end{enumerate}
+\end{exercise}
+
+You can see that if we considered a different category, with less morphisms, the construction wouldn't work. So even if we consider sets and functions, but with some restrictions or additional structure,
+we need to carefully investigate the relation between monomorphisms and injections.
+
+\begin{exercise}
+  Consider a set $\{\{0,1\}, \{10,11\}\}$. Construct three morhpisms such that this set becomes a category, but there is a non-injective monomorphism.
+\end{exercise}
+
+\begin{definition}
+  Let $f: A\to B$ be a morphism. We say that is it \textbf{right-cancellative} or that it is a \textbf{epimorphism} iff for every two morphisms $g,g' \in \Hom(B,Y)$ we have:
+  $$g\circ f = g'\circ f\Rightarrow g=g'.$$
+  We will also refer to epimorphisms as \textbf{epic} morphisms\footnote{Note that some authors distinguish between epimorphisms and epic morphisms.}.
+\end{definition}
+
+\begin{exercise}
+  Here you should prove that in the category of sets, "surjective" are identical to "epic".
+  \begin{enumerate}
+    \item Prove that a surjection in the category of sets is an epimorphism.
+    \item Prove that if function $f: A\to B$ is not surjective, then it is not epic. Hint: if $f$ is not surjective, then both $\Image f$ and $B\setminus \Image f$ are non-empty. Define suitable functions.
+  \end{enumerate}
+\end{exercise}
+
+Also here a problem may appear - there are categories in which surjections make sense, but are not identical to epimorphisms.
+
+\begin{exercise}
+  Create a category with a non-surjective epimorphism.
+\end{exercise}
+
+Also we have an object looking as bijection:
+
+\begin{definition}
+  Let $f: A\to B$ be a morphism. We say that is is an \textbf{isomorphism} if there is a morphism $g:B\to A$ such that $f\circ g=\Id_B$ and $g\circ f=\Id_A$.
+\end{definition}
+
+\begin{exercise}
+  Prove that in any category an isomorphism is both monic and epic.
+\end{exercise}
+
+\begin{exercise}
+  Create a category with a morphism that is both monic and epic, but is not an isomorphism.
+\end{exercise}
+
+But there are nice catgories, as the category of sets, for which it holds.
+
+\begin{exercise}
+  Prove that in the category of sets, isomorphisms are just bijections.
+\end{exercise}
 
 \section{Functors and natural transformations}

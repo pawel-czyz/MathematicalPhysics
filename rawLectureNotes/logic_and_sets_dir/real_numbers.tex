@@ -4,38 +4,36 @@ are and how to work with them - to provide examples and make set theory less
 abstract. But we have not treated them rigorously, as we did not have proper
 glossary - it's high time we filled this gap and defined them properly.
 It's high time we defined them properly, as we .
-A \textbf{field} is a tuple $(F, +, \cdot, 1, 0).$ We have
+A \textbf{field} is a tuple $(\F, +, \cdot).$ We have
 many symbols there, let's explain what they mean:
 \begin{itemize}
-  \item $F$ is a set
-  \item $+$ and $\cdot$ are functions from $F^2$ to $F$. We write
+  \item $\F$ is a set
+  \item $+$ and $\cdot$ are functions from $\F\times \F$ to $\F$. We write
     $a+b$ for $+(a,b)$ and $a\cdot b$ for $\cdot (a,b)$.
-  \item $1, 0\in F$ are just distinguished elements of $F$
 \end{itemize}
 We know what objects are in the definition, so we can talk about
 properties they must have to form a field:
 
 \begin{enumerate}
-  \item $1\neq 0$ (so $F$ has at least two elements)
   \item $a+(b+c)=(a+b)+c$ for all $a,b,c$ (addition is associative)
   \item $a\cdot (b\cdot c)=(a\cdot b)\cdot c$ for all $a,b,c$ (multiplication is associative)
   \item $a+b=b+a$ for all $a, b$ (addition is commutative)
   \item $a\cdot b=b\cdot a$ for all $a,b$ (multiplication is commutative)
-  \item $a+0=a$ for all $a$ (so 0 is neutral element of addition)
-  \item $a\cdot 1=a$ for all $a$ (so 1 is neutral element of multiplication)
+  \item there is an element $0\in\F$ such that $a+0=a$ for all $a$ (addition has a neutral element). We call it \textbf{zero}
+  \item there is an element $1\in\F$ such that $a\cdot 1=a$ for all $a$ (so 1 is neutral element of multiplication). We call if \textbf{one}
   \item for every $a$ there is $a'$ such that $a+a'=0$ (existence of
     an inverse element for addition)
   \item $a\cdot (b+c) = a\cdot b + a\cdot c$ for all $a,b, c$
     (multiplication distributesover addition)
   \item for every $a\neq 0$ there is $\tilde a$ such that $a\cdot \tilde a=1$
     (multiplication has an inverse element for all non-zero numbers)
+  \item $1\neq 0$ (so $F$ has at least two elements)
 \end{enumerate}
 
 \begin{prob}
   Check that
   \begin{enumerate}
-    \item real numbers understood informally, have the properties
-      listed above
+    \item real numbers understood informally, have the field properties
     \item rational numbers form a field
   \end{enumerate}
 \end{prob}
