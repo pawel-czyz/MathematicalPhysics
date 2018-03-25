@@ -192,6 +192,8 @@ INPUT general_topology.aux
 INPUT general_topology.aux
 INPUT pseudometric_spaces.aux
 INPUT pseudometric_spaces.aux
+INPUT Banach_spaces.aux
+INPUT Banach_spaces.aux
 INPUT referenc.aux
 INPUT referenc.aux
 OUTPUT book.aux
@@ -329,6 +331,9 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+OUTPUT Banach_spaces.aux
+INPUT Banach_spaces.tex
+INPUT Banach_spaces.tex
 OUTPUT referenc.aux
 INPUT referenc.tex
 INPUT referenc.tex
@@ -351,6 +356,8 @@ INPUT general_topology.aux
 INPUT general_topology.aux
 INPUT pseudometric_spaces.aux
 INPUT pseudometric_spaces.aux
+INPUT Banach_spaces.aux
+INPUT Banach_spaces.aux
 INPUT referenc.aux
 INPUT referenc.aux
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc

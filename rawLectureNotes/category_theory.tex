@@ -1,5 +1,10 @@
 \chapter{Taste of category theory}
-\section{Categories}
+
+\begin{quote}
+  Category theory [...] is the "mathematics of mathematics".
+  Robert Geroch
+\end{quote}
+
 As you have had training in sets and functions, we are able to introduce some category theory that will quickly become useful - most of the objects in mathematics form a
 category and this language will be extremely convenient to find similarities between different branches of mathematics.
 As we remember, it is not possible to create a set of all sets without having a contradiction. So let's use a word \textbf{collection} of sets or \textbf{class}
@@ -97,17 +102,48 @@ Also we have an object looking as bijection:
 \end{definition}
 
 \begin{exercise}
-  Prove that in any category an isomorphism is both monic and epic.
+  Prove that in every category an isomorphism is both monic and epic.
 \end{exercise}
 
 \begin{exercise}
   Create a category with a morphism that is both monic and epic, but is not an isomorphism.
 \end{exercise}
 
-But there are nice catgories, as the category of sets, for which it holds.
+But there are nice categories, as the category of sets, for which it holds.
 
 \begin{exercise}
-  Prove that in the category of sets, isomorphisms are just bijections.
+  Prove that in the category of sets, a morhpism is an isomorphism iff is bijective.
 \end{exercise}
 
-\section{Functors and natural transformations}
+Isomorphisms will occur frequently in this book - in the section describing equivalence relations, we discovered a concept of identifying some objects (like splitting integers into two equivalence
+classes odd and even numbers). We will usually try to identify some objects in a given category. Isomorphisms are very suitable for that.
+
+\begin{exercise}
+  "Equivalence" properties of isomorphisms
+  \begin{enumerate}
+    \item Prove that if there is an isomorphism from $A$ to $B$, then there is an isomorphism from $B$ to $A$.
+    \item Prove that there is an isomorphism from $A$ to $A$.
+    \item Prove that if there is an isomorphism from $A$ to $B$ and $B$ to $C$, then there is also an isomorphism from $A$ to $C$.
+  \end{enumerate}
+\end{exercise}
+
+This "equivalence" structure will be used to idenfify some spaces. Note that if it has properties of an equivalence relation, a relation on a \emph{set} $A$ is a subset of $A\times A$. As we are
+dealing with categories now, that are not necessarily sets, we cannot say that isomorphisms give an equivalence relation.
+
+\begin{definition}
+  If there is an isomorphism from $A$ to $B$, we will say that $A$ and $B$ are \textbf{isomorphic}. If there is a \emph{unique} isomorphism from $A$ to $B$, we will say that they are \textbf{naturally isomorphic}.
+\end{definition}
+
+\section{Functors}
+
+\begin{definition}
+    Let $\mathcal C$ and $\mathcal D$ be two categories. A \textbf{covariant functor} $\mathcal F$ from $\mathcal C$ to $\mathcal D$ is an assignment\footnote{We cannot use word function - functions are special subsets of the Cartesian product of two sets: domain and codomain. Here you should think intuitively about it - as collections are in some sense bigger sets, functors are bigger versions of functions.} such that:
+    \begin{enumerate}
+      \item for each object $X$ of $\mathcal C$ there is an object $\mathcal F(X)$ in category $\mathcal D$
+      \item for each morphism $f: X\to Y$ in $\mathcal C$ there is a morphism $\mathcal F(f):\mathcal F(X)\to \mathcal F(Y)$ such that:
+        \begin{enumerate}
+          \item $\mathcal F(\Id_X)=\Id_{\mathcal F(X)}$
+          \item $\mathcal F(g\circ f) = \mathcal F(g)\circ \mathcal F(f)$ for $f:X\to Y$ and $g:Y\to Z$ being morphisms of $\mathcal C$.
+        \end{enumerate}
+    \end{enumerate}
+\end{definition}
