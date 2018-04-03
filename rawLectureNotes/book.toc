@@ -1,0 +1,56 @@
+\contentsline {part}{Part\ I\hspace {\betweenumberspace }Logic, sets and categories}{1}
+\contentsline {chapter}{\numberline {1}Introduction}{3}
+\contentsline {chapter}{\numberline {2}Logic and sets}{7}
+\contentsline {section}{\numberline {2.1}Propositional calculus}{7}
+\contentsline {subsection}{\numberline {2.1.1}New sentences from old}{7}
+\contentsline {subsection}{\numberline {2.1.2}Another point of view}{10}
+\contentsline {subsection}{\numberline {2.1.3}Quantifiers}{10}
+\contentsline {section}{\numberline {2.2}Basic set theory}{11}
+\contentsline {subsection}{\numberline {2.2.1}New sets from old}{12}
+\contentsline {subsection}{\numberline {2.2.2}Subsets and complements}{14}
+\contentsline {subsection}{\numberline {2.2.3}Cartesian product}{15}
+\contentsline {section}{\numberline {2.3}Relations}{15}
+\contentsline {section}{\numberline {2.4}Natural numbers and mathematical induction}{18}
+\contentsline {section}{\numberline {2.5}Functions}{19}
+\contentsline {subsection}{\numberline {2.5.1}Injectivity, surjectivity and bijectivity}{20}
+\contentsline {subsection}{\numberline {2.5.2}Function composition}{21}
+\contentsline {subsection}{\numberline {2.5.3}Commutative diagrams}{22}
+\contentsline {section}{\numberline {2.6}Cardinality}{23}
+\contentsline {subsection}{\numberline {2.6.1}Finite sets}{23}
+\contentsline {subsection}{\numberline {2.6.2}Infinite sets}{23}
+\contentsline {section}{\numberline {2.7}Axiom of choice}{25}
+\contentsline {section}{\numberline {2.8}Pre-image of a function}{26}
+\contentsline {section}{\numberline {2.9}Real numbers}{27}
+\contentsline {subsection}{\numberline {2.9.1}Absolute value}{30}
+\contentsline {chapter}{\numberline {3}Taste of category theory}{31}
+\contentsline {subsection}{\numberline {3.0.1}Morphisms}{32}
+\contentsline {section}{\numberline {3.1}Functors}{34}
+\contentsline {part}{Part\ II\hspace {\betweenumberspace }Abstract algebra}{35}
+\contentsline {chapter}{\numberline {4}Linear algebra}{37}
+\contentsline {section}{\numberline {4.1}Vector spaces}{37}
+\contentsline {subsection}{\numberline {4.1.1}Bases of vectos spaces}{38}
+\contentsline {subsection}{\numberline {4.1.2}Subspaces, direct sum and quotient spaces}{41}
+\contentsline {subsection}{\numberline {4.1.3}Quotient spaces}{43}
+\contentsline {section}{\numberline {4.2}Linear maps}{43}
+\contentsline {subsection}{\numberline {4.2.1}Kernel and cokernel}{44}
+\contentsline {subsection}{\numberline {4.2.2}Rank-nullity theorem}{44}
+\contentsline {subsection}{\numberline {4.2.3}Exact sequences}{45}
+\contentsline {section}{\numberline {4.3}Dual spaces}{46}
+\contentsline {section}{\numberline {4.4}Tensors}{48}
+\contentsline {subsection}{\numberline {4.4.1}Universal property of tensor spaces}{48}
+\contentsline {subsection}{\numberline {4.4.2}Construction}{49}
+\contentsline {part}{Part\ III\hspace {\betweenumberspace }General topology}{51}
+\contentsline {chapter}{\numberline {5}General topology}{53}
+\contentsline {section}{\numberline {5.1}Basic definitions}{53}
+\contentsline {subsection}{\numberline {5.1.1}Topology, open sets and interior}{53}
+\contentsline {subsection}{\numberline {5.1.2}Closed sets and closure}{55}
+\contentsline {subsection}{\numberline {5.1.3}Boundary and exterior}{56}
+\contentsline {subsection}{\numberline {5.1.4}Bases and countability axioms}{56}
+\contentsline {section}{\numberline {5.2}Continuous maps and homeomorphisms}{57}
+\contentsline {section}{\numberline {5.3}Connected spaces}{57}
+\contentsline {chapter}{\numberline {6}Pseudometric spaces}{59}
+\contentsline {section}{\numberline {6.1}Pseudometric spaces}{59}
+\contentsline {section}{\numberline {6.2}Topology of $\mathbb R$}{60}
+\contentsline {part}{Part\ IV\hspace {\betweenumberspace }Analysis}{61}
+\contentsline {chapter}{\numberline {7}Banach spaces}{63}
+\contentsline {chapter}{References}{65}

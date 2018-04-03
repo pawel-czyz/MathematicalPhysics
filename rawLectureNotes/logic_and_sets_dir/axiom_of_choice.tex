@@ -1,4 +1,53 @@
 % !TEX root = book.tex
 
 \section{Axiom of choice}
-% TODO - it is convenient to introduce it here
+We formulated comparision of cardinalities in terms of injections. We based on the following exercise:
+
+\begin{exercise}
+  Let $f$ be a function from $A$ to $B$. Prove that there exists a function $g: \Image B\to A$ such that $g\circ f=\Id_A$ iff $f$ is injective.
+\end{exercise}
+
+That is for an injective function there exists a "left inverse". We may ask a question - is a some kind of inverse possible for \emph{surjections}?
+
+\begin{exercise}
+  Consider a surjective function $f: \Z \to \{0,1\}$ given by $f(2k+1) = 1, f(2k)=0$ for every $k\in \Z$.
+  \begin{enumerate}
+    \item why a \emph{left} inverse does not exist?
+    \item define a \emph{right} inverse, that is a function $g:\{0,1\}\to \Z$ such that $f\circ g=\Id_{\{0,1\}}$
+  \end{enumerate}
+\end{exercise}
+
+In the above exercise we had no problem - just pick an element from the set of odd numbers (these that are mapped to 1) and an element from the set of even numbers (these that are mapped to 0). This idea
+of picking an element from each set, but for any number of sets - not just for two! - is known as the \textbf{axiom of choice}.
+
+\begin{definition}
+  \textbf{Axiom of choice (AC)} Let $\mathcal S=\{S_i: i\in I\}$ be any family of non-empty sets such that $S_i\cap S_j=\emptyset$ for $i\neq j$. Then it is possible to create a set $C$ such that for every $i\in I$ there is $s_i\in C$ such that $s_i\in S_i$. Or in natural-language terms: from every set of a family of nen-empty, pairwise-disjoint sets, we can select exactly one element.
+\end{definition}
+
+That's it! This property allows us to construct right inverses:
+
+\begin{exercise}
+  Prove that AC (the axiom of choice) is equivalent to the statement that every surjection possesses a right inverse. Hint: for $AC\Rightarrow \text{right inverse}$ use the same idea as in the previous problem. For
+  $\text{right inverse}\Rightarrow AC$ construct a surjective function from $\bigcup \mathcal S\to \mathcal S$, where $\mathcal S$ is a family of non-empty, pairwise-disjoint sets.
+\end{exercise}
+
+\begin{exercise}
+  Prove, assuming AC, that if $f:A\to B$ is a surjection, then, there exists an injection $g: B\to A$.
+\end{exercise}
+
+With AC it makes sense to compare cardinalities using surjections:
+
+\begin{exercise}
+% Cardinalities with surjections
+  Prove, assuming AC, that:
+  \begin{enumerate}
+    \item $A\le B$ iff there exists a surjection from $B$ to $A$
+    \item if there is a surjection from $A$ to $B$ and a surjection from $B$ to $A$, then there exists a bijection between $A$ and $B$
+  \end{enumerate}
+\end{exercise}
+
+% TODO - trichotomy
+
+In fact, AC implies much more - as Banach-Tarski paradox says\footnote{You are right - we are eventually going prove it!} using it one can take a solid sphere, cut it into a few pieces and compose \emph{two}
+spheres of the same size, just by moving the pieces around. Therefore many mathematicians try to avoid it as much as possible - it is a good habit always to explicitly mention it's usage. In many places in this book
+we will use AC (mostly a theorem equivalent to is, known as Kuratowski-Zorn Lemma) and always clearly say that we are using it.

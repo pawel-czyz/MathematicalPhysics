@@ -1,12 +1,12 @@
-
 \section{Cardinality}
 \subsection{Finite sets}
 For a finite set $X$ we write the number of elements of $X$ as $|X|$. We can calculate their \textbf{cardinalities} (sizes, numbers of elements) with
 ease,
-\begin{prob}
+\begin{exercise}
 	What is the cardinality of $\{a, a+1, a+2, \dots, a+n\}$?
-\end{prob}
-\begin{prob}
+\end{exercise}
+
+\begin{exercise}
 	Let $A,\,B$ and $C$ be finite sets. Prove that:
 	\begin{enumerate}
 		\item $|2^A|=2^{|A|}$
@@ -16,23 +16,25 @@ ease,
 		\item $|A\cup B| = |A| + |B| - |A\cap B|$
 		\item $|A\cup B\cup C| = |A|+|B|+|C| - |A\cap B| - |B\cap C|-|C\cap A| + |A\cap B\cap C|$
 	\end{enumerate}
-\end{prob}
+\end{exercise}
+
 We can also employ functions to compare cardinalities:
-\begin{prob}
+\begin{exercise}
 	Assume that $A$ and $B$ are finite sets. Prove that $|A|=|B|$ iff there is a bijection between $A$ and $B$.
-\end{prob}
-\begin{prob}
+\end{exercise}
+
+\begin{exercise}
 	Above we find the way of saying that two cardinalities are equal using existence of a bijection. Let's find a way to compare which is less using
 	another kind of function.
 	\begin{enumerate}
 		\item Let $O_n=\{1,2,\dots,n\}.$ Prove that there is no injection from $O_{n+1}$ into $O_n$. Hint: use mathematical induction.
 		\item Let $A$ and $B$ be finite. Prove that there is an injection from $A$ to $B$ iff $|A| \le |B|.$
 	\end{enumerate}
-\end{prob}
-\begin{prob}
-	Using the above results, prove in one line\footnote{The main step is $|A|\le B$ and $|B|\le |A|$, so $|A|=|B|.$} that if there is an injection from $A$ onto $B$ and an injection from $B$ into $A$, then there exists
-	a bijection from $A$ onto $B$.
-\end{prob}
+\end{exercise}
+
+\begin{exercise}
+	Prove in one: if there is an injection from $A$ onto $B$ and an injection from $B$ into $A$, then there exists a bijection from $A$ onto $B$. Hint: you know that $|A|\le B$ and $|B|\le |A|$.
+\end{exercise}
 
 \subsection{Infinite sets}
 But how can we measure the number of elements of an infinite set, as $\mathbb N$ or $\mathbb R$? As natural numbers are ,,to small" we need to

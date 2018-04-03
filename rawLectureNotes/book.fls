@@ -296,6 +296,8 @@ INPUT logic_and_sets_dir/functions.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm
 INPUT logic_and_sets_dir/cardinality.tex
 INPUT logic_and_sets_dir/cardinality.tex
+INPUT logic_and_sets_dir/axiom_of_choice.tex
+INPUT logic_and_sets_dir/axiom_of_choice.tex
 INPUT logic_and_sets_dir/preimage.tex
 INPUT logic_and_sets_dir/preimage.tex
 INPUT logic_and_sets_dir/real_numbers.tex

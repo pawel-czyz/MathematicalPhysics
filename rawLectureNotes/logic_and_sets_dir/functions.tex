@@ -1,14 +1,15 @@
 \section{Functions}
 \label{sec:intro_to_functions}
 
-\subsection{Basics}
-\noindent Consider two sets $A$ and $B$. We say that a subset $f\subseteq A\times B$ is a \textbf{function}
+Consider two sets $A$ and $B$. We say that a subset $f\subseteq A\times B$ is a \textbf{function}
 iff the following two conditions hold:
 \begin{itemize}
 	\item for every element $a\in A$ there is an element $b\in B$ such that $(a,b)\in f$
 	\item if $(a,b)\in f$ and $(a,c)\in f$, then $b=c$
 \end{itemize}
+
 Therefore for each $a\in A$ there is exactly one $b\in B$ such that $(a,b)\in f$. Such $b$ will be called
+
 \textbf{value of $f$ at point $a$} and given a symbol $f(a).$
 
 \begin{example}
@@ -21,12 +22,6 @@ Therefore for each $a\in A$ there is exactly one $b\in B$ such that $(a,b)\in f$
 
 \begin{example}
   $f: X\to \mathcal P(X)$ given by $f(x)=\{x\}$.
-\end{example}
-
-\begin{example}
-  Let $\equiv$ be an equivalence relation on a set $X$. Recall that we
-  defined $X/R$ as set of all equivalence classes of $\equiv$. We have a function
-  $f: X\to X/R$ given by $f(x)=[x].$
 \end{example}
 
 \begin{prob}
@@ -94,13 +89,17 @@ We say that the function $f: A\to B$ is \textbf{surjective} (or \textbf{onto}) i
 
 If $f(a)$ uniquely specifies $a$ (if $f(a)=f(b)$, then $a=b$) we say that the function is \textbf{injective}
 (or \textbf{one-to-one}).
-\begin{prob}
+\begin{exercise}
 	As we remember, $\mathbb{R}$ stands for well-known real numbers. Are the following functions injective?
 	\begin{enumerate}
 		\item $f: \mathbb{R} \to \mathbb R, ~f(x)=x^2$
 		\item $h: \{0,1,2,3\} \to \mathbb R, ~h(x)=x$
 	\end{enumerate}
-\end{prob}
+\end{exercise}
+
+\begin{exercise}
+Let $f$ be a function from $A$ to $B$. Prove that there exists a function $g: \Image B\to A$ such that $g\circ f=\Id_A$ iff $f$ is injective. 
+\end{exercise}
 
 If a function $f$ is both surjective and injective, we say that is \textit{bijective}\footnote{If you prefer nouns: surjective function is called surjection, injective - injection
 and bijective - bijection}.
@@ -137,31 +136,31 @@ $g\circ f: A\to C,~(g\circ f)(a) = g(f(a)).$
   Recall that for two relations $R\subseteq X\times Y$ and $T\subseteq Y\times Z$ we defined their composition as $$R\circ T=\{(x,z)\in X\times Z : \exists_{y\in Y} (x,y)\in R \wedge (y,z)\in T\}$$
 \end{exercise}
 
-\begin{prob}
+\begin{exercise}
 	Find functions $f,~g$ such that:
 	\begin{enumerate}
 		\item $g\circ f$ exists, but $f\circ g$ is not defined
 		\item both $f\circ g$ and $g\circ f$ exist, but $f\circ g\neq g\circ f$
 	\end{enumerate}
-\end{prob}
+\end{exercise}
 
-\noindent Although function composition is not commutative, it is associative:
-\begin{prob}
+Although function composition is not commutative, it is associative:
+\begin{exercise}
 	Left $f:A\to B, g: B\to C, h: C\to D$. Prove that
 	$$h\circ (g\circ f) = (h\circ g)\circ f.$$
-\end{prob}
+\end{exercise}
 Therefore we can ommit the brackets and write just $h\circ g\circ f.$ We will use function composition very
 often.
 
-\begin{prob}
+\begin{exercise}
     \begin{enumerate}
 	   \item Prove that composition of two surjections is surjective.
 	   \item Prove that composition of two injections is injective.
 	   \item Prove that composition of two bijections is bijective.
     \end{enumerate}
-\end{prob}
+\end{exercise}
 
-\begin{prob} We will rephrase the definition of the inverse function as follows:
+\begin{exercise} We will rephrase the definition of the inverse function as follows:
 	\begin{enumerate}
 		\item If $X$ if a set, we define \textbf{the identity function}
 			$$\text{Id}_X=\{(x,x)\in X^2 : x\in X\}.$$
@@ -169,10 +168,28 @@ often.
 		\item Let $f:A\to B,~g:B\to A$. Prove that $f=g^{-1}$ iff
 			$$g\circ f = \text{Id}_A \text{ and } f\circ g = \text{Id}_B$$
 	\end{enumerate}
-\end{prob}
+\end{exercise}
 
-\begin{prob}
+\begin{exercise}
   Let $f: A\to B$ be an injection. Prove that there is a function
   $g: \text{Im\,} f \to A$ such that $g\circ f = \text{Id}_A.$
   Such $g$ is called \textbf{left inverse of $f$}.
-\end{prob}
+\end{exercise}
+
+\subsection{Commutative diagrams}
+\begin{quote}
+  Use a picture. It's worth a thousand words.\\
+  - Tess Flanders
+\end{quote}
+
+Consider functions $f:X\to Y$ and $g:Y\to Z$. We introduced the composition of them given us $g\circ f: X\to Z$. We can visualise it using a following \textbf{diagram}:
+
+\begin{figure}
+  \centering
+  \begin{tikzcd}
+    X \arrow[rd, "g\circ f"] \arrow[rr, "f"] &       & Y \arrow[ld, "g"]\\
+                                           &  Z   &
+  \end{tikzcd}
+\end{figure}
+
+We say that this diagram \textbf{commutes} (or we say that this is a \textbf{commutative diagram}) as you can use follow any path and obtain the same result.

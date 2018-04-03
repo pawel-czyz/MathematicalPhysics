@@ -44,7 +44,7 @@ A simple corollary from that is:
   \end{enumerate}
 \end{exercise}
 
-Let's think now what changes if we change a norm.
+Similarily to pseudometric spaces, we can introduce turn any seminormed space $V$ into a normed space. Let's think now what changes if we change a norm.
 
 \begin{definition}
   Let $n$ and $m$ be two norms on a vector space $V$. We say that norm $n$ is \textbf{stronger} than norm $m$ iff the topology generated than $n$ is stronger than the
@@ -62,13 +62,20 @@ Let's think now what changes if we change a norm.
 \end{exercise}
 
 \begin{exercise}
-  Prove that "norm $n$ is equivalent to norm $m$" is an equivalence relation on the set of all norms defined on a given vector space. 
+  Prove that "norm $n$ is equivalent to norm $m$" is an equivalence relation on the set of all norms defined on a given vector space.
 \end{exercise}
 
 \begin{exercise}
-  Let $V$ be a finite dimensional space. Prove that each two norms are equivalent. Hint: pick a basis and a norm assigning 1 to each element of the basis.
+  \textbf{Equivalence of norms on finite-dimensional space}
+  Let $V$ be a finite dimensional space.
+  \begin{enumerate}
+    \item Let $\{e_i: i=1,2,\dots,n\}$ be a basis. Prove that function
+      $$n(v^ie_i)=\max \{|v^i| : i=1,2,\dots\}$$
+        is a norm
+    \item Prove that all norms are equivalent.
+  \end{enumerate}
 \end{exercise}
 
 \begin{definition}
   A normed and \emph{complete} vector space is called a \textbf{Banach space}.
-\end{definition}
+\end{definition}-p;;
