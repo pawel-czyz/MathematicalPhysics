@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.16)  3 APR 2018 17:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.16)  14 APR 2018 22:11
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **book.tex
 (./book.tex
@@ -1180,33 +1181,33 @@ Chapter 5.
 
 
 
-] [54] [55] [56] [57]) [58]
+] [54] [55] [56] [57] [58]) [59]
 \openout2 = `pseudometric_spaces.aux'.
 
- (./pseudometric_spaces.tex
+ (./pseudometric_spaces.tex [60
+
+
+
+
+]
 Chapter 6.
-[59
+[61]) [62] [63
 
 
 
-
-]) [60] [61
-
-
-
-] [62]
+] [64]
 \openout2 = `Banach_spaces.aux'.
 
  (./Banach_spaces.tex
 Chapter 7.
-[63
+[65
 
 
 
-]) [64]
+]) [66]
 \openout2 = `referenc.aux'.
 
- (./referenc.tex) [65
+ (./referenc.tex) [67
 
 
 
@@ -1224,7 +1225,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  16490 strings out of 492982
  316424 string characters out of 6138579
- 366470 words of memory out of 5000000
+ 366472 words of memory out of 5000000
  19607 multiletter control sequences out of 15000+600000
  27343 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1258,10 +1259,10 @@ m-super/sfrm2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti090
 0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf-dist/f
 onts/type1/public/cm-super/sftt1000.pfb>
-Output written on book.pdf (73 pages, 668494 bytes).
+Output written on book.pdf (75 pages, 672949 bytes).
 PDF statistics:
- 382 PDF objects out of 1000 (max. 8388607)
- 270 compressed objects within 3 object streams
+ 388 PDF objects out of 1000 (max. 8388607)
+ 274 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

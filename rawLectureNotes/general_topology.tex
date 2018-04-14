@@ -1,18 +1,16 @@
 % !TEX root = book.tex
 \chapter{General topology}
 \label{general_topology}
-We have studied sets and functions between them. Now, we will add
-a structure - called topology - to a set and look for special
-functions that will in some sense ,,preserve the structure". This
-subject is often called general topology or point-set topology as
-we will focus on points and special sets called open and closed sets.
+So far we have been studying \emph{algebraic} structures - that is we considered a set $X$ and functions $X\times X\to X$ (as multiplication or addition)
+or functions $X\to X$ (as taking the inverse). Each of these functions is in fact a subset of $X^n$ for some integer $n$. Now we will start with structures of a different type - for a set
+$X$ we will consider a subset of $\mathcal P(X)$, that is we will select a family of some "special" subsets of $X$.
+
 Eventually you will see, that these new concepts will enable us
 to derive very quickly and elegantly the majority of the results
 taught in undergraduate real analysis courses.
 
-\section{Basic definitions}
-\subsection{Topology, open sets and interior}
-Consider a set $X$. A topology is a set $\mathcal{T}_X \subseteq 2^X $ such that:
+\section{The category of topological spaces}
+Consider a set $X$. A topology is a set $\mathcal{T}_X \subseteq \mathcal P(X) $ such that:
 \begin{enumerate}
 	\item $\varnothing, X\in \mathcal{T}_X$
 	\item if $A, B\in \mathcal{T}_X$, then $A\cap B\in \mathcal{T}_X$
@@ -21,53 +19,117 @@ Consider a set $X$. A topology is a set $\mathcal{T}_X \subseteq 2^X $ such that
 Members of topology we call \textbf{open sets}.
 
 \begin{prob}
-	Using mathematical induction prove that the intersection of finitely many open sets is open.
+	Using mathematical induction prove that the intersection of finitely many open sets is open. Therefore in the definition of topology, we could require that finite intersections of open
+  sets should be open.
 \end{prob}
 
 You may wonder whether, for a given set, topology is unique. As you can prove, there can be many topologies.
 
-\begin{prob}
-	\textbf{Trivial topology} Prove that for any $X$, set $\{\varnothing, X\}$ is a topology.
-\end{prob}
-
-\begin{prob}
-	\textbf{Discrete topology} Prove that for any $X$, it's power set $2^X$ is a topology.
-\end{prob}
-
-\begin{prob}
-	\textbf{Cofinite topology} Prove that for any $X$, the set:
-  $\mathcal T_X=\{\emptyset\}\cup \{A\subseteq X : X\setminus A \text{ is finite}\}$ is a topology. Hint: think in terms of complements.
-\end{prob}
-
-\begin{prob}
-  \textbf{Subspace topology}
-  Let $X$ be a set and $\mathcal T_X$ a topology on it. For $A\subseteq X$ we define $\mathcal T_A=\{U\cap A : U\in \mathcal T_X\}$. Prove that $\mathcal T_A$ is a topology on $A$.
-\end{prob}
-
-\begin{prob}
-	For which sets, there is exactly one topology on them?
-\end{prob}
-
-\begin{prob}
-	Prove that for an infinite set, there are at least three distinct
-  topologies.
-\end{prob}
-
-\begin{prob}
-  Real numbers $\mathbb R$ are usually equipped with the following topology:
-  $X\subseteq \mathbb R$ is open iff for each $x\in X$ there is an open interval $(a_x,b_x)$ such that
-  $x\in (a_x, b_x)\subseteq X$.
+\begin{exercise}
+  Let $X$ be a set. Prove that the following families of subsets are topologies:
   \begin{enumerate}
-    \item Prove that it is indeed a topology.
-    \item Let \textbf{a ball} be a set $B(x,r) = \{y\in \mathbb R : |x-y| < r\}$ for $r>0$. Prove that $(a,b)\neq \emptyset$ can be written as $B(x,r)$ for suitable $x$ and $r$
-    \item Prove that $X$ is open iff for each $x\in X$ there is a $r>0$ such that $B(x,r)\subseteq X$. We will see that this results generalises to much broader category of spaces
-      than single $\mathbb R$.
+    \item \textbf{Trivial topology:} $\{\varnothing, X\}$.
+    \item \textbf{Discrete topology:} The power set of $X$: $\mathcal P(X)$.
+    \item \textbf{Cofinite topology} $\mathcal T_C=\{\emptyset\}\cup \{A\subseteq X : X\setminus A \text{ is finite}\}$ Hint: think in terms of complements.
   \end{enumerate}
-\end{prob}
+\end{exercise}
 
-\noindent This gives the necessity of the notation of \textbf{topological space} that is a pair $(X,\mathcal T_X)$, where $\mathcal T_X$ is a topology on
-$X$. There are spaces, for which just one topology is commonly used in applications. In such situations mathematicians write topological space just as
-$X$, assuming that the ,,preferred" topology is obvious to the reader (as the topology given above on $\mathbb R$).
+\begin{exercise}
+  Number of topologies.
+  \begin{enumerate}
+    \item Prove that for an infinite set, there are at least three distinct topologies.
+    \item For what sets, there is exactly one topology on them?
+  \end{enumerate}
+\end{exercise}
+
+% \begin{prob}
+%   \textbf{Subspace topology}
+%   Let $X$ be a set and $\mathcal T_X$ a topology on it. For $A\subseteq X$ we define $\mathcal T_A=\{U\cap A : U\in \mathcal T_X\}$. Prove that $\mathcal T_A$ is a topology on $A$.
+% \end{prob}
+
+% \begin{prob}
+%   Real numbers $\mathbb R$ are usually equipped with the following topology:
+%   $X\subseteq \mathbb R$ is open iff for each $x\in X$ there is an open interval $(a_x,b_x)$ such that
+%   $x\in (a_x, b_x)\subseteq X$.
+%   \begin{enumerate}
+%     \item Prove that it is indeed a topology.
+%     \item Let \textbf{a ball} be a set $B(x,r) = \{y\in \mathbb R : |x-y| < r\}$ for $r>0$. Prove that $(a,b)\neq \emptyset$ can be written as $B(x,r)$ for suitable $x$ and $r$
+%     \item Prove that $X$ is open iff for each $x\in X$ there is a $r>0$ such that $B(x,r)\subseteq X$. We will see that this results generalises to much broader category of spaces
+%       than single $\mathbb R$.
+%   \end{enumerate}
+% \end{prob}
+
+Therefore there is a need for a new definition.
+
+\begin{definition}
+  A \textbf{topological space} is a pair $(X, \mathcal T)$, where $X$ is a set and $\mathcal T\subseteq \mathcal P(X)$ is a topology on $X$. Sometimes we will abuse our notation and write just $X$ for a topological space, assuming that topology is known out from context.
+\end{definition}
+
+Now we have good candidates for objects of a new category - category of topological spaces. We need morphisms and operation of morphism composition. As we are dealing with a family of sets, we are now not interested in functions that preserve some properties of operations on elements - we are looking for a function that will preserve set operations.
+
+\begin{exercise}
+  Let $f: X\to Y$ be a function. Prove that:
+  \begin{enumerate}
+    \item $f\left(\cup_i U_i\right)=\cup_i f(U_i)$ but $f(\cap_i U_i)\subseteq \cap_i f(U_i)$. Find a case proving that sign $\subseteq$ cannot be replaced with the equality sign.
+    \item Prove that $f^{-1}(\cup_iV_i)=\cup_i f^{-1}(V_i)$ and $f^{-1}(\cap_iV_i)=\cap_if^{-1}(V_i)$
+  \end{enumerate}
+\end{exercise}
+
+Therefore we will be interested in the pre-image of a set.
+
+\begin{definition}
+  Let $(X,\mathcal T)$ and $(Y, \tau)$ be two topological spaces. We say that a function $f:X\to Y$ is \textbf{continuous} if for every $V\in \tau$, we have $f^{-1}(V)\in \mathcal T$. We will write:
+  $f:(X,\mathcal T)\to(Y, \tau)$ or just $f:X\to Y$ if topologies are known from the context.
+\end{definition}
+
+To prove that continuous functions are category morphisms, we need to check other conditions:
+
+\begin{exercise}
+  Prove that topological spaces and continuous functions form a category:
+  \begin{enumerate}
+    \item Consider two topological spaces. Prove that continuous functions from one space to the other form a set.
+    \item Prove that identity mappings are continuous.
+    \item Prove that the composition of two continuous maps is continuous.
+  \end{enumerate}
+\end{exercise}
+
+\begin{definition}
+  The category of topological spaces and continuous functions is usually written as \textbf{Top}.
+\end{definition}
+
+\begin{exercise}
+  Prove that \textbf{Top} can be given a structure of a \textbf{concrete category}, that is there exists a faithful functor $U: \textbf{Top}\to \textbf{Set}$, where faithful means that for any two objects $X,Y$
+  induced function $U_{XY}: \Hom(X,Y)\to \Hom(U(X), U(Y))$ is injective.
+\end{exercise}
+
+We have a (concrete) category, we can investigate different morphisms:
+
+\begin{exercise}
+  Types of morphisms
+  \begin{enumerate}
+    \item Prove that monomorphisms are exactly injective continuous mappings
+    \item Prove that epimorphisms are exactly surjective continuous mappings
+    \item Prove that isomorphisms are continuous bijective maps with continuous inverse
+  \end{enumerate}
+\end{exercise}
+
+The most important for us will be isomorphisms, that traditionally are given a different name in topology.
+
+\begin{definition}
+  A \textbf{homeomorphism}\footnote{from the Ancient Greek \textit{homois} - similar and \textit{morphe} - shape} is an isomorphism in \textbf{Top}, that is a continuous function with a continuous inverse. Two spaces are \textbf{homeomorphic} if there exists a homeomorphism between them.
+\end{definition}
+
+We are interested in identifying properties that are preserved by homeomorphisms - homeomorphic spaces should be indistinguishable for us and we will identify them. One of topology aims is to classify all the spaces up to homeomorphisms. This is a hard problem, but we can try to classify a smaller class of spaces:
+
+\begin{exercise}
+  Classification of discrete spaces.
+  Prove that two \textit{discrete} spaces $X$ and $Y$ are homeomorphic iff $|X|=|Y|.$
+\end{exercise}
+
+\section{New spaces from old}
+
+
+
 
 This was ,,global" point of view - we have a structure of subsets of $X$. We can also try to express these global properties using local
 properties - by considering special constructions around a single point and using a set of these points to recover a global property.
@@ -265,13 +327,14 @@ open set $U\in \tau$, it's preimage is open: $f^{-1}(U)\in \mathcal T$.
   Prove that a function is continuous iff preimage of every \textit{closed} set is closed.
 \end{prob}
 
-The next problem shows that we can employ the concept of a basis to
-shorten proofs:
+% The next problem shows that we can employ the concept of a basis to
+% shorten proofs:
 
-\begin{prob}
-  Let $f: (X,\mathcal T)\to (Y, \tau)$ and $\mathcal B$ be a basis of
-  $(Y, \tau)$. Then $f$ is continuous iff $f^{-1}(B)\in \mathcal T$ for every $B\in \mathcal B$.
-\end{prob}
+% \begin{prob}
+%   % Using bases to check continuity
+%   Let $f: (X,\mathcal T)\to (Y, \tau)$ and $\mathcal B$ be a basis of
+%   $(Y, \tau)$. Then $f$ is continuous iff $f^{-1}(B)\in \mathcal T$ for every $B\in \mathcal B$.
+% \end{prob}
 
 \begin{prob}
   Assuming that $\mathbb R$ is equipped with it's standard topology,
@@ -287,11 +350,7 @@ shorten proofs:
   iff $f(\Cl A)\subseteq \Cl f(A)$ for every $A\subseteq X$.
 \end{prob}
 
-We say that a map $f: (X,\mathcal T)\to (Y, \tau)$ is a \textbf{homeomorphism}\footnote{from the Ancient Greek \textit{homois} - similar and \textit{morphe} - shape} iff is bijective and both $f$ and $f^{-1}$ are continuous. We say that two topological spaces are \textbf{homeomorphic} iff there is a homeomorphism between them. The aim of topology is to classify all the spaces up to homeomorphisms. This is a hard problem, but we can try to classify a smaller class of spaces:
-
-\begin{prob}
-  Prove that two \textit{discrete} spaces $X$ and $Y$ are homeomorphic iff $|X|=|Y|.$
-\end{prob}
+We say that a map $f: (X,\mathcal T)\to (Y, \tau)$ is a \textbf{homeomorphism} iff is bijective and both $f$ and $f^{-1}$ are continuous. We say that two topological spaces are \textbf{homeomorphic} iff there is a homeomorphism between them.
 
 \section{Connected spaces}
 We say that a topological space $(X, \mathcal T)$ is \textbf{disconnected} if there exists two disjoint, non-empty sets such their union is the whole space $X$. Or using symbols:
@@ -318,7 +377,34 @@ If a space is not disconnected, it is called \textbf{connected}.
     \item There are no two \textit{open} sets $U,V\subseteq X$ such that $U,V\neq \emptyset,~U\cap V=\emptyset,~U\cup V=X$.
     \item There are no two \textit{closed} sets $U,V\subseteq X$ such that $U,V\neq \emptyset,~U\cap V=\emptyset,~U\cup V=X$.
     \item The only sets that are open and closed simultaneously are $\emptyset$ and $X$.
-    \item All continous maps from $(X, \mathcal T)$ to $(\{0,1\}, \text{discrete topology})$ are constant.
+    \item All continuous maps from $(X, \mathcal T)$ to $(\{0,1\}, \text{discrete topology})$ are constant.
     \item If $S\subseteq X$ and $\partial S=\emptyset$, then $S=\emptyset$ or $S=X$.
   \end{enumerate}
 \end{prob}
+
+
+\begin{exercise}
+  Prove that if $A$ and $B$ are connected and $A\cap B\neq \emptyset$, then $A\cup B$ is connected.
+\end{exercise}
+
+\begin{exercise}
+  Prove that if $A$ is connected, then any set $B$ such that $A\subseteq B\subseteq \Cl A$ is connected (including $\Cl A$).
+\end{exercise}
+
+\begin{exercise}
+  Connected space that is not path-connected\footnote{An example that can be found in most textbooks uses sine instead of our $f$ and is called "the topologist’s sine curve". As we haven't discovered sine yet,
+  I needed to come up with another example.}
+  \begin{enumerate}
+    \item We define a function $f: \mathbb R\to \mathbb R$ such that:
+      $$f(x)=
+        \begin{cases}
+          1-|1-x| \text{ if } x\in [0,2]\\
+          f(x+2) \text{ if } x < 0\\
+          f(x-2) \text{ if } x > 2
+        \end{cases}
+      $$
+      Prove that this function is continuous.
+    \item Let $A=\{(x,f(1/x))\in \R^2 : x\in (0,1]\}$. Why is it connected?
+    \item Prove that the $\Cl A$ is connected, but not path-connected.
+  \end{enumerate}
+\end{exercise}

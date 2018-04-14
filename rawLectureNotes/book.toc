@@ -41,16 +41,16 @@
 \contentsline {subsection}{\numberline {4.4.2}Construction}{49}
 \contentsline {part}{Part\ III\hspace {\betweenumberspace }General topology}{51}
 \contentsline {chapter}{\numberline {5}General topology}{53}
-\contentsline {section}{\numberline {5.1}Basic definitions}{53}
-\contentsline {subsection}{\numberline {5.1.1}Topology, open sets and interior}{53}
-\contentsline {subsection}{\numberline {5.1.2}Closed sets and closure}{55}
-\contentsline {subsection}{\numberline {5.1.3}Boundary and exterior}{56}
-\contentsline {subsection}{\numberline {5.1.4}Bases and countability axioms}{56}
-\contentsline {section}{\numberline {5.2}Continuous maps and homeomorphisms}{57}
-\contentsline {section}{\numberline {5.3}Connected spaces}{57}
-\contentsline {chapter}{\numberline {6}Pseudometric spaces}{59}
-\contentsline {section}{\numberline {6.1}Pseudometric spaces}{59}
-\contentsline {section}{\numberline {6.2}Topology of $\mathbb R$}{60}
-\contentsline {part}{Part\ IV\hspace {\betweenumberspace }Analysis}{61}
-\contentsline {chapter}{\numberline {7}Banach spaces}{63}
-\contentsline {chapter}{References}{65}
+\contentsline {section}{\numberline {5.1}The category of topological spaces}{53}
+\contentsline {section}{\numberline {5.2}New spaces from old}{55}
+\contentsline {subsection}{\numberline {5.2.1}Closed sets and closure}{56}
+\contentsline {subsection}{\numberline {5.2.2}Boundary and exterior}{57}
+\contentsline {subsection}{\numberline {5.2.3}Bases and countability axioms}{57}
+\contentsline {section}{\numberline {5.3}Continuous maps and homeomorphisms}{58}
+\contentsline {section}{\numberline {5.4}Connected spaces}{58}
+\contentsline {chapter}{\numberline {6}Pseudometric spaces}{61}
+\contentsline {section}{\numberline {6.1}Pseudometric spaces}{61}
+\contentsline {section}{\numberline {6.2}Topology of $\mathbb R$}{62}
+\contentsline {part}{Part\ IV\hspace {\betweenumberspace }Analysis}{63}
+\contentsline {chapter}{\numberline {7}Banach spaces}{65}
+\contentsline {chapter}{References}{67}
