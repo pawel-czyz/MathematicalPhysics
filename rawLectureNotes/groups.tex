@@ -1,0 +1,69 @@
+% !TEX root = book.tex
+\chapter{Groups}
+\label{groups}
+% use \chaptermark{} to alter or adjust the chapter heading in the running head
+
+\begin{definition}
+  A $\textbf{group}$ is a pair $(G, \cdot)$, where $G$ is a set and $\cdot: G\times G\to G$ is a function called \textbf{group law} with properties listed below. It's a common practice to write $a\cdot b := \cdot(a,b)$ or even $ab := \cdot(a,b)$. These properties are:
+  \begin{enumerate}
+    \item associativity: for every $a,b,c\in S$ we have $(ab)c=a(bc)$
+    \item existence of right identity: there is $e\in G$ such that $ae=a$ for every $a\in G$
+    \item existence of right inverse: for each $a\in G$ there exists an element called $a^{-1}$ such that $aa^{-1}=e$
+  \end{enumerate}
+  If $ab=ba$ for every $a,b\in G$, we say that the group is \textbf{abelian}.
+
+  Sometimes group $(G, \cdot)$ is referenced as just $G$, if group law is known from the context.
+\end{definition}
+
+Before we start investigating the properties, we will provide some examples.
+
+\begin{example}
+  Pair $(\Z, +)$ is a group, as $(a+b)+c=a+(b+c)$, $a+0=a$ and $a+(-a)=0$ for every $a,b,c\in \Z$. The role of $e$ is played by 0 and right inverse $a^{-1}$ is known just as $-a$.
+  Moreover it is abelian, as $a+b=b+a$ for every $a,b\in \Z$.
+\end{example}
+
+\begin{exercise}
+  Let $S$ be a set and $\mathcal S$ be a set of all bijections from $S$ to $S$. Prove that $(\mathcal S, \circ)$ is a group, where $\circ$ is usual function composition. Why this group is usually not abelian?
+\end{exercise}
+
+As we are faimilar with groups, we can start investigating their properties. First concern is the word \emph{right} - why is it right, and not left?
+
+\begin{exercise}
+  Right, left, whatever - it is two-sided.
+  Let $(G,\cdot)$ be a group with right identity $e$. You will prove that $e$ is two-sided identity, that is $ae=ea$ for every $a$. Moreover you will prove that $a^{-1}$ is two-sided inverse: $a^{-1}a=aa^{-1}=e$.
+  \begin{enumerate}
+    \item Prove that if $a\in G$ is indempotent, that is $aa=a$, then $a=e$. Hint: what is $aaa^{-1}$?
+    \item Prove that right inverse is also left inverse, that is $a^{-1}a=e$ for every $a$. Hint: what is $a^{-1}aa^{-1}a$?
+    \item Prove that right identity is also left identity. Hint: what is $aa^{-1}a$?
+  \end{enumerate}
+\end{exercise}
+
+As we fixed this issue, we can start thinking about uniqueness of identity and inverse
+
+\begin{exercise}
+  Consider a group $G$ with identity $e$.
+  \begin{enumerate}
+    \item Prove that identity is unique, that is if there is an element $e'$ such that $ae'=a$ for every $a$, then $e=e'$.
+    \item Prove that inverse is unique, that is if $ab=e$, then $b=a^{-1}$
+    \item What is the inverse of $a^{-1}$?
+  \end{enumerate}
+\end{exercise}
+
+Therefore we can give an equivalent definition of group:
+
+\begin{definition}
+  A $\textbf{group}$ is a pair $(G, \cdot)$, where $G$ is a set and $\cdot: G\times G\to G$ is a function called \textbf{group law} (written as $\cdot(a,b)=ab$) with the following properties:
+  \begin{enumerate}
+    \item associativity: for every $a,b,c\in S$ we have $(ab)c=a(bc)$
+    \item existence of identity: there is \emph{a unique} $e\in G$ such that $ae=ea=a$ for every $a\in G$
+    \item existence of inverse: for each $a\in G$ there exists \emph{a unique} $a^{-1}\in G$ such that $aa^{-1}=a^{-1}a=e$
+  \end{enumerate}
+\end{definition}
+
+This definition looks much better than the previous - we have more properties clearly listed and we do not need to reference each time e.g. the proof that inverse is two-sided, we can just use it. The disadvantage
+is that proving that something is a group is \emph{longer} - we have more properties to check. So our strategy will be to check whether group law candidate is associative, provide \emph{an} identity and a rule how to find \emph{an} inverse, and since then using all the properties listed in our "powerful" definition.
+
+
+\begin{exercise}
+  Let $G$ be an abelian group\footnote{Look, we dropped a group law sign.}. Prove that there is exactly one $x\in G$ such that $ax=xa=b$ and define division in a group. Do you understand now what is $a-b$ in abelian group $(\Z, +)$?
+\end{exercise}

@@ -26,31 +26,32 @@
 \contentsline {subsection}{\numberline {3.0.1}Morphisms}{32}
 \contentsline {section}{\numberline {3.1}Functors}{34}
 \contentsline {part}{Part\ II\hspace {\betweenumberspace }Abstract algebra}{35}
-\contentsline {chapter}{\numberline {4}Linear algebra}{37}
-\contentsline {section}{\numberline {4.1}Vector spaces}{37}
-\contentsline {subsection}{\numberline {4.1.1}Bases of vectos spaces}{38}
-\contentsline {subsection}{\numberline {4.1.2}Subspaces, direct sum and quotient spaces}{41}
-\contentsline {subsection}{\numberline {4.1.3}Quotient spaces}{43}
-\contentsline {section}{\numberline {4.2}Linear maps}{43}
-\contentsline {subsection}{\numberline {4.2.1}Kernel and cokernel}{44}
-\contentsline {subsection}{\numberline {4.2.2}Rank-nullity theorem}{44}
-\contentsline {subsection}{\numberline {4.2.3}Exact sequences}{45}
-\contentsline {section}{\numberline {4.3}Dual spaces}{46}
-\contentsline {section}{\numberline {4.4}Tensors}{48}
-\contentsline {subsection}{\numberline {4.4.1}Universal property of tensor spaces}{48}
-\contentsline {subsection}{\numberline {4.4.2}Construction}{49}
-\contentsline {part}{Part\ III\hspace {\betweenumberspace }General topology}{51}
-\contentsline {chapter}{\numberline {5}General topology}{53}
-\contentsline {section}{\numberline {5.1}The category of topological spaces}{53}
-\contentsline {section}{\numberline {5.2}New spaces from old}{55}
-\contentsline {subsection}{\numberline {5.2.1}Closed sets and closure}{56}
-\contentsline {subsection}{\numberline {5.2.2}Boundary and exterior}{57}
-\contentsline {subsection}{\numberline {5.2.3}Bases and countability axioms}{57}
-\contentsline {section}{\numberline {5.3}Continuous maps and homeomorphisms}{58}
-\contentsline {section}{\numberline {5.4}Connected spaces}{58}
-\contentsline {chapter}{\numberline {6}Pseudometric spaces}{61}
-\contentsline {section}{\numberline {6.1}Pseudometric spaces}{61}
-\contentsline {section}{\numberline {6.2}Topology of $\mathbb R$}{62}
-\contentsline {part}{Part\ IV\hspace {\betweenumberspace }Analysis}{63}
-\contentsline {chapter}{\numberline {7}Banach spaces}{65}
-\contentsline {chapter}{References}{67}
+\contentsline {chapter}{\numberline {4}Groups}{37}
+\contentsline {chapter}{\numberline {5}Linear algebra}{39}
+\contentsline {section}{\numberline {5.1}Vector spaces}{39}
+\contentsline {subsection}{\numberline {5.1.1}Bases of vectos spaces}{40}
+\contentsline {subsection}{\numberline {5.1.2}Subspaces, direct sum and quotient spaces}{43}
+\contentsline {subsection}{\numberline {5.1.3}Quotient spaces}{45}
+\contentsline {section}{\numberline {5.2}Linear maps}{45}
+\contentsline {subsection}{\numberline {5.2.1}Kernel and cokernel}{46}
+\contentsline {subsection}{\numberline {5.2.2}Rank-nullity theorem}{46}
+\contentsline {subsection}{\numberline {5.2.3}Exact sequences}{47}
+\contentsline {section}{\numberline {5.3}Dual spaces}{48}
+\contentsline {section}{\numberline {5.4}Tensors}{50}
+\contentsline {subsection}{\numberline {5.4.1}Universal property of tensor spaces}{50}
+\contentsline {subsection}{\numberline {5.4.2}Construction}{51}
+\contentsline {part}{Part\ III\hspace {\betweenumberspace }General topology}{53}
+\contentsline {chapter}{\numberline {6}General topology}{55}
+\contentsline {section}{\numberline {6.1}The category of topological spaces}{55}
+\contentsline {section}{\numberline {6.2}New spaces from old}{57}
+\contentsline {subsection}{\numberline {6.2.1}Closed sets and closure}{58}
+\contentsline {subsection}{\numberline {6.2.2}Boundary and exterior}{59}
+\contentsline {subsection}{\numberline {6.2.3}Bases and countability axioms}{59}
+\contentsline {section}{\numberline {6.3}Continuous maps and homeomorphisms}{60}
+\contentsline {section}{\numberline {6.4}Connected spaces}{60}
+\contentsline {chapter}{\numberline {7}Pseudometric spaces}{63}
+\contentsline {section}{\numberline {7.1}Pseudometric spaces}{63}
+\contentsline {section}{\numberline {7.2}Topology of $\mathbb R$}{64}
+\contentsline {part}{Part\ IV\hspace {\betweenumberspace }Analysis}{65}
+\contentsline {chapter}{\numberline {8}Banach spaces}{67}
+\contentsline {chapter}{References}{69}

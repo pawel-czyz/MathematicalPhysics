@@ -186,6 +186,8 @@ INPUT logic_and_sets.aux
 INPUT logic_and_sets.aux
 INPUT category_theory.aux
 INPUT category_theory.aux
+INPUT groups.aux
+INPUT groups.aux
 INPUT linear_algebra.aux
 INPUT linear_algebra.aux
 INPUT general_topology.aux
@@ -307,6 +309,11 @@ INPUT category_theory.tex
 INPUT category_theory.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecti0700.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecti0500.tfm
+OUTPUT groups.aux
+INPUT groups.tex
+INPUT groups.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecbi0700.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecbi0500.tfm
 OUTPUT linear_algebra.aux
 INPUT linear_algebra.tex
 INPUT linear_algebra.tex
@@ -352,6 +359,8 @@ INPUT logic_and_sets.aux
 INPUT logic_and_sets.aux
 INPUT category_theory.aux
 INPUT category_theory.aux
+INPUT groups.aux
+INPUT groups.aux
 INPUT linear_algebra.aux
 INPUT linear_algebra.aux
 INPUT general_topology.aux
