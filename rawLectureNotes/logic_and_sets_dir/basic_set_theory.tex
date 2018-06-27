@@ -1,12 +1,14 @@
 \section{Basic set theory}
 \label{sec:basic_set_theory}
 
-In modern mathematics we do not define a set nor set membership, so heuristically you can think that set $A$
-is a ,,collection of objects' and $x\in A$ means that the object $x$ is inside this collection.
-We write $x\notin A$ as a shorthand for $\neg (x\in A)$
+In modern mathematics we do not define a set nor set membership, but rather believe that there exists objects with properties that
+are listed in this chapter.
+
+Heuristically you can think that a set $A$ is a "collection of objects" and a sentence "$x\in A$" means that the object $x$ is inside this collection. We read this as
+"$x$ belongs to set $A$" or "$x$ is an element of $A$". We write $x\notin A$ as a shorthand for $\neg (x\in A)$ (and it means that $x$ is \textit{not} an element of $A$).
 
 \begin{example}
-  % Sets - example of their API using a library
+  % Sets - example of set API using a library
   Consider a library with closed stack and with a webpage. You can check whether there is a specific book inside it -
   so you can know for example that "Alice's Adventures in Wonderland"
   is in the stack, but you don't know how many copies there are. Moreover you can't ask about place of the books - there is no concept as being "first" or "second" element,
@@ -20,9 +22,9 @@ As we can discover, there are collections of objects that do not form a set:
   Let $X$ be a set built from all sets such that $A\notin A.$ Prove that $X$ does not exist. Hint: what if $X\in X$? What if $X\notin X$?
 \end{prob}
 
-Therefore we need to assume the existence of a few sets, and then construct new out of them. We assume that there exist:
+Therefore we need to assume the existence of a few sets, and then construct new out of them using some rules in which we believe. We assume that there exist:
 \begin{enumerate}
-  \item finite sets (like real libraries with finite number of books), they are written as $\{a_1,a_2,\dots,a_n\}$. Empty set is written as $\emptyset$ rather than $\{\}$.
+  \item finite sets (like real libraries with finite number of books). These are written as $\{a_1,a_2,\dots,a_n\}$. Empty set is written as $\emptyset$ rather than $\{\}$.
 	\item real numbers\footnote{You may feel a bit insecure - what are real numbers, integers and so on? We haven't defined them properly yet.
     We will defer the construction of them to later sections, as what really matters are they \textit{properties} that you learned in elementary school.} $\mathbb R$
 	\item natural numbers $\mathbb N=\{0,1,2,\dots\}$
@@ -32,22 +34,21 @@ Therefore we need to assume the existence of a few sets, and then construct new 
 
 \begin{definition}
   % Equality of sets
-  \textbf{Equality of sets} We say that two sets $A$, $B$ are \textbf{equal} iff they have the same elements, that is:
+  \textbf{Axiom of extensionality (Equality of sets)} We say that two sets $A$, $B$ are \textbf{equal} iff they have the same elements, that is:
   $$A=B\Leftrightarrow \forall_x (x\in A \Leftrightarrow x\in B).$$
-  Sometimes this definition is called the \textbf{axiom of extensionality}.
 \end{definition}
 
 \begin{definition}
   % Subset and superset definitions
   We say that $A$ \textbf{is a subset of} $B$ iff every element of $A$ is also in $B$, that is:
-  $A\subseteq B \Leftrightarrow \forall_a a\in A\Rightarrow a\in B$.
+  $$A\subseteq B \Leftrightarrow \forall_a (a\in A\Rightarrow a\in B).$$
   If $A$ is a subset of $B$, we also say that $B$ \textbf{is a superset} of $A$.
 \end{definition}
 
 % Improvement in quantifier notation
 This is a good opportunity to slightly modify our quantifier notation - usually we will be interested in objects belonging to some sets.
-Formula $$\forall_{a\in A} P(a)$$ means "for all $a\in A$, statement $P(a)$ holds"
-and $$\exists_{a\in A} P(a)$$ means "there is $a\in A$ such that $P(a)$ holds".
+Formula $$\forall_{a\in A} P(a)$$ means "for all $a\in A$, statement $P(a)$ is true"
+and $$\exists_{a\in A} P(a)$$ means "there is an $a\in A$ such that $P(a)$ holds".
 
 \begin{example}
   % Improved quantifier notation in subset definition
@@ -56,7 +57,7 @@ and $$\exists_{a\in A} P(a)$$ means "there is $a\in A$ such that $P(a)$ holds".
 
 \begin{exercise}
   % Equality using subsets
-  Prove that $A=B$ iff $A$ is a subset of $B$ and $B$ is a subset of $A$.
+  Let $A$ and $B$ be two sets. Prove that $A=B$ iff $A$ is a subset of $B$ and $B$ is a subset of $A$.
 \end{exercise}
 
 \begin{exercise}
@@ -80,11 +81,11 @@ At the moment we do not have many sets. Let's try to define some methods of crea
 
 \begin{example}
   % Example with empty set
-  We assumed that real numbers $\R$ exist. We can construct the empty set using the axiom schema of specification:
+  We assumed that the set $\R$ (of real numbers) exist. We can construct the empty set using the axiom schema of specification:
   $\emptyset=\{r\in\R : r=r+1\}.$
 \end{example}
 
-Above axiom schema is important - using this we can prove that there is no set of all sets:
+The above axiom schema of specification is important - using this we can prove that there is no set of all sets:
 \begin{exercise}
   % No set of all sets
   Prove that there is \textit{no} set of all sets. Hint: assume there is one and select some elements to create Russel's paradox.
@@ -98,6 +99,7 @@ Although is is impossible to create the set of all sets, it is possible to creat
   \footnote{We cannot create it using the axiom schema of specification, as there is no set from which we could select subsets of $A$. But since now, we can do it.}
   \textbf{the power set of $A$} defined as a set of all subsets of $A$:
   $$\mathcal P(A) := 2^A := \{A' : A'\subseteq A\}.$$
+  That is $A'\in \mathcal P(A)$ iff $A'\subseteq A$.
 \end{definition}
 
 \begin{exercise}
@@ -110,10 +112,10 @@ Although is is impossible to create the set of all sets, it is possible to creat
 \begin{exercise}
   % Number of elements in a power set
   \begin{enumerate}
-    \item Let $A=\{1,2,3\}$. Find $2^A$. What is the number of elements in $\mathcal P(A)$? How is it related to the
+    \item Let $A=\{1,2,3\}$. Find it's power set $\mathcal P(A)$. What is the number of elements in $\mathcal P(A)$? How is it related to the
       number of elements of $A$?
     \item Let $A$ be a finite set with $n$ elements. Prove that $\mathcal P(A)$ has $2^n$ elements.
-      Do you see now why $\mathcal P(A)$ is also referenced as $2^A$?
+      Do you see now why $\mathcal P(A)$ is sometimes referenced as $2^A$?
       Hint: every subset is specified by elements that are inside it.
       For every element you have two options - to select it or not.
   \end{enumerate}
@@ -121,15 +123,14 @@ Although is is impossible to create the set of all sets, it is possible to creat
 
 \begin{definition}
   % Definition of a family of sets
-  By a \textbf{collection} of sets or \textbf{family of sets} we understand a set of some sets.
+  By a \textbf{collection of sets} or \textbf{family of sets} we understand a set of some sets.
 \end{definition}
 
 \begin{definition}
   % Unions of sets
-  \textbf{Axiom of union} Assume that we are given a family of sets $A$. There is a set called their \textbf{union}\footnote{Again, we cannot use the axiom schema of specification as there is no
-  set of all everything - we would select set of sets it it existed.}:
-  $$\bigcup \mathcal A = \{x : \exists_{X\in \mathcal A} : x\in X\}.$$
-  If the family of sets is indexed by some index, as $\mathcal A = \{A_i : i\in I\}$, we sometimes will write:
+  \textbf{Axiom of union} Assume that we are given a family of sets $A$. There is a set called their \textbf{union}\footnote{Again, we cannot use the axiom schema of specification as there is no everything - we would select set of sets it it existed.}:
+  $$\bigcup \mathcal A = \{x : \exists_{X\in \mathcal A} x\in X\}.$$
+  If the family of sets is indexed by some index, that is: $\mathcal A = \{A_i : i\in I\}$, we can also write:
   $$\bigcup_{i\in I} A_i := \bigcup \mathcal A.$$
 \end{definition}
 
@@ -151,22 +152,31 @@ Although is is impossible to create the set of all sets, it is possible to creat
   $$A\setminus B := A-B := \{a \in A : a\notin B\}$$
 \end{definition}
 
+\begin{example}
+  Let $A=\{1,2,3\}$ and $B=\{2,3,4\}$. Then $A\setminus B = \{1\}$.
+\end{example}
+
+\begin{exercise}
+  Is $(A\setminus B) \cup B$ always equal to $A$?
+\end{exercise}
+
 \begin{exercise}
   % Using set difference and unions
-  Let $A$ and $B$ be sets. Prove that $A\subseteq B\cup (A\setminus B)$, where the equality holds iff $B\subseteq A$.
+  Let $A$ and $B$ be sets. Prove that $A\subseteq (A\setminus B)\cup B$, where the equality holds iff $B\subseteq A$.
 \end{exercise}
 
 \begin{definition}
   % Intersection of sets
   Consider a family of sets $\mathcal A$. We define their \textbf{intersection} as a set:
   $$\bigcap \mathcal A = \left\{x\in \bigcup \mathcal A : \forall_{X\in\mathcal A}\, x\in X\right\}.$$
-  If the family of sets is indexed by some index, as $\mathcal A = \{A_i : i\in I\}$, we sometimes will write:
+  If the family of sets is indexed by some index, that is: $\mathcal A = \{A_i : i\in I\}$, we can write:
   $$\bigcap_{i\in I} A_i := \bigcap \mathcal A.$$
 \end{definition}
 
 \begin{exercise}
   % Easy exercise for finding an infinite intersection. Maybe too easy.
-	Find sum and intersection of family of subsets of $\mathbb R$: $A_r=\{r, -r\}$ for $r\ge 0.$
+	Find sum and intersection of family of subsets of $\mathbb R$:
+  $$A_r=\{r, -r\}$$ for $r\ge 0.$
 \end{exercise}
 
 \begin{exercise}
@@ -202,8 +212,7 @@ Although is is impossible to create the set of all sets, it is possible to creat
 \subsection{Subsets and complements}
 \begin{definition}
   % Complement of a set
-  Let $A$ be subset of $U$. We say that \textbf{the complement
-  \footnote{Just adding an index $c$ is not the best symbol possible as we need to have $U$ in mind.}
+  Let $A$ be subset of a set $U$. We say that \textbf{the complement\footnote{Just adding an index $c$ is not the best symbol possible as we need to have $U$ in mind.}
   of $A$} is a set $A^c=U\setminus A$.
 \end{definition}
 
@@ -211,17 +220,17 @@ Although is is impossible to create the set of all sets, it is possible to creat
 \begin{prob}
 	Prove the following set identites:
 	\begin{enumerate}
-		\item Let $A\subseteq B.$ Prove that $(A^c)^c = A$.
+		\item Let $A\subseteq U.$ Prove that $(A^c)^c = A$.
 		\item Let $A,\, B\subset U$. Prove that $(A\cup B)^c = A^c\cap B^c$
 		\item Let $A,\, B\subset U$. Prove that $(A\cap B)^c = A^c\cup B^c$
-		\item $\{a\in A : a\in B\} = \{b\in B : b\in A\}$
+		% \item $\{a\in A : a\in B\} = \{b\in B : b\in A\}$
 	\end{enumerate}
 \end{prob}
 
 \begin{prob}
   % Useful lemma for cofinite topology
-	Let $\mathcal X \subset \mathcal P(U)$ be a family of sets and define:
-  $\mathcal Y=\{X^c : X\in \mathcal X\}$, where $X^c=U\setminus X$.
+	Let $\mathcal X \subseteq \mathcal P(U)$ be a family of sets and define:
+  $\mathcal Y=\{X^c\subseteq U : X\in \mathcal X\}$, where $X^c=U\setminus X$.
   Prove that:
   \begin{enumerate}
     \item $(\bigcup \mathcal X)^c = \bigcap \mathcal Y$
@@ -243,37 +252,52 @@ Although is is impossible to create the set of all sets, it is possible to creat
 
 \subsection{Cartesian product}
 First of all, we need a useful concept:
+\begin{definition}
+  We define \textbf{an ordered pair} or \textbf{a 2-tuple} as
+  $$(a,b) := \{\{a\}, \{a, b\}\}.$$
+\end{definition}
+
 \begin{prob}
-	Let $A=\{\{a\}, \{a,b\}\},\, B=\{\{c\},\{c,d\}\}$. Prove that $A=B$ iff $a=c\wedge b=d$. Such a set $A$ we call
-	\textbf{the ordered pair} $(a,b)$ as it has the property $(a,b)=(c,d)$ iff $a=c$ and $b=d$.
-	Now you can forget how it has been constructed, and just remember this property.
+  Prove that $(a,b)=(a',b')$ iff $a=a'$ and $b=b'$.
 \end{prob}
 
 \begin{prob}
-Prove that $(a,(b,c))=(d,(e,f))$ iff $a=d\wedge b=e\wedge c=f$.
-\end{prob}
-\noindent Therefore it makes sense to write just
-$(a,b,c)$ for $(a,(b,c))$ and define similarily such \textbf{ordered tuple} for four elements, five elements
-and so on.
-\begin{prob}
-Check that defining $(a,b,c)$ as $((a,b),c)$ also works (so two ordered tuples are the same if they have the
-same first element, the same second element, ...)
-\end{prob}
-\begin{prob}
-Check that, in terms of sets, $(a,(b,c))\neq ((a,b),c)$, so formally we do need to stick to one convention.
-However as we are interested in the property of ordered tuple, we will not distinguish them and denote both
-of them just as $(a,b,c)$. Such notational problems appear in various places in mathematics, so we need to
-try to get used to them.
+  Prove that $(a,(b,c))=(d,(e,f))$ iff $a=d\wedge b=e\wedge c=f$.
 \end{prob}
 
-\noindent We can now introduce another way of creating new sets: let $A$ and $B$ be sets. Then we define their
-\textbf{Cartesian product} as
-$$A\times B = \{(a,b) : a\in A\wedge b\in B\}.$$
+\begin{definition}
+  \textbf{An ordered $n$-tuple} or simply \textbf{a tuple} is defined as:
+  $$(a_1,a_2,\dots, a_n) := (a_1, (a_2, (..., a_n)) \dots ).$$
+
+  It's single most important property is that:
+  $$(a_1,a_2,\dots,a_n)=(a_1', a_2', \dots, a_n')$$ iff $a_1=a_1', a_2=a_2', \dots, a_n=a_n'.$
+\end{definition}
+
+In fact the property is much more important than the explicit construction. For example we could define a 3-tuple as $((a,b),c)$ instead of $(a, (b,c))$ and
+the property would still hold! But one needs to be careful about the notation, as shows the next exercise.
+
+\begin{exercise}
+  Check that, in terms of sets, $(a,(b,c))\neq ((a,b),c)$, so formally we do need to stick to one convention for $(a,b,c)$.
+\end{exercise}
+
+\begin{definition}
+  Let $A$ and $B$ be sets. Then we assume that their
+  \textbf{Cartesian product} exists:
+  $$A\times B = \{(a,b) : a\in A\wedge b\in B\}.$$
+\end{definition}
+
+\begin{exercise}
+  Prove that Cartesian product is \textit{not} commutative (that is $A\times B\neq B\times A$ in general).
+\end{exercise}
 
 \begin{prob}
-	Do you remember the identification of $(a,(b,c))$ and $((a,b),c)$? Prove that
-	$A\times (B\times C) = (A\times B)\times C$. Therefore we'll write it just as $A\times B\times C$
-	without parentheness.
+  Prove that in general $(A\times B)\times C\neq A\times (B\times C)$, so Cartesian product is \textit{not} associative and an expression $A\times B\times C$ is ambiguous.
+  Later we will address this issue.
 \end{prob}
 
-\noindent Commonly used notation is $X^2 = X\times X = \{(x,y) : x, y \in X\}$ and analogously for other powers.
+\begin{definition}
+  We define a \textbf{square} of a set $X$ as:
+  $$X^2 = X\times X,$$
+  that is a set of all pairs made from elements of $X$.
+  Similarily, we define $X^n$ as collection of all $n$-tuples made from elements of $X$.
+\end{definition}
