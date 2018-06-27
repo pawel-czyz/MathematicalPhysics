@@ -1,16 +1,16 @@
 \section{Functions}
 \label{sec:intro_to_functions}
 
-Consider two sets $A$ and $B$. We say that a subset $f\subseteq A\times B$ is a \textbf{function}
-iff the following two conditions hold:
-\begin{itemize}
-	\item for every element $a\in A$ there is an element $b\in B$ such that $(a,b)\in f$
-	\item if $(a,b)\in f$ and $(a,c)\in f$, then $b=c$
-\end{itemize}
-
-Therefore for each $a\in A$ there is exactly one $b\in B$ such that $(a,b)\in f$. Such $b$ will be called
-
-\textbf{value of $f$ at point $a$} and given a symbol $f(a).$
+\begin{definition}
+  Consider two sets $A$ and $B$. We say that a subset $f\subseteq A\times B$ is a \textbf{function}
+  iff the following two conditions hold:
+  \begin{itemize}
+    \item for every element $a\in A$ there is an element $b\in B$ such that $(a,b)\in f$
+    \item if $(a,b)\in f$ and $(a,c)\in f$, then $b=c$
+  \end{itemize}
+  Therefore for each $a\in A$ there is exactly one $b\in B$ such that $(a,b)\in f$. Such $b$ will be called \textbf{value of $f$ at point $a$} and given a symbol $f(a).$
+  We will frite $f: A\to B$ for $f$ and call $A$ the \textbf{domain of $f$} and $B$ the \textbf{codomain of $f$}.
+\end{definition}
 
 \begin{example}
   $f: \N\to \R$ given by $f(n)=n$.
@@ -25,11 +25,11 @@ Therefore for each $a\in A$ there is exactly one $b\in B$ such that $(a,b)\in f$
 \end{example}
 
 \begin{prob}
-	How many\footnote{Thanks to Antek Hanke} are there functions from the empty set to $\{1,2,3,4\}?$
+	How many\footnote{Thanks to Antek Hanke} are there functions from the empty set to $\{1,2,3,4\}$? Hint: what is a function in set-theoretical terms?
 \end{prob}
 
 \begin{exercise}
-  Here, we will prove a simple inequality using set-theoretic reasoning. Let $X$ and $Y$ be finite sets, with numbers of elements, respectively, $x$ and $y$.
+  Here, we will prove a simple inequality using set-theoretic reasoning. Let $X$ and $Y$ be finite sets, with numbers of elements, respectively, $x=|X|$ and $y=|Y|$.
   \begin{enumerate}
     \item Prove that the number of relations between $X$ and $Y$ is $2^{xy}$.
     \item Prove that the number of functions from $X$ to $Y$ is $y^x$. Hint: for first element in $X$ you have $y$ possibilities to choose.
@@ -39,7 +39,7 @@ Therefore for each $a\in A$ there is exactly one $b\in B$ such that $(a,b)\in f$
 \end{exercise}
 
 \begin{exercise}
-  Let $X$ and $Y$ be any two sets. Prove that you can create a set of all functions from $X$ to $Y$. Sometimes it is called $Y^X$. Do you see why?
+  Let $X$ and $Y$ be any two sets. Prove that you can create a set of all functions from $X$ to $Y$. Sometimes it is called $Y^X$. Do you know why?
 \end{exercise}
 
 \begin{exercise}
@@ -49,9 +49,6 @@ Therefore for each $a\in A$ there is exactly one $b\in B$ such that $(a,b)\in f$
     \item Consider $r: X\to X/R$ and $r': X'\to X'/R'$ given by $r(x)=[x]_R$ and $r'(x')=[x']_{R'}$ and inverse function.
   \end{enumerate}
 \end{exercise}
-
-We need to introduce more terminology: set $A$ is called \textbf{the domain of $f$}, set $B$ is called
-\textbf{the codomain of $f$} and the function $f$ is written as $f: A\to B$.
 
 \begin{prob}
 	Consider two functions: $f:\{0, 1\}\to \{0,1\}$ given by $f(x)=0$ and $g:\{0,1\}\to\{0\}$.
@@ -98,11 +95,11 @@ If $f(a)$ uniquely specifies $a$ (if $f(a)=f(b)$, then $a=b$) we say that the fu
 \end{exercise}
 
 \begin{exercise}
-	Let $f$ be a function from $A$ to $B$. Prove that there exists a function $g: \Image B\to A$ such that $g\circ f=\Id_A$ iff $f$ is injective. 
+	Let $f$ be a function from $A$ to $B$. Prove that there exists a function $g: \Image B\to A$ such that $g\circ f=\Id_A$ iff $f$ is injective.
 \end{exercise}
 
 \begin{exercise}
-	Let $f: A\to B$ and $g: B\to C$ be functions such that $g\circ f$ is injective but $g$ is not. Why isn't $f$ surjective? 
+	Let $f: A\to B$ and $g: B\to C$ be functions such that $g\circ f$ is injective but $g$ is not. Why isn't $f$ surjective?
 \end{exercise}
 
 If a function $f$ is both surjective and injective, we say that is \textit{bijective}\footnote{If you prefer nouns: surjective function is called surjection, injective - injection

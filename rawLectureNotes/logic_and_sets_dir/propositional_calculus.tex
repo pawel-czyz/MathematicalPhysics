@@ -13,15 +13,23 @@ whether they are true or not.
 \end{definition}
 
 \begin{example}
+  % Equivalence - trivial example
+  Sentences "Each square is a rectangle" and "2+2=3+1" are both true, so trivially they are equivalent.
+\end{example}
+
+\begin{example}
   % Equivalence - example, people in a room
-  Let $p$ be a sentence "The number of people in the room you are sitting is odd" and $q$ be "If one person enters the room, then the number of people will become even".
-  We \textit{do not know} if any of these sentences is true - it would require to count all the people. But if $p$ is true, then also $q$ must be true and vice versa - if $q$ is
-  true, then also $p$ must be true. Therefore we can say that $p$ and $q$ are equivalent, or write $p\Leftrightarrow q$.
+  Let $p$ be a sentence "There is an odd number of people in this room." and $q$ be "If one person enters the room, then the number of people becomes even".
+  We \textit{do not know} if \textit{any} of these sentences is true - it would require to count all the people in the room! But if $p$ is true, then also $q$ must be true and vice versa - if $q$ is true, then also $p$ must be true. Therefore we can say that $p$ and $q$ are equivalent, or write $p\Leftrightarrow q$.
 \end{example}
 
 \begin{exercise}
+  Prove that $(p\Leftrightarrow q) \Leftrightarrow (q\Leftrightarrow p)$. Hint: what does the sentence in the first bracket mean? What about the second? Why are they equivalent?
+\end{exercise}
+
+\begin{exercise}
   % Equivalence - transitivity
-  Prove that if we know that $p\Leftrightarrow q$ and $q\Leftrightarrow r$, then also $p\Leftrightarrow r$.
+  Prove that if we know that $p\Leftrightarrow q$ and we know that $q\Leftrightarrow r$, then also $p\Leftrightarrow r$.
 \end{exercise}
 
 \begin{definition}
@@ -32,7 +40,7 @@ whether they are true or not.
 
 \begin{example}
   % Conjunction - simple example
-  Sentence: "2+2=5" and "2+1=3" is false, as one of them (namely, the first one) is false.
+  Sentence: "(2+2=5) and (2+1=3)" is false, as one of them (namely, the first one) is false.
 \end{example}
 
 \begin{exercise}
@@ -43,7 +51,7 @@ whether they are true or not.
 \begin{exercise}
   % Conjunction - associativity
   Let $p,\, q,\, r$ be three sentences. Prove that $(p\wedge q)\wedge r$ is true if and only if $p\wedge (q\wedge r)$ is true. Such a property is called \textbf{associativity}
-  and implies that we do not need to specify the order of calculation. Therefore we can write just $p\wedge q\wedge r$.
+  and implies that we do not need to specify the order of calculation. Therefore we can write just $p\wedge q\wedge r$ without writing brackets.
 \end{exercise}
 
 \begin{definition}
@@ -51,6 +59,10 @@ whether they are true or not.
   Consider sentences $p$ and $q$. We say that their \textbf{disjunction} $p\vee q$ is true if and only if at least one of them is true. Usually disjunction of $p$ and $q$ is
   referred as "$p$ or $q$".
 \end{definition}
+
+\begin{example}
+  Sentences "(2+1=3) or (2+1=4)" and "(2+1=3) or (3-1=2)" are both true while "(2+1=4) or (1+1=1)" is false.
+\end{example}
 
 \begin{exercise}
   % Disjunction - associativity and commutativity
@@ -68,10 +80,10 @@ whether they are true or not.
 \end{exercise}
 
 % Proof strategy - truth table
-Now we will stop and think about proof strategies. Sometimes there is an elegant way how to prove that two statements are equivalent (like in the proof of associativity of
-conjunction, one can see that both sentences are true iff all three basic sentences are true), but in case of more complicated sentences, it may be hard to find it. Common
-proof strategy is \textbf{truth table} approach: we list in a table all the values that each basis sentence can take and evaluate the value of final expression.
-Then two sentences are equivalent iff they have the same truth tables.
+Now we will think about proof strategies. Sometimes there is an elegant way how to prove that two statements are equivalent (like in the proof of associativity of
+conjunction, one can see that both sentences are true iff all three basic sentences are true), but in case of more complicated sentences, it may be hard to find it. A common
+proof strategy is a \textbf{truth table} approach: we list in a table all the values that each basis sentence can take and evaluate the value of final expression.
+Then \textit{two sentences are equivalent iff they have the same truth tables}.
 
 \begin{example}
   % Truth table - conjunction
@@ -133,65 +145,68 @@ the number of basic sentences!
 
 \begin{exercise}
   % Implication - expression in terms of negation and disjunction
-  Prove that $(p\Rightarrow q)\Leftrightarrow (\neg p) \vee q$. Hint: left sentence is false for very specific $p$ and $q$. Do you need to write down 4 rows in a truth table for
-  right-hand-side sentence?
+  Prove that $(p\Rightarrow q)\Leftrightarrow (\neg p) \vee q$. Hint: left sentence is false for very specific $p$ and $q$. Do you need to write down all four rows in the truth table of the right-hand-side sentence?
 \end{exercise}
 
 \begin{exercise}
   % Implication - transitivity
-  Prove that implication is \textbf{transitive}, that is $((p\Rightarrow q)\wedge (q\Rightarrow r)) \Rightarrow (p\Rightarrow r)$.
+  Prove that implication is \textbf{transitive}, that is $$((p\Rightarrow q)\wedge (q\Rightarrow r)) \Rightarrow (p\Rightarrow r).$$
 \end{exercise}
 
-The following exercise will later be a foundation of an operation called orthocomplementation in more general settings:
 \begin{exercise}
-  % Negation as orthocomplementation - properties
-  Let $p$ and $q$ be sentences. Prove that:
-  \begin{enumerate}
-    \item $\neg(\neg p) \Leftrightarrow p$
-    \item $p\Rightarrow q$ implies $(\neg q)\Rightarrow (\neg p)$ (Be smart! How many values of $p, q$ do you need to check?)
-    \item $p\vee (\neg p)$
-    \item $p\wedge (\neg p)$ is \textit{false} (we could write "Prove $\neg(p\wedge (\neg p))$", but it looks much more terrible!)
-  \end{enumerate}
+  Assuming that every topological space is homeomorphic to itself and that homeomorphic spaces are homotopic, prove that every topological is homotopic to itself. Hint: you don't need to know what the terms here mean to solve this exercise (but eventually will reach them!).
 \end{exercise}
 
-You may have seen similarity between symbols $\Leftrightarrow$ and $\Rightarrow$ - it's not an accident as you can prove!
+% The following exercise will later be a foundation of an operation called orthocomplementation in more general settings:
+% \begin{exercise}
+%   % Negation as orthocomplementation - properties
+%   Let $p$ and $q$ be sentences. Prove that:
+%   \begin{enumerate}
+%     \item $\neg(\neg p) \Leftrightarrow p$
+%     \item $p\Rightarrow q$ implies $(\neg q)\Rightarrow (\neg p)$ (Be smart! How many values of $p, q$ do you need to check?)
+%     \item $p\vee (\neg p)$
+%     \item $p\wedge (\neg p)$ is \textit{false} (we could write "Prove $\neg(p\wedge (\neg p))$", but it looks much more terrible!)
+%   \end{enumerate}
+% \end{exercise}
+
+You may have discovered a similarity between symbols "$\Leftrightarrow$" and "$\Rightarrow$" - it's not an accident as you can prove!
 \begin{exercise}
   % Equivalence via implications
   Prove that $(p\Leftrightarrow q)\Leftrightarrow ((p\Rightarrow q) \wedge (q\Rightarrow p))$.
 \end{exercise}
 
-\subsection{Another point of view}
-In mathematics we have usually many different views on the same thing. Some of them are suited better for some kind of problems, other to others.
-We would like to introduce you to a useful model of propositional calculus. To each true sentence $p$ we assign number $v(p)$
-that is 1 if $p$ is true and 0 if $p$ is false. We define $1+1=1$
-(it's a bit unusual thing). Then:
-\begin{enumerate}
-  \item $a\Leftrightarrow b$ means the same thing as sentence $v(a)=v(b)$.
-  \item $a\wedge b$ means exactly the same thing as $v(a)\cdot v(b)$
-  \item $a\vee b$ means exactly the same thing as $v(a)+v(b)$ (this is the reason why we want $1+1=1$)
-  \item $a\Rightarrow b$ is the same as $v(a)\le (b)$.
-  \item $\neg 1 = 0$ and $\neg 0=1$
-\end{enumerate}
-
-\begin{exercise}
-  % Transitivity
-  Prove transitivity of implication, that is $((p\Rightarrow q)\wedge (q\Rightarrow r)) \Rightarrow (p\Rightarrow r)$ using transitivity of $\le$.
-  It simplifies the proof a bit, doesn't it?
-\end{exercise}
+% \subsection{Another point of view}
+% In mathematics we have usually many different views on the same thing. Some of them are suited better for some kind of problems, other to others.
+% We would like to introduce you to a useful model of propositional calculus. To each true sentence $p$ we assign number $v(p)$
+% that is 1 if $p$ is true and 0 if $p$ is false. We define $1+1=1$
+% (it's a bit unusual thing). Then:
+% \begin{enumerate}
+%   \item $a\Leftrightarrow b$ means the same thing as sentence $v(a)=v(b)$.
+%   \item $a\wedge b$ means exactly the same thing as $v(a)\cdot v(b)$
+%   \item $a\vee b$ means exactly the same thing as $v(a)+v(b)$ (this is the reason why we want $1+1=1$)
+%   \item $a\Rightarrow b$ is the same as $v(a)\le (b)$.
+%   \item $\neg 1 = 0$ and $\neg 0=1$
+% \end{enumerate}
+%
+% \begin{exercise}
+%   % Transitivity
+%   Prove transitivity of implication, that is $((p\Rightarrow q)\wedge (q\Rightarrow r)) \Rightarrow (p\Rightarrow r)$ using transitivity of $\le$.
+%   It simplifies the proof a bit, doesn't it?
+% \end{exercise}
 
 \subsection{Quantifiers}
-Consider a sentence $P(n)$ involving an object $n$ (for example $n$ can be an integer and $P(n)$ can be a sentence $n=2n$).
+Consider a sentence $P(n)$ involving an object $n$ (for example $n$ can be an integer and $P(n)$ can be a sentence "$n=2n$").
 \begin{definition}
   % Universal and existence quantifiers - definition
-  We define \textbf{universal quantifier}
+  We define the \textbf{universal quantifier}
   as a sentence $\forall_n P(n)$ meaning "for all $n$, the formula $P(n)$ holds".
-  We define \textbf{existential quantifier} as a sentence $\exists_n P(n)$ meaning "there exists $n$ such that $P(n)$ holds"
+  We define the \textbf{existential quantifier} as a sentence $\exists_n P(n)$ meaning "there exists $n$ such that $P(n)$ holds"
   \footnote{$\forall$ is a rotated "A" symbolising "for \textbf{A}ll" and $\exists$ is a rotated "E" symbolising "\textbf{E}xists"}.
 \end{definition}
 
 \begin{example}
   % Example showing the difference between quantifiers.
-  In case of $P(n)$ meaning "$2n=n$", we $\forall_n P(n)$ is false (as for $n=1$ we have $2\cdot 1\neq 1$) but $\exists_n P(n)$ is true,
+  In the case of $P(n)$ meaning "$2n=n$", the sentence $\forall_n P(n)$ is false (as for $n=1$ we have $2\cdot 1\neq 1$) but the sentence $\exists_n P(n)$ is true,
   as $2\cdot 0=0$.
 \end{example}
 
