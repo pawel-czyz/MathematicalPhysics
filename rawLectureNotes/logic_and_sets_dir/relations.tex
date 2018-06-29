@@ -1,20 +1,20 @@
 \section{Relations}
-An important concept related to Cartesian product is \textbf{relation}.
+Having defined Cartesian product, we can consider subsets of it. It will lead to two new, important concepts - relations and functions.
 
 \begin{definition}
   A \textbf{relation $R$ between sets} $X$ and $Y$ is a subset of $X\times Y$. If $(x,y)\in R$ we write $x\,R\,y$. A \textbf{relation on a set} $X$ is a subset of $X\times X$.
 \end{definition}
 
 \begin{example}
-  Consider normal ordering on natural numbers: $1<2$,\,$2<3,\, 4<27$. It is in fact a relation on $\N$: $a<b$ means exactly $(a,b)\in\, <\,\subseteq \N\times \N$.
+  Consider the ordering of natural numbers: $1<2$,\,$2<3,\, 4<27$. It is in fact a relation on $\N$: $a<b$ means exactly $(a,b)\in\, <\,\subseteq \N\times \N$.
 \end{example}
 
 \begin{exercise}
-  What is "the smallest" relation between $X$ and $Y$ (in such sense that is a subset of \emph{every} relation between $X$ and $Y$)? What is the biggest one (every relation is a subset of the biggest one)?
+  What is "the smallest" relation between $X$ and $Y$ (in such sense that is a subset of \emph{every} relation between $X$ and $Y$)? What is "the biggest" one (every relation is a subset of the biggest one)?
 \end{exercise}
 
 \begin{exercise}
- Let $X$ and $Y$ be any sets. Prove that there exists the \textbf{set} of all relations between $X$ and $Y$.
+ Let $X$ and $Y$ be any sets. Prove that there exists the \textbf{set} of all relations between $X$ and $Y$. Hint: what is a power set?
 \end{exercise}
 
 \begin{exercise}
@@ -31,6 +31,11 @@ Among all the relations on a set $X$, we have some with very nice behaviour.
     \item $x\equiv x$ for every $x$ (reflexivity)
   \end{enumerate}
 \end{definition}
+
+\begin{example}
+  Consider any set $X$. Then a set $$\Id_X := \{(x,x)\in X\times X : x\in X\}$$
+  is an equivalence relation on $X$.
+\end{example}
 
 \begin{exercise}
   Prove that $n\equiv m$ iff $n$ and $m$ have the same parity is an equivalence relation on $\Z$.
@@ -54,7 +59,7 @@ Why do we call it equivalence classes? Is it somehow related to equivalence rela
   Here you will prove the fundamental relationship between partitions and equivalence relations.
   \begin{enumerate}
     \item Prove that if we have a parition on $X$, then the relation given by: $x\equiv y$ iff $x$ and $y$ belong to the same equivalence class, is an equivalence relation on $X$.
-    \item Let $\equiv$ be an equivalence relation on $X$. Prove that $\{[x] : x\in X\}$ is a partition on $X$, where $[x]=[y\in X : y\equiv x]$
+    \item Let $\equiv$ be an equivalence relation on $X$. Prove that $\{[x] : x\in X\}$ is a partition on $X$, where $[x]=\{y\in X : y\equiv x\}$
   \end{enumerate}
   The partition of $X$ corresponding to relation $\equiv$ is written as $X/\equiv.$
 \end{exercise}
@@ -104,5 +109,6 @@ Usually our sets will be equipped with some additional structure - for example i
     \item Consider any rational numbers $m/n$ and $p/q$. What equivalence classes do they correspond to? What is their sum and product? Do you see now how we can construct rationals using integers only?
   \end{enumerate}
 \end{exercise}
+
 You can ask whether integers also can be somehow constructed using most basic, natural, numbers. Yes - consider $\N\times \{0,1\}$ with $(n,0)$ corresponding to $n$
 and $(n,1)$ corresponding to $-n$. Figure how to define addition, subtraction and multiplication. Later we will also discover how to construct reals from rationals.

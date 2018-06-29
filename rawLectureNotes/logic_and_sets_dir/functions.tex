@@ -2,7 +2,7 @@
 \label{sec:intro_to_functions}
 
 \begin{definition}
-  Consider two sets $A$ and $B$. We say that a subset $f\subseteq A\times B$ is a \textbf{function}
+  Consider two sets $A$ and $B$. We say that a relation $f$ (that is a subset $f\subseteq A\times B$) is a \textbf{function}
   iff the following two conditions hold:
   \begin{itemize}
     \item for every element $a\in A$ there is an element $b\in B$ such that $(a,b)\in f$
@@ -10,26 +10,35 @@
   \end{itemize}
   Therefore for each $a\in A$ there is exactly one $b\in B$ such that $(a,b)\in f$. Such $b$ will be called \textbf{value of $f$ at point $a$} and given a symbol $f(a).$
   We will frite $f: A\to B$ for $f$ and call $A$ the \textbf{domain of $f$} and $B$ the \textbf{codomain of $f$}.
+
+  Being very concise we can also write $f$ as
+  $$f: A\ni a \mapsto f(a)\in B.$$
+  Note that we use two different arrows.
 \end{definition}
 
 \begin{example}
-  $f: \N\to \R$ given by $f(n)=n$.
+  $f: \N\to \R$ given by $f(n)=n^2$. We can also write: $$f: \N\ni n\mapsto n^2\in \R.$$
 \end{example}
 
 \begin{example}
-  $f: \R\to \R$ given by $f(x)=x^2$.
+  $f: \R\to \R$ given by $f(x)=x^{10}+x^2-1$.
 \end{example}
 
 \begin{example}
   $f: X\to \mathcal P(X)$ given by $f(x)=\{x\}$.
 \end{example}
 
-\begin{prob}
-	How many\footnote{Thanks to Antek Hanke} are there functions from the empty set to $\{1,2,3,4\}$? Hint: what is a function in set-theoretical terms?
-\end{prob}
+\begin{exercise}
+  Let $X$ and $Y$ be two sets. Prove that there exists a set of all functions from $X$ to $Y$. Hint: you can form a set of all relations between $X$ and $Y$. How are functions related
+  to relations?
+\end{exercise}
 
 \begin{exercise}
-  Here, we will prove a simple inequality using set-theoretic reasoning. Let $X$ and $Y$ be finite sets, with numbers of elements, respectively, $x=|X|$ and $y=|Y|$.
+	How many\footnote{Thanks to Antek Hanke} are there functions from the empty set to $\{1,2,3,4\}$? Hint: what is a function in set-theoretical terms?
+\end{exercise}
+
+\begin{exercise}
+  Here, we will prove a simple inequality using a set-theoretic reasoning. Let $X$ and $Y$ be finite sets, with numbers of elements, respectively, $x=|X|$ and $y=|Y|$.
   \begin{enumerate}
     \item Prove that the number of relations between $X$ and $Y$ is $2^{xy}$.
     \item Prove that the number of functions from $X$ to $Y$ is $y^x$. Hint: for first element in $X$ you have $y$ possibilities to choose.
@@ -51,32 +60,27 @@
 \end{exercise}
 
 \begin{prob}
-	Consider two functions: $f:\{0, 1\}\to \{0,1\}$ given by $f(x)=0$ and $g:\{0,1\}\to\{0\}$.
-	Prove that $f=g$.
-	\footnote{Some mathematicians, as Bourbaki use an alternative definition of function - for them
-	a function is the triple $(A,B,f)$, where $f$ is defined as in the our case. We see that this definition
-	is incompatible with ours. Fortunately, as in the case with different definitions of ordered tuples,
-	this problem will never occur explicitly in the further chapters.}
-\end{prob}
-
-\begin{prob}
-	Let $f:A\to B$ and $g: C\to B,$ where $A\neq C$. Is it possible that $f=g$?
-\end{prob}
-
-\begin{prob}
 	Let $f: A\to B$ and $C\subseteq D\subseteq A$. We define: $f[C] = \{b\in B : b=f(c) \text{ for some }c\in C \}$ and analogously $f[D]$. Prove that
 	$f(C)\subseteq f(D).$
 \end{prob}
 
+\begin{definition}
+  Consider a set $X$. We say that it's \textbf{identity function} is $f:X\to X$ given by $f(x)=x$ for all $x\in X$.
+\end{definition}
+
 \subsection{Injectivity, surjectivity and bijectivity}
 
-\noindent As we have already seen, there may be some elements in codomain that are not values of
-$f$. We define \textbf{the image of $f$} as:
-$$\text{Im}\, f = \{b\in B : \text{there is } a\in A \text{ such that } b=f(a)\}.$$
-We say that the function $f: A\to B$ is \textbf{surjective} (or \textbf{onto}) iff $\text{Im}\,f=B$.
+\noindent As we have already seen, there may be some elements in codomain that are not values of $f$. Such a set is important enough to be given a name:
+
+\begin{definition}
+  Let $f:A\to B$ be a function. \textbf{The image of $f$} is a set:
+  $$\Image f=\{b\in B : \text{there is } a\in A \text{ such that } b=f(a)\}.$$
+
+  We say that the function $f: A\to B$ is \textbf{surjective} (or \textbf{onto}) iff $\Image f=B$.
+\end{definition}
 
 \begin{prob}
-	As we remember, $\mathbb{R}$ stands for well-known real numbers. Are the following functions surjective?
+	As we remember, $\mathbb{R}$ stands for real numbers. Are the following functions surjective?
 	\begin{enumerate}
 		\item $f: \mathbb{R} \to \mathbb{R}, ~f(x)=x^3$
 		\item $g: \mathbb{R} \to \mathbb{R}, ~g(x)=x^2$
@@ -84,10 +88,13 @@ We say that the function $f: A\to B$ is \textbf{surjective} (or \textbf{onto}) i
 	\end{enumerate}
 \end{prob}
 
-If $f(a)$ uniquely specifies $a$ (if $f(a)=f(b)$, then $a=b$) we say that the function is \textbf{injective}
-(or \textbf{one-to-one}).
+\begin{definition}
+  Let $f:A\to B$ be a function. If $f$ gives distinct values to distinct arguments (that is, if $f(a)=f(b)$, then $a=b$), we say that the function is \textbf{injective}
+  (or \textbf{one-to-one}).
+\end{definition}
+
 \begin{exercise}
-	As we remember, $\mathbb{R}$ stands for well-known real numbers. Are the following functions injective?
+  Are the following functions injective?
 	\begin{enumerate}
 		\item $f: \mathbb{R} \to \mathbb R, ~f(x)=x^2$
 		\item $h: \{0,1,2,3\} \to \mathbb R, ~h(x)=x$
@@ -102,24 +109,33 @@ If $f(a)$ uniquely specifies $a$ (if $f(a)=f(b)$, then $a=b$) we say that the fu
 	Let $f: A\to B$ and $g: B\to C$ be functions such that $g\circ f$ is injective but $g$ is not. Why isn't $f$ surjective?
 \end{exercise}
 
-If a function $f$ is both surjective and injective, we say that is \textit{bijective}\footnote{If you prefer nouns: surjective function is called surjection, injective - injection
+\begin{definition}
+If a function $f$ is both surjective and injective, we say that is \textbf{bijective}\footnote{If you prefer nouns: surjective function is called a surjection, injective - injection
 and bijective - bijection}.
+\end{definition}
 
-\begin{prob}
-	Construct function that is:
+\begin{exercise}
+	Construct a function that is:
 	\begin{enumerate}
 		\item surjective, but not injective
 		\item injective, but not surjective
 		\item neither injective nor surjective
 		\item bijective
 	\end{enumerate}
-\end{prob}
+\end{exercise}
 
 \noindent Notice that if a function $f: A\to B$ is bijective, then we can construct a function $g:B\to A$
 such that $f(g(b))=b$ and $g(f(a))=a$.
+
 \begin{prob}
 	Prove that, if exists, $g$ is unique.
 \end{prob}
+
+\begin{definition}
+  Consider a bijective function $f:X\to Y$. We say that it's \textbf{inverse function} $f^{-1}:Y\to X$ iff:
+  $$f^{-1}(f(x))=x, f(f^{-1}(y))=y,$$
+  for all $x\in X,\, y\in Y$.
+\end{definition}
 
 \noindent We call this function \textbf{the inverse function}
 \footnote{It becomes confusing when working on real numbers: $f^{-1}(x)$ is
@@ -161,15 +177,15 @@ often.
     \end{enumerate}
 \end{exercise}
 
-\begin{exercise} We will rephrase the definition of the inverse function as follows:
-	\begin{enumerate}
-		\item If $X$ if a set, we define \textbf{the identity function}
-			$$\text{Id}_X=\{(x,x)\in X^2 : x\in X\}.$$
-			Prove that it is indeed a function. What is it's domain?
-		\item Let $f:A\to B,~g:B\to A$. Prove that $f=g^{-1}$ iff
-			$$g\circ f = \text{Id}_A \text{ and } f\circ g = \text{Id}_B$$
-	\end{enumerate}
-\end{exercise}
+\begin{definition} We will rephrase the definition of the inverse function using the identity function\footnote{For a set $X$, it's identity function is
+    $$\Id_X=\{(x,x)\in X\times X : x\in X\}.$$}:
+
+    consider a function $f:X\to Y$. If there exists a function $f^{-1}:Y\to X$ such that:
+
+    $$f^{-1}\circ f=\Id_X,  f\circ f^{-1}=\Id_Y,$$
+
+    we say that $f^{-1}$ if \textbf{the inverse} to $f$.
+\end{definition}
 
 \begin{exercise}
   Let $f: A\to B$ be an injection. Prove that there is a function
@@ -183,7 +199,7 @@ often.
   - Tess Flanders
 \end{quote}
 
-Consider functions $f:X\to Y$ and $g:Y\to Z$. We introduced the composition of them given us $g\circ f: X\to Z$. We can visualise it using a following \textbf{diagram}:
+Consider functions $f:X\to Y$ and $g:Y\to Z$. We introduced the composition of them given us $g\circ f: X\to Z$. We can visualise it using a following \textbf{diagram} (Fig. \ref{fig:commutative_diagram_intro}):
 
 \begin{figure}
   \centering
@@ -191,6 +207,40 @@ Consider functions $f:X\to Y$ and $g:Y\to Z$. We introduced the composition of t
     X \arrow[rd, "g\circ f"] \arrow[rr, "f"] &       & Y \arrow[ld, "g"]\\
                                            &  Z   &
   \end{tikzcd}
+  \caption{An example of a diagram.}
+  \label{fig:commutative_diagram_intro}
 \end{figure}
 
 We say that this diagram \textbf{commutes} (or we say that this is a \textbf{commutative diagram}) as you can use follow any path and obtain the same result.
+
+\begin{exercise}
+  Prove that the diagram \ref{fig:commutative_diagram_composition} commutes iff $h=g\circ f$?
+
+  \begin{figure}
+    \centering
+    \begin{tikzcd}
+      X \arrow[rd, "h"] \arrow[rr, "f"] &       & Y \arrow[ld, "g"]\\
+                                             &  Z   &
+    \end{tikzcd}
+
+    \caption{What can you say about $f,g,h$ if the diagram commutes?}
+    \label{fig:commutative_diagram_composition}
+
+  \end{figure}
+\end{exercise}
+
+\begin{exercise}
+  What can you say if diagram \ref{fig:commutative_diagram_toy_natural_transformation} commutes?
+
+  \begin{figure}
+    \centering
+    \begin{tikzcd}
+      X \arrow[d, "h"] \arrow[r, "f"] &  Y \arrow[d, "g"]\\
+      Z \arrow[r, "j"]                &  T
+    \end{tikzcd}
+
+    \caption{What can you say about the functions involved if the diagram commutes?}
+    \label{fig:commutative_diagram_toy_natural_transformation}
+
+  \end{figure}
+\end{exercise}
