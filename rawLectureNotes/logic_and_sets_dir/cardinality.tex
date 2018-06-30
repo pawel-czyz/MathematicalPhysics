@@ -1,73 +1,167 @@
 \section{Cardinality}
 \subsection{Finite sets}
-For a finite set $X$ we write the number of elements of $X$ as $|X|$. We can calculate their \textbf{cardinalities} (sizes, numbers of elements) with
-ease,
+\begin{definition}
+  The \textbf{cardinality} $|X|$ of a finite set $X$ is defined as the number of elements in $X$.
+\end{definition}
+
+\begin{example}
+  Let $A=\{0,1,2,3\}$. Then $|A|=4$.
+\end{example}
+
 \begin{exercise}
 	What is the cardinality of $\{a, a+1, a+2, \dots, a+n\}$?
 \end{exercise}
 
-\begin{exercise}
-	Let $A,\,B$ and $C$ be finite sets. Prove that:
-	\begin{enumerate}
-		\item $|2^A|=2^{|A|}$
-		\item $|A\cup B|=|A|+|B|$ iff $A$ and $B$ are disjoint.
-		\item $|A\setminus B|=|A|-|B|$ if $B\subseteq A.$
-		\item $|A| \ge |B|$ if $B\subseteq A$. When does the equality hold?
-		\item $|A\cup B| = |A| + |B| - |A\cap B|$
-		\item $|A\cup B\cup C| = |A|+|B|+|C| - |A\cap B| - |B\cap C|-|C\cap A| + |A\cap B\cap C|$
-	\end{enumerate}
-\end{exercise}
+\begin{theorem}
+  \textbf{Inclusion-exclusion principle}
+  If $X$ and $Y$ are finite sets, then:
+  $$|X\cup Y|=|X|+|Y|-|X\cap Y|.$$
+\end{theorem}
 
-We can also employ functions to compare cardinalities:
-\begin{exercise}
-	Assume that $A$ and $B$ are finite sets. Prove that $|A|=|B|$ iff there is a bijection between $A$ and $B$.
-\end{exercise}
+Intuitively, adding two sets we count elements in each set twice and then subtract the number of elements that were counted twice. The formal proof goes as follows:
 
 \begin{exercise}
-	Above we find the way of saying that two cardinalities are equal using existence of a bijection. Let's find a way to compare which is less using
-	another kind of function.
-	\begin{enumerate}
-		\item Let $O_n=\{1,2,\dots,n\}.$ Prove that there is no injection from $O_{n+1}$ into $O_n$. Hint: use mathematical induction.
-		\item Let $A$ and $B$ be finite. Prove that there is an injection from $A$ to $B$ iff $|A| \le |B|.$
-	\end{enumerate}
+  Prove the inclusion-exclusion principle:
+
+  \begin{enumerate}
+    \item Let $X$ and $Y$ be finite, disjoint (that is $X\cap Y=\emptyset$) sets. Prove that:
+    $$|X\cup Y| = |X| + |Y|.$$
+    \item Prove that for $A\subseteq X$, where $X$ is finite, we have $|X\setminus A|=|X|-|A|$. Hint: $X\setminus A$ and $A$ are disjoint and sum up to $X$...
+    \item Prove that $$|X\cup Y|=|X|+|Y|-|X\cap Y|$$ for finite sets $X,\, Y$ (now we don't assume that they are disjoint). Hint: what is $(X\setminus(X\cap Y))\cup Y$?
+  \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-	Prove in one: if there is an injection from $A$ onto $B$ and an injection from $B$ into $A$, then there exists a bijection from $A$ onto $B$. Hint: you know that $|A|\le B$ and $|B|\le |A|$.
+  Prove that if $B\subseteq A$, and $A$ is finite, then $|B|\le |A|$. When does the equality hold?
 \end{exercise}
 
-\subsection{Infinite sets}
-But how can we measure the number of elements of an infinite set, as $\mathbb N$ or $\mathbb R$? As natural numbers are ,,to small" we need to
-introduce new numbers, as $|\mathbb N|$ and be able to compare them. As we have seen above, the existence of a bijection is a good way of saying
-that two finite sets have equal cardinalities. It intuitively makes sense to employ this observation even in the infinite case: we say that sets
-(finite or infinite) $A$ and $B$ have the same caridnalities (or $|A|=|B|$) iff there is a bijection between $A$ and $B$.
+\begin{exercise}
+  Prove that $|\mathcal P(A)|=2^{|A|}$ for a finite set $A$. Do you see why the power set $\mathcal P(A)$ is often referenced as $2^A$?
+\end{exercise}
 
-\begin{prob}
-	Let $A,\,B$ and $C$ be sets. Prove that if $|A|=|B|$ and $|B|=|C|$, then $|A|=|C|.$ Hint: find the bijection between $A$ and $C$.
-\end{prob}
+\begin{exercise}
+    Let $A,B,C$ be finite sets. Prove that:
+		$$|A\cup B\cup C| = |A|+|B|+|C| - |A\cap B| - |B\cap C|-|C\cap A| + |A\cap B\cap C|.$$
+\end{exercise}
 
-\noindent Here you can see the difference between finite and infinite sets - for finite sets a proper subset (a subset that is not the whole set)
-always has smaller number of elements. In the infinite case it is not true, as a proper subset can have \textit{the same} number of elements.
+\begin{exercise}
+  Let $X=\{1,2,\dots, 2018\}$.
+\end{exercise}
 
-\begin{prob}
-	Prove that:
-	\begin{enumerate}
-		\item $|\mathbb N| = |\mathbb Z|$.
-		\item $|\mathbb N|=|\mathbb N\times \mathbb N|$.
-		\item $|\mathbb N|=|\mathbb Q|$.
-	\end{enumerate}
-\end{prob}
+\subsection{Characteristic functions}
+\begin{definition}
+  Fix a set $U$. For each subset $A\subseteq U$ we define it's \textbf{characteristic function} or \textbf{indicator function} as:
 
-\noindent Analogously to the finite case, we define $|A|\le |B|$ as the existence of an injection from $A$ to $B$. We say that $|A|<|B|$ iff there
-is an injection from $A$ to $B$ but there is no bijection.
+  $$1_A: U\to \{0,1\}$$
+  $$1_A(x) = \begin{cases}1, \text{ if } x\in A\\ 0, \text{ if } x\notin A\end{cases}$$
+\end{definition}
 
-\begin{prob}
-	Prove that if $A\subseteq B$, then $|A|\le|B|.$
-\end{prob}
+\begin{example}
+  Consider a set $U$. Then $1_\emptyset(x)=0$ and $1_U(x)=1$ for every $x\in U$. It's usually abbreviated as:
+  $$1_\emptyset=0, 1_U=1.$$
+\end{example}
 
-\begin{prob}
+\begin{exercise}
+  Let $A,B\subseteq U$. Prove that:
+  \begin{enumerate}
+    \item $1_{A_\cap B}=1_A\cdot 1_B$\footnote{It means that for every $x\in U$ we have $1_{A_\cap B}(x)=1_A(x)\cdot 1_B(x)$}
+    \item $1_{A^c}=1-1_A$, where $A^c=U\setminus A$
+    \item $1_{A\cup B}=1_A+1_B-1_A\cdot 1_B$
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Prove inclusion-exclusion principle for finite sets using characteristic functions. Hint: write $1_{A\cup B}$ in terms of $1_A, 1_B, 1_{A\cap B}$ and sum it's values over
+  all elements in \textit{finite} set $A\cup B$.
+\end{exercise}
+
+\subsection{Comparing cardinalities}
+Although we feel comfortable in counting elements of \textit{finite} sets, we don't know how to say how to compare infinite sets - there is no natural number we could use to denote
+their cardinalities!
+
+Therefore, we'll try another approach. Assume that we have a set of children and a set of toys. If we want to compare them, we can either try to calculate how many children and toys there are (it may be very hard if there are lots of children and lots of toys) or to ask each child to get one toy. If every child has \textit{one} toy and no toys are left, we know
+that there are exactly as many children as toys! We'll use this approach to compare infinite sets.
+
+\begin{definition}
+  Let $A$ and $B$ be two sets. If there exists a bijection $f:A\to B$, we say that $|A|=|B|$ (are of the same cardinality).
+\end{definition}
+
+\begin{example}
+  $|\N|=|2\N|$, where $2\N$ is a set of all even natural numbers, as we can find a bijection $n\mapsto 2n$. It's a surprising result, as $2\N\subseteq \N$ is a \textit{proper} subset. If $\N$ was finite, all it's proper subsets would have smaller cardinalities!
+\end{example}
+
+\begin{exercise}
+  Being of the same cardinality has similar properties to these of equivalence relation\footnote{... but as there is no sets of all sets, it is not formally an equivalence relation.}. Prove that:
+  \begin{enumerate}
+    \item $|A|=|A|$
+    \item $|A|=|B|$ implies that $|B|=|A|$ (hint: bijections have inverses)
+    \item if $|A|=|B|$ and $|B|=|C|$, then $|A|=|C|$ (hint: what is a composition of bijections?)
+  \end{enumerate}
+\end{exercise}
+
+\begin{definition}
+  We say that a set $X$ is \textbf{countably infinite} if $|X|=|\N|$. Usually we'll write that $\aleph_0:=|\N|$ (read "aleph 0").
+  We say that a set $X$ is \textbf{countable} if $X$ is finite or countably infinite.
+\end{definition}
+
+\begin{example}
+  Sets $\N, 2\N, \{0,1,6, 41\}$ are countable.
+\end{example}
+
+\begin{example}
+  $\Z$ is countable: $0\mapsto 0, 1\mapsto 1, 2\mapsto -1, 3\mapsto 2, 4\mapsto -2,\dots$
+\end{example}
+
+\begin{exercise}
+  Prove that a subset of a countable set is countable.
+\end{exercise}
+
+\begin{exercise}
+  Let $A$ and $B$ be countable sets. Prove that $A\cup B$ and $A\cap B$ are countable.
+\end{exercise}
+
+\begin{exercise}
+  Let $A$ and $B$ be countable. Prove that $A\times B$ is countable. Hint: you can write all elements of $A$ as $a_1,a_2,\dots$ and the elements of $B$ as $b_1, b_2,\dots$.
+  Think about an ordering $(a_1,b_1); (a_1, b_2), (a_2, b_1); (a_1, b_3), (a_2, b_2), (a_3, b_1); \dots$ (some terms may be repeated if $A$ and $B$ are not disjoint, think how to fix it).
+\end{exercise}
+
+\begin{exercise}
+  Prove that $\Q$ is countable.
+\end{exercise}
+
+\begin{exercise}
+  Let $\mathcal A$ be a countable family of countable sets. Prove that $\bigcup \mathcal A$ is countable.
+\end{exercise}
+
+\begin{exercise}
+  Prove that is $X$ is an infinite subset, then it contains a countably-infinite subset $S\subseteq X, |S|=\aleph_0$.
+\end{exercise}
+
+The last exercise shows that we can compare cardinalities. That is, if we can find a bijection between $A$ and \textit{some subset} of $B$, we can be sure that $B$ contains at least
+as many elements as $A$. This is exactly requiring the existence of an \textit{injection} from $A\to B$.
+
+\begin{definition}
+  If there exists an injection $f:A\to B$ we say that $B$ has greater or equal cardinality than $A$ and write $|A|\le |B|$. If $|A|\le |B|$ and $|A|\neq |B|$, we write
+  $|A| < |B|$ (that is: we can find an injection from $A$ to $B$, but there is no bijection between them).
+\end{definition}
+
+% \begin{exercise}
+% 	Above we find the way of saying that two cardinalities are equal using existence of a bijection. Let's find a way to compare which is less using
+% 	another kind of function.
+% 	\begin{enumerate}
+% 		\item Let $O_n=\{1,2,\dots,n\}.$ Prove that there is no injection from $O_{n+1}$ into $O_n$. Hint: use mathematical induction.
+% 		\item Let $A$ and $B$ be finite. Prove that there is an injection from $A$ to $B$ iff $|A| \le |B|.$
+% 	\end{enumerate}
+% \end{exercise}
+%
+% \begin{exercise}
+% 	Prove in one: if there is an injection from $A$ onto $B$ and an injection from $B$ into $A$, then there exists a bijection from $A$ onto $B$. Hint: you know that $|A|\le B$ and $|B|\le |A|$.
+% \end{exercise}
+
+
+\begin{exercise}
 	Let $A,\,B$ and $C$ be sets. Prove that if $|A|\le |B|$ and $|B|\le |C|$, then $|A|\le |C|$.
-\end{prob}
+\end{exercise}
 
 \begin{prob}
 	Here you can prove that there are more real numbers than naturals or rationals. We define $X=\{x\in \mathbb R : 0\le x\le 1\}$ and choose one
@@ -80,30 +174,30 @@ is an injection from $A$ to $B$ but there is no bijection.
 \end{prob}
 
 \begin{prob}
-	We know that $|\mathbb R| > |\mathbb N|.$ Using binary system prove that $\mathbb R=2^\mathbb N.$ Do you see similarity between the previous result
+	We know that $|\mathbb R| > |\mathbb N|.$ Using binary system prove that $\mathbb R=\mathcal P(\mathbb N)$. Do you see similarity between the previous result
 	and $2^n > n$ for natural $n$?
 \end{prob}
 
 \begin{prob}
-	\textbf{Cantor's theorem} You will prove that $|A|<\left|2^A\right|$ for any set $A$. Let $A$ be a set and $f:A\to 2^A.$
+	\textbf{Cantor's theorem} You will prove that $|A|<\left|\mathcal P(A)\right|$ for any set $A$. Let $A$ be a set and $f:A\to \mathcal P(A).$
 	\begin{enumerate}
-		\item Consider $X=\{a\in A : a\notin f(a)\}\in 2^A$. Is there $x\in A$ for which $f(x)=X?$
+		\item Consider $X=\{a\in A : a\notin f(a)\}\in \mathcal P(A)$. Is there $x\in A$ for which $f(x)=X?$
 		\item Is $f$ surjective?
-		\item Find an injective function $g: A\to 2^A.$
-		\item Prove that $|A| < |2^A|$ for any set $A$.
+		\item Find an injective function $g: A\to \mathcal P(A)$.
+		\item Prove that $|A| < |\mathcal P(A)|$ for any set $A$.
 		\item Use Cantor's theorem to prove that there is no set of all sets.
 	\end{enumerate}
 \end{prob}
 
 \begin{prob}
-	\textbf{Cantor-Schroeder-Bernstein theorem} Let's prove that if $|A|\le|B|$ and $|B|\le |A|$, then $|A|=|B|$ for any sets.
+	\textbf{Cantor-Schroeder-Bernstein theorem} Let's prove that if $|A|\le|B|$ and $|B|\le |A|$, then $|A|=|B|$.
 	\begin{enumerate}
 		\item (Knaster-Tarski) Now assume that $F$ has \textit{monotonicity} property: $F(X)\subseteq F(Y)$ if $X\subseteq Y$.
 			Prove that $F$ has a fixed point $S$ (that is $F(S)=S$), where:
 			$$S=\bigcup_{X\in U} X, \text{~where~} U= \{Y\in 2^A : Y\subseteq f(Y)\}.$$
 		\item (Banach) Let $f: A\to B$ and $g:B\to A$ be injections.
 			We introduce new symbol: $f[X]=\{b\in B : b=f(x) \text{ for some } x\in X\}$. Prove that
-			function $$F:2^A\to 2^A,~F(X)=A\setminus g[B\setminus f[X]]$$
+			function $$F:\mathcal P(A)\to \mathcal P(A),~F(X)=A\setminus g[B\setminus f[X]]$$
 			has the monotonicity property.
     \item Prove that $A\setminus S\subseteq \text{Im}\,g$, where
       $F$ and $S$ are taken from above.
