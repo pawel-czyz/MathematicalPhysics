@@ -10,21 +10,29 @@ We formulated comparision of cardinalities in terms of injections. We based on t
 That is for an injective function there exists a "left inverse". We may ask a question - is a some kind of inverse possible for \emph{surjections}?
 
 \begin{exercise}
-  Consider a surjective function $f: \Z \to \{0,1\}$ given by $f(2k+1) = 1, f(2k)=0$ for every $k\in \Z$.
+  Consider a surjective function $f: \Z \to \{0,1\}$ given by $2k+1 \mapsto 1, 2k\mapsto 0, k\in \Z$.
   \begin{enumerate}
     \item why a \emph{left} inverse does not exist?
     \item define a \emph{right} inverse, that is a function $g:\{0,1\}\to \Z$ such that $f\circ g=\Id_{\{0,1\}}$
   \end{enumerate}
 \end{exercise}
 
-In the above exercise we had no problem - just pick an element from the set of odd numbers (these that are mapped to 1) and an element from the set of even numbers (these that are mapped to 0). This idea
-of picking an element from each set, but for any number of sets - not just for two! - is known as the \textbf{axiom of choice}.
+In the above exercise we had no problem - just pick an element from the set of odd numbers (these that are mapped to 1) and an element from the set of even numbers (these that are mapped to 0). While there is no problem of picking an element from each set if we have just two (or three, four - any finite number), this issue may apear for \emph{infinite} families
+of sets.
+
+\begin{definition}
+  \textbf{Axiom of choice (AC)} Let $\mathcal A$ be a non-empty family of non-empty sets. Then there exists a \textbf{choice function} $f:\mathcal A\to \bigcup \mathcal A$ such that
+  $f(A)\in A$ for every $A\in \mathcal A$.
+\end{definition}
+
+Basically it means that for every family of sets, we can select an element from each set - for a set $A$, such element is just $f(A)$, where $f$ is the choice function. Alternatively,
+we could formulate it equivalently as:
 
 \begin{definition}
   \textbf{Axiom of choice (AC)} Let $\mathcal S=\{S_i: i\in I\}$ be any family of non-empty sets such that $S_i\cap S_j=\emptyset$ for $i\neq j$. Then it is possible to create a set $C$ such that for every $i\in I$ there is $s_i\in C$ such that $s_i\in S_i$. Or in natural-language terms: from every set of a family of nen-empty, pairwise-disjoint sets, we can select exactly one element.
 \end{definition}
 
-That's it! This property allows us to construct right inverses:
+This axiom allows us to construct right inverses:
 
 \begin{exercise}
   Prove that AC (the axiom of choice) is equivalent to the statement that every surjection possesses a right inverse. Hint: for $AC\Rightarrow \text{right inverse}$ use the same idea as in the previous problem. For
@@ -35,7 +43,7 @@ That's it! This property allows us to construct right inverses:
   Prove, assuming AC, that if $f:A\to B$ is a surjection, then, there exists an injection $g: B\to A$.
 \end{exercise}
 
-With AC it makes sense to compare cardinalities using surjections:
+Therefore with AC it makes sense to compare cardinalities using surjections:
 
 \begin{exercise}
 % Cardinalities with surjections
@@ -46,17 +54,46 @@ With AC it makes sense to compare cardinalities using surjections:
   \end{enumerate}
 \end{exercise}
 
-% TODO - trichotomy
+In fact, AC implies much more - as Banach-Tarski paradox says\footnote{You are right - we are eventually going prove it!} using it one can take a solid sphere, cut it into a few pieces and compose \emph{two} spheres of the same size, just by moving the pieces around. Therefore many mathematicians try to avoid it as much as possible - it is a good habit always to explicitly mention it's usage. In many places in this book we will use AC, usually in an equivalent form known as Kuratowski-Zorn lemma.
 
-In fact, AC implies much more - as Banach-Tarski paradox says\footnote{You are right - we are eventually going prove it!} using it one can take a solid sphere, cut it into a few pieces and compose \emph{two}
-spheres of the same size, just by moving the pieces around. Therefore many mathematicians try to avoid it as much as possible - it is a good habit always to explicitly mention it's usage. In many places in this book
-we will use AC (mostly a theorem equivalent to is, known as Kuratowski-Zorn Lemma) and always clearly say that we are using it.
+\subsection{Kuratowski-Zorn lemma}
 
+\begin{definition}
+  A \textbf{partial order} is a relation $\le$ on a set $A$ such that for all $a,\,b,\,c\in A$:
+  \begin{enumerate}
+    \item $a\le a$
+    \item $a\le b \wedge b\le a\Rightarrow a=b$
+    \item $a\le b\wedge b\le c\Rightarrow a\le c$.
+  \end{enumerate}
+  If for every $a,\,b\in A$ we have $a\le b$ or $b\le a$, then we say that it is a \textbf{total order} or \textbf{linear order}.
+\end{definition}
 
+\begin{example}
+  Natural numbers, integers and reals are totally ordered.
+\end{example}
 
+\begin{example}
+  Consider a set $\mathcal P(A)$ for some set $A$. It's partially ordered by the relation:
+  $$B\le C \Leftrightarrow B\subseteq C.$$
+  Note that some sets cannot be compared (neither $A\le B$ nor $B\le A$), so this order is \textit{not} total.
+\end{example}
+
+\begin{definition}
+  A \textbf{partially-ordered set} or a \textbf{poset} is a pair $(A, \le)$, where $A$ is a set and $\le$ is a partial order on $A$. If $B\subseteq A$ is a subset on which
+  $\le$ is total (every two elements of $B$ can be compared, or in set-theoretic terms $B\times B\subseteq \le$), we call $B$ a \textbf{a chain}.
+\end{definition}
+
+\begin{example}
+  Consider $A=\{0,1\}$. Then it's power set ordered by inclusion - $(\mathcal P(A), \subseteq)$ - is a poset. If we take $B=\{\emptyset,A\}\subseteq \mathcal P(A)$,
+  then every two elements of $B$ can be compared - it's a chain.
+\end{example}
+
+\begin{definition}
+  Let $(A, \le)$ be a poset and $B\subseteq A$. We say that $m\in B$ is \textbf{maximal} if 
+\end{definition}
 
 % Hats and AC
-% \begin{problem}
+% \begin{prob}
 %   A king said $\aleph_0 := |\N|$ mathematicians the following:
 %   "Tomorrow, you will be standing in a long queue and my servants will place a red or green hat on each's head. You will see all the hats of the people before you but no"
-% \end{problem}
+% \end{prob}
