@@ -1,0 +1,272 @@
+\section{Numbers}
+
+At the beginning we assumed that you know how to work with different kinds of numbers. This aim of this section is to give a few properties of them.
+
+\subsection{Real numbers}
+\begin{definition}
+  A \textbf{field} is a tuple $(\F, +, \cdot)$ such that:
+  \begin{itemize}
+    \item $\F$ is a set
+    \item $+$ and $\cdot$ are functions from $\F\times \F$ to $\F$. We write
+      $a+b$ for $+(a,b)$ and $a\cdot b$ for $\cdot (a,b)$.
+  \end{itemize}
+  They have these properties:
+  \begin{enumerate}
+    \item $a+(b+c)=(a+b)+c$ for all $a,b,c$ (addition is associative)
+    \item $a\cdot (b\cdot c)=(a\cdot b)\cdot c$ for all $a,b,c$ (multiplication is associative)
+    \item $a+b=b+a$ for all $a, b$ (addition is commutative)
+    \item $a\cdot b=b\cdot a$ for all $a,b$ (multiplication is commutative)
+    \item there is an element $0\in\F$ such that $a+0=a$ for all $a$ (addition has a neutral element). We call it \textbf{zero}
+    \item there is an element $1\in\F$ such that $a\cdot 1=a$ for all $a$ (so 1 is neutral element of multiplication). We call if \textbf{one}
+    \item for every $a$ there is $a'$ such that $a+a'=0$ (existence of
+      an inverse element for addition)
+    \item $a\cdot (b+c) = a\cdot b + a\cdot c$ for all $a,b, c$
+      (multiplication distributesover addition)
+    \item for every $a\neq 0$ there is $\tilde a$ such that $a\cdot \tilde a=1$
+      (multiplication has an inverse element for all non-zero numbers)
+    \item $1\neq 0$ (so $\F$ has at least two elements)
+  \end{enumerate}
+
+  Usually we will reference a field just as $\F$.
+\end{definition}
+
+\begin{exercise}
+  Check that
+  \begin{enumerate}
+    \item real numbers understood informally, have the field properties
+    \item rational numbers form a field
+  \end{enumerate}
+\end{exercise}
+
+From the above field axioms, you can derive many facts that may be obvious
+to you:
+\begin{exercise}
+  Prove that there is 0 and 1 are unique. Hint: assume that
+  0 and 0' have property such that $a=a+0=a+0'$ and try $a=0$ and $a=0'$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that if $a+a'=0$ and $a+a''=0$, then $a'=a''$.
+  Therefore we can introduce special symbol for \textit{the} additiv
+  inverse: $a + (-a)=0$ and define subtraction as $a-b := a + (-b)$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that $-a=(-1)\cdot a$.
+\end{exercise}
+
+% Consider more problems on this topic
+
+As you see, many of the algebraic properties we are used to can be recovered from the axioms, but sometimes it can be complicated. Both real numbers and
+rational numbers have also an order on them - for example $2>1$. It leads
+to the definition of \textit{total order}.
+
+\begin{definition}
+  We call a pair $(\F, \le)$ a \textit{totally ordered set} if for every $a,b\in \F$ we have:
+  \begin{enumerate}
+    \item $a\le b$ or $b\le a$ (we call this property totality)
+    \item $a\le b$ and $b\le a$ imply $a=b$ (it's called antisymmetry)
+    \item $a\le b$ and $b\le c$ imply $a\le c$ (transitivity)
+  \end{enumerate}
+  Having relation $\le$ we can define others: $b\ge a$ means that $a\le b$ and
+  $a<b$ means that $a\le b$ and $a\neq b$.
+\end{definition}
+
+\begin{definition}
+  \textbf{Ordered field} is a field $\F$ with a total order such that:
+  \begin{itemize}
+    \item $a\le b$ implies $a+c\le b+c$
+    \item $0\le a$ and $0\le b$ imply that $0\le a\cdot b$
+  \end{itemize}
+  We say that $\F_+ := \{x\in \F : x \le 0\}$ is a set of \textbf{non-negative} numbers.
+\end{definition}
+
+\begin{exercise}
+  Check that non-negative numbers are closed under summation and multiplication (the sum and product of two non-negative numbers is non-negative).
+\end{exercise}
+
+\begin{definition}
+  Consider a subset of a totally-ordered set $A\subseteq \F$. We say that $x$ is an
+  \textbf{upper bound} of $A$ iff $x\ge a$ for every $a\in A$.
+  In such case we say that $A$ \textbf{is bounded from above}.
+\end{definition}
+
+\begin{exercise}
+  Let $\F$ be either $\R$ or $\Q$. Prove that a set $A\subseteq \mathbb \F$ can have no upper bounds
+  or infinitely many of them.
+\end{exercise}
+
+\begin{definition}
+  Let $A\subseteq \F$ be a set bounded from above. It's \textbf{supremum} or \textbf{lower upper bound} is a number $\sup A\in F$ such that:
+  \begin{itemize}
+    \item $\sup A$ is an upper bound of $\F$
+    \item if $y$ is an upper bound of $A$, then $y\ge \sup A$
+  \end{itemize}
+  Supremum is often referenced as $\text{lub}$ or $\text{l.u.b}$.
+\end{definition}
+
+\begin{exercise}
+  Prove that supremum is unique, so if $x$ and $x'$ are supremums
+  of $A$, then $x=x'$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that $x=\sup A$ if and only if
+  $x\ge a$ for every $a\in A$ and for every $\eps > 0$ there is
+  $a\in A$ such that $x < a + \eps$.
+\end{exercise}
+
+\begin{definition}
+  \textbf{Completeness axiom} - each non-empty, bounded from above subset of $\R$ has a supremum.
+\end{definition}
+
+This axiom allows us to prove many interesting things:
+
+\begin{exercise}
+  Prove that natural numbers are \textit{not} bounded from above.
+  Hint: if $n\in \mathbb N$, then $n+1\in \mathbb N$
+\end{exercise}
+
+\begin{exercise}
+  Prove the \textbf{Archimedean axiom}\footnote{In fact we do not
+  need to call it axiom, as we are able to prove it.}
+  that for every $r\in R$, there is $n\in \mathbb N$ such that $n>r$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that for any $r>0$ there is $n\in \mathbb N$ such that
+  $1/n < r$.
+\end{exercise}
+
+\begin{exercise} Find infinite sum and intersection for the families of subsets of $\mathbb{R}$:
+  \begin{enumerate}
+    \item $A_i=(0,1/i)$ for $i=1,2,\dots$
+    \item $B_i=[0,1/i)$ for $i=1,2,\dots$
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Prove that rational numbers do \textit{not} have the completeness
+  property:
+  \begin{enumerate}
+    \item Let $p, q\in \mathbb Z\setminus \{0\}$.
+      Prove that $p^2\neq 2q^2$.
+    \item Prove that root of two, defined as
+      $x > 0, x^2=2$ is not rational.
+    \item Find a subset of $\mathbb Q$ that is bounded above, but
+      has no rational supremum.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  You should prove that in each nonempty interval there is at least
+  one rational number:
+  \begin{enumerate}
+    \item Assume that $0<a<b$. Define
+      $$A=\left\{\frac m N : m\in \mathbb N\right\},~
+      \frac 1{b-a} < N \in \mathbb N$$
+      and prove that $A\cap (a,b)$ is non-empty.
+    \item Use the above result to prove that in \textit{each}
+      interval there is at least one rational number.
+    \item Prove that in each interval there are infinitely but countably many, rational numbers.
+    \item Prove that in each interval there is an irrational number.
+    \item How many irrational numbers are in each interval?
+  \end{enumerate}
+\end{exercise}
+
+\subsection{Absolute value}
+Another concept that will be further useful is the \textbf{absolute value} of a real number:
+if $x\in \mathbb R$ we write $|x|\in \mathbb R$ for:
+$$|x| = \begin{cases}x &\text{ for } x \ge 0\\ -x &\text{ otherwise} \end{cases}.$$
+
+\begin{exercise}
+  Prove that for every $x,y\in \mathbb R$:
+  \begin{enumerate}
+    \item $|x|=|-x|$
+    \item if $|x|=|y|$ then $x=y$ or $x=-y$.
+    \item $|x+y| \le |x| + |y|$ (this is called \textbf{triangle inequality})
+    \item $|x-y|\le |x| + |y|$
+    \item $\left||x| - |y|\right|\le |x-y|$ (this is sometimes calles \textbf{reverse triangle inequality})
+  \end{enumerate}
+\end{exercise}
+
+\subsection{Mathematical induction}
+We characterise natural numbers as a subset of $\R$ with some properties.
+
+\begin{definition}
+  Let $A\subseteq \R$ be a set such that:
+  \begin{itemize}
+    \item $0\in A$
+    \item if $n\in A$, then $n+1\in A$
+  \end{itemize}
+  The intersection of all sets with this property is called \textbf{the set of natural numbers}. Alternatively, natural numbers is the smallest set (in sense of subset order)
+  with the properties listed above.
+\end{definition}
+
+These properties allow us to define a powerful proof technique:
+
+\begin{definition}
+  \textbf{Principle of mathematical induction} -
+  let $f$ be a logical statement defined for all natural numbers (that is $f(n)$ is either true or false). Then if $f(0)$ is true and an implication:
+  $$f(n)\Rightarrow f(n+1)$$
+  is true for every $n$, then $f(n)$ is true for every $n$.
+\end{definition}
+
+Have you ever seen falling dominoes? To be sure that all domino falls, we need to:
+\begin{enumerate}
+	\item punch the first domino
+	\item every domino must punch the next domino (if this particular domino falls, the next one also falls)
+\end{enumerate}
+And that's all, we can be sure that all the dominoes will eventually fall.
+
+\begin{example}
+  We'll prove that $2| n(n+1)$ for every $n\in \N$ ($a|b$ means: $a$ divides $b$).
+  \begin{enumerate}
+    \item the statement is true for $0$: $2 | 0\cdot 1$ as $0=2\cdot 0$
+    \item I need to prove that $(2|n(n+1))\Rightarrow (2|(n+1)(n+2))$ for every $n$. Assume that $n$ is such a number that $2|n(n+1)$.
+    Then $(n+1)(n+2)=n(n+1) + 2\cdot (n+1)$ is divisible by 2, what we needed to prove.
+  \end{enumerate}
+  Therefore from the principle of mathematical induction we know that for all number of the form $n(n+1)$ are divisible by 2\footnote{There is also an alternative proof: it's
+  a product of two consecutive numbers - one of them is divisible by 2 and so is the product.}.
+\end{example}
+
+\begin{exercise}
+	Prove that $2^n>n$ for every natural number $n$.
+\end{exercise}
+
+\noindent You can also modify slightly the induction principle - sometimes you should start with number different than 0 or use different induction step
+(start 0 and step 2 can lead to theorems valid for even numbers, step 0 and steps 1 and -1 can lead to theorems valid for all integers...)
+\begin{exercise}
+    \begin{enumerate}
+	   \item Prove\footnote{Another method is to notice that $n^3-n=(n-1)\cdot n\cdot (n+1)$. Why 2 does divide it? Why 3?} that 6 divides
+		     $n^3-n$ for all natural $n$.
+	    \item Prove\footnote{How $n^3-n$ and $(-n)^3-(-n)$ are related? Does this simplify the proof?} that 6 divides $n^3-n$ for all integers $n$.
+		      You can use a slight modification mathematical induction principle proving the implication
+		      ,,if the theorem works for $n$, it works also for $n-1$".
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	(Bernoulli's inequality) Prove that for real $x > -1$ and natural $n\ge 1$, the following inequality holds:
+	$$(1+x)^n\ge 1+nx.$$
+\end{exercise}
+
+\begin{exercise}
+	In Mathsland there are $n\ge 2$ cities. Between each pair of them there is a \textit{one-way} road.
+	\begin{enumerate}
+		\item Prove that there is a city from which you can drive to all the other cities. Hint: assume that the hypothesis works for some $n$ and any
+			country with $n$ cities. Now consider an arbitrary $n+1$-city country. Hide one city and use your assumption.
+		\item Prove that there is a city\footnote{Nice trick: what does happen if you reverse each way? Can you use the former result?}
+			to which you can drive from all the others.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Let $S\subseteq R$. We say that $S$ is \textbf{well-ordered} iff any non-empty subset $X\subset S$ has the smallest element.
+	\begin{enumerate}
+		\item Prove that reals and integers with the default ordering are not well-ordered.
+		\item Assume that $X\subseteq \mathbb N$ doesn't have the smallest element. Define $A=\{n\in \mathbb N : \{0,1,\dots,n\}\cap X=\emptyset\}$
+			and use mathematical induction to prove that $X$ is empty.
+		\item Why are natural numbers well-ordered?
+	\end{enumerate}
+\end{exercise}

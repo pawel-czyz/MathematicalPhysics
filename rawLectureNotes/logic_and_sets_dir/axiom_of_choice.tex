@@ -54,10 +54,18 @@ Therefore with AC it makes sense to compare cardinalities using surjections:
   \end{enumerate}
 \end{exercise}
 
-In fact, AC implies much more - as Banach-Tarski paradox says\footnote{You are right - we are eventually going prove it!} using it one can take a solid sphere, cut it into a few pieces and compose \emph{two} spheres of the same size, just by moving the pieces around. Therefore many mathematicians try to avoid it as much as possible - it is a good habit always to explicitly mention it's usage. In many places in this book we will use AC, usually in an equivalent form known as Kuratowski-Zorn lemma.
+\begin{exercise}
+  % Hats and AC
+  A king said $\aleph_0$ mathematicians the following:
+  "Tomorrow, you will be standing in a long queue and my servants will place a red or green hat on everyone's head. You will see only the hats of the people standing before you.
+  On a given signal, you need to guess your own hat. If infinitely many of you guess wrong, I will send you to the prison for the rest of your lifes!".
+  By considering a set of all functions from $\N\to \{"red", "green"\}$ and a suitable partition on it, prove, assuming the axiom of choice, that mathematicians can make finitely-many
+  wrong guesses.
+\end{exercise}
 
-\subsection{Kuratowski-Zorn lemma}
+In fact, AC implies much more - as Banach-Tarski paradox says\footnote{Yes, eventually we'll prove it!} using it one can take a solid sphere, cut it into a few pieces and compose \emph{two} spheres of the same size, just by moving the pieces around. Therefore many mathematicians try to avoid it as much as possible - it is a good habit always to explicitly mention it's usage. In many places in this book we will use AC, usually in an equivalent form known as Kuratowski-Zorn lemma\footnote{In English literature it is widely known as \textbf{Zorn's lemma}. Kazimierz Kuratowski proved this lemma (although with an unnecessary assumption) in 1922 and Max Zorn, working independently, gave the above formulation in 1935. The Bourbaki group and John Tukey used the latter name in their books published in 1939 and 1940 and since then "Zorn's lemma" is widely recognised.}.
 
+\subsection{Kuratowski-Zorn (Zorn's) lemma}
 \begin{definition}
   A \textbf{partial order} is a relation $\le$ on a set $A$ such that for all $a,\,b,\,c\in A$:
   \begin{enumerate}
@@ -89,11 +97,17 @@ In fact, AC implies much more - as Banach-Tarski paradox says\footnote{You are r
 \end{example}
 
 \begin{definition}
-  Let $(A, \le)$ be a poset and $B\subseteq A$. We say that $m\in B$ is \textbf{maximal} if 
+  Let $(A, \le)$ be a poset and $B\subseteq A$ be a chain. We say that $u\in A$ is an \textbf{upper bound} of a chain $B$ if $b\le u$ for every $b\in B$.
+  We say that $m\in A$ is a \textbf{maximal element} if for every $a\in A$ we have $m\le a\Rightarrow m=a$, that is there is no greater element than $m$.
 \end{definition}
 
-% Hats and AC
-% \begin{prob}
-%   A king said $\aleph_0 := |\N|$ mathematicians the following:
-%   "Tomorrow, you will be standing in a long queue and my servants will place a red or green hat on each's head. You will see all the hats of the people before you but no"
-% \end{prob}
+\begin{example}
+  Let $A=\{1,2,3,4,5\}$ with standard order. Then 5 is a maximal element in $A$ and an upper bound of $A$.
+\end{example}
+
+\begin{theorem}
+  \textbf{Kuratowski-Zorn (Zorn's) lemma}
+  Let $(P, \le)$ be a poset such that every chain in $P$ has an upper bound. Then there exists a maximal element in $P$.
+\end{theorem}
+
+For a proof, you can check Arjun Jain's "Zorn’s Lemma An elementary proof under the Axiom of Choice"\footnote{https://arxiv.org/pdf/1207.6698.pdf}.
