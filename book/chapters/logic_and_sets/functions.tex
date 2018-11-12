@@ -61,7 +61,7 @@
 
 \begin{prob}
 	Let $f: A\to B$ and $C\subseteq D\subseteq A$. We define: $f[C] = \{b\in B : b=f(c) \text{ for some }c\in C \}$ and analogously $f[D]$. Prove that
-	$f(C)\subseteq f(D).$
+	$f[C]\subseteq f[D].$
 \end{prob}
 
 \begin{definition}
@@ -214,7 +214,7 @@ Consider functions $f:X\to Y$ and $g:Y\to Z$. We introduced the composition of t
 We say that this diagram \textbf{commutes} (or we say that this is a \textbf{commutative diagram}) as you can use follow any path and obtain the same result.
 
 \begin{exercise}
-  Prove that the diagram \ref{fig:commutative_diagram_composition} commutes iff $h=g\circ f$?
+  Prove that the diagram \ref{fig:commutative_diagram_composition} commutes iff $h=g\circ f$.
 
   \begin{figure}
     \centering
@@ -223,9 +223,8 @@ We say that this diagram \textbf{commutes} (or we say that this is a \textbf{com
                                              &  Z   &
     \end{tikzcd}
 
-    \caption{What can you say about $f,g,h$ if the diagram commutes?}
+    \caption{What can you say about $f,\,g,\,h$ if the diagram commutes?}
     \label{fig:commutative_diagram_composition}
-
   \end{figure}
 \end{exercise}
 
@@ -241,6 +240,5 @@ We say that this diagram \textbf{commutes} (or we say that this is a \textbf{com
 
     \caption{What can you say about the functions involved if the diagram commutes?}
     \label{fig:commutative_diagram_toy_natural_transformation}
-
   \end{figure}
 \end{exercise}
