@@ -15,7 +15,7 @@ As we remember, it is not possible to create a set of all sets without having a 
   A \textbf{category} is:
   \begin{enumerate}
     \item a collection of objects such that
-    \item for each pair objects $A$, $B$ in the collection there is a \emph{set} $\Hom(A,B)$ called the set of \textbf{morphisms} or \textbf{maps} of \textbf{arrows} such that
+    \item for each pair objects $A$, $B$ in the collection there is a \emph{set}\footnote{Many authors don't assume that it is a set. Our definition is their "locally small" category.} $\Hom(A,B)$ called the set of \textbf{morphisms} or \textbf{maps} or \textbf{arrows} such that
     \item for morphisms $f\in \Hom(A,B), g\in \Hom(B,C)$ there is a morphism $g\circ f\in \Hom(A,C)$. We also require:
       \begin{itemize}
         \item that composition of morphisms is associative: $h\circ(g\circ f)=(h\circ g)\circ f$, where $h\in \Hom(C, D)$
@@ -48,8 +48,7 @@ As we remember, it is not possible to create a set of all sets without having a 
 \end{exercise}
 
 \subsection{Morphisms}
-In set theory we introduced special functions - injections, surjections and bijections. We would like to generalise it into category theory. Unfortunately, we cannot just state their properties in terms
-of elements, as objects do not need to be sets and we cannot take a look at elements. Therefore, let's introduce the following:
+In set theory we introduced special functions - injections, surjections and bijections. We would like to generalise it into category theory. Unfortunately, we cannot just state their properties in terms of elements, as objects do not need to be sets and we cannot take a look at elements. Therefore, let's introduce the following:
 
 \begin{definition}
   Let $f: A\to B$ be a morphism. We say that is it \textbf{left-cancellative} or that it is a \textbf{monomorphism} iff for every two morphisms $g,g' \in \Hom(X,A)$ we have:
@@ -59,7 +58,6 @@ of elements, as objects do not need to be sets and we cannot take a look at elem
 \end{definition}
 
 As you can prove, this works as injections in the category of sets:
-
 \begin{exercise}
   Here you should prove that in the category of sets, "injective" are identical to "monic".
   \begin{enumerate}
@@ -68,11 +66,10 @@ As you can prove, this works as injections in the category of sets:
   \end{enumerate}
 \end{exercise}
 
-You can see that if we considered a different category, with less morphisms, the construction wouldn't work. So even if we consider sets and functions, but with some restrictions or additional structure,
-we need to carefully investigate the relation between monomorphisms and injections.
+You can see that if we considered a different category, with less morphisms, the construction wouldn't work. So even if we consider sets and functions, but with some restrictions or additional structure, we need to carefully investigate the relation between monomorphisms and injections.
 
 \begin{exercise}
-  Consider a set $\{\{0,1\}, \{10,11\}\}$. Construct three morhpisms such that this set becomes a category, but there is a non-injective monomorphism.
+  Consider a set $\{\{0,1\}, \{10,11\}\}$. Construct three morphisms such that this set becomes a category, but there is a non-injective monomorphism.
 \end{exercise}
 
 \begin{definition}
@@ -82,7 +79,7 @@ we need to carefully investigate the relation between monomorphisms and injectio
 \end{definition}
 
 \begin{exercise}
-  Here you should prove that in the category of sets, "surjective" are identical to "epic".
+  Here you should prove that in the category of sets, "surjective" is identical to "epic".
   \begin{enumerate}
     \item Prove that a surjection in the category of sets is an epimorphism.
     \item Prove that if function $f: A\to B$ is not surjective, then it is not epic. Hint: if $f$ is not surjective, then both $\Image f$ and $B\setminus \Image f$ are non-empty. Define suitable functions.
@@ -119,7 +116,7 @@ Isomorphisms will occur frequently in this book - in the section describing equi
 classes odd and even numbers). We will usually try to identify some objects in a given category. Isomorphisms are very suitable for that.
 
 \begin{exercise}
-  "Equivalence" properties of isomorphisms
+  "Equivalence" properties of isomorphisms:
   \begin{enumerate}
     \item Prove that if there is an isomorphism from $A$ to $B$, then there is an isomorphism from $B$ to $A$.
     \item Prove that there is an isomorphism from $A$ to $A$.
@@ -127,12 +124,11 @@ classes odd and even numbers). We will usually try to identify some objects in a
   \end{enumerate}
 \end{exercise}
 
-This "equivalence" structure will be used to idenfify some spaces. Note that if it has properties of an equivalence relation, a relation on a \emph{set} $A$ is a subset of $A\times A$. As we are
-dealing with categories now, that are not necessarily sets, we cannot say that isomorphisms give an equivalence relation.
+This "equivalence" structure will be used to idenfify some spaces. Note that if this has properties of an equivalence relation, but being formal, a relation on a \emph{set} $A$ is a subset of $A\times A$. As we are dealing with categories now, that are not necessarily sets, we cannot say formally that isomorphisms give an equivalence relation. However, we will sometimes say that informally.
 
-\begin{definition}
-  If there is an isomorphism from $A$ to $B$, we will say that $A$ and $B$ are \textbf{isomorphic}. If there is a \emph{unique} isomorphism from $A$ to $B$, we will say that they are \textbf{naturally isomorphic}.
-\end{definition}
+% \begin{definition}
+%   If there is an isomorphism from $A$ to $B$, we will say that $A$ and $B$ are \textbf{isomorphic}. If there is a \emph{unique} isomorphism from $A$ to $B$, we will say that they are \textbf{naturally isomorphic}.
+% \end{definition}
 
 \section{Functors}
 \begin{definition}
@@ -146,3 +142,6 @@ dealing with categories now, that are not necessarily sets, we cannot say that i
         \end{enumerate}
     \end{enumerate}
 \end{definition}
+
+
+\section{Limits and colimits}
