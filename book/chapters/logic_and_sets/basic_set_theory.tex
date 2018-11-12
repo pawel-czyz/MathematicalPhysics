@@ -1,9 +1,6 @@
 \section{Basic set theory}
 \label{sec:basic_set_theory}
-
-In modern mathematics we do not define a set nor set membership, but rather believe that there exists objects with properties that
-are listed in this chapter.
-
+In modern mathematics we do not define a set or set membership, but rather believe that there exists objects with properties that are listed in this chapter.
 Heuristically you can think that a set $A$ is a "collection of objects" and a sentence "$x\in A$" means that the object $x$ is inside this collection. We read this as
 "$x$ belongs to set $A$" or "$x$ is an element of $A$". We write $x\notin A$ as a shorthand for $\neg (x\in A)$ (and it means that $x$ is \textit{not} an element of $A$).
 
@@ -23,6 +20,7 @@ As we can discover, there are collections of objects that do not form a set:
 \end{prob}
 
 Therefore we need to assume the existence of a few sets, and then construct new out of them using some rules in which we believe. We assume that there exist:
+
 \begin{enumerate}
   \item finite sets (like real libraries with finite number of books). These are written as $\{a_1,a_2,\dots,a_n\}$. Empty set is written as $\emptyset$ rather than $\{\}$.
 	\item real numbers\footnote{You may feel a bit insecure - what are real numbers, integers and so on? We haven't defined them properly yet.
@@ -31,6 +29,8 @@ Therefore we need to assume the existence of a few sets, and then construct new 
 	\item integers $\mathbb Z$
 	\item rational numbers $\mathbb Q$
 \end{enumerate}
+
+Having a few sets, we define a few rules how to compare them and construct new sets out of them:
 
 \begin{definition}
   % Equality of sets
@@ -128,7 +128,7 @@ Although is is impossible to create the set of all sets, it is possible to creat
 
 \begin{definition}
   % Unions of sets
-  \textbf{Axiom of union} Assume that we are given a family of sets $A$. There is a set called their \textbf{union}\footnote{Again, we cannot use the axiom schema of specification as there is no everything - we would select set of sets it it existed.}:
+  \textbf{Axiom of union} Assume that we are given a family of sets $A$. There is a set called their \textbf{union}\footnote{Again, we cannot use the axiom schema of specification as there is no set containing \emph{everything}.}:
   $$\bigcup \mathcal A = \{x : \exists_{X\in \mathcal A} x\in X\}.$$
   If the family of sets is indexed by some index, that is: $\mathcal A = \{A_i : i\in I\}$, we can also write:
   $$\bigcup_{i\in I} A_i := \bigcup \mathcal A.$$
@@ -181,7 +181,7 @@ Although is is impossible to create the set of all sets, it is possible to creat
 
 \begin{exercise}
   % Properties of finite intersections
-	Let $A,\,B\,C$ be sets. Writing $A\cap B := \bigcap \{A,B\}$, prove that:
+	Let $A,\,B,\,C$ be sets. Writing $A\cap B := \bigcap \{A,B\}$, prove that:
 	\begin{enumerate}
 		\item $A\cap B=B\cap A$ (commutativity)
 		\item $A\cap (B\cap C)=(A\cap B)\cap C$ (associativity)
@@ -212,7 +212,7 @@ Although is is impossible to create the set of all sets, it is possible to creat
 \subsection{Subsets and complements}
 \begin{definition}
   % Complement of a set
-  Let $A$ be subset of a set $U$. We say that \textbf{the complement\footnote{Just adding an index $c$ is not the best symbol possible as we need to have $U$ in mind.}
+  Let $A$ be subset of a set $U$. We say that \textbf{the complement\footnote{We need to refer to some $U$ that usually will be clear out from the context.}
   of $A$} is a set $A^c=U\setminus A$.
 \end{definition}
 
@@ -239,9 +239,8 @@ Although is is impossible to create the set of all sets, it is possible to creat
 \end{prob}
 
 \begin{exercise}
-  % Useful lemma for classification of open sets using neighborhoods.
 	Let $A\subseteq X_i$ for $i\in I$. Prove that
-	$$A\subseteq \bigcup_{i\in I} X_i$$
+	$$A\subseteq \bigcap_{i\in I} X_i$$
 \end{exercise}
 
 \begin{exercise}
@@ -295,9 +294,9 @@ the property would still hold! But one needs to be careful about the notation, a
   Later we will address this issue.
 \end{prob}
 
-\begin{definition}
-  We define a \textbf{square} of a set $X$ as:
-  $$X^2 = X\times X,$$
-  that is a set of all pairs made from elements of $X$.
-  Similarily, we define $X^n$ as the collection of all $n$-tuples made from elements of $X$.
-\end{definition}
+% \begin{definition}
+%   We define a \textbf{square} of a set $X$ as:
+%   $$X^2 = X\times X,$$
+%   that is a set of all pairs made from elements of $X$.
+%   Similarily, we define $X^n$ as the collection of all $n$-tuples made from elements of $X$.
+% \end{definition}
