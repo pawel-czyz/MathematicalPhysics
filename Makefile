@@ -1,3 +1,3 @@
 book:
-	cd rawLectureNotes && pdflatex book.tex
+	cd book && pdflatex book.tex
 
