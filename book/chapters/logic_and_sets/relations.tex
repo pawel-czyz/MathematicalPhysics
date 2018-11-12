@@ -6,7 +6,8 @@ Having defined Cartesian product, we can consider subsets of it. It will lead to
 \end{definition}
 
 \begin{example}
-  Consider the ordering of natural numbers: $1<2$,\,$2<3,\, 4<27$. It is in fact a relation on $\N$: $a<b$ means exactly $(a,b)\in\, <\,\subseteq \N\times \N$.
+  Consider the order of natural numbers (that is $0<1, \,1<2,\,2<3$ and so on). It is in fact a relation on $\N$: $a<b$ means exactly $(a,b)\in\, <\,\subseteq \N\times \N$ and is defined as:
+  $$< := \bigcup_{n\in \N}\bigcup_{i\in \Z^+} \{(n, n+i)\}, \text{ where } \Z^+=\{n\in \N : n\neq 0\}.$$
 \end{example}
 
 \begin{exercise}
@@ -77,22 +78,26 @@ Why do we call it equivalence classes? Is it somehow related to equivalence rela
   Let $X$ be a set with $n$ elements and $q$ be the number of possible equivalence classes on $X$. Prove that $$n\le q \le 2^{n^2}-1.$$ Hint: for $n\ge 2$ construct $n$ equivalence relations with two classes.
 \end{exercise}
 
-Usually our sets will be equipped with some additional structure - for example integers can be added together\footnote{A fancy word for that will be given later: they form an additive Abelian group}. Sometimes we can move this structure to the equivalence classes. Let's start by finding a nice equivalence class on them.
+Usually our sets will be equipped with some additional structure - for example integers can be added together. Sometimes we can move this structure to the equivalence classes. Let's start by finding a nice equivalence class on them.
 
-\begin{exercise}
+\begin{example}
   \textbf{Modulo arithmetics}
-  \begin{enumerate}
-    \item Prove that $m\equiv n\Leftrightarrow p|m-n$ is an equivalence relation on $\Z$ ($p|q$ means: $p$ divides $q$, or equivalently: there exists an integer $a$ such that $q=p\cdot a$).
-    \item Let's define the sum of equivalence classes:
-      $$[m]+[n] := [m+n]$$
-      Prove that this definition does not depend on class representatives - that is if $n\equiv n'$ and $m\equiv m'$, then $[n]+[m]=[n']+[m']$.
-  \end{enumerate}
-\end{exercise}
+  Let $p$ and $q$ be integers. $p\,|\,q$ means that $p$ divides $q$ (there exists a $m\in \Z$ such that $q=pm$). We fix a non-zero number $p\in \Z$ and define \textbf{equivalence modulo $p$}:
+  $$m\equiv_p n \Leftrightarrow p\,|\,m-n.$$
+
+  It's easy to check that this is an equivalence relation. We would like to define a sum on the set of equivalence classes. Let's try to do this intuitively:
+  $$[m] + [n] := [m+n].$$
+
+  Although it looks right, we need to check whether this definition is independent on the chosen representatives! So let's $m\equiv_p m'$ and $n\equiv_p n'$. We would like to show
+  that $m+n\equiv_p m'+n'$. In other words, we want $p$ to divide $(m+n)-(m'+n')$, what is true as $(m+n)-(m'+n')=(m-m')+(n-n')$, that is a sum of numbers divisible by $p$.
+\end{example}
+
+Analogously one can define multplication and subtraction to get the modulo arithmetics known from elementary number theory.
 
 \begin{exercise}
   \textbf{Construction of rationals}
   \begin{enumerate}
-    \item Let $\Z^*=\Z\setminus\{0\}$. Consider $X=\Z\times \Z^*$. Prove that relation $\equiv$ given as: $(m,n)\equiv (p,q)\Leftrightarrow mq=pn$ is an equivalence relation.
+    \item Let $\Z^*=\Z\setminus\{0\}$. Consider $X=\Z\times \Z^*$. Prove that relation $\equiv$ on $X$ given as: $(m,n)\equiv (p,q)\Leftrightarrow mq=pn$ is an equivalence relation.
     \item To simplify notation, we will write $[m,n]$ for $[(m,n)]\in X/\equiv$. Prove that the following operations do not depend on class representatives:
       \begin{enumerate}
         \item $[m,n] + [p,q] := [mq+np, nq]$
@@ -110,5 +115,5 @@ Usually our sets will be equipped with some additional structure - for example i
   \end{enumerate}
 \end{exercise}
 
-You can ask whether integers also can be somehow constructed using most basic, natural, numbers. Yes - consider $\N\times \{0,1\}$ with $(n,0)$ corresponding to $n$
-and $(n,1)$ corresponding to $-n$. Figure how to define addition, subtraction and multiplication. Later we will also discover how to construct reals from rationals.
+The last example and exercise showed us how to move algebraic structures from one set to another (usually corresponding to equivalence classes of some relation). In fact one can define integers using natural numbers only\footnote{This is even simpler - our equivalence classes are 1-element. Consider $\N\times \{0,1\}$ with $(n,0)$ corresponding to $n$
+and $(n,1)$ corresponding to $-n$. Figure how to define addition, subtraction and multiplication. Later we will also discover how to construct reals from rationals.} or reals from rationals\footnote{This actually involves equivalence classes, put on sequences of rationals. We will investigate this construction later.}.
