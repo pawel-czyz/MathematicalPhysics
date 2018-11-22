@@ -99,6 +99,12 @@ that there are exactly as many children as toys! We'll use this approach to comp
   \end{enumerate}
 \end{exercise}
 
+\begin{exercise}
+  By considering the function
+  $$(-1,\,1) \ni x \mapsto \frac{x}{1-x^2}\in \R,$$
+  prove that \emph{every} non-empty open interval $(a,\, b)$ has the same cardinality as $\R$. \hint{Can you find a bijection between $(a,\, b)$ and $(-1,\,1)$?}
+\end{exercise}
+
 \begin{definition}
   We say that a set $X$ is \textbf{countably infinite} if $|X|=|\N|$. Usually we'll write that $\aleph_0:=|\N|$ (read "aleph 0").
   We say that a set $X$ is \textbf{countable} if $X$ is finite or countably infinite.
@@ -167,26 +173,30 @@ As compositions of injections is an injection, we have the following:
 In the following exercise, you will prove that there are more reals that natural numbers.
 
 \begin{exercise}
-	We define $X=\{x\in \mathbb R : 0\le x\le 1\}$.\footnote{We also need to choose one
+	We define $X=\{x\in \R : 0\le x\le 1\}$.\footnote{We also need to choose one
 	 convention of writing reals. Consider a number with finite expansion, e.g. 0.123. We can write this either as 0.123(0) or 0.122(9).}
 	Prove that there is no surjection from $\N$ onto $X$ (injection is easy to find...). \hint{Assume that you have written all the elements of $X$ in a single column. Can you construct a real number that does not occur in the list? It should differ from the first number at least at one digit, and same for other numbers.}
 \end{exercise}
 
 \begin{exercise}
-	We know that $|\mathbb R| > |\mathbb N|$. Using binary expansion prove that $\mathbb R=\mathcal P(\mathbb N)$. Do you see similarity between the previous result and $2^n > n$ for natural $n$?
+	We know that $|\R| > |\N|$. Using binary expansion prove that $|\R|=|\mathcal P(\N)|$. Do you see similarity between the previous result and $2^n > n$ for natural $n$?
 \end{exercise}
 
-We may conjecture the following:
+We may suspect the following:
 
 \begin{theorem}
-\textbf{Cantor's theorem} Prove that $|A| < \left|\mathcal P(A)\right|$ for any set $A$.
+\textbf{Cantor's theorem} $|A| < \left|\mathcal P(A)\right|$ for any set $A$.
 \end{theorem}
 
 \begin{exercise}
-	Prove Cantor's theorem. Finding an injection from $A$ to $\mathcal P(A)$ is easy. To prove that there is no surjection, you can consider any $f:A\to \mathcal P(A)$ and a set $X=\{a\in A : a\notin f(a)\}\in \mathcal P(A)$. (Is there $x\in A$ for which $f(x)=X$?)
+	Prove Cantor's theorem in two steps:
+  \begin{enumerate}
+    \item Find an injection from $A$ to $\mathcal P(A)$.
+    \item To prove that there is no surjection, you can consider any $f:A\to \mathcal P(A)$ and a set
+    $$X=\{a\in A : a\notin f(a)\}\in \mathcal P(A).$$
+    Is there $x\in A$ for which $f(x)=X$?
+  \end{enumerate}
 \end{exercise}
-
-Cantor's theorem gives us, for free, the non-existence of the set of all sets:
 
 \begin{exercise}
 	Use Cantor's theorem to prove that there is no set of all sets.
@@ -198,25 +208,49 @@ The last exercise is a bit more complicated, although it's statement looks rathe
 	\textbf{Cantor-Schroeder-Bernstein theorem} If $|A|\le|B|$ and $|B|\le |A|$, then $|A|=|B|$.
 \end{theorem}
 
+We will prove this repearing the proof of Banach and Tarski. The proof is tricky, so it was split into several parts.
+
+\begin{definition}
+  We say that a function $F: \mathcal P(A)\to \mathcal P(B)$ is \textbf{monotonous} if $F(X)\subseteq F(Y)$ whenever $X\subseteq Y$.
+\end{definition}
+
+\begin{theorem}
+  \textbf{Knaster-Tarski fixed point theorem} A monotonous function $F: \mathcal P(A)\to \mathcal P(A)$ posseses a fixed point, that is: there exists a set $S$ such that $F(S)=S$.
+\end{theorem}
+
 \begin{exercise}
-    Prove the theorem. You can do this as follows:
-	\begin{enumerate}
-		\item (Knaster-Tarski) Now assume that $F$ has \textit{monotonicity} property: $F(X)\subseteq F(Y)$ if $X\subseteq Y$.
-			Prove that $F$ has a fixed point $S$ (that is $F(S)=S$), where:
-			$$S=\bigcup_{X\in U} X, \text{~where~} U= \{Y\in \mathcal P(A) : Y\subseteq f(Y)\}.$$
-		\item (Banach) Let $f: A\to B$ and $g:B\to A$ be injections.
-			We introduce new symbol: $f[X]=\{b\in B : b=f(x) \text{ for some } x\in X\}$. Prove that
-			function $$F:\mathcal P(A)\to \mathcal P(A),~F(X)=A\setminus g[B\setminus f[X]]$$
-			has the monotonicity property.
-    \item Prove that $A\setminus S\subseteq \text{Im}\,g$, where
-      $F$ and $S$ are taken from above.
-		\item Prove that function
-			$$h(x) =
-				\begin{cases}
-					f(x), x\in S\\
-					g^{-1}(x), x \notin S
-				\end{cases}
-			 $$
-			 is a bijection.
-	\end{enumerate}
+  Prove the fixed point theorem by considering a set:
+  	$$S=\bigcup \mathcal U, \text{~where~} \mathcal U = \{Y\in \mathcal P(A) : Y\subseteq F(Y)\}.$$
+    \hint{
+      Each $Y$ is a subset of $S$, use the monotonicity to conclude that $Y\subseteq F(Y)\subseteq F(S)$ and $S=\bigcup \mathcal U\subseteq F(S)$.
+      To prove the other inclusion, use $F(S)\subseteq F(F(S))$, what shows that $F(S)\in \mathcal U$.
+    }
+\end{exercise}
+
+\begin{definition}
+  Recall that if $f: A\to B$ and $X\subseteq A$, then we define
+    $$f[X]=\{b\in B : b=f(x) \text{ for some } x\in X\}.$$
+\end{definition}
+
+\begin{exercise}
+  \begin{enumerate}
+    \item Let $f: A\to B$ and $g:B\to A$ be injections. Prove that the function
+      $$F:\mathcal P(A)\to \mathcal P(A),~F(X)=A\setminus g[B\setminus f[X]]$$
+      has the monotonicity property.
+
+    \item Let $S$ be the fixed point of $F$. Prove that $A\setminus S\subseteq \text{Im}\,g$.
+    \item Conclude that there exists $\tilde g: A\setminus S \to B$ such that $g(\tilde g(a))=a$ for $a\in A\setminus S$.
+    \item Prove that function
+      $$h(x) =
+        \begin{cases}
+          f(x), & x\in S\\
+          \tilde g(x), & x \in A\setminus S
+        \end{cases}
+       $$
+       is a bijection from $A$ to $B$, what ends the proof of the Cantor-Schroeder-Bernstein theorem.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Recall that every non-empty open interval $(a,\,b)$ has the same cardinality as $\R$. Prove that every closed interval $[a,\,b]$ with $b > a$ has the same cardinality as $\R$. 
 \end{exercise}

@@ -47,7 +47,7 @@
 \end{exercise}
 
 \begin{exercise}
-  Let $X$ and $Y$ be any two sets. Prove that you can create a set of all functions from $X$ to $Y$. Sometimes it is called $Y^X$. Do you know why?
+  Let $X$ and $Y$ be any two sets. Prove that you can create the set of all functions from $X$ to $Y$. Sometimes it is called $Y^X$. Do you know why?
 \end{exercise}
 
 \begin{exercise}
@@ -74,7 +74,6 @@
 \begin{definition}
   Let $f:A\to B$ be a function. \textbf{The image of $f$} is a set:
   $$\Image f=\{b\in B : \text{there is } a\in A \text{ such that } b=f(a)\}.$$
-
   We say that the function $f: A\to B$ is \textbf{surjective} (or \textbf{onto}) iff $\Image f=B$.
 \end{definition}
 
@@ -109,8 +108,7 @@
 \end{exercise}
 
 \begin{definition}
-If a function $f$ is both surjective and injective, we say that is \textbf{bijective}\footnote{If you prefer nouns: surjective function is called a surjection, injective - injection
-and bijective - bijection}.
+  If a function $f$ is both surjective and injective, we say that is \textbf{bijective}\footnote{If you prefer nouns: surjective function is called a surjection, injective - injection and bijective - bijection}.
 \end{definition}
 
 \begin{exercise}
@@ -126,9 +124,9 @@ and bijective - bijection}.
 \noindent Notice that if a function $f: A\to B$ is bijective, then we can construct a function $g:B\to A$
 such that $f(g(b))=b$ and $g(f(a))=a$.
 
-\begin{prob}
+\begin{exercise}
 	Prove that, if exists, $g$ is unique.
-\end{prob}
+\end{exercise}
 
 \begin{definition}
   Consider a bijective function $f:X\to Y$. We say that it's \textbf{inverse function} $f^{-1}:Y\to X$ iff:
@@ -139,16 +137,17 @@ such that $f(g(b))=b$ and $g(f(a))=a$.
 \noindent We call this function \textbf{the inverse function}\footnote{It becomes confusing when working on real numbers: $f^{-1}(x)$ is
 \textbf{not} $(f(x))^{-1}=1/f(x)$}: $g=f^{-1}.$
 
-\begin{prob}
+\begin{exercise}
 	Assume that $f^{-1}$ exists. Prove that $(f^{-1})^{-1}$ exists and is equal to $f$.
-\end{prob}
+\end{exercise}
 
 \subsection{Function composition}
 If we have two functions: $f:A\to B$ and $g: B\to C$, we can construct the \textbf{composition} using formula:
 $g\circ f: A\to C,~(g\circ f)(a) = g(f(a)).$
 
 \begin{exercise}
-  Recall that for two relations $R\subseteq X\times Y$ and $T\subseteq Y\times Z$ we defined their composition as $$R\circ T=\{(x,z)\in X\times Z : \exists_{y\in Y} (x,y)\in R \wedge (y,z)\in T\}$$
+  For two relations $R\subseteq X\times Y$ and $T\subseteq Y\times Z$ we define their composition as $$R\circ T=\{(x,z)\in X\times Z : \exists_{y\in Y} (x,y)\in R \wedge (y,z)\in T\}.$$
+  Prove that if $R$ and $T$ are functions, this leads to the "normal" definition of function composition.
 \end{exercise}
 
 \begin{exercise}
@@ -160,6 +159,7 @@ $g\circ f: A\to C,~(g\circ f)(a) = g(f(a)).$
 \end{exercise}
 
 Although function composition is not commutative, it is associative:
+
 \begin{exercise}
 	Left $f:A\to B, g: B\to C, h: C\to D$. Prove that
 	$$h\circ (g\circ f) = (h\circ g)\circ f.$$
@@ -191,52 +191,52 @@ often.
   Such $g$ is called \textbf{left inverse of $f$}.
 \end{exercise}
 
-\subsection{Commutative diagrams}
-\begin{quote}
-  Use a picture. It's worth a thousand words.\\
-  - Tess Flanders
-\end{quote}
-
-Consider functions $f:X\to Y$ and $g:Y\to Z$. We introduced the composition of them given us $g\circ f: X\to Z$. We can visualise it using a following \textbf{diagram} (Fig. \ref{fig:commutative_diagram_intro}):
-
-\begin{figure}
-  \centering
-  \begin{tikzcd}
-    X \arrow[rd, "g\circ f"] \arrow[rr, "f"] &       & Y \arrow[ld, "g"]\\
-                                           &  Z   &
-  \end{tikzcd}
-  \caption{An example of a diagram.}
-  \label{fig:commutative_diagram_intro}
-\end{figure}
-
-We say that this diagram \textbf{commutes} (or we say that this is a \textbf{commutative diagram}) as you can use follow any path and obtain the same result.
-
-\begin{exercise}
-  Prove that the diagram \ref{fig:commutative_diagram_composition} commutes iff $h=g\circ f$.
-
-  \begin{figure}
-    \centering
-    \begin{tikzcd}
-      X \arrow[rd, "h"] \arrow[rr, "f"] &       & Y \arrow[ld, "g"]\\
-                                             &  Z   &
-    \end{tikzcd}
-
-    \caption{What can you say about $f,\,g,\,h$ if the diagram commutes?}
-    \label{fig:commutative_diagram_composition}
-  \end{figure}
-\end{exercise}
-
-\begin{exercise}
-  What can you say if diagram \ref{fig:commutative_diagram_toy_natural_transformation} commutes?
-
-  \begin{figure}
-    \centering
-    \begin{tikzcd}
-      X \arrow[d, "h"] \arrow[r, "f"] &  Y \arrow[d, "g"]\\
-      Z \arrow[r, "j"]                &  T
-    \end{tikzcd}
-
-    \caption{What can you say about the functions involved if the diagram commutes?}
-    \label{fig:commutative_diagram_toy_natural_transformation}
-  \end{figure}
-\end{exercise}
+% \subsection{Commutative diagrams}
+% \begin{quote}
+%   Use a picture. It's worth a thousand words.\\
+%   - Tess Flanders
+% \end{quote}
+%
+% Consider functions $f:X\to Y$ and $g:Y\to Z$. We introduced the composition of them given us $g\circ f: X\to Z$. We can visualise it using a following \textbf{diagram} (Fig. \ref{fig:commutative_diagram_intro}):
+%
+% \begin{figure}
+%   \centering
+%   \begin{tikzcd}
+%     X \arrow[rd, "g\circ f"] \arrow[rr, "f"] &       & Y \arrow[ld, "g"]\\
+%                                            &  Z   &
+%   \end{tikzcd}
+%   \caption{An example of a diagram.}
+%   \label{fig:commutative_diagram_intro}
+% \end{figure}
+%
+% We say that this diagram \textbf{commutes} (or we say that this is a \textbf{commutative diagram}) as you can use follow any path and obtain the same result.
+%
+% \begin{exercise}
+%   Prove that the diagram \ref{fig:commutative_diagram_composition} commutes iff $h=g\circ f$.
+%
+%   \begin{figure}
+%     \centering
+%     \begin{tikzcd}
+%       X \arrow[rd, "h"] \arrow[rr, "f"] &       & Y \arrow[ld, "g"]\\
+%                                              &  Z   &
+%     \end{tikzcd}
+%
+%     \caption{What can you say about $f,\,g,\,h$ if the diagram commutes?}
+%     \label{fig:commutative_diagram_composition}
+%   \end{figure}
+% \end{exercise}
+%
+% \begin{exercise}
+%   What can you say if diagram \ref{fig:commutative_diagram_toy_natural_transformation} commutes?
+%
+%   \begin{figure}
+%     \centering
+%     \begin{tikzcd}
+%       X \arrow[d, "h"] \arrow[r, "f"] &  Y \arrow[d, "g"]\\
+%       Z \arrow[r, "j"]                &  T
+%     \end{tikzcd}
+%
+%     \caption{What can you say about the functions involved if the diagram commutes?}
+%     \label{fig:commutative_diagram_toy_natural_transformation}
+%   \end{figure}
+% \end{exercise}
