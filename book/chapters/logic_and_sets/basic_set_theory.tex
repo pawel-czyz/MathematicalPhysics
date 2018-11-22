@@ -16,7 +16,7 @@ As we can discover, there are collections of objects that do not form a set:
 \begin{prob}
   % Russel's paradox - no set of all sets
   \textbf{Russel's paradox}
-  Let $X$ be a set built from all sets such that $A\notin A.$ Prove that $X$ does not exist. Hint: what if $X\in X$? What if $X\notin X$?
+  Let $X$ be a set built from all sets such that $A\notin A.$ Prove that $X$ does not exist. [Hint\footnote{What if $X\in X$? What if $X\notin X$?}]
 \end{prob}
 
 Therefore we need to assume the existence of a few sets, and then construct new out of them using some rules in which we believe. We assume that there exist:
@@ -82,13 +82,13 @@ At the moment we do not have many sets. Let's try to define some methods of crea
 \begin{example}
   % Example with empty set
   We assumed that the set $\R$ (of real numbers) exist. We can construct the empty set using the axiom schema of specification:
-  $\emptyset=\{r\in\R : r=r+1\}.$
+  $$\emptyset=\{r\in\R : r=r+1\}.$$
 \end{example}
 
 The above axiom schema of specification is important - using this we can prove that there is no set of all sets:
 \begin{exercise}
   % No set of all sets
-  Prove that there is \textit{no} set of all sets. Hint: assume there is one and select some elements to create Russel's paradox.
+  Prove that there is \textit{no} set of all sets. [Hint\footnote{Assume there is one and select some elements to create Russel's paradox.}]
 \end{exercise}
 
 Although is is impossible to create the set of all sets, it is possible to create \textit{some} sets of sets.
@@ -98,7 +98,7 @@ Although is is impossible to create the set of all sets, it is possible to creat
   \textbf{Axiom of power set} Consider a set $A$. We assume that there exists
   \footnote{We cannot create it using the axiom schema of specification, as there is no set from which we could select subsets of $A$. But since now, we can do it.}
   \textbf{the power set of $A$} defined as a set of all subsets of $A$:
-  $$\mathcal P(A) := 2^A := \{A' : A'\subseteq A\}.$$
+  $$\mathcal P(A):=\{A' : A'\subseteq A\}.$$
   That is $A'\in \mathcal P(A)$ iff $A'\subseteq A$.
 \end{definition}
 
@@ -115,9 +115,8 @@ Although is is impossible to create the set of all sets, it is possible to creat
     \item Let $A=\{1,2,3\}$. Find it's power set $\mathcal P(A)$. What is the number of elements in $\mathcal P(A)$? How is it related to the
       number of elements of $A$?
     \item Let $A$ be a finite set with $n$ elements. Prove that $\mathcal P(A)$ has $2^n$ elements.
-      Do you see now why $\mathcal P(A)$ is sometimes referenced as $2^A$?
-      Hint: every subset is specified by elements that are inside it.
-      For every element you have two options - to select it or not.
+      Do you see why some authors write $2^A$ for $\mathcal P(A)$?
+      \hint{Every subset is specified by elements that are inside it. For every element you have two options - to select it or not.}
   \end{enumerate}
 \end{exercise}
 
@@ -256,13 +255,13 @@ First of all, we need a useful concept:
   $$(a,b) := \{\{a\}, \{a, b\}\}.$$
 \end{definition}
 
-\begin{prob}
+\begin{exercise}
   Prove that $(a,b)=(a',b')$ iff $a=a'$ and $b=b'$.
-\end{prob}
+\end{exercise}
 
-\begin{prob}
+\begin{exercise}
   Prove that $(a,(b,c))=(d,(e,f))$ iff $a=d\wedge b=e\wedge c=f$.
-\end{prob}
+\end{exercise}
 
 \begin{definition}
   \textbf{An ordered $n$-tuple} or simply \textbf{a tuple} is defined as:
@@ -289,10 +288,11 @@ the property would still hold! But one needs to be careful about the notation, a
   Prove that Cartesian product is \textit{not} commutative (that is $A\times B\neq B\times A$ in general).
 \end{exercise}
 
-\begin{prob}
+\begin{exercise}
   Prove that in general $(A\times B)\times C\neq A\times (B\times C)$, so Cartesian product is \textit{not} associative and an expression $A\times B\times C$ is ambiguous.
-  Later we will address this issue.
-\end{prob}
+\end{exercise}
+
+Later we will formally address this issue\commentforexperts{With the help of natural isomorphisms, a concept from the category theory}. As it is easy to identify $((a, b), c)$ with $(a,(b,c))$, many authors do this identification without saying this explicitly.
 
 % \begin{definition}
 %   We define a \textbf{square} of a set $X$ as:

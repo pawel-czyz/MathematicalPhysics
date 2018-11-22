@@ -1,0 +1,78 @@
+\subsection{Mathematical induction}
+In this section we practice our abilities on the \emph{mathematical induction principle}. Although very simple, this method appears in many proofs in mathematics.
+Before we define this, we need a simple definition to provide us with many examples:
+
+\begin{definition}
+  If $a\neq 0$ and $b$ are integers, we say that \textbf{$a$ divides $b$} iff there exists $k\in \Z$ such that $b=ak$. We can also write this as $a|b$ or say that \textbf{$b$ is divisible by $a$}.
+\end{definition}
+
+\begin{example}
+  $2\,|\,84$ as $84=2\cdot 42$.
+\end{example}
+
+\begin{exercise}
+  Let $0\neq k\in \Z$ divide $a$ and $b$. Prove that:
+  \begin{enumerate}
+    \item $k\,|\,a+b$,
+    \item $k\,|\,a-b$,
+    \item $k^2\,|\,ab$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{theorem}
+  \textbf{Mathematical induction principle} Let $P(n)$ be a sentence about a natural number $n$. If:
+  \begin{enumerate}
+    \item $P(0)$ is true, and
+    \item for every natural $k$ the implication $P(k)\Rightarrow P(k+1)$ is true,
+  \end{enumerate}
+  then $P(n)$ is true for all natural numbers $n$.
+\end{theorem}
+
+This can be visualised with a row of dominoes. To be sure that all of them eventually fall:
+\begin{enumerate}
+  \item hit the first domino
+  \item the dominoes are set in such manner that if $k$th domino falls, then it hits the $(k+1)$th.
+\end{enumerate}
+
+\begin{example}
+  We'll prove that $2\,|\,n(n+1)$ for every $n\in \N$.
+  \begin{enumerate}
+    \item The statement is true for $0$ as $2\,|\,0\cdot (0+1)$,
+    \item I need to prove that $(2\,|\,n(n+1))\Rightarrow (2\,|\,(n+1)(n+2))$ for every $n$.
+  \end{enumerate}
+  Assume that $n$ is such a number that $2\,|\,n(n+1)$.
+  Then $$(n+1)(n+2)=n(n+1) + 2\cdot (n+1)$$ is divisible by 2 as well.
+
+  Using the principle of mathematical induction we see that for every natural $n$, the number $n(n+1)$ is divisible\footnote{There is also an alternative proof: it's
+  a product of two consecutive numbers - one of them is divisible by 2 and so is the product.} by 2.
+\end{example}
+
+\begin{exercise}
+	Prove that $2^n>n$ for every natural number $n$.
+\end{exercise}
+
+\noindent You can also modify slightly the induction principle - sometimes you should start with number different than 0 or use different induction step
+(start 0 and step 2 can lead to theorems valid for even numbers, step 0 and steps 1 and -1 can lead to theorems valid for all integers...)
+\begin{exercise}
+    \begin{enumerate}
+	   \item Prove\footnote{Another method is to notice that $n^3-n=(n-1)\cdot n\cdot (n+1)$. Why 2 does divide it? Why 3?} that 6 divides
+		     $n^3-n$ for all natural $n$.
+	    \item Prove\footnote{How $n^3-n$ and $(-n)^3-(-n)$ are related? Does this simplify the proof?} that 6 divides $n^3-n$ for all integers $n$.
+		      You can use a slight modification mathematical induction principle proving the implication
+		      ,,if the theorem works for $n$, it works also for $n-1$".
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	(Bernoulli's inequality) Prove that for every real $x > -1$ and every natural $n\ge 1$, the following inequality holds:
+	$$(1+x)^n\ge 1+nx.$$
+\end{exercise}
+
+\begin{exercise}
+	In a country there are $n\ge 2$ cities. Between each pair of them there is a \textit{one-way} road.
+	\begin{enumerate}
+		\item Prove that there is a city from which you can drive to all the other cities. [Hint\footnote{Assume that the hypothesis works for some $n$ and any
+			country with $n$ cities. Now consider an arbitrary $n+1$-city country. Hide one city and use your assumption.}]
+		\item Prove that there is a city to which you can drive from all the others. [Hint\footnote{Nice trick: what does happen if you reverse each way? Can you use the former result?}].
+	\end{enumerate}
+\end{exercise}
