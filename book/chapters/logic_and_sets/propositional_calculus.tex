@@ -3,7 +3,7 @@
 \section{Propositional calculus}
 \subsection{New sentences from old}
 \label{sec:logic}
-Consider declarative sentences as "It's raining in Oxford now." or "2+2=5" that can be either true or false. There are many ways how to construct new sentences and decide
+Consider declarative sentences as "It's raining in Oxford now." or "$2+2=5$" that can be either true or false. There are many ways how to construct new sentences and decide
 whether they are true or not.
 
 \begin{definition}
@@ -14,7 +14,7 @@ whether they are true or not.
 
 \begin{example}
   % Equivalence - trivial example
-  Sentences "Each square is a rectangle" and "2+2=3+1" are both true, so trivially they are equivalent.
+  Sentences "Each square is a rectangle" and "$2+2=3+1$" are both true, so trivially they are equivalent.
 \end{example}
 
 \begin{example}
@@ -24,7 +24,7 @@ whether they are true or not.
 \end{example}
 
 \begin{exercise}
-  Prove that $(p\Leftrightarrow q) \Leftrightarrow (q\Leftrightarrow p)$. Hint: what does the sentence in the first bracket mean? What about the second? Why are they equivalent?
+  Prove that $(p\Leftrightarrow q) \Leftrightarrow (q\Leftrightarrow p)$. \hint{What does the sentence in the first bracket mean? What about the second? Why are they equivalent?}
 \end{exercise}
 
 \begin{exercise}
@@ -40,7 +40,7 @@ whether they are true or not.
 
 \begin{example}
   % Conjunction - simple example
-  Sentence: "(2+2=5) and (2+1=3)" is false, as one of them (namely, the first one) is false.
+  Sentence: "($2+2=5$) and ($2+1=3$)" is false, as one of them (namely, the first one) is false.
 \end{example}
 
 \begin{exercise}
@@ -61,7 +61,7 @@ whether they are true or not.
 \end{definition}
 
 \begin{example}
-  Sentences "(2+1=3) or (2+1=4)" and "(2+1=3) or (3-1=2)" are both true while "(2+1=4) or (1+1=1)" is false.
+  Sentences "$(2+1=3)$ or $(2+1=4)$" and "$(2+1=3)$ or $(3-1=2)$" are both true while "$(2+1=4)$ or $(1+1=1)$" is false.
 \end{example}
 
 \begin{exercise}
@@ -76,7 +76,7 @@ whether they are true or not.
 
 \begin{exercise}
   % Negation - alternative definition as an exercise
-  Prove that if $\neg p$ is false if and only if $p$ is true.
+  Prove that $\neg p$ is false if and only if $p$ is true.
 \end{exercise}
 
 % Proof strategy - truth table
@@ -92,10 +92,10 @@ Then \textit{two sentences are equivalent iff they have the same truth tables}.
     \begin{tabular}{ c  c  c }
       $p$ & $q$ & $p\wedge q$ \\
       \hline
-      t  &  t &        t     \\
-      t  &  f &        f     \\
-      f  &  t &        f     \\
-      f  &  f &        f     \\
+      $t$  &  $t$ &   $t$     \\
+      $t$  &  $f$ &   $f$     \\
+      $f$  &  $t$ &   $f$     \\
+      $f$  &  $f$ &   $f$     \\
     \end{tabular}
   \end{center}
   where $t$ stands for "true" and $f$ stands for "false".
@@ -145,7 +145,7 @@ the number of basic sentences!
 
 \begin{exercise}
   % Implication - expression in terms of negation and disjunction
-  Prove that $(p\Rightarrow q)\Leftrightarrow (\neg p) \vee q$. Hint: left sentence is false for very specific $p$ and $q$. Do you need to write down all four rows in the truth table of the right-hand-side sentence?
+  Prove that $(p\Rightarrow q)\Leftrightarrow ((\neg p) \vee q)$. \hint{left sentence is false for very specific $p$ and $q$. Do you need to write down all four rows in the truth table of the right-hand-side sentence?}
 \end{exercise}
 
 \begin{exercise}
@@ -154,7 +154,7 @@ the number of basic sentences!
 \end{exercise}
 
 \begin{exercise}
-  Assuming that every topological space is homeomorphic to itself and that homeomorphic spaces are homotopic, prove that every topological is homotopic to itself. Hint: you don't need to know what the terms here mean to solve this exercise (but eventually will reach them!).
+  Assuming that every topological space is homeomorphic to itself and that homeomorphic spaces are homotopic, prove that every topological is homotopic to itself. \hint{You don't need to know what the terms here mean to solve this exercise (but eventually will reach them!)}.
 \end{exercise}
 
 % The following exercise will later be a foundation of an operation called orthocomplementation in more general settings:
@@ -195,7 +195,7 @@ You may have discovered a similarity between symbols "$\Leftrightarrow$" and "$\
 % \end{exercise}
 
 \subsection{Quantifiers}
-Consider a sentence $P(n)$ involving an object $n$ (for example $n$ can be an integer and $P(n)$ can be a sentence "$n=2n$").
+Consider a sentence\commentforexperts{In fact we are dealing with a set of sentences.} $P(n)$ involving an object $n$ (for example $n$ can be an integer and $P(n)$ can be a sentence "$n=2n$").
 \begin{definition}
   % Universal and existence quantifiers - definition
   We define the \textbf{universal quantifier}
